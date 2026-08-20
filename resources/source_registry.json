@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-08-20",
+  "upstream_project_page": "https://snap.stanford.edu/jodie/",
+  "rights_policy": {
+    "upstream_license_grant_identified": false,
+    "redistribution_by_this_project": false,
+    "acquisition": "fetch exact public upstream bytes after checksum review",
+    "citation_notice": "The upstream project page asks dataset users to cite the JODIE KDD 2019 paper.",
+    "release_boundary": "Raw CSV and processed NPZ bytes are excluded from source releases. Users acquire them from the registered upstream URLs.",
+    "owner_license_review_required_for_redistribution": true
+  },
+  "datasets": {
+    "wikipedia": {
+      "dataset_id": "LP-D-WIKIPEDIA-003",
+      "kind": "upstream_csv",
+      "url": "https://snap.stanford.edu/jodie/wikipedia.csv",
+      "raw_sha256": "a6b73e09c0d1e5b9db11e7e7aa416f2e87838a745273e0446a79952cf4cfae09",
+      "raw_bytes": 559937473,
+      "http_last_modified": "Sun, 14 Jul 2019 05:14:05 GMT",
+      "http_etag": "\"2a678b5-215ff7c1-58daca88ff246\"",
+      "retrieved_at": "2026-08-20",
+      "processed_sha256": "f035f7dd2e97dbb931d48a4b3c099d43b2fdc25d0e15828de6fa2c604b8017c7",
+      "builder": "experiments/dataset_builders/download.py",
+      "builder_mode": "disjoint-bipartite-ids+stable-time-order+finite-features"
+    },
+    "mooc": {
+      "dataset_id": "LP-D-MOOC-003",
+      "kind": "upstream_csv",
+      "url": "https://snap.stanford.edu/jodie/mooc.csv",
+      "raw_sha256": "5e29679063c6e416c2ae741d94a8f2b8e996f21e7cbf278488687fb6cb1df15a",
+      "raw_bytes": 41449822,
+      "http_last_modified": "Sun, 14 Jul 2019 05:13:18 GMT",
+      "http_etag": "\"2a6786e-278795e-58dac9f24dbdb\"",
+      "retrieved_at": "2026-08-20",
+      "processed_sha256": "e422cf5e1e6a95763b24a6a5dc53fec993c9ae80948b3fd7ef4f82816b26a278",
+      "builder": "experiments/dataset_builders/download.py",
+      "builder_mode": "disjoint-bipartite-ids+stable-time-order+finite-features"
+    },
+    "coedit": {
+      "dataset_id": "LP-D-COEDIT-002",
+      "kind": "derived_npz",
+      "input_dataset_id": "LP-D-WIKIPEDIA-003",
+      "processed_sha256": "cbdb09bfbd83456be01a039fa3a0b4c2e37415af43a3406fc8d3f55be4a5c736",
+      "builder": "experiments/dataset_builders/build_coedit.py",
+      "window_seconds": 3600,
+      "maximum_events": 80000,
+      "event_selection": "first qualifying pairs in page first-observation order, then stable chronological ordering"
+    }
+  }
+}

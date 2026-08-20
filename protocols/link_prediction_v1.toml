@@ -1,0 +1,140 @@
+protocol_id = "LP-P-DECOUPLING-001"
+status = "FROZEN"
+amendment = "protocols/amendments/LP-P-DECOUPLING-001-A001.md"
+datasets = ["coedit", "wikipedia", "mooc"]
+seeds = [1, 7, 42]
+primary_metric = "inductive_average_precision"
+comparators = ["coupled-end-to-end", "freeze-then-probe", "temporal-baselines"]
+negative_regimes = ["fair-random-destination"]
+requires_disjoint_bipartite_ids = true
+heavy_compute = "scheduler-only"
+
+[study]
+datasets = ["coedit", "wikipedia", "mooc"]
+seeds = [1, 7, 42]
+split = "chronological-70-15-15"
+
+[training]
+epochs = 20
+hidden = 128
+batch_size = 500
+learning_rate = 0.001
+
+[optimizer]
+name = "adam"
+weight_decay = 0.00001
+scheduler = "cosine-annealing"
+
+[reproducibility]
+determinism = "strict"
+python_hash_seed = 0
+cublas_workspace_config = ":4096:8"
+warmup_policy = "state-neutral-training-pass"
+require_scheduler_identity = true
+require_clean_source = true
+require_job_metadata = true
+require_scientific_dependency_lock = true
+dependency_lock = "configs/scientific-requirements-py39-cu128.lock"
+dependency_lock_sha256 = "90ceae7c184de3be418f4ce0f1b700b7f6d13c3945abb9eb2cbf033bfec9f35f"
+
+[task_profiles.coupled-end-to-end]
+runner = "run_model"
+
+[task_profiles.coupled-end-to-end.parameters]
+p0_fix = "off"
+lfg = "on"
+echo = "off"
+interp = "off"
+interp_entropy_w = 0.01
+design = "correct_decoupled"
+lambda_edge_trans = 0.5
+edge_entropy_w = 0.02
+edge_uniform_kl_w = 0.01
+causal_batch = true
+fsm_arch = "v3"
+fsm_decode = "hier"
+decol_hier_v2 = true
+hier_causal_policy = true
+lfg_mode = "soft"
+compliance_floor = 0.05
+causal_confidence = false
+cc_C = "band"
+cc_thr = 0.0
+cc_self_consist_w = 0.0
+cc_grounded_init = false
+detach_scorepath = "off"
+frozen_probe = false
+probe_epochs = "UNSET"
+
+[task_profiles.decoupled]
+runner = "run_model"
+
+[task_profiles.decoupled.parameters]
+p0_fix = "off"
+lfg = "on"
+echo = "off"
+interp = "off"
+interp_entropy_w = 0.01
+design = "correct_decoupled"
+lambda_edge_trans = 0.5
+edge_entropy_w = 0.02
+edge_uniform_kl_w = 0.01
+causal_batch = true
+fsm_arch = "v3"
+fsm_decode = "hier"
+decol_hier_v2 = true
+hier_causal_policy = true
+lfg_mode = "soft"
+compliance_floor = 0.05
+causal_confidence = false
+cc_C = "band"
+cc_thr = 0.0
+cc_self_consist_w = 0.0
+cc_grounded_init = false
+detach_scorepath = "on"
+frozen_probe = false
+probe_epochs = "UNSET"
+
+[task_profiles.freeze-then-probe]
+runner = "run_model"
+
+[task_profiles.freeze-then-probe.parameters]
+p0_fix = "off"
+lfg = "on"
+echo = "off"
+interp = "off"
+interp_entropy_w = 0.01
+design = "correct_decoupled"
+lambda_edge_trans = 0.5
+edge_entropy_w = 0.02
+edge_uniform_kl_w = 0.01
+causal_batch = true
+fsm_arch = "v3"
+fsm_decode = "hier"
+decol_hier_v2 = true
+hier_causal_policy = true
+lfg_mode = "soft"
+compliance_floor = 0.05
+causal_confidence = false
+cc_C = "band"
+cc_thr = 0.0
+cc_self_consist_w = 0.0
+cc_grounded_init = false
+detach_scorepath = "on"
+frozen_probe = true
+probe_epochs = 20
+
+[task_profiles.temporal-baselines]
+runner = "run_baselines"
+allow_model_subsets = true
+allowed_models = [
+  "jodie",
+  "dyrep",
+  "tgat",
+  "tgn",
+  "graphmixer",
+  "dygformer",
+  "cawn",
+  "edgebank_inf",
+  "edgebank_tw",
+]

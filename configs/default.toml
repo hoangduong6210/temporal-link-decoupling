@@ -1,0 +1,26 @@
+[study]
+datasets = ["coedit", "wikipedia", "mooc"]
+seeds = [1, 7, 42]
+split = "chronological-70-15-15"
+
+[training]
+epochs = 20
+hidden = 128
+batch_size = 500
+learning_rate = 0.001
+
+[optimizer]
+name = "adam"
+weight_decay = 0.00001
+scheduler = "cosine-annealing"
+
+[reproducibility]
+determinism = "strict"
+python_hash_seed = 0
+cublas_workspace_config = ":4096:8"
+warmup_policy = "state-neutral-training-pass"
+dependency_lock = "configs/scientific-requirements-py39-cu128.lock"
+dependency_lock_sha256 = "90ceae7c184de3be418f4ce0f1b700b7f6d13c3945abb9eb2cbf033bfec9f35f"
+
+[evidence]
+status = "legacy-import-not-frozen"

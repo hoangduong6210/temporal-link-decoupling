@@ -1,0 +1,17 @@
+# Direct scientific runtime requirements.  Compile for the recorded execution
+# platform; do not install this input file directly for an evidence-producing run.
+numpy==2.0.2
+pandas==2.3.3
+torch==2.8.0
+scikit-learn==1.6.1
+scipy==1.13.1
+tqdm==4.67.3
+# Execution-platform compatibility pins. These are transitive requirements in
+# the current accelerator image and keep the lock exactly installable there.
+markupsafe==2.1.5
+pytz==2021.1
+setuptools==53.0.0
+toml==0.10.2
+typing-extensions==4.15.0
+tzdata==2025.3
+zipp==3.23.0

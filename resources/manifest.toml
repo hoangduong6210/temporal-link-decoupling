@@ -1,0 +1,57 @@
+manifest_version = 2
+status = "checksum-pinned-clean-acquisition"
+source_registry = "resources/source_registry.json"
+
+[[dataset]]
+id = "LP-D-COEDIT-002"
+path = "corpora/coedit.npz"
+sha256 = "cbdb09bfbd83456be01a039fa3a0b4c2e37415af43a3406fc8d3f55be4a5c736"
+state = "CURRENT"
+source_id = "LP-D-WIKIPEDIA-003"
+builder = "experiments/dataset_builders/build_coedit.py"
+
+[[dataset]]
+id = "LP-D-WIKIPEDIA-003"
+path = "corpora/wikipedia.npz"
+sha256 = "f035f7dd2e97dbb931d48a4b3c099d43b2fdc25d0e15828de6fa2c604b8017c7"
+state = "CURRENT-IDFIX"
+raw_sha256 = "a6b73e09c0d1e5b9db11e7e7aa416f2e87838a745273e0446a79952cf4cfae09"
+builder = "experiments/dataset_builders/download.py"
+
+[[dataset]]
+id = "LP-D-MOOC-003"
+path = "corpora/mooc.npz"
+sha256 = "e422cf5e1e6a95763b24a6a5dc53fec993c9ae80948b3fd7ef4f82816b26a278"
+state = "CURRENT-IDFIX"
+raw_sha256 = "5e29679063c6e416c2ae741d94a8f2b8e996f21e7cbf278488687fb6cb1df15a"
+builder = "experiments/dataset_builders/download.py"
+
+[[dataset]]
+id = "LP-D-COEDIT-001"
+path = "corpora/legacy_migration/coedit.npz"
+sha256 = "09bc8c8ff6ef96e956bfcf84c504c8213447cf5cb3b5136631bcaf063ffc47cd"
+state = "QUARANTINED-MIGRATION"
+
+[[dataset]]
+id = "LP-D-WIKIPEDIA-002"
+path = "corpora/legacy_migration/wikipedia.npz"
+sha256 = "d3d2905da12963d0a7d9b258e2901ade6511e99bd38e2669486af697f4f6dd40"
+state = "QUARANTINED-TRUNCATED-MIGRATION"
+
+[[dataset]]
+id = "LP-D-MOOC-002"
+path = "corpora/legacy_migration/mooc.npz"
+sha256 = "2b6536ec46e3cdc9a6719b5a587b479f8729a90c91a489ca2f83247b88e89d2c"
+state = "QUARANTINED-MIGRATION"
+
+[[dataset]]
+id = "LP-D-WIKIPEDIA-001"
+path = "corpora/pre_idfix/wikipedia.npz"
+sha256 = "5282a98527e5dd13c64a7aff07a08e90cfe4daa9f674378744870130fffa6de5"
+state = "QUARANTINED-PREIDFIX"
+
+[[dataset]]
+id = "LP-D-MOOC-001"
+path = "corpora/pre_idfix/mooc.npz"
+sha256 = "b54bdb2d02888181d44ae3ad19b990a3d9c30d849799d9585acbfed65aa5211e"
+state = "QUARANTINED-PREIDFIX"

@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+*.egg-info/
+resources/corpora/*.npz
+resources/corpora/pre_idfix/*.npz
+resources/corpora/legacy_migration/*.npz
+resources/staging/
+paper/working/*.zip
+results/audit/*
+!results/audit/.gitkeep
+# Frozen releases and paper snapshots are immutable, reviewable records. Keep
+# them trackable; large payloads may instead be represented by a tracked
+# manifest containing an immutable URI and checksum.

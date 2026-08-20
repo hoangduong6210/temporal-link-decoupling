@@ -1,0 +1,12 @@
+# Bootstrap constraints for local migration checks only.
+# This is not a transitive, hash-locked scientific environment. See
+# configs/dependency-lock-policy.toml before admitting an execution as evidence.
+numpy==2.0.2
+pandas==2.3.3
+torch==2.8.0
+scikit-learn==1.6.1
+tqdm==4.67.3
+scipy==1.13.1
+matplotlib==3.9.4
+pytest==6.2.2
+tomli==2.2.1; python_version < "3.11"

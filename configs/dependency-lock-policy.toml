@@ -1,0 +1,26 @@
+schema_version = 1
+
+[lock]
+status = "SCIENTIFIC-FROZEN"
+abstract_dependencies = "pyproject.toml"
+bootstrap_constraints = "configs/dependencies.lock"
+scientific_lock = "configs/scientific-requirements-py39-cu128.lock"
+scientific_lock_sha256 = "90ceae7c184de3be418f4ce0f1b700b7f6d13c3945abb9eb2cbf033bfec9f35f"
+scientific_evidence_eligible = true
+python_version = "3.9"
+python_abi = "CPython-cp39"
+platform = "x86_64-manylinux_2_28"
+accelerator_stack = "PyTorch-2.8.0+cu128"
+resolver = "uv-pip-compile"
+
+[requirements]
+include_transitive_dependencies = true
+include_artifact_hashes = true
+capture_python_abi = true
+capture_platform_and_accelerator = true
+capture_torch_cuda_and_cudnn = true
+immutable_environment_digest = true
+
+[promotion]
+required_status = "SCIENTIFIC-FROZEN"
+procedure = "Generate and review a platform-specific hash-locked environment; never relabel bootstrap constraints as a scientific lock."

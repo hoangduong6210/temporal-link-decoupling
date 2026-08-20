@@ -1,0 +1,15 @@
+schema_version = 1
+state = "TEMPLATE_NOT_A_RELEASE"
+snapshot_id = "REQUIRED"
+venue = "REQUIRED"
+submission_state = "REQUIRED"
+source_commit = "REQUIRED_CLEAN_40_HEX_COMMIT"
+wiki_commit = "REQUIRED_CLEAN_40_HEX_COMMIT"
+evidence_release = "REQUIRED"
+paper_build_job = "REQUIRED_LP_JOB_ID"
+results_lock = "results.lock.yaml"
+numeric_registry = "numeric-provenance.jsonl"
+checksum_manifest = "checksums.sha256"
+source_files = []
+rendered_files = []
+figure_files = []
