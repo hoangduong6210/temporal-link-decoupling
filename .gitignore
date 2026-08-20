@@ -10,6 +10,10 @@ resources/staging/
 paper/working/*.zip
 results/audit/*
 !results/audit/.gitkeep
+# The parent monorepo ignores every directory named ``datasets``.  Canonical
+# wiki source is text, not a downloaded dataset, and must survive clean clones.
+!wiki/datasets/
+!wiki/datasets/*.md
 # Frozen releases and paper snapshots are immutable, reviewable records. Keep
 # them trackable; large payloads may instead be represented by a tracked
 # manifest containing an immutable URI and checksum.

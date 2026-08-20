@@ -15,8 +15,8 @@ must never be edited. `results/CURRENT`, `PROJECT.toml`, the evidence ledger,
 and a paper `results.lock.yaml` must agree before export.
 
 The machine-readable assessment is `REPRODUCIBILITY.toml`. It is currently
-`BLOCKED` only at the execution/release layer: the project still needs a
-committed source identity, a fresh scheduler matrix, a frozen evidence release,
+`BLOCKED` only at the execution/release layer: the project has a committed
+baseline, but still needs a fresh scheduler matrix, a frozen evidence release,
 and an immutable paper snapshot.
 
 The foundation is now fail-closed. Upstream raw bytes and processed corpora are

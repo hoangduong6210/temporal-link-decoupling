@@ -65,6 +65,7 @@ def test_required_repository_contract() -> None:
         "wiki/governance/Numeric-Evidence-and-Publication-Hygiene.md",
         "evidence/jobs/LP-JOB-LOCAL-20260819-001.toml",
         "evidence/jobs/LP-JOB-LOCAL-20260819-002.toml",
+        "evidence/jobs/LP-JOB-LOCAL-20260820-001.toml",
         "evidence/jobs/SCIENTIFIC_JOB_CONTRACT.md",
         "evidence/jobs/checksums.sha256",
         "paper/SNAPSHOT_TEMPLATE.toml", "paper/snapshots/README.md",
@@ -333,8 +334,12 @@ def test_provenance_auditor_and_release_readiness_semantics() -> None:
 def test_reproducibility_manifest_is_honest_and_hash_closed() -> None:
     text = (ROOT / "REPRODUCIBILITY.toml").read_text(encoding="utf-8")
     assert 'status = "BLOCKED"' in text
-    assert 'source_state = "UNCOMMITTED_WORKTREE"' in text
-    assert 'clean_clone_corpus_state = "VERIFIED_DETERMINISTIC_REBUILD"' in text
+    assert 'source_state = "COMMITTED_BASELINE"' in text
+    assert re.search(r'^source_commit = "[0-9a-f]{40}"$', text, re.MULTILINE)
+    assert (
+        'clean_clone_corpus_state = '
+        '"VERIFIED_NETWORK_ACQUISITION_AND_DETERMINISTIC_REBUILD"'
+    ) in text
     assert 'task_seed_attempt_failure_coverage = "FRESH_MATRIX_PENDING"' in text
     for hash_key, path_key in (
         ("protocol_sha256", "protocol_path"),
@@ -382,7 +387,13 @@ def test_dataset_manifest_schema_and_idfix_contract() -> None:
     data_root = Path(os.environ.get(
         "LINK_PREDICTION_DATA_DIR", ROOT / "resources" / "corpora"
     ))
-    paths = [data_root / Path(entry["path"]).relative_to("corpora") for entry in entries]
+    current_entries = [
+        entry for entry in entries if entry.get("state", "").startswith("CURRENT")
+    ]
+    paths = [
+        data_root / Path(entry["path"]).relative_to("corpora")
+        for entry in current_entries
+    ]
     checksum_entries = {}
     for line in (ROOT / "resources/checksums.sha256").read_text().splitlines():
         expected, rel = line.split(maxsplit=1)
@@ -393,7 +404,7 @@ def test_dataset_manifest_schema_and_idfix_contract() -> None:
         import pytest
         pytest.skip("optional local corpora are absent; identities remain in manifest.toml")
     assert all(path.exists() for path in paths), "configured corpus set is incomplete"
-    for entry in entries:
+    for entry in current_entries:
         assert re.fullmatch(r"[0-9a-f]{64}", entry["sha256"])
         path = data_root / Path(entry["path"]).relative_to("corpora")
         assert path.is_file()
@@ -409,7 +420,7 @@ def test_dataset_manifest_schema_and_idfix_contract() -> None:
             assert data["sources"].min() >= 0 and data["destinations"].min() >= 0
             assert data["sources"].max() < nodes and data["destinations"].max() < nodes
             assert np.all(np.diff(data["timestamps"]) >= 0)
-            if "WIKIPEDIA-002" in entry["id"] or "MOOC-002" in entry["id"]:
+            if "WIKIPEDIA" in entry["id"] or "MOOC" in entry["id"]:
                 assert np.intersect1d(data["sources"], data["destinations"]).size == 0
 
     assert by_id["LP-D-WIKIPEDIA-002"]["sha256"] != by_id["LP-D-WIKIPEDIA-001"]["sha256"]

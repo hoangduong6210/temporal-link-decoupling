@@ -1,0 +1,38 @@
+schema_version = 1
+job_id = "LP-JOB-LOCAL-20260820-001"
+execution_kind = "clean-archive-acquisition"
+scientific = false
+scheduler_job_id = "NOT_APPLICABLE"
+date = "2026-08-20"
+source_commit = "63c43b1e34c6d9a3c9f9efc66b7379bb940302b2"
+source_state = "CLEAN_ARCHIVE"
+project = "link-prediction"
+command = "git archive SOURCE_COMMIT; python experiments/dataset_builders/download.py wikipedia mooc --output-dir resources/corpora; python experiments/dataset_builders/build_coedit.py --input-dir resources/corpora --output-dir resources/corpora; sha256sum resources/corpora/wikipedia.npz resources/corpora/mooc.npz resources/corpora/coedit.npz"
+exit_code = 0
+outcome = "CURRENT_CORPUS_DIGESTS_MATCH"
+protocol_id = "NOT_APPLICABLE_TO_DATA_ACQUISITION"
+source_registry = "resources/source_registry.json"
+data_manifest = "resources/manifest.toml"
+data_checksums = "resources/checksums.sha256"
+raw_wikipedia_sha256 = "a6b73e09c0d1e5b9db11e7e7aa416f2e87838a745273e0446a79952cf4cfae09"
+raw_mooc_sha256 = "5e29679063c6e416c2ae741d94a8f2b8e996f21e7cbf278488687fb6cb1df15a"
+processed_wikipedia_sha256 = "f035f7dd2e97dbb931d48a4b3c099d43b2fdc25d0e15828de6fa2c604b8017c7"
+processed_mooc_sha256 = "e422cf5e1e6a95763b24a6a5dc53fec993c9ae80948b3fd7ef4f82816b26a278"
+processed_coedit_sha256 = "cbdb09bfbd83456be01a039fa3a0b4c2e37415af43a3406fc8d3f55be4a5c736"
+attempt_count = 2
+failed_attempt_count = 1
+supported_evidence_ids = ["LP-E-DATA-MIGRATION-001"]
+supported_scientific_claim_ids = []
+limitations = "Technical acquisition/rebuild evidence only; not a performance run or frozen scientific release. Dataset bytes remain fetch-only and are not redistributed."
+
+[[attempts]]
+attempt_index = 0
+outcome = "FAILED"
+exit_code = 1
+error = "Network name resolution was unavailable in the restricted process; no partial raw file was retained."
+
+[[attempts]]
+attempt_index = 1
+outcome = "COMPLETED"
+exit_code = 0
+error = "NONE"

@@ -31,10 +31,11 @@ clean acquisition uses the reviewed source registry and explicit builders.
 
 ## Active blockers
 
-- The source tree still requires its first scoped commit identity.
+- The scoped project has a committed baseline identity. Every fresh scheduler
+  envelope must still capture the exact clean execution commit.
 - A fresh current-corpus scheduler matrix has not yet completed, so accelerator
   records and current performance aggregates are not admitted.
-- No source commit, frozen evidence release, admitted claim, results lock, or
+- No frozen evidence release, admitted performance claim, results lock, or
   immutable paper snapshot exists.
 - Strong numerical and generalization wording in `paper/working/` remains QUARANTINED.
 - Historical execution attempts are reconciled where surviving artifacts allow,
@@ -44,7 +45,7 @@ clean acquisition uses the reviewed source registry and explicit builders.
 
 ## Next stage
 
-Commit the scoped project, run the frozen scheduler matrix, reconcile every
-attempt, and freeze the checksum-closed evidence release. Then generate the new
+Run the frozen scheduler matrix from a clean commit, reconcile every attempt,
+and freeze the checksum-closed evidence release. Then generate the new
 paper only from admitted release artifacts and build the immutable conference
 snapshot. Paper export remains blocked until those gates pass.

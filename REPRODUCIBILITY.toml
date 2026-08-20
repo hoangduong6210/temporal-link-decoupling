@@ -1,8 +1,8 @@
 schema_version = 1
 status = "BLOCKED"
 evaluated_at = "2026-08-20"
-source_commit = "UNKNOWN"
-source_state = "UNCOMMITTED_WORKTREE"
+source_commit = "63c43b1e34c6d9a3c9f9efc66b7379bb940302b2"
+source_state = "COMMITTED_BASELINE"
 evidence_release = "UNRELEASED"
 paper_snapshot = "UNRELEASED"
 protocol_id = "LP-P-DECOUPLING-001"
@@ -24,7 +24,7 @@ dependency_policy = "configs/dependency-lock-policy.toml"
 dependency_policy_sha256 = "d6ffbeb1bc0f78e58b877b71398a38ce14617ed2978cd1d823a11b187ad657be"
 dependency_lock_state = "HASHED_TRANSITIVE_LOCK_VERIFIED"
 locked_environment_sha256 = "d8c962326cd2a8120e858260d9101562e2bec82b5861d92cfa791b166d202d6e"
-clean_clone_corpus_state = "VERIFIED_DETERMINISTIC_REBUILD"
+clean_clone_corpus_state = "VERIFIED_NETWORK_ACQUISITION_AND_DETERMINISTIC_REBUILD"
 upstream_raw_identity_state = "CHECKSUM_PINNED"
 dataset_rights_state = "FETCH_ONLY_NO_REDISTRIBUTION"
 resolved_runner_state = "CHECKSUM_LOCKED_PROTOCOL_CONFIG_AND_TASK_PROFILE"
@@ -34,11 +34,10 @@ execution_registry_state = "LEGACY_RECONCILED_INELIGIBLE_FRESH_PENDING"
 task_seed_attempt_failure_coverage = "FRESH_MATRIX_PENDING"
 aggregation_reconstruction = "FAIL_CLOSED_SAMPLE_STD_RECONCILIATION_IMPLEMENTED_MATRIX_PENDING"
 frozen_results_state = "MISSING"
-latest_audit_job = "LP-JOB-LOCAL-20260819-002"
+latest_audit_job = "LP-JOB-LOCAL-20260820-001"
 public_source_release_state = "OWNER_LICENSE_DECISION_REQUIRED"
 
 blockers = [
-  "project tree has no committed source identity",
   "fresh current-corpus scheduler matrix and accelerator records are not complete",
   "no frozen evidence release or immutable paper snapshot exists",
 ]

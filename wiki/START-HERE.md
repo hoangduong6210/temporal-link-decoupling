@@ -27,7 +27,8 @@ snapshot: `UNRELEASED`.
 
 - No quantitative performance, irreversibility, hard-negative, baseline, or
   generalization claim is admitted.
-- The scoped project source still needs a committed identity.
+- The scoped project has a committed baseline identity; scientific jobs must
+  bind their exact clean execution commit.
 - The fresh current-corpus scheduler matrix and its reconciliation are pending.
 - No frozen evidence release or immutable conference snapshot exists.
 
@@ -40,9 +41,9 @@ wording only after a frozen release exists.
 
 ## Next actions
 
-1. Commit the scoped source and verify the archived clean tree.
-2. Run and reconcile the frozen protocol scheduler matrix.
-3. Freeze the initial `LP-*` evidence release, then author and snapshot only the
+1. Run and reconcile the frozen protocol scheduler matrix from a clean commit.
+2. Freeze the initial `LP-*` evidence release.
+3. Author and snapshot only the
    claim language supported by that release.
 
 ## Safe first checks and task routes

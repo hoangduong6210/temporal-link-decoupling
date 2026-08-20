@@ -14,18 +14,19 @@ Current evidence release: `UNRELEASED`. No entry below is frozen scientific evid
 - **Scientific purpose:** Verify local corpus identities and disjoint bipartite ID
   namespaces after migration.
 - **Lifecycle:** VALIDATED for local migration integrity; not ADMITTED.
-- **Source commit:** UNKNOWN; the split tree has no frozen release commit.
+- **Source commit:** The clean acquisition run used the committed baseline named
+  by `REPRODUCIBILITY.toml`; no frozen release commit exists yet.
 - **Protocol, configuration, and data hashes:** Dataset and upstream raw-file
   hashes are owned by `resources/manifest.toml`, `resources/checksums.sha256`,
   and `resources/source_registry.json`.
-- **Execution identity:** `LP-JOB-LOCAL-20260819-001`, recorded at
-  `evidence/jobs/LP-JOB-LOCAL-20260819-001.toml`; local execution, not a scheduler
-  or frozen-release job.
+- **Execution identity:** `LP-JOB-LOCAL-20260820-001`, recorded at
+  `evidence/jobs/LP-JOB-LOCAL-20260820-001.toml`; clean-archive acquisition and
+  deterministic rebuild, not a scientific scheduler job.
 - **Artifact path or release URI:** `resources/manifest.toml`,
   `resources/checksums.sha256`, and local ignored files under `resources/corpora/`.
-- **Artifact checksum:** Dataset bytes are declared in `resources/checksums.sha256`;
-  the execution record is pinned by `evidence/jobs/checksums.sha256`. No frozen-
-  release checksum manifest exists.
+- **Artifact checksum:** Raw and processed bytes are declared in the source/data
+  registries; the execution record is pinned by `evidence/jobs/checksums.sha256`.
+  No frozen-release checksum manifest exists.
 - **Coverage and failures:** Current corpora were rebuilt deterministically from
   registered raw inputs in clean staging and matched their declared digests.
 - **Acceptance-gate outcome:** Schema/hash/ID-disjointness, upstream digest, and
