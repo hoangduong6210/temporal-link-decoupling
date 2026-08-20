@@ -4,6 +4,7 @@ import json
 import os
 from pathlib import Path
 import random
+from types import SimpleNamespace
 
 import numpy as np
 import pytest
@@ -12,6 +13,7 @@ import torch
 from temporal_link_decoupling.reproducibility import (
     atomic_write_json,
     build_job_metadata,
+    capture_environment,
     configure_determinism,
     finish_job_metadata,
     parse_chronological_split,
@@ -273,6 +275,41 @@ def test_job_metadata_is_fail_closed_and_contains_resolved_input_hashes(
     )
     rendered = json.dumps(job)
     assert str(ROOT) not in rendered
+
+
+def test_accelerator_record_queries_the_allocated_visible_device(monkeypatch) -> None:
+    properties = SimpleNamespace(
+        name="Audited GPU",
+        major=8,
+        minor=0,
+        total_memory=1024,
+        multi_processor_count=1,
+        uuid="GPU-PYTORCH",
+    )
+    observed: dict[str, object] = {}
+
+    def fake_run(command, **kwargs):
+        observed["command"] = command
+        return SimpleNamespace(
+            returncode=0,
+            stdout="GPU-SMI, 00000000:03:00.0, 570.00, Audited GPU\n",
+            stderr="",
+        )
+
+    monkeypatch.setenv("CUDA_VISIBLE_DEVICES", "3,5")
+    monkeypatch.setattr(torch.cuda, "is_available", lambda: True)
+    monkeypatch.setattr(torch.cuda, "get_device_properties", lambda index: properties)
+    monkeypatch.setattr(
+        "temporal_link_decoupling.reproducibility.subprocess.run", fake_run
+    )
+
+    environment = capture_environment(torch.device("cuda:0"))
+
+    accelerator = environment["accelerator"]
+    assert accelerator["record_state"] == "RECORDED"
+    assert accelerator["nvidia_smi_selector"] == "3"
+    assert "--id=3" in observed["command"]
+    assert accelerator["nvidia_smi"]["uuid"] == "GPU-SMI"
 
 
 def test_job_finishing_requires_exact_successful_coverage() -> None:

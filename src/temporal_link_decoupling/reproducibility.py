@@ -639,6 +639,13 @@ def capture_environment(device: torch.device) -> dict[str, Any]:
     if device.type == "cuda" and torch.cuda.is_available():
         index = device.index if device.index is not None else torch.cuda.current_device()
         properties = torch.cuda.get_device_properties(index)
+        visible_devices = os.environ.get("CUDA_VISIBLE_DEVICES", "NOT_SET")
+        visible_selectors = [item.strip() for item in visible_devices.split(",")]
+        nvidia_smi_selector = (
+            visible_selectors[index]
+            if visible_devices != "NOT_SET" and index < len(visible_selectors)
+            else str(index)
+        )
         accelerator: dict[str, Any] = {
             "record_state": "PARTIAL",
             "visible_device_index": index,
@@ -646,7 +653,8 @@ def capture_environment(device: torch.device) -> dict[str, Any]:
             "compute_capability": [properties.major, properties.minor],
             "total_memory_bytes": properties.total_memory,
             "multiprocessor_count": properties.multi_processor_count,
-            "cuda_visible_devices": os.environ.get("CUDA_VISIBLE_DEVICES", "NOT_SET"),
+            "cuda_visible_devices": visible_devices,
+            "nvidia_smi_selector": nvidia_smi_selector,
         }
         for attribute in ("uuid", "pci_bus_id"):
             value = getattr(properties, attribute, None)
@@ -658,7 +666,7 @@ def capture_environment(device: torch.device) -> dict[str, Any]:
                     "nvidia-smi",
                     "--query-gpu=uuid,pci.bus_id,driver_version,name",
                     "--format=csv,noheader,nounits",
-                    f"--id={index}",
+                    f"--id={nvidia_smi_selector}",
                 ],
                 text=True,
                 capture_output=True,
