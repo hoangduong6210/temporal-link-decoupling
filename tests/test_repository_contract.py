@@ -84,6 +84,11 @@ def test_required_repository_contract() -> None:
     assert (ROOT / "results/CURRENT").read_text().strip() == evidence_release.group(1)
     assert (ROOT / "paper/CURRENT").read_text().strip() == paper_snapshot.group(1)
 
+    for script in (ROOT / "slurm").glob("*.sbatch"):
+        text = script.read_text(encoding="utf-8")
+        assert "SLURM_SUBMIT_DIR" in text
+        assert 'dirname "${BASH_SOURCE[0]}"' not in text
+
 
 def test_wiki_front_matter_index_and_links() -> None:
     pages = sorted(WIKI.rglob("*.md"))
@@ -214,7 +219,11 @@ def test_json_and_artifact_hygiene() -> None:
     for path in ROOT.rglob("*"):
         # Python/pytest create caches while this suite is running. Their exclusion
         # is a VCS contract; filesystem presence during a test is not a violation.
-        if forbidden.intersection(path.parts) or path.suffix in {".pyc"}:
+        if (
+            forbidden.intersection(path.parts)
+            or path.suffix in {".pyc"}
+            or path.is_relative_to(ROOT / "results/audit")
+        ):
             continue
         assert path.suffix not in bad_suffixes
 

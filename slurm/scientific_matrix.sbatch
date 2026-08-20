@@ -19,7 +19,11 @@ export SRGNN_DEVICE=cuda
 export OMP_NUM_THREADS="${SLURM_CPUS_PER_TASK:-8}"
 export LP_SUBMISSION_SCRIPT=slurm/scientific_matrix.sbatch
 
-project_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+project_root="${SLURM_SUBMIT_DIR:?Slurm did not record the submission directory}"
+if [[ ! -f "$project_root/PROJECT.toml" || ! -f "$project_root/protocols/link_prediction_v1.toml" ]]; then
+  echo "SLURM_SUBMIT_DIR is not the Link Prediction project root: $project_root" >&2
+  exit 66
+fi
 cd "$project_root"
 export PYTHONPATH="$project_root/src${PYTHONPATH:+:$PYTHONPATH}"
 
