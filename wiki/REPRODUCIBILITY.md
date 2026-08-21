@@ -34,6 +34,11 @@ CoEdit graph; pending work was cancelled once the defect was isolated. Amendment
 topology classes. Native scheduler outcomes remain in
 `LP-E-SCHEDULER-HISTORY-001`; no affected output can be selected.
 
+The resolved default configuration now carries `SCIENTIFIC-FROZEN` before the
+replacement execution. The pre-freeze campaign was stopped and retained as
+inadmissible rather than changing configuration metadata after seeing a final
+matrix.
+
 The foundation is now fail-closed. Upstream raw bytes and processed corpora are
 checksum-pinned; acquisition is explicit and deterministic; data rights use a
 fetch-only/no-redistribution policy where no redistribution grant was found.

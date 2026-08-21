@@ -50,6 +50,10 @@ clean acquisition uses the reviewed source registry and explicit builders.
   its dependent reconciliation was cancelled. Its exact native accounting is
   retained in the same scheduler-history evidence; replacement execution must
   originate from the project root.
+- A later A003 campaign was stopped after the release gate exposed the stale
+  pre-freeze configuration lifecycle label. Completed and cancelled cells remain
+  inadmissible. The resolved configuration is now explicitly
+  `SCIENTIFIC-FROZEN` before replacement execution.
 - No frozen evidence release, admitted performance claim, results lock, or
   immutable paper snapshot exists.
 - Strong numerical and generalization wording in `paper/working/` remains QUARANTINED.

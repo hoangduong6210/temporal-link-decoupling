@@ -30,7 +30,8 @@ Current evidence release: `UNRELEASED`. No entry below is frozen scientific evid
 - **Coverage and failures:** The artifact retains failed bootstrap arrays,
   dependency cancellation, superseded successful main-arm attempts, the
   non-finite recurrent-memory proxy failure, the failed reconciliation, and the
-  failed/cancelled dataset-topology and submission-directory campaigns.
+  failed/cancelled dataset-topology, submission-directory, and pre-freeze
+  configuration campaigns.
 - **Acceptance-gate outcome:** PASS for native scheduler-state preservation;
   INADMISSIBLE for numerical claims and aggregate reuse.
 - **Supported claim IDs:** none.

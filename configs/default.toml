@@ -23,4 +23,4 @@ dependency_lock = "configs/scientific-requirements-py39-cu128.lock"
 dependency_lock_sha256 = "90ceae7c184de3be418f4ce0f1b700b7f6d13c3945abb9eb2cbf033bfec9f35f"
 
 [evidence]
-status = "legacy-import-not-frozen"
+status = "SCIENTIFIC-FROZEN"
