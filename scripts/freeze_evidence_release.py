@@ -90,7 +90,11 @@ except ModuleNotFoundError:  # pragma: no cover - Python 3.9/3.10
                         raise ValueError(f"invalid TOML assignment: {line}")
                     key, raw_value = (part.strip() for part in line.split("=", 1))
                     if raw_value.startswith(('"', "[")):
-                        value: Any = json.loads(raw_value)
+                        # TOML permits a trailing comma in arrays while JSON
+                        # does not. The fallback deliberately supports only the
+                        # repository's JSON-compatible TOML array subset.
+                        normalized = re.sub(r",\s*]$", "]", raw_value)
+                        value: Any = json.loads(normalized)
                     elif raw_value in {"true", "false"}:
                         value = raw_value == "true"
                     else:

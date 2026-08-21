@@ -140,7 +140,11 @@ def create_release_project(
     corpus = root / "resources/corpora/coedit.bin"
     manifest = root / "resources/manifest.toml"
     data_checksums = root / "resources/checksums.sha256"
-    write(protocol, 'protocol_id = "LP-P-TEST-001"\nstatus = "FROZEN"\n')
+    write(
+        protocol,
+        'protocol_id = "LP-P-TEST-001"\nstatus = "FROZEN"\n'
+        'datasets = [\n  "coedit",\n]\n',
+    )
     write(config, '[evidence]\nstatus = "SCIENTIFIC-FROZEN"\n')
     write(dependency_lock, "package==1.0 --hash=sha256:" + "b" * 64 + "\n")
     write(corpus, b"scientific corpus bytes\n")
