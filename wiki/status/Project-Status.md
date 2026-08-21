@@ -12,7 +12,7 @@ paper_source: false
 The Link Prediction project has an independent implementation, corpus registry,
 result partition, wiki, and paper root. Current scientific execution is complete
 under `LP-E-SCIENTIFIC-MATRIX-001`, `LP-REL-2026-A003-001` is the active frozen
-evidence release, and `LP-SNAP-2026-CONFERENCE-002` is the immutable conference
+evidence release, and `LP-SNAP-2026-CONFERENCE-003` is the immutable conference
 snapshot. The original mixed tree is read-only migration input and cannot
 support current claims.
 

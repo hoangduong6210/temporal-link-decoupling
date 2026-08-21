@@ -61,6 +61,7 @@ paper_source: false
 | Evidence | `LP-E-PROVENANCE-AUDIT-001` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | Evidence | `LP-E-SCHEDULER-HISTORY-001` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | Evidence | `LP-E-SCIENTIFIC-MATRIX-001` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
+| Evidence | `LP-E-PROVENANCE-AUDIT-002` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | Execution job | `LP-JOB-LOCAL-20260820-001` | [Clean-acquisition job](../evidence/jobs/LP-JOB-LOCAL-20260820-001.toml) |
 | Execution job | `LP-JOB-LOCAL-20260819-002` | [Provenance-audit job](../evidence/jobs/LP-JOB-LOCAL-20260819-002.toml) |
 | Execution job | `LP-JOB-LOCAL-20260820-002` | [Scheduler-accounting job](../evidence/jobs/LP-JOB-LOCAL-20260820-002.toml) |
@@ -73,7 +74,7 @@ paper_source: false
 
 ## Paper snapshot index
 
-Current: `LP-SNAP-2026-CONFERENCE-002`, bound to
+Current: `LP-SNAP-2026-CONFERENCE-003`, bound to
 `LP-REL-2026-A003-001`. The prior immutable snapshot remains preserved and is
 not the active publication pointer.
 

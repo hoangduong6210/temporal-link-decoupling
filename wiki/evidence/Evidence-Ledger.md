@@ -164,24 +164,51 @@ Current evidence release: `LP-REL-2026-A003-001`.
 
 ## LP-E-PROVENANCE-AUDIT-001
 
-- **Scientific purpose:** Check canonical numeric provenance, pointer agreement,
-  snapshot absence/closure, reproducibility status, and active-surface disclosure hygiene.
-- **Lifecycle:** VALIDATED for local governance only; not ADMITTED.
-- **Source commit:** The audit implementation is committed; the final audit
-  evidence will bind the post-snapshot audit commit.
-- **Protocol, configuration, and data hashes:** Structural manifests and the
-  validated scientific chain are checked; frozen-copy closure is still pending.
+- **Scientific purpose:** Preserve the pre-release canonical audit checkpoint.
+- **Lifecycle:** VALIDATED historical governance checkpoint; not ADMITTED.
+- **Source commit:** The exact migration-stage source identity is retained by the
+  registered local audit job.
+- **Protocol, configuration, and data hashes:** Structural manifests were checked
+  before the scientific release existed.
 - **Execution identity:** `LP-JOB-LOCAL-20260819-002`, recorded at
   `evidence/jobs/LP-JOB-LOCAL-20260819-002.toml`; local audit only.
 - **Artifact path or release URI:** `REPRODUCIBILITY.toml`,
   `scripts/audit_scientific_provenance.py`, and the repository contract tests.
 - **Artifact checksum:** The execution record is pinned by
   `evidence/jobs/checksums.sha256`; there is no frozen audit release.
-- **Coverage and failures:** Canonical wiki/current-pointer/snapshot and active
-  text surfaces are checked; image semantics and authorship are not inferred.
-- **Acceptance-gate outcome:** Canonical consistency PASS; immutable release and
-  paper pointers are still pending.
+- **Coverage and failures:** Canonical wiki and active text surfaces were checked;
+  image semantics and authorship were not inferred.
+- **Acceptance-gate outcome:** PASS for the historical unreleased checkpoint;
+  it does not represent current publication readiness.
 - **Supported claim IDs:** none.
 - **Rejected claim IDs:** none.
 - **Scientific-use boundary:** Governance validation only; it supports no metric,
   performance, generalization, or conference-paper claim.
+
+## LP-E-PROVENANCE-AUDIT-002
+
+- **Scientific purpose:** Recompute current wiki, frozen-release, snapshot,
+  numeric-selector, job-ownership, pointer, checksum, and disclosure gates after
+  immutable publication assembly.
+- **Lifecycle:** VALIDATED current governance evidence; not scientific
+  performance evidence.
+- **Source commit:** The exact clean audit commit is bound by
+  `LP-JOB-LOCAL-20260821-FINAL-AUDIT-001`.
+- **Protocol, configuration, and data hashes:** The audit verifies the current
+  reproducibility manifest against checksum-owned protocol, runtime, and data
+  registries, then traverses the frozen release and paper results lock.
+- **Execution identity:** `LP-JOB-LOCAL-20260821-FINAL-AUDIT-001`.
+- **Artifact path or release URI:**
+  `evidence/audits/LP-AUDIT-20260821-FINAL.json`.
+- **Artifact checksum:** Registered in the final audit job and the execution-job
+  checksum registry.
+- **Coverage and failures:** Canonical pointers, exact file coverage, committed
+  paper source bytes, current wiki commit, build-output ownership, every numeric
+  assertion, active-surface workflow residue, and quarantine diagnostics.
+- **Acceptance-gate outcome:** PASS is required from both canonical and
+  publication-readiness modes; any issue fails closed.
+- **Supported claim IDs:** none; scientific values remain owned exclusively by
+  `LP-E-SCIENTIFIC-MATRIX-001`.
+- **Rejected claim IDs:** none.
+- **Scientific-use boundary:** Governance verification only; it cannot create or
+  strengthen a scientific claim.

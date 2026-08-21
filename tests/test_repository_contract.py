@@ -152,7 +152,7 @@ def test_wiki_identifier_and_governance_contracts() -> None:
         "Acceptance-gate outcome", "Supported claim IDs", "Rejected claim IDs",
         "Scientific-use boundary",
     ):
-        assert evidence.count(f"**{field}:**") == 7
+        assert evidence.count(f"**{field}:**") == 8
 
     decision = (WIKI / "decisions/0001-separate-link-prediction-and-lifecycle-readout.md").read_text()
     for heading in (

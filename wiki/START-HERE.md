@@ -13,7 +13,7 @@ The project tests decoupling-by-construction against coupled end-to-end training
 for inductive temporal link prediction. The current stage is
 `paper-snapshot-assembly`. Current evidence release:
 `LP-REL-2026-A003-001`. Current paper snapshot:
-`LP-SNAP-2026-CONFERENCE-002`.
+`LP-SNAP-2026-CONFERENCE-003`.
 
 ## Supported now
 
@@ -34,7 +34,7 @@ for inductive temporal link prediction. The current stage is
 ## Unsupported or blocked now
 
 - Quantitative wording is admitted only inside `LP-C-DECOUPLING-001`; each paper
-  occurrence still needs checksum-owned numeric provenance.
+  occurrence is required to carry checksum-owned numeric provenance.
 - Irreversibility, hard-negative, external-baseline, state-of-the-art, causal,
   and architecture-general claims remain blocked.
 - External-baseline parity, hard-negative robustness, causality, physical-world
