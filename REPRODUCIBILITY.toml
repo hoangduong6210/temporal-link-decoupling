@@ -1,8 +1,8 @@
 schema_version = 1
 status = "BLOCKED"
 evaluated_at = "2026-08-21"
-source_commit = "63c43b1e34c6d9a3c9f9efc66b7379bb940302b2"
-source_state = "COMMITTED_BASELINE"
+source_commit = "ed227ad1cbc8143ff23e78aee476f01b7c9028de"
+source_state = "CLEAN_SCIENTIFIC_EXECUTION"
 evidence_release = "UNRELEASED"
 paper_snapshot = "UNRELEASED"
 protocol_id = "LP-P-DECOUPLING-001"
@@ -30,19 +30,18 @@ dataset_rights_state = "FETCH_ONLY_NO_REDISTRIBUTION"
 resolved_runner_state = "CHECKSUM_LOCKED_PROTOCOL_CONFIG_AND_TASK_PROFILE"
 configuration_state = "SCIENTIFIC_FROZEN_BEFORE_CONFIRMATORY_EXECUTION"
 warmup_state = "STATE_NEUTRAL_VERIFIED"
-deterministic_accelerator_state = "FAIL_CLOSED_RECORDING_IMPLEMENTED_EXECUTION_PENDING"
-finite_execution_state = "FAIL_CLOSED_GUARDS_IMPLEMENTED_RERUN_PENDING"
-node_collision_state = "STABLE_LAST_ROW_COMMIT_IMPLEMENTED_RERUN_PENDING"
-dataset_topology_state = "CHECKSUM_OWNED_PER_DATASET_A003_RERUN_PENDING"
+deterministic_accelerator_state = "VERIFIED_PER_SELECTED_SCHEDULER_TASK"
+finite_execution_state = "FAIL_CLOSED_GUARDS_VERIFIED"
+node_collision_state = "STABLE_LAST_ROW_COMMIT_VERIFIED"
+dataset_topology_state = "CHECKSUM_OWNED_PER_DATASET_A003_VERIFIED"
 comparator_identity_state = "SIMPLIFIED_PROXIES_QUARANTINED"
-execution_registry_state = "ALL_PRIOR_ATTEMPTS_RETAINED_FROZEN_CONFIG_RERUN_PENDING"
-task_seed_attempt_failure_coverage = "CORRECTIVE_MATRIX_PENDING"
-aggregation_reconstruction = "FAIL_CLOSED_SAMPLE_STD_RECONCILIATION_IMPLEMENTED_MATRIX_PENDING"
+execution_registry_state = "ALL_ATTEMPTS_RETAINED_AND_EXPLICITLY_ADJUDICATED"
+task_seed_attempt_failure_coverage = "COMPLETE_EXACT_PROTOCOL_MATRIX"
+aggregation_reconstruction = "VERIFIED_FROM_SELECTED_PER_SEED_ROWS_WITH_SAMPLE_STD"
 frozen_results_state = "MISSING"
 latest_audit_job = "LP-JOB-LOCAL-20260820-002"
 public_source_release_state = "OWNER_LICENSE_DECISION_REQUIRED"
 
 blockers = [
-  "fresh current-corpus scheduler matrix and accelerator records are not complete",
   "no frozen evidence release or immutable paper snapshot exists",
 ]

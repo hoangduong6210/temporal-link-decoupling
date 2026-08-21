@@ -28,16 +28,15 @@ from typing import Any, Iterable, Mapping, Sequence
 
 try:  # Works both as ``python scripts/...`` and as an imported test module.
     from scripts import freeze_evidence_release as common
+    from scripts import numeric_evidence
 except ModuleNotFoundError:  # pragma: no cover - direct script execution
     import freeze_evidence_release as common  # type: ignore[no-redef]
+    import numeric_evidence  # type: ignore[no-redef]
 
 
 ROOT = Path(__file__).resolve().parents[1]
 SNAPSHOT_ID = re.compile(r"LP-SNAP-[A-Z0-9-]+")
-NUMBER_TOKEN = re.compile(
-    r"(?<![A-Za-z0-9_])[+-]?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?(?:\s*(?:%|pp))?"
-    r"(?![A-Za-z0-9_])"
-)
+NUMBER_TOKEN = numeric_evidence.NUMBER_TOKEN
 INTERNAL_MARKER = re.compile(
     r"\b(?:claude|grok|chatgpt|codex|openai|anthropic|gemini)\b|"
     r"\bPM(?:'s)?\b|reviewer\s*(?:#|Q|§)|panel asked|rebuttal|"
@@ -238,6 +237,10 @@ def _numeric_occurrences(path: Path, target: str) -> list[tuple[str, int, str, i
     for lineno, line in enumerate(lines, 1):
         if INTERNAL_MARKER.search(line):
             raise common.GateError(f"internal/AI workflow marker in paper source: {target}:{lineno}")
+        try:
+            numeric_evidence.reject_ambiguous_numeric_text(line, f"{target}:{lineno}")
+        except numeric_evidence.NumericEvidenceError as exc:
+            raise common.GateError(str(exc)) from exc
         seen: dict[str, int] = {}
         for match in NUMBER_TOKEN.finditer(line):
             literal = match.group(0)
@@ -328,7 +331,7 @@ def _validate_numeric_record(
     claims_text: str,
     evidence_text: str,
     figure: bool = False,
-) -> None:
+) -> dict[str, str]:
     kind = item.get("kind")
     if kind in {"empirical", "protocol", "derived"}:
         common._required(
@@ -377,9 +380,37 @@ def _validate_numeric_record(
             raise common.GateError(f"numeric artifact checksum mismatch: {key}")
         if not isinstance(item["artifact_selector"], str) or not item["artifact_selector"].strip():
             raise common.GateError(f"numeric artifact selector is absent: {key}")
+        owned_paths = {str(manifest_job["result"])}
+        owned_paths.update(
+            str(entry.get("path"))
+            for entry in common._require_list(
+                release_manifest.get("artifacts", []), "release artifacts"
+            )
+            if isinstance(entry, dict) and entry.get("job_id") == job_id
+        )
+        if artifact_path not in owned_paths:
+            raise common.GateError(f"numeric artifact is not owned by its declared job: {key}")
+        if any(field in item for field in numeric_evidence.COMPUTED_FIELDS):
+            raise common.GateError(f"numeric annotation contains builder-owned fields: {key}")
+        try:
+            verified = numeric_evidence.verify_numeric_assertion(
+                artifact=artifact,
+                selector=item["artifact_selector"],
+                literal=str(item["literal"]),
+                assertion=item.get("value_assertion"),
+            )
+        except numeric_evidence.NumericEvidenceError as exc:
+            raise common.GateError(f"numeric value assertion failed {key}: {exc}") from exc
     elif kind == "structural":
         if item.get("exemption") not in ALLOWED_STRUCTURAL_EXEMPTIONS:
             raise common.GateError(f"invalid structural exemption: {key}")
+        forbidden = {
+            "claim_id", "evidence_id", "job_id", "artifact_path",
+            "artifact_sha256", "artifact_selector", "value_assertion",
+        }
+        if forbidden.intersection(item):
+            raise common.GateError(f"structural numeric record carries scientific provenance: {key}")
+        verified = {}
     else:
         raise common.GateError(f"invalid numeric kind {kind!r}: {key}")
     if figure:
@@ -390,6 +421,7 @@ def _validate_numeric_record(
             raise common.GateError(f"figure record lacks a frozen plot job: {key}")
         if kind != "structural" and item.get("job_id") != plot_job:
             raise common.GateError(f"figure plot_job_id/job_id mismatch: {key}")
+    return verified
 
 
 def _write_jsonl(path: Path, records: Iterable[Mapping[str, Any]]) -> None:
@@ -564,9 +596,14 @@ def build_paper_snapshot(
     )
     if any(Path(annotations_rel).is_relative_to(prefix) for prefix in BANNED_SOURCE_ROOTS):
         raise common.GateError("numeric annotations come from a quarantined surface")
+    auditable_texts = [
+        item
+        for item in (*sources, *rendered)
+        if item["source"].suffix.lower() in {".bib", ".md", ".tex", ".txt", ".html"}
+    ]
     expected = {
         key
-        for source in sources
+        for source in auditable_texts
         for key in _numeric_occurrences(source["source"], source["target"])
     }
     annotation_records = _load_jsonl(annotations_path, "numeric annotations")
@@ -579,7 +616,7 @@ def build_paper_snapshot(
             raise common.GateError(f"duplicate numeric annotation: {key}")
         if item.get("figure_sidecar") is True:
             raise common.GateError("source numeric annotations may not masquerade as figure sidecars")
-        _validate_numeric_record(
+        verified = _validate_numeric_record(
             item,
             key=key,
             release_dir=release_dir,
@@ -589,6 +626,7 @@ def build_paper_snapshot(
             claims_text=claims_text,
             evidence_text=evidence_text,
         )
+        item.update(verified)
         registry[key] = item
     missing = sorted(expected - set(registry))
     stale = sorted(set(registry) - expected)
@@ -610,7 +648,7 @@ def build_paper_snapshot(
                 )
             if key in registry:
                 raise common.GateError(f"duplicate global numeric occurrence: {key}")
-            _validate_numeric_record(
+            verified = _validate_numeric_record(
                 item,
                 key=key,
                 release_dir=release_dir,
@@ -621,6 +659,7 @@ def build_paper_snapshot(
                 evidence_text=evidence_text,
                 figure=True,
             )
+            item.update(verified)
             registry[key] = item
         figure_sidecars[figure["numbers_target"]] = records
 

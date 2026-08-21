@@ -18,15 +18,15 @@ and claim/evidence namespace (`LP-*`). There are no sibling imports.
 4. Run `python -m pytest -q` for repository contracts.
 5. Run `python scripts/audit_scientific_provenance.py --check-canonical` for
    Claim → Evidence → Job, numeric, pointer, snapshot, and disclosure gates.
-6. Use the reviewed scheduler entry points under `slurm/` for the fresh matrix
-   and its attempt reconciliation.
+6. Inspect `LP-E-SCIENTIFIC-MATRIX-001` and the checksum-registered terminal
+   reconciliation job for the completed current matrix.
 7. Freeze only a reviewed release plan with
    `scripts/freeze_evidence_release.py`; build a paper snapshot only from that
    release with `scripts/build_paper_snapshot.py`.
 
-Canonical consistency currently passes, but scientific release readiness is
-`BLOCKED`; see `REPRODUCIBILITY.toml`. `--require-release` must return nonzero
-until a frozen evidence release and checksum-locked paper snapshot both exist.
+Scientific execution closure is complete. Publication readiness remains
+`BLOCKED` only until the frozen evidence release and checksum-locked paper
+snapshot both exist; see `REPRODUCIBILITY.toml`.
 
 Historical binaries are present locally under `resources/corpora/`,
 `results/historical/legacy_import/`, and `paper/working/`; their presence does

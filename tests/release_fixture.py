@@ -58,7 +58,9 @@ def _job_record(
     manifest: Path,
     data_checksums: Path,
     dependency_lock: Path,
+    final_accounting: Path,
     failed_attempt_count: int,
+    excluded_attempt_count: int,
     additional_artifacts: list[dict[str, str]],
 ) -> str:
     artifact_toml = ""
@@ -95,9 +97,14 @@ result_pointer = "results/audit/scientific-result.json"
 result_sha256 = "{sha256(result)}"
 attempt_ledger = "results/audit/scientific-attempts.json"
 attempt_ledger_sha256 = "{sha256(ledger)}"
-attempt_count = {1 + failed_attempt_count}
+final_accounting = "evidence/execution/raw/final.psv"
+final_accounting_sha256 = "{sha256(final_accounting)}"
+attempt_count = 1
 failed_attempt_count = {failed_attempt_count}
-excluded_attempt_count = 0
+excluded_attempt_count = {excluded_attempt_count}
+audit_attempt_count = 0
+audit_failed_attempt_count = 0
+audit_cancelled_attempt_count = 0
 supported_evidence_ids = ["{EVIDENCE_ID}"]
 supported_scientific_claim_ids = ["{CLAIM_ID}"]
 {artifact_toml}'''
@@ -148,46 +155,81 @@ def create_release_project(
     source_commit = commit(root, "scientific source")
 
     task_id = "model:coedit:seed-1"
-    attempts: list[dict[str, Any]] = []
+    parent_result = root / "results/audit/task.json"
+    dump_json(parent_result, {"status": "COMPLETED", "task_id": task_id})
+    history = root / "evidence/execution/history.json"
+    dump_json(history, {"source": "synthetic scheduler history"})
+    attempt = {
+        "attempt_id": "slurm:123:0:0",
+        "campaign_id": "LP-CAM-TEST",
+        "generation": 0,
+        "task_id": task_id,
+        "attempt_index": 0,
+        "scheduler_job_id": "123_0",
+        "scheduler_job_id_raw": "456",
+        "array_job_id": "123",
+        "array_task_id": "0",
+        "restart_count": 0,
+        "seed": 1,
+        "submitted_at": "2026-08-20T00:00:00Z",
+        "started_at": "2026-08-20T00:00:01Z",
+        "finished_at": "2026-08-20T00:01:00Z",
+        "scheduler_state": "FAILED" if incomplete_attempt else "COMPLETED",
+        "exit_code": 1 if incomplete_attempt else 0,
+        "admissibility": "INADMISSIBLE" if incomplete_attempt else "ELIGIBLE",
+        "selected_for_aggregate": not incomplete_attempt,
+        "source_commit": source_commit,
+        "protocol_sha256": sha256(protocol),
+        "configuration_sha256": sha256(config),
+        "data_manifest_sha256": sha256(manifest),
+        "dependency_lock_sha256": sha256(dependency_lock),
+        "environment_digest_sha256": ENVIRONMENT_DIGEST,
+        "submission_script_sha256": "c" * 64,
+        "result_path": parent_result.relative_to(root).as_posix(),
+        "result_sha256": sha256(parent_result),
+    }
     if incomplete_attempt:
-        attempts.append(
-            {
-                "task_id": task_id,
-                "attempt_id": "attempt-0",
-                "attempt_index": 0,
-                "status": "FAILED",
-                "exit_code": 1,
-                "scheduler_job_id": "12345",
-                "array_task_id": "0",
-                "seed": 1,
-                "started_at": "2026-08-20T00:00:00Z",
-                "finished_at": "2026-08-20T00:01:00Z",
-                "error": "synthetic failure",
-            }
-        )
-    else:
-        attempts.append(
-            {
-                "task_id": task_id,
-                "attempt_id": "attempt-0",
-                "attempt_index": 0,
-                "status": "COMPLETED",
-                "exit_code": 0,
-                "scheduler_job_id": "12345",
-                "array_task_id": "0",
-                "seed": 1,
-                "started_at": "2026-08-20T00:00:00Z",
-                "finished_at": "2026-08-20T00:01:00Z",
-            }
-        )
+        attempt["reason"] = "SYNTHETIC_FAILURE"
+        attempt["error"] = "synthetic failure"
     ledger = root / "results/audit/scientific-attempts.json"
     dump_json(
         ledger,
         {
-            "schema_version": 1,
+            "schema_version": 2,
             "job_id": SCIENTIFIC_JOB_ID,
+            "campaign_id": "LP-CAM-TEST",
+            "source_artifacts": [
+                {"path": history.relative_to(root).as_posix(), "sha256": sha256(history)}
+            ],
             "expected_tasks": [task_id],
-            "attempts": attempts,
+            "tasks": [{
+                "task_id": task_id,
+                "terminal_attempt_id": attempt["attempt_id"],
+                "selected_attempt_id": None if incomplete_attempt else attempt["attempt_id"],
+            }],
+            "attempts": [attempt],
+            "audit_attempts": [],
+            "aggregate_selection": {
+                "policy": "exactly-one",
+                "included": [] if incomplete_attempt else [{
+                    "task_id": task_id,
+                    "attempt_id": attempt["attempt_id"],
+                    "scheduler_job_id": attempt["scheduler_job_id"],
+                    "result_path": attempt["result_path"],
+                    "result_sha256": attempt["result_sha256"],
+                }],
+            },
+            "accounting": {
+                "scientific_expected": 1,
+                "scientific_completed": 0 if incomplete_attempt else 1,
+                "scientific_attempt_total": 1,
+                "scientific_failed": 1 if incomplete_attempt else 0,
+                "scientific_cancelled": 0,
+                "scientific_inadmissible": 1 if incomplete_attempt else 0,
+                "quarantined_attempt_total": 0,
+                "quarantined_failed": 0,
+                "quarantined_cancelled": 0,
+            },
         },
     )
     result = root / "results/audit/scientific-result.json"
@@ -198,6 +240,9 @@ def create_release_project(
         "dataset": "coedit",
         "seed": 1,
         "ind_ap": 0.8,
+        "selected_attempt_id": attempt["attempt_id"],
+        "parent_result_path": attempt["result_path"],
+        "parent_result_sha256": attempt["result_sha256"],
     }
     dump_json(
         result,
@@ -295,6 +340,16 @@ def create_release_project(
                 }
             )
 
+    final_accounting = root / "evidence/execution/raw/final.psv"
+    write(
+        final_accounting,
+        "JobID|JobIDRaw|State|ExitCode|Submit|Start|End|Elapsed\n"
+        "123_0|456|COMPLETED|0:0|2026-08-20T00:00:00Z|"
+        "2026-08-20T00:00:01Z|2026-08-20T00:01:00Z|00:00:59\n"
+        "12345|12345|COMPLETED|0:0|2026-08-20T00:01:01Z|"
+        "2026-08-20T00:01:02Z|2026-08-20T00:01:03Z|00:00:01\n",
+    )
+
     record = root / f"evidence/jobs/{SCIENTIFIC_JOB_ID}.toml"
     write(
         record,
@@ -308,7 +363,9 @@ def create_release_project(
             manifest=manifest,
             data_checksums=data_checksums,
             dependency_lock=dependency_lock,
+            final_accounting=final_accounting,
             failed_attempt_count=1 if incomplete_attempt else 0,
+            excluded_attempt_count=1 if incomplete_attempt else 0,
             additional_artifacts=additional_artifacts,
         ),
     )
@@ -345,6 +402,10 @@ def create_release_project(
                     "record": f"evidence/jobs/{SCIENTIFIC_JOB_ID}.toml",
                     "result": "results/audit/scientific-result.json",
                     "attempt_ledger": "results/audit/scientific-attempts.json",
+                    "final_accounting": {
+                        "path": "evidence/execution/raw/final.psv",
+                        "sha256": sha256(final_accounting),
+                    },
                     "aggregation": {
                         "group_by": ["model", "dataset"],
                         "metrics": [
@@ -371,6 +432,7 @@ def create_snapshot_inputs(
     *,
     omit_structural_annotation: bool = False,
     include_figure: bool = False,
+    empirical_literal: str = "0.8",
 ) -> Path:
     claims = root / "wiki/claims/Current-Claim-Language.md"
     evidence = root / "wiki/evidence/Evidence-Ledger.md"
@@ -381,7 +443,7 @@ def create_snapshot_inputs(
         "- **Paper eligibility:** true\n",
     )
     write(evidence, f"# Evidence\n\n## {EVIDENCE_ID}\n")
-    write(source, "Result 0.8 in Section 2.\n")
+    write(source, f"Result {empirical_literal} in Section 2.\n")
     source_commit = commit(root, "admitted wiki and paper source")
 
     rendered = root / "paper/candidate/main.pdf"
@@ -396,7 +458,7 @@ def create_snapshot_inputs(
         {
             "file": "main.md",
             "line": 1,
-            "literal": "0.8",
+            "literal": empirical_literal,
             "occurrence": 1,
             "kind": "empirical",
             "claim_id": CLAIM_ID,

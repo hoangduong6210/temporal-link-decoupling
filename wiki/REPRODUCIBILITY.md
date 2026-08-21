@@ -15,9 +15,9 @@ must never be edited. `results/CURRENT`, `PROJECT.toml`, the evidence ledger,
 and a paper `results.lock.yaml` must agree before export.
 
 The machine-readable assessment is `REPRODUCIBILITY.toml`. It is currently
-`BLOCKED` only at the execution/release layer: the project has a committed
-baseline, but still needs a fresh scheduler matrix, a frozen evidence release,
-and an immutable paper snapshot.
+`BLOCKED` only at the immutable-artifact layer: the fresh scheduler matrix and
+attempt reconciliation are complete, while the frozen evidence release and
+paper snapshot still need activation.
 
 The first fresh execution was not admitted. It exposed duplicate node-memory
 commits and a temporal comparator registry containing simplified proxies. The
@@ -34,10 +34,12 @@ CoEdit graph; pending work was cancelled once the defect was isolated. Amendment
 topology classes. Native scheduler outcomes remain in
 `LP-E-SCHEDULER-HISTORY-001`; no affected output can be selected.
 
-The resolved default configuration now carries `SCIENTIFIC-FROZEN` before the
+The resolved default configuration carried `SCIENTIFIC-FROZEN` before the
 replacement execution. The pre-freeze campaign was stopped and retained as
 inadmissible rather than changing configuration metadata after seeing a final
-matrix.
+matrix. The terminal current campaign binds its clean source commit, resolved
+protocol/configuration, task profile, datasets, dependency lock, accelerator
+environment, selected parent results, and native Slurm accounting.
 
 The foundation is now fail-closed. Upstream raw bytes and processed corpora are
 checksum-pinned; acquisition is explicit and deterministic; data rights use a
@@ -58,7 +60,8 @@ registered raw inputs in a clean staging tree.
 `scripts/reconcile_scientific_matrix.py` retains failed, cancelled, completed,
 and quarantined attempts; checksum-binds an explicit selected attempt per
 protocol cell; and reconstructs all aggregates from retained per-seed rows using
-sample standard deviation.
+sample standard deviation. `LP-E-SCIENTIFIC-MATRIX-001` records the complete
+result and `LP-JOB-SLURM-A003-FINAL-RECONCILE-R2` owns its execution identity.
 `scripts/freeze_evidence_release.py` and `scripts/build_paper_snapshot.py` refuse
 partial matrices, stale hashes, mutable artifacts, and unclassified numeric
 occurrences.

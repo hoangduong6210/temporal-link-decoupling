@@ -1,7 +1,7 @@
 ---
 title: Paper Export Contract
 status: canonical contract
-last_updated: 2026-08-19
+last_updated: 2026-08-21
 paper_source: false
 ---
 
@@ -19,6 +19,12 @@ numeric registry. Every scientific value in prose, equations, tables, captions,
 appendices, and figure labels must resolve to a Claim ID, Evidence ID, Job ID,
 artifact checksum, and artifact selector. Structural numbers require an explicit
 narrow exemption; omission is not an exemption.
+
+The selector must resolve to a finite scalar inside a checksum-owned artifact
+that belongs to the declared scientific job. The registry must declare exact
+equality or an explicit decimal precision and rounding rule. Both the snapshot
+builder and canonical auditor independently recompute the assertion; neither
+trusts builder-authored audit fields.
 
 The export allowlist excludes `paper/working/`, top-level `paper/figs/`,
 `figures/generated/`, mutable audit results, and historical results. Current

@@ -1,7 +1,7 @@
 [project]
 id = "temporal-link-decoupling"
 name = "Temporal Link Prediction by Decoupling"
-stage = "corrective-scientific-execution-ready"
+stage = "immutable-release-assembly"
 implementation_version = "0.1.0"
 last_updated = "2026-08-21"
 

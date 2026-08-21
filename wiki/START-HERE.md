@@ -11,8 +11,8 @@ paper_source: false
 
 The project tests decoupling-by-construction against coupled end-to-end training
 for inductive temporal link prediction. The current stage is
-`split-migration-audit`. Current evidence release: `UNRELEASED`. Current paper
-snapshot: `UNRELEASED`.
+`immutable-release-assembly`. Current evidence release: `UNRELEASED`. Current
+paper snapshot: `UNRELEASED`.
 
 ## Supported now
 
@@ -26,29 +26,30 @@ snapshot: `UNRELEASED`.
   history; the corrected publication matrix excludes simplified model proxies.
 - Dataset topology is checksum-owned per corpus: CoEdit uses a homogeneous
   shared node space, while Wikipedia and MOOC use disjoint bipartite namespaces.
+- The complete current scientific task matrix, terminal accounting, and
+  reconstructed aggregates are validated by `LP-E-SCIENTIFIC-MATRIX-001` and
+  `LP-JOB-SLURM-A003-FINAL-RECONCILE-R2`.
 
 ## Unsupported or blocked now
 
-- No quantitative performance, irreversibility, hard-negative, baseline, or
-  generalization claim is admitted.
-- The scoped project has a committed baseline identity; scientific jobs must
-  bind their exact clean execution commit.
-- The fresh current-corpus scheduler matrix and its reconciliation are pending.
+- Quantitative wording is validated only inside `LP-C-DECOUPLING-001`; paper
+  admission waits for the frozen release.
+- Irreversibility, hard-negative, external-baseline, state-of-the-art, causal,
+  and architecture-general claims remain blocked.
 - No frozen evidence release or immutable conference snapshot exists.
 
 ## Running work and ownership
 
-No training or scheduler job is currently admitted. Dataset redistribution is
-disabled under the conservative rights policy. The evidence reviewer must close
-fresh execution coverage and comparator parity; the claim reviewer may approve
-wording only after a frozen release exists.
+No training or scheduler job is currently running. Dataset redistribution is
+disabled under the conservative rights policy. The evidence reviewer must
+verify immutable release closure; the claim reviewer may approve paper wording
+only after that release exists.
 
 ## Next actions
 
-1. Run and reconcile the frozen protocol scheduler matrix from a clean commit.
-2. Freeze the initial `LP-*` evidence release.
-3. Author and snapshot only the
-   claim language supported by that release.
+1. Freeze the declared `LP-*` evidence release.
+2. Author only the claim language supported by that release.
+3. Build and audit the immutable conference snapshot.
 
 ## Safe first checks and task routes
 

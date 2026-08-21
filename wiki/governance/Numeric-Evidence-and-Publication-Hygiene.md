@@ -1,7 +1,7 @@
 ---
 title: Numeric Evidence and Publication Hygiene
-status: canonical blocked gate
-last_updated: 2026-08-19
+status: canonical publication gate
+last_updated: 2026-08-21
 paper_source: false
 ---
 
@@ -15,12 +15,12 @@ ordered-list labels, identifier suffixes, hashes, bibliographic locators, and
 implementation versions are governance or structural metadata rather than
 empirical claims.
 
-The current wiki admits no paper-eligible performance scalar. Its sole validated
-technical scalar is the ID-set intersection statement in `LP-C-IDFIX-001`; that
-claim resolves to `LP-E-DATA-MIGRATION-001` and
-`LP-JOB-LOCAL-20260819-001`. Legacy paper numbers remain under
-`LP-E-LEGACY-RESULTS-001`, with no normalized job registry, and are prohibited
-from release or paper export.
+The current scientific values exist only in `LP-C-DECOUPLING-001`, where every
+displayed scalar names a selector into `LP-E-SCIENTIFIC-MATRIX-001` and resolves
+to `LP-JOB-SLURM-A003-FINAL-RECONCILE-R2`. The ID-set intersection statement in
+`LP-C-IDFIX-001` resolves to `LP-E-DATA-MIGRATION-001` and
+`LP-JOB-LOCAL-20260820-001`. Legacy paper numbers remain under
+`LP-E-LEGACY-RESULTS-001` and are prohibited from release or paper export.
 
 A conference snapshot must inventory every numeric occurrence by exact literal,
 file, line, and occurrence index. Scientific, protocol, and derived entries need
@@ -30,7 +30,7 @@ numeric inventory and a plot job. The executable gate is
 `scripts/audit_scientific_provenance.py`.
 
 Lexical scanning can detect vendor/persona names and internal-workflow markers;
-it cannot determine authorship. No claim of human or AI authorship may be made
-from stylometry alone. `paper/working/`, top-level `paper/figs/`,
+it cannot determine authorship. No authorship claim may be made from stylometry
+alone. `paper/working/`, top-level `paper/figs/`,
 `figures/generated/`, `results/historical/`, audit output, and the mixed parent
 tree are outside the publication surface.

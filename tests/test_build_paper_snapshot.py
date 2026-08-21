@@ -81,6 +81,17 @@ def test_snapshot_rejects_one_missing_number_and_leaves_no_payload(tmp_path: Pat
     assert (root / "paper/CURRENT").read_text().strip() == "UNRELEASED"
 
 
+def test_snapshot_rejects_literal_that_disagrees_with_selected_scalar(tmp_path: Path) -> None:
+    snapshot = _load(SNAPSHOT_SCRIPT, "build_snapshot_value_mismatch")
+    root = _released_project(tmp_path)
+    plan = create_snapshot_inputs(root, empirical_literal="0.7")
+
+    with pytest.raises(snapshot.common.GateError, match="does not match selected artifact value"):
+        snapshot.build_paper_snapshot(root, plan)
+
+    assert not (root / "paper/snapshots/LP-SNAP-TEST-001").exists()
+
+
 def test_snapshot_rejects_quarantined_working_source(tmp_path: Path) -> None:
     snapshot = _load(SNAPSHOT_SCRIPT, "build_snapshot_quarantine")
     root = _released_project(tmp_path)

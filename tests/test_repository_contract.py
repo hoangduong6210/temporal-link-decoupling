@@ -148,7 +148,7 @@ def test_wiki_identifier_and_governance_contracts() -> None:
         "Acceptance-gate outcome", "Supported claim IDs", "Rejected claim IDs",
         "Scientific-use boundary",
     ):
-        assert evidence.count(f"**{field}:**") == 6
+        assert evidence.count(f"**{field}:**") == 7
 
     decision = (WIKI / "decisions/0001-separate-link-prediction-and-lifecycle-readout.md").read_text()
     for heading in (
@@ -275,7 +275,11 @@ def test_numeric_evidence_jobs_and_publication_boundary() -> None:
         text = record.read_text(encoding="utf-8")
         assert f'job_id = "{job_id}"' in text
         assert "source_state" in text and "command" in text and "exit_code" in text
-        assert "scientific = false" in text
+        assert re.search(r"^scientific = (?:true|false)$", text, re.MULTILINE)
+        if "scientific = true" in text:
+            assert 'execution_kind = "scheduler"' in text
+            assert "supported_scientific_claim_ids" in text
+            assert "final_accounting_sha256" in text
         assert record.relative_to(ROOT).as_posix() in checksums
 
     quantitative = re.compile(
@@ -283,6 +287,8 @@ def test_numeric_evidence_jobs_and_publication_boundary() -> None:
     )
     violations = []
     for page in WIKI.rglob("*.md"):
+        if page == WIKI / "claims/Current-Claim-Language.md":
+            continue
         for lineno, line in enumerate(page.read_text(encoding="utf-8").splitlines(), 1):
             prose = re.sub(r"`[^`]+`", "", line)
             if quantitative.search(prose):
@@ -347,13 +353,14 @@ def test_provenance_auditor_and_release_readiness_semantics() -> None:
 def test_reproducibility_manifest_is_honest_and_hash_closed() -> None:
     text = (ROOT / "REPRODUCIBILITY.toml").read_text(encoding="utf-8")
     assert 'status = "BLOCKED"' in text
-    assert 'source_state = "COMMITTED_BASELINE"' in text
+    assert 'source_state = "CLEAN_SCIENTIFIC_EXECUTION"' in text
     assert re.search(r'^source_commit = "[0-9a-f]{40}"$', text, re.MULTILINE)
     assert (
         'clean_clone_corpus_state = '
         '"VERIFIED_NETWORK_ACQUISITION_AND_DETERMINISTIC_REBUILD"'
     ) in text
-    assert 'task_seed_attempt_failure_coverage = "CORRECTIVE_MATRIX_PENDING"' in text
+    assert 'task_seed_attempt_failure_coverage = "COMPLETE_EXACT_PROTOCOL_MATRIX"' in text
+    assert 'aggregation_reconstruction = "VERIFIED_FROM_SELECTED_PER_SEED_ROWS_WITH_SAMPLE_STD"' in text
     for hash_key, path_key in (
         ("protocol_sha256", "protocol_path"),
         ("runtime_manifest_sha256", "runtime_manifest"),

@@ -60,9 +60,11 @@ paper_source: false
 | Evidence | `LP-E-LEGACY-PAPER-001` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | Evidence | `LP-E-PROVENANCE-AUDIT-001` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | Evidence | `LP-E-SCHEDULER-HISTORY-001` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
-| Execution job | `LP-JOB-LOCAL-20260819-001` | [Job record](../evidence/jobs/LP-JOB-LOCAL-20260819-001.toml) |
+| Evidence | `LP-E-SCIENTIFIC-MATRIX-001` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
+| Execution job | `LP-JOB-LOCAL-20260820-001` | [Clean-acquisition job](../evidence/jobs/LP-JOB-LOCAL-20260820-001.toml) |
 | Execution job | `LP-JOB-LOCAL-20260819-002` | [Provenance-audit job](../evidence/jobs/LP-JOB-LOCAL-20260819-002.toml) |
 | Execution job | `LP-JOB-LOCAL-20260820-002` | [Scheduler-accounting job](../evidence/jobs/LP-JOB-LOCAL-20260820-002.toml) |
+| Execution job | `LP-JOB-SLURM-A003-FINAL-RECONCILE-R2` | [Scientific reconciliation job](../evidence/jobs/LP-JOB-SLURM-A003-FINAL-RECONCILE-R2.toml) |
 | Current claim | `LP-C-IDFIX-001` | [Current Claim Language](claims/Current-Claim-Language.md) |
 | Current claim | `LP-C-DECOUPLING-001` | [Current Claim Language](claims/Current-Claim-Language.md) |
 | Current claim | `LP-C-IRREVERSIBILITY-001` | [Current Claim Language](claims/Current-Claim-Language.md) |

@@ -1,23 +1,26 @@
 ---
 title: Technical Source Map
-status: migration reference map
-last_updated: 2026-08-19
+status: verified provenance map
+last_updated: 2026-08-21
 paper_source: false
 ---
 
 # Technical Source Map
 
-The manuscript bibliography is not a verified citation registry. UNKNOWN means
-that no exact primary source has yet been admitted to the canonical wiki.
+The machine-readable source identity for current data is
+`resources/source_registry.json`; `resources/manifest.toml` owns the processed
+identities. Quarantined manuscript citations do not become current sources by
+proximity.
 
 | Topic/source owner | Intended use | Primary source identity | Verification state | Admission boundary |
 |---|---|---|---|---|
-| Wikipedia and MOOC raw streams | Dataset provenance and acquisition | Intended JODIE/SNAP sources named in builder code; exact files UNKNOWN | BLOCKED: raw digest, acquisition date, license, and citation are absent | No dataset release or external benchmark claim |
-| CoEdit construction | Population, event definition, exclusions, and units | `experiments/dataset_builders/build_coedit.py`; upstream input UNKNOWN | BLOCKED pending code/provenance audit | No source-independence claim |
-| Average precision | Endpoint definition | Exact primary metric source UNKNOWN | BLOCKED pending definition and implementation parity review | No quantitative claim |
-| Random/historical/inductive negatives | Evaluation protocol | Citations exist only in quarantined working manuscript | BLOCKED pending primary-source and implementation verification | Regimes must not be mixed |
-| Temporal baseline families | Comparator scope and parity | Citations exist only in quarantined working manuscript | BLOCKED pending primary-source and official-implementation review | No SOTA or protocol-parity claim |
-| Stop-gradient/frozen probing | Method positioning | Citations exist only in quarantined working manuscript | BLOCKED pending primary-source verification | No novelty or generalization claim |
+| Wikipedia and MOOC raw streams | Dataset provenance and acquisition | Exact SNAP JODIE HTTPS objects and response metadata in `resources/source_registry.json` | Raw and processed digests verified by `LP-JOB-LOCAL-20260820-001` | Fetch-only; no redistribution grant asserted |
+| CoEdit construction | Population, event definition, exclusions, and units | Registered Wikipedia parent plus `experiments/dataset_builders/build_coedit.py` and checksum-owned parameters | Deterministic clean rebuild verified by `LP-JOB-LOCAL-20260820-001` | Project-built derivative; no source-independence claim |
+| Average precision | Current endpoint computation | Runner implementation bound by the scientific source commit and resolved protocol | Aggregate recomputation verified by `LP-JOB-SLURM-A003-FINAL-RECONCILE-R2` | Within-protocol claim only |
+| Registered negative sampling | Evaluation protocol | `protocols/link_prediction_v1.toml` and checksum-owned resolved task profiles | Current scientific matrix complete | No hard-negative generalization claim |
+| Temporal comparator families | Comparator scope and parity | Simplified local proxies are explicitly quarantined | Not admitted as external baselines | No state-of-the-art or protocol-parity claim |
+| Freeze then probe | Observed protocol arm | Current runner and resolved freeze task profile | Measurements retained by `LP-E-SCIENTIFIC-MATRIX-001` | No causal or irreversibility claim |
 
-Before any claim admission, record exact title/authors/venue/DOI or stable URL,
-the date checked, the proposition supported, and the reviewer decision here.
+Any future external comparison must add an exact primary source, stable official
+implementation identity, proposition supported, parity audit, and reviewer
+decision before claim admission.

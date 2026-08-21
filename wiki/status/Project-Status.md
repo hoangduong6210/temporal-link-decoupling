@@ -1,6 +1,6 @@
 ---
 title: Project Status
-status: active migration status
+status: evidence release assembly
 last_updated: 2026-08-21
 paper_source: false
 ---
@@ -9,62 +9,41 @@ paper_source: false
 
 ## Current state
 
-The project root, package namespace, corpus registry, legacy result partition,
-paper working tree, and canonical wiki are separated. Evidence and paper pointers
-remain `UNRELEASED`. The original mixed tree remains a read-only migration source
-because it contains dirty changes and pre-ID-fix provenance. No scientific
-conclusion changed during the split.
+The Link Prediction project has an independent implementation, corpus registry,
+result partition, wiki, and paper root. Current scientific execution is complete
+under `LP-E-SCIENTIFIC-MATRIX-001`; evidence and paper pointers remain
+`UNRELEASED` while immutable artifacts are assembled. The original mixed tree
+is read-only migration input and cannot support current claims.
 
 ## Verification state
 
-The local repository, import-boundary, checksum-manifest, JSON, wiki-link,
-frontmatter, artifact-hygiene, and dataset-schema/ID contracts passed on
-2026-08-19 (`LP-E-DATA-MIGRATION-001`, `LP-E-RUNTIME-MIGRATION-001`,
-job `LP-JOB-LOCAL-20260819-001`). This is a local structural result, not a
-frozen evidence release.
-The numeric/pointer/snapshot/disclosure gate also passes in its canonical
-unreleased mode (`LP-E-PROVENANCE-AUDIT-001`, job
-`LP-JOB-LOCAL-20260819-002`). Release readiness remains BLOCKED.
-Current corpus bytes were deterministically rebuilt from checksum-pinned raw
-inputs in a clean staging tree. They remain ignored and are not redistributed;
-clean acquisition uses the reviewed source registry and explicit builders.
+The source identity, exact raw and processed corpus digests, deterministic
+clean-clone acquisition, conservative dataset-rights policy, resolved
+configuration and protocol checksums, hashed transitive dependency lock,
+state-neutral warmup, deterministic accelerator record, finite-state guards,
+per-dataset topology, attempt ledger, failure matrix, and aggregate
+reconstruction are closed.
+
+The complete current task matrix and its terminal Slurm accounting are bound to
+`LP-JOB-SLURM-A003-FINAL-RECONCILE-R2`. Superseded, failed, and cancelled work
+retains native scheduler state under `LP-E-SCHEDULER-HISTORY-001`; none of those
+attempts can silently enter the selected aggregate.
 
 ## Active blockers
 
-- The scoped project has a committed baseline identity. Every fresh scheduler
-  envelope must still capture the exact clean execution commit.
-- A fresh current-corpus scheduler matrix has not yet completed, so accelerator
-  records and current performance aggregates are not admitted.
-- The initial fresh attempts are preserved by `LP-E-SCHEDULER-HISTORY-001` and
-  job `LP-JOB-LOCAL-20260820-002`. Native scheduler outcomes remain unchanged;
-  scientific admissibility is recorded separately. Bootstrap root-cause wording
-  is UNVERIFIED, the retry exposed ambiguous node-memory collision semantics,
-  and all temporal comparator implementations were adjudicated as simplified
-  proxies rather than faithful external baselines.
-- The subsequent A002 campaign is also preserved and inadmissible. CoEdit failed
-  closed under a wrongly global bipartite-ID invariant; queued work and the
-  reconciliation job were cancelled. Amendment `LP-P-DECOUPLING-001-A003`
-  restores the registered homogeneous CoEdit topology while retaining disjoint
-  user/item namespaces for Wikipedia and MOOC.
-- The initial A003 submission-directory attempt failed before runner startup and
-  its dependent reconciliation was cancelled. Its exact native accounting is
-  retained in the same scheduler-history evidence; replacement execution must
-  originate from the project root.
-- A later A003 campaign was stopped after the release gate exposed the stale
-  pre-freeze configuration lifecycle label. Completed and cancelled cells remain
-  inadmissible. The resolved configuration is now explicitly
-  `SCIENTIFIC-FROZEN` before replacement execution.
-- No frozen evidence release, admitted performance claim, results lock, or
-  immutable paper snapshot exists.
-- Strong numerical and generalization wording in `paper/working/` remains QUARANTINED.
-- Historical execution attempts are reconciled where surviving artifacts allow,
-  including retries and terminal failures, but remain ineligible because they
-  lack the current source/data/environment chain. The preserved DOCX and ZIP lack
-  visible quarantine banners; legacy figures remain outside the publication path.
+- Materialize and activate `LP-REL-2026-A003-001` from its checksum-closed plan.
+- Build a fresh Link Prediction-only conference candidate from the admitted
+  release, inventory every numeric occurrence, and freeze its snapshot.
+- Run the canonical and clean-clone audits against those immutable pointers.
+- Public source licensing remains an owner decision; it does not weaken the
+  internal evidence chain, and dataset bytes remain fetch-only.
+
+Quarantined manuscript history, proxy comparators, lifecycle-readout material,
+generated figures outside the allowlist, and historical results remain outside
+the publication surface.
 
 ## Next stage
 
-Run the frozen scheduler matrix from a clean commit, reconcile every attempt,
-and freeze the checksum-closed evidence release. Then generate the new
-paper only from admitted release artifacts and build the immutable conference
-snapshot. Paper export remains blocked until those gates pass.
+Freeze the evidence release, admit only the bounded current claim, build the
+conference snapshot from that release, and require the final provenance gate to
+recompute every registered paper value from the frozen payload.

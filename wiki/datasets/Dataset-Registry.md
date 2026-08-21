@@ -27,7 +27,7 @@ paper_source: false
 - **Split and leakage controls:** Owned by `LP-P-DECOUPLING-001`; execution-specific
   split and negative-pool identities must be captured by each scientific job.
 - **Known defects:** No dataset redistribution grant is asserted.
-- **Compatible claims:** none admitted until fresh current-corpus runs freeze.
+- **Compatible claims:** `LP-C-DECOUPLING-001` after frozen-release activation.
 
 ## LP-D-WIKIPEDIA-003
 
@@ -47,7 +47,8 @@ paper_source: false
 - **Split and leakage controls:** Owned by `LP-P-DECOUPLING-001` and captured by
   scientific job metadata.
 - **Known defects:** No upstream redistribution license grant was identified.
-- **Compatible claims:** technical ID-namespace validation; performance awaits fresh runs.
+- **Compatible claims:** technical ID-namespace validation and
+  `LP-C-DECOUPLING-001` after frozen-release activation.
 
 ## LP-D-MOOC-003
 
@@ -67,7 +68,8 @@ paper_source: false
 - **Split and leakage controls:** Owned by `LP-P-DECOUPLING-001` and captured by
   scientific job metadata.
 - **Known defects:** No upstream redistribution license grant was identified.
-- **Compatible claims:** technical ID-namespace validation; performance awaits fresh runs.
+- **Compatible claims:** technical ID-namespace validation and
+  `LP-C-DECOUPLING-001` after frozen-release activation.
 
 ## Quarantined migration identities
 

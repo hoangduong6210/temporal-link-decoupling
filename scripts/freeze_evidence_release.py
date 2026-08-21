@@ -321,6 +321,7 @@ def _same_file_record(actual: Any, expected: Mapping[str, str], label: str) -> N
 
 
 def _validate_attempt_ledger(
+    root: Path,
     payload: Any,
     *,
     job_id: str,
@@ -347,11 +348,23 @@ def _validate_attempt_ledger(
         source_artifacts = _require_list(ledger["source_artifacts"], "attempt ledger source_artifacts")
         if not source_artifacts:
             raise GateError("attempt ledger has no checksum-bound source artifact")
+        verified_sources: list[dict[str, str]] = []
+        source_paths: set[str] = set()
         for index, raw in enumerate(source_artifacts):
-            record = _require_mapping(raw, f"attempt ledger source_artifact[{index}]")
-            _required(record, ("path", "sha256"), f"attempt ledger source_artifact[{index}]")
-            if not isinstance(record["path"], str) or HEX64.fullmatch(str(record["sha256"])) is None:
-                raise GateError("attempt ledger source artifact identity is invalid")
+            label = f"attempt ledger source_artifact[{index}]"
+            record = _file_record(root, raw, label)
+            path = Path(record["path"])
+            if not (
+                path.is_relative_to(Path("evidence/execution"))
+                or path.is_relative_to(Path("results/audit"))
+            ):
+                raise GateError(
+                    f"attempt ledger source artifact is outside approved roots: {record['path']}"
+                )
+            if record["path"] in source_paths:
+                raise GateError(f"duplicate attempt ledger source artifact: {record['path']}")
+            source_paths.add(record["path"])
+            verified_sources.append(record)
 
         by_task: dict[str, list[dict[str, Any]]] = {task: [] for task in expected_tasks}
         all_attempt_ids: set[str] = set()
@@ -363,7 +376,8 @@ def _validate_attempt_ledger(
                 item,
                 (
                     "attempt_id", "campaign_id", "generation", "task_id", "attempt_index",
-                    "scheduler_job_id", "array_job_id", "array_task_id", "restart_count",
+                    "scheduler_job_id", "scheduler_job_id_raw", "array_job_id",
+                    "array_task_id", "restart_count",
                     "submitted_at", "started_at", "finished_at", "scheduler_state",
                     "exit_code", "admissibility", "selected_for_aggregate", "source_commit",
                     "protocol_sha256", "configuration_sha256", "data_manifest_sha256",
@@ -395,6 +409,8 @@ def _validate_attempt_ledger(
             scheduler_tuples.add(scheduler_tuple)
             if str(item["scheduler_job_id"]) in {"", "NOT_APPLICABLE", "UNKNOWN"}:
                 raise GateError(f"attempt lacks scheduler identity: {attempt_id}")
+            if str(item["scheduler_job_id_raw"]) in {"", "NOT_APPLICABLE", "UNKNOWN"}:
+                raise GateError(f"attempt lacks raw scheduler identity: {attempt_id}")
             if item["submitted_at"] is not None and not isinstance(item["submitted_at"], str):
                 raise GateError(f"attempt submitted_at has invalid type: {attempt_id}")
             if item["started_at"] is not None and not isinstance(item["started_at"], str):
@@ -510,87 +526,39 @@ def _validate_attempt_ledger(
         for key, expected in expected_counts.items():
             if declared_counts.get(key) != expected:
                 raise GateError(f"job record {key} mismatch: expected {expected}")
+        expected_accounting = {
+            "scientific_expected": len(expected_tasks),
+            "scientific_completed": len(selected_attempts),
+            "scientific_attempt_total": len(scientific),
+            "scientific_failed": sum(item["scheduler_state"] == "FAILED" for item in scientific),
+            "scientific_cancelled": sum(item["scheduler_state"] == "CANCELLED" for item in scientific),
+            "scientific_inadmissible": sum(
+                item["admissibility"] == "INADMISSIBLE" for item in scientific
+            ),
+            "quarantined_attempt_total": len(audited),
+            "quarantined_failed": sum(item["scheduler_state"] == "FAILED" for item in audited),
+            "quarantined_cancelled": sum(
+                item["scheduler_state"] == "CANCELLED" for item in audited
+            ),
+        }
+        accounting = _require_mapping(ledger["accounting"], "attempt ledger accounting")
+        _required(accounting, expected_accounting, "attempt ledger accounting")
+        for key, expected in expected_accounting.items():
+            actual = accounting[key]
+            if isinstance(actual, bool) or not isinstance(actual, int) or actual != expected:
+                raise GateError(
+                    f"attempt ledger accounting mismatch {key}: expected {expected}, got {actual!r}"
+                )
         return {
             **expected_counts,
             "task_count": len(expected_tasks),
             "final_seeds": final_seeds,
             "selected_attempts": selected_attempts,
+            "source_artifacts": verified_sources,
         }
-    if ledger["schema_version"] != 1:
-        raise GateError(f"unsupported attempt ledger schema for {job_id}")
-    attempts = _require_list(ledger["attempts"], "attempt ledger attempts")
-    if not attempts:
-        raise GateError(f"attempt ledger is empty for {job_id}")
-    by_task: dict[str, list[dict[str, Any]]] = {task: [] for task in expected_tasks}
-    attempt_ids: set[str] = set()
-    failed_count = 0
-    excluded_count = 0
-    for index, raw in enumerate(attempts):
-        item = _require_mapping(raw, f"attempt[{index}]")
-        _required(
-            item,
-            (
-                "task_id", "attempt_id", "attempt_index", "status", "exit_code",
-                "scheduler_job_id", "array_task_id", "seed", "started_at", "finished_at",
-            ),
-            f"attempt[{index}]",
-        )
-        task_id = item["task_id"]
-        attempt_id = item["attempt_id"]
-        if task_id not in by_task:
-            raise GateError(f"attempt references undeclared task: {task_id}")
-        if not isinstance(attempt_id, str) or not attempt_id or attempt_id in attempt_ids:
-            raise GateError(f"attempt_id is empty or duplicated: {attempt_id!r}")
-        attempt_ids.add(attempt_id)
-        if not isinstance(item["attempt_index"], int) or item["attempt_index"] < 0:
-            raise GateError(f"invalid attempt_index for {attempt_id}")
-        if not isinstance(item["seed"], int):
-            raise GateError(f"attempt seed must be an integer: {attempt_id}")
-        if str(item["scheduler_job_id"]) in {"", "NOT_APPLICABLE", "UNKNOWN"}:
-            raise GateError(f"attempt lacks scheduler identity: {attempt_id}")
-        if not isinstance(item["started_at"], str) or not isinstance(item["finished_at"], str):
-            raise GateError(f"attempt lacks timestamps: {attempt_id}")
-        status = item["status"]
-        if status == "COMPLETED":
-            if item["exit_code"] != 0:
-                raise GateError(f"completed attempt has nonzero exit code: {attempt_id}")
-        elif status == "FAILED":
-            failed_count += 1
-            if not isinstance(item["exit_code"], int) or item["exit_code"] == 0 or not item.get("error"):
-                raise GateError(f"failed attempt lacks nonzero exit/error: {attempt_id}")
-        elif status == "EXCLUDED":
-            excluded_count += 1
-            if not item.get("reason"):
-                raise GateError(f"excluded attempt lacks reason: {attempt_id}")
-        else:
-            raise GateError(f"invalid attempt status {status!r}: {attempt_id}")
-        by_task[str(task_id)].append(item)
-
-    final_seeds: dict[str, int] = {}
-    for task_id, task_attempts in by_task.items():
-        if not task_attempts:
-            raise GateError(f"task has no recorded attempt: {task_id}")
-        indexes = [item["attempt_index"] for item in task_attempts]
-        if len(indexes) != len(set(indexes)):
-            raise GateError(f"task has duplicate attempt indexes: {task_id}")
-        final = max(task_attempts, key=lambda item: item["attempt_index"])
-        if final["status"] != "COMPLETED" or final["exit_code"] != 0:
-            raise GateError(f"task has no successful final attempt: {task_id}")
-        final_seeds[task_id] = final["seed"]
-
-    expected_counts = {
-        "attempt_count": len(attempts),
-        "failed_attempt_count": failed_count,
-        "excluded_attempt_count": excluded_count,
-    }
-    for key, expected in expected_counts.items():
-        if declared_counts.get(key) != expected:
-            raise GateError(f"job record {key} mismatch: expected {expected}")
-    return {
-        **expected_counts,
-        "task_count": len(expected_tasks),
-        "final_seeds": final_seeds,
-    }
+    if ledger["schema_version"] == 1:
+        raise GateError("frozen scientific releases require attempt-ledger schema_version=2")
+    raise GateError(f"unsupported attempt ledger schema for {job_id}")
 
 
 def _finite_number(value: Any, label: str) -> float:
@@ -699,6 +667,53 @@ def _reconstruct_aggregates(result: Mapping[str, Any], spec: Any, label: str) ->
     return {"ddof": ddof, "absolute_tolerance": tolerance, "groups": report_groups}
 
 
+def _validate_final_slurm_accounting(
+    path: Path,
+    *,
+    scheduler_job_id: str,
+    selected_attempts: Mapping[str, Mapping[str, Any]],
+) -> None:
+    """Require one terminal Slurm row for every selected cell and the reconciler."""
+
+    try:
+        lines = path.read_text(encoding="utf-8").splitlines()
+    except (OSError, UnicodeError) as exc:
+        raise GateError(f"cannot read final Slurm accounting {path}: {exc}") from exc
+    header = "JobID|JobIDRaw|State|ExitCode|Submit|Start|End|Elapsed"
+    if not lines or lines[0] != header or any(not line for line in lines[1:]):
+        raise GateError("final Slurm accounting has an invalid header or blank row")
+    rows: dict[str, list[str]] = {}
+    for lineno, line in enumerate(lines[1:], 2):
+        fields = line.split("|")
+        if len(fields) != 8:
+            raise GateError(f"final Slurm accounting row {lineno} does not have 8 fields")
+        job_id = fields[0]
+        if not job_id or job_id in rows:
+            raise GateError(f"duplicate/empty final Slurm JobID at row {lineno}")
+        rows[job_id] = fields
+
+    expected_raw = {
+        str(item["scheduler_job_id"]): str(item["scheduler_job_id_raw"])
+        for item in selected_attempts.values()
+    }
+    expected_raw[str(scheduler_job_id)] = str(scheduler_job_id)
+    if set(rows) != set(expected_raw):
+        missing = sorted(set(expected_raw) - set(rows))
+        extra = sorted(set(rows) - set(expected_raw))
+        raise GateError(
+            f"final Slurm accounting coverage mismatch: missing={missing}, extra={extra}"
+        )
+    invalid_time = {"", "Unknown", "None", "N/A"}
+    for job_id, expected_raw_id in expected_raw.items():
+        logical, raw, state, exit_code, submit, start, end, elapsed = rows[job_id]
+        if logical != job_id or raw != expected_raw_id:
+            raise GateError(f"final Slurm accounting identity mismatch: {job_id}")
+        if state != "COMPLETED" or exit_code != "0:0":
+            raise GateError(f"final Slurm accounting is not successful: {job_id}")
+        if any(value in invalid_time for value in (submit, start, end, elapsed)):
+            raise GateError(f"final Slurm accounting lacks terminal timestamps: {job_id}")
+
+
 def _validate_job(
     root: Path,
     entry_value: Any,
@@ -709,10 +724,17 @@ def _validate_job(
     environment_digest: str,
 ) -> dict[str, Any]:
     entry = _require_mapping(entry_value, "release job entry")
-    _required(entry, ("record", "result", "attempt_ledger", "aggregation"), "release job entry")
+    _required(
+        entry,
+        ("record", "result", "attempt_ledger", "final_accounting", "aggregation"),
+        "release job entry",
+    )
     record_rel, _, record = _registered_job(root, entry["record"])
     result_rel, result_path = _safe_file(root, entry["result"], "scientific result")
     ledger_rel, ledger_path = _safe_file(root, entry["attempt_ledger"], "attempt ledger")
+    final_accounting = _file_record(root, entry["final_accounting"], "final Slurm accounting")
+    if not Path(final_accounting["path"]).is_relative_to(Path("evidence/execution/raw")):
+        raise GateError("final Slurm accounting must originate in evidence/execution/raw")
     if not Path(result_rel).is_relative_to(Path("results/audit")):
         raise GateError(f"scientific result must originate in results/audit: {result_rel}")
     if not Path(ledger_rel).is_relative_to(Path("results/audit")):
@@ -727,7 +749,7 @@ def _validate_job(
         "dependency_lock_sha256", "environment_digest_sha256", "result_pointer",
         "result_sha256", "attempt_ledger", "attempt_ledger_sha256", "attempt_count",
         "failed_attempt_count", "excluded_attempt_count", "supported_evidence_ids",
-        "supported_scientific_claim_ids",
+        "supported_scientific_claim_ids", "final_accounting", "final_accounting_sha256",
     )
     _required(record, required_record_fields, f"job record {record_rel}")
     job_id = record["job_id"]
@@ -759,6 +781,8 @@ def _validate_job(
         "result_sha256": _sha256(result_path),
         "attempt_ledger": ledger_rel,
         "attempt_ledger_sha256": _sha256(ledger_path),
+        "final_accounting": final_accounting["path"],
+        "final_accounting_sha256": final_accounting["sha256"],
     }
     for field, expected in expected_records.items():
         if record[field] != expected:
@@ -830,10 +854,16 @@ def _validate_job(
     if coverage.get("failed") != [] or coverage.get("excluded") != [] or result["failures"] != []:
         raise GateError(f"job retains an unresolved failed/excluded task: {job_id}")
     ledger_report = _validate_attempt_ledger(
+        root,
         _load_json(ledger_path),
         job_id=job_id,
         expected_tasks=expected_tasks,
         declared_counts=record,
+    )
+    _validate_final_slurm_accounting(
+        root / final_accounting["path"],
+        scheduler_job_id=str(record["scheduler_job_id"]),
+        selected_attempts=ledger_report["selected_attempts"],
     )
     runs = _require_list(result["runs"], f"{job_id}.runs")
     run_tasks: dict[str, dict[str, Any]] = {}
@@ -873,6 +903,11 @@ def _validate_job(
         "record": record_rel,
         "result": result_rel,
         "attempt_ledger": ledger_rel,
+        "record_sha256": _sha256(root / record_rel),
+        "result_sha256": _sha256(result_path),
+        "attempt_ledger_sha256": _sha256(ledger_path),
+        "source_artifacts": ledger_report["source_artifacts"],
+        "final_accounting": final_accounting,
         "supported_evidence_ids": supported_evidence,
         "supported_scientific_claim_ids": supported_claims,
         "coverage": {
@@ -910,8 +945,15 @@ def _validate_supplemental_artifacts(
         if record["path"] in seen:
             raise GateError(f"duplicate supplemental artifact: {record['path']}")
         seen.add(record["path"])
-        if not Path(record["path"]).is_relative_to(Path("results/audit")):
-            raise GateError(f"supplemental artifact must originate in results/audit: {record['path']}")
+        artifact_path = Path(record["path"])
+        if not (
+            artifact_path.is_relative_to(Path("results/audit"))
+            or artifact_path.is_relative_to(Path("evidence/execution/raw"))
+        ):
+            raise GateError(
+                "supplemental artifact must originate in results/audit or "
+                f"evidence/execution/raw: {record['path']}"
+            )
         job_id = item["job_id"]
         if not isinstance(job_id, str) or job_id not in jobs_by_id:
             raise GateError(f"supplemental artifact names an unknown release job: {job_id}")
@@ -1104,13 +1146,37 @@ def freeze_evidence_release(
     target.parent.mkdir(parents=True, exist_ok=True)
     staging = Path(tempfile.mkdtemp(prefix=f".{release_id}.staging-", dir=target.parent))
     try:
-        payload_paths = [record["path"] for record in file_records.values()]
+        payload_digests = {
+            record["path"]: record["sha256"] for record in file_records.values()
+        }
         for job in jobs:
-            payload_paths.extend((job["record"], job["result"], job["attempt_ledger"]))
-        payload_paths.extend(artifact["path"] for artifact in artifacts)
+            payload_digests.update(
+                {
+                    job["record"]: job["record_sha256"],
+                    job["result"]: job["result_sha256"],
+                    job["attempt_ledger"]: job["attempt_ledger_sha256"],
+                    job["final_accounting"]["path"]: job["final_accounting"]["sha256"],
+                }
+            )
+            for source_artifact in job["source_artifacts"]:
+                existing = payload_digests.get(source_artifact["path"])
+                if existing is not None and existing != source_artifact["sha256"]:
+                    raise GateError(
+                        f"conflicting release payload checksum: {source_artifact['path']}"
+                    )
+                payload_digests[source_artifact["path"]] = source_artifact["sha256"]
+        for artifact in artifacts:
+            existing = payload_digests.get(artifact["path"])
+            if existing is not None and existing != artifact["sha256"]:
+                raise GateError(f"conflicting release payload checksum: {artifact['path']}")
+            payload_digests[artifact["path"]] = artifact["sha256"]
         plan_rel = plan_path.relative_to(root).as_posix()
-        payload_paths.append(plan_rel)
-        _copy_payload(root, staging, payload_paths)
+        payload_digests[plan_rel] = _sha256(plan_path)
+        _copy_payload(root, staging, payload_digests)
+        for rel, expected_digest in payload_digests.items():
+            copied = staging / "payload" / rel
+            if _sha256(copied) != expected_digest:
+                raise GateError(f"release payload changed during copy: {rel}")
         release_manifest: dict[str, Any] = {
             "schema_version": 1,
             "state": "FROZEN",
@@ -1137,6 +1203,14 @@ def freeze_evidence_release(
                     "record": f"payload/{job['record']}",
                     "result": f"payload/{job['result']}",
                     "attempt_ledger": f"payload/{job['attempt_ledger']}",
+                    "source_artifacts": [
+                        {**artifact, "path": f"payload/{artifact['path']}"}
+                        for artifact in job["source_artifacts"]
+                    ],
+                    "final_accounting": {
+                        **job["final_accounting"],
+                        "path": f"payload/{job['final_accounting']['path']}",
+                    },
                 }
                 for job in jobs
             ],

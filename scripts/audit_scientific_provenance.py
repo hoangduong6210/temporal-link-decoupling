@@ -15,6 +15,11 @@ from pathlib import Path
 import re
 import zipfile
 
+try:
+    from scripts import numeric_evidence
+except ModuleNotFoundError:  # pragma: no cover - direct script execution
+    import numeric_evidence  # type: ignore[no-redef]
+
 try:  # Python 3.11+
     import tomllib  # type: ignore[import-not-found]
 except ModuleNotFoundError:  # pragma: no cover - exercised on the cluster's Python 3.9
@@ -34,17 +39,14 @@ SCIENTIFIC_LITERAL = re.compile(
     r"(?:±|\\pm)\s*\d+(?:\.\d+)?(?:[eE][+-]?\d+)?|"
     r"\d+(?:\.\d+)?\s*(?::|/)\s*\d+(?:\.\d+)?)"
 )
-NUMBER_TOKEN = re.compile(
-    r"(?<![A-Za-z0-9_])[+-]?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?(?:\s*(?:%|pp))?"
-    r"(?![A-Za-z0-9_])"
-)
+NUMBER_TOKEN = numeric_evidence.NUMBER_TOKEN
 NUMBER_WORD = re.compile(
     r"\b(?:zero|one|two|three|four|five|six|seven|eight|nine|ten|"
     r"eleven|twelve|hundred|thousand|million|billion)\b",
     re.IGNORECASE,
 )
 STRUCTURAL_IDENTIFIER = re.compile(
-    r"\b(?:LP-(?:RQ|D|P|E|C|H|JOB)-[A-Z0-9-]+|DEC-\d+|SHA-\d+)\b"
+    r"\b(?:LP-(?:RQ|D|P|E|C|H|JOB|REL|SNAP)-[A-Z0-9-]+|DEC-\d+|SHA-\d+)\b"
 )
 INTERNAL_MARKER = re.compile(
     r"\b(?:claude|grok|chatgpt|codex|openai|anthropic|gemini)\b|"
@@ -329,11 +331,27 @@ def _audit_snapshot(snapshot_id: str, evidence_release: str, issues: list[str]) 
 
     claims_text = (WIKI / "claims/Current-Claim-Language.md").read_text(encoding="utf-8")
     evidence_text = (WIKI / "evidence/Evidence-Ledger.md").read_text(encoding="utf-8")
+    release_dir = ROOT / "results/frozen" / evidence_release
+    try:
+        release_manifest = json.loads((release_dir / "release.json").read_text(encoding="utf-8"))
+        release_checksums = _checksums(release_dir / "checksums.sha256")
+    except (OSError, json.JSONDecodeError, ValueError) as exc:
+        issues.append(f"cannot load frozen evidence for numeric verification: {exc}")
+        release_manifest = {"jobs": [], "artifacts": []}
+        release_checksums = {}
+    release_jobs = {
+        str(job.get("job_id")): job
+        for job in release_manifest.get("jobs", [])
+        if isinstance(job, dict)
+    }
 
     def validate_numeric_record(item: dict[str, object], key: tuple[str, int, str, int]) -> None:
         kind = item.get("kind")
         if kind in {"empirical", "protocol", "derived"}:
-            for required in ("claim_id", "evidence_id", "job_id", "artifact_sha256", "artifact_selector"):
+            for required in (
+                "claim_id", "evidence_id", "job_id", "artifact_path",
+                "artifact_sha256", "artifact_selector",
+            ):
                 if not item.get(required):
                     issues.append(f"numeric record lacks {required}: {key}")
             claim_id = str(item.get("claim_id", ""))
@@ -356,9 +374,49 @@ def _audit_snapshot(snapshot_id: str, evidence_release: str, issues: list[str]) 
                         issues.append(f"scientific job does not support numeric evidence: {key}")
                     if claim_id not in set(record.get("supported_scientific_claim_ids", [])):
                         issues.append(f"scientific job does not support numeric claim: {key}")
+            artifact_path = str(item.get("artifact_path", ""))
+            artifact = (release_dir / artifact_path).resolve()
+            if (
+                not artifact_path
+                or not artifact.is_relative_to(release_dir.resolve())
+                or not artifact.is_file()
+                or release_checksums.get(artifact_path) != item.get("artifact_sha256")
+                or _sha256(artifact) != item.get("artifact_sha256")
+            ):
+                issues.append(f"numeric record artifact is absent/stale in frozen release: {key}")
+            manifest_job = release_jobs.get(job_id, {})
+            owned_paths = {str(manifest_job.get("result", ""))}
+            owned_paths.update(
+                str(entry.get("path", ""))
+                for entry in release_manifest.get("artifacts", [])
+                if isinstance(entry, dict) and entry.get("job_id") == job_id
+            )
+            if artifact_path not in owned_paths:
+                issues.append(f"numeric artifact is not owned by its declared job: {key}")
+            if artifact.is_file():
+                try:
+                    computed = numeric_evidence.verify_numeric_assertion(
+                        artifact=artifact,
+                        selector=str(item.get("artifact_selector", "")),
+                        literal=str(item.get("literal", "")),
+                        assertion=item.get("value_assertion")
+                        if isinstance(item.get("value_assertion"), dict)
+                        else None,
+                    )
+                except numeric_evidence.NumericEvidenceError as exc:
+                    issues.append(f"numeric value assertion failed {key}: {exc}")
+                else:
+                    for field, expected in computed.items():
+                        if item.get(field) != expected:
+                            issues.append(f"numeric computed field is absent/stale {field}: {key}")
         elif kind == "structural":
             if item.get("exemption") not in ALLOWED_STRUCTURAL_EXEMPTIONS:
                 issues.append(f"numeric record has invalid structural exemption: {key}")
+            if {
+                "claim_id", "evidence_id", "job_id", "artifact_path",
+                "artifact_sha256", "artifact_selector", "value_assertion",
+            }.intersection(item):
+                issues.append(f"structural numeric record carries scientific provenance: {key}")
         else:
             issues.append(f"numeric record has invalid kind: {key}")
 
@@ -379,13 +437,26 @@ def _audit_snapshot(snapshot_id: str, evidence_release: str, issues: list[str]) 
         validate_numeric_record(item, key)
 
     expected: set[tuple[str, int, str, int]] = set()
-    for rel in manifest.get("source_files", []):
+    auditable_files = [
+        *manifest.get("source_files", []),
+        *manifest.get("rendered_files", []),
+    ]
+    for rel in auditable_files:
         source = snapshot / str(rel)
-        if source.suffix.lower() not in {".bib", ".md", ".tex", ".txt"} or not source.is_file():
+        if source.suffix.lower() not in {".bib", ".md", ".tex", ".txt", ".html"} or not source.is_file():
+            continue
+        try:
+            source_lines = source.read_text(encoding="utf-8").splitlines()
+            for lineno, text_line in enumerate(source_lines, 1):
+                numeric_evidence.reject_ambiguous_numeric_text(
+                    text_line, f"{rel}:{lineno}"
+                )
+        except (OSError, UnicodeError, numeric_evidence.NumericEvidenceError) as exc:
+            issues.append(f"unsupported snapshot numeric text: {exc}")
             continue
         for line, literal, occurrence in _numeric_occurrences(source):
             expected.add((str(rel), line, literal, occurrence))
-        for lineno, text_line in enumerate(source.read_text(encoding="utf-8").splitlines(), 1):
+        for lineno, text_line in enumerate(source_lines, 1):
             if INTERNAL_MARKER.search(text_line):
                 issues.append(f"internal/AI workflow marker in snapshot: {rel}:{lineno}")
     for key in sorted(expected - registry.keys()):
@@ -513,6 +584,10 @@ def audit() -> dict[str, object]:
             for lineno, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
                 if INTERNAL_MARKER.search(line):
                     active_internal.append(f"{path.relative_to(ROOT)}:{lineno}")
+    for path in sorted(WIKI.rglob("*.md")):
+        for lineno, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+            if INTERNAL_MARKER.search(line):
+                active_internal.append(f"{path.relative_to(ROOT)}:{lineno}")
     if active_internal:
         issues.extend(f"internal workflow residue on active surface: {item}" for item in active_internal)
 

@@ -23,7 +23,10 @@ def _module():
     return module
 
 
-def _v2_ledger() -> tuple[dict, dict]:
+def _v2_ledger(root: Path) -> tuple[dict, dict]:
+    history = root / "evidence/execution/history.json"
+    history.parent.mkdir(parents=True, exist_ok=True)
+    history.write_text('{"history":"test"}\n', encoding="utf-8")
     task_id = "model:coedit:seed-1"
     attempt = {
         "attempt_id": "slurm:123:0:0",
@@ -32,6 +35,7 @@ def _v2_ledger() -> tuple[dict, dict]:
         "task_id": task_id,
         "attempt_index": 0,
         "scheduler_job_id": "456",
+        "scheduler_job_id_raw": "456",
         "array_job_id": "123",
         "array_task_id": "0",
         "restart_count": 0,
@@ -57,7 +61,10 @@ def _v2_ledger() -> tuple[dict, dict]:
         "schema_version": 2,
         "job_id": "LP-JOB-SCI-TEST-001",
         "campaign_id": "LP-CAM-TEST",
-        "source_artifacts": [{"path": "evidence/history.json", "sha256": HEX64}],
+        "source_artifacts": [{
+            "path": "evidence/execution/history.json",
+            "sha256": sha256(history),
+        }],
         "expected_tasks": [task_id],
         "tasks": [{
             "task_id": task_id,
@@ -76,7 +83,17 @@ def _v2_ledger() -> tuple[dict, dict]:
                 "result_sha256": attempt["result_sha256"],
             }],
         },
-        "accounting": {},
+        "accounting": {
+            "scientific_expected": 1,
+            "scientific_completed": 1,
+            "scientific_attempt_total": 1,
+            "scientific_failed": 0,
+            "scientific_cancelled": 0,
+            "scientific_inadmissible": 0,
+            "quarantined_attempt_total": 0,
+            "quarantined_failed": 0,
+            "quarantined_cancelled": 0,
+        },
     }
     counts = {
         "attempt_count": 1,
@@ -89,11 +106,12 @@ def _v2_ledger() -> tuple[dict, dict]:
     return ledger, counts
 
 
-def test_v2_ledger_requires_exact_explicit_selected_attempt() -> None:
+def test_v2_ledger_requires_exact_explicit_selected_attempt(tmp_path: Path) -> None:
     freeze = _module()
-    ledger, counts = _v2_ledger()
+    ledger, counts = _v2_ledger(tmp_path)
 
     report = freeze._validate_attempt_ledger(
+        tmp_path,
         ledger,
         job_id=ledger["job_id"],
         expected_tasks=ledger["expected_tasks"],
@@ -104,17 +122,101 @@ def test_v2_ledger_requires_exact_explicit_selected_attempt() -> None:
     assert report["selected_attempts"][ledger["expected_tasks"][0]]["attempt_id"] == "slurm:123:0:0"
 
 
-def test_v2_ledger_rejects_tampered_selected_result_checksum() -> None:
+def test_v2_ledger_rejects_tampered_selected_result_checksum(tmp_path: Path) -> None:
     freeze = _module()
-    ledger, counts = _v2_ledger()
+    ledger, counts = _v2_ledger(tmp_path)
     ledger["aggregate_selection"]["included"][0]["result_sha256"] = "c" * 64
 
     with pytest.raises(freeze.GateError, match="aggregate selection differs"):
         freeze._validate_attempt_ledger(
+            tmp_path,
             ledger,
             job_id=ledger["job_id"],
             expected_tasks=ledger["expected_tasks"],
             declared_counts=counts,
+        )
+
+
+def test_v2_ledger_rejects_tampered_source_artifact(tmp_path: Path) -> None:
+    freeze = _module()
+    ledger, counts = _v2_ledger(tmp_path)
+    (tmp_path / "evidence/execution/history.json").write_text(
+        '{"history":"tampered"}\n', encoding="utf-8"
+    )
+
+    with pytest.raises(freeze.GateError, match="checksum mismatch"):
+        freeze._validate_attempt_ledger(
+            tmp_path,
+            ledger,
+            job_id=ledger["job_id"],
+            expected_tasks=ledger["expected_tasks"],
+            declared_counts=counts,
+        )
+
+
+def test_v2_ledger_rejects_false_accounting(tmp_path: Path) -> None:
+    freeze = _module()
+    ledger, counts = _v2_ledger(tmp_path)
+    ledger["accounting"]["scientific_attempt_total"] = 0
+
+    with pytest.raises(freeze.GateError, match="accounting mismatch"):
+        freeze._validate_attempt_ledger(
+            tmp_path,
+            ledger,
+            job_id=ledger["job_id"],
+            expected_tasks=ledger["expected_tasks"],
+            declared_counts=counts,
+        )
+
+
+def test_legacy_ledger_cannot_back_a_frozen_release(tmp_path: Path) -> None:
+    freeze = _module()
+    ledger, counts = _v2_ledger(tmp_path)
+    ledger["schema_version"] = 1
+
+    with pytest.raises(freeze.GateError, match="schema_version=2"):
+        freeze._validate_attempt_ledger(
+            tmp_path,
+            ledger,
+            job_id=ledger["job_id"],
+            expected_tasks=ledger["expected_tasks"],
+            declared_counts=counts,
+        )
+
+
+def test_final_accounting_requires_exact_successful_terminal_rows(tmp_path: Path) -> None:
+    freeze = _module()
+    accounting = tmp_path / "final.psv"
+    accounting.write_text(
+        "JobID|JobIDRaw|State|ExitCode|Submit|Start|End|Elapsed\n"
+        "123_0|456|FAILED|1:0|s|t|u|v\n"
+        "12345|12345|COMPLETED|0:0|s|t|u|v\n",
+        encoding="utf-8",
+    )
+    selected = {
+        "model:coedit:seed-1": {
+            "scheduler_job_id": "123_0",
+            "scheduler_job_id_raw": "456",
+        }
+    }
+
+    with pytest.raises(freeze.GateError, match="not successful"):
+        freeze._validate_final_slurm_accounting(
+            accounting,
+            scheduler_job_id="12345",
+            selected_attempts=selected,
+        )
+
+    accounting.write_text(
+        "JobID|JobIDRaw|State|ExitCode|Submit|Start|End|Elapsed\n"
+        "123_0|456|COMPLETED|0:0|s|t|u|v\n",
+        encoding="utf-8",
+    )
+    with pytest.raises(freeze.GateError, match="coverage mismatch"):
+        freeze._validate_final_slurm_accounting(
+            accounting,
+            scheduler_job_id="12345",
+            selected_attempts=selected,
         )
 
 
@@ -146,7 +248,7 @@ def test_freeze_rejects_incomplete_final_attempt_without_output(tmp_path: Path) 
     freeze = _module()
     root, plan = create_release_project(tmp_path, incomplete_attempt=True)
 
-    with pytest.raises(freeze.GateError, match="no successful final attempt"):
+    with pytest.raises(freeze.GateError, match="no unique explicit selected attempt"):
         freeze.freeze_evidence_release(root, plan)
 
     assert not (root / f"results/frozen/{RELEASE_ID}").exists()
