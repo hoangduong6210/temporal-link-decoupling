@@ -249,6 +249,27 @@ def test_license_identifier_is_structural_but_scientific_numbers_remain_visible(
     assert "81%" in mask("BSD-3-Clause does not evidence a value of 81%")
 
 
+def test_audit_toml_loader_preserves_build_artifact_array_tables() -> None:
+    spec = importlib.util.spec_from_file_location(
+        "audit_scientific_provenance_array_tables",
+        ROOT / "scripts/audit_scientific_provenance.py",
+    )
+    assert spec and spec.loader
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    record = module._load_toml(
+        ROOT / "evidence/jobs/LP-JOB-LOCAL-20260821-PAPER-BUILD-004.toml"
+    )
+    artifacts = record["additional_artifacts"]
+    assert isinstance(artifacts, list)
+    assert {item["role"] for item in artifacts} == {
+        "self-contained-overleaf-package",
+        "monochrome-vector-result-figure",
+        "monochrome-vector-protocol-figure",
+        "lppl-overleaf-class",
+    }
+
+
 def test_claim_evidence_namespace_resolves() -> None:
     claims = (WIKI / "claims/Current-Claim-Language.md").read_text()
     evidence = (WIKI / "evidence/Evidence-Ledger.md").read_text()

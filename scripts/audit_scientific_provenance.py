@@ -111,6 +111,22 @@ def _load_toml(path: Path) -> dict[str, object]:
         raise ValueError(f"unterminated TOML value in {path}")
 
     for line in logical_lines:
+        if line.startswith("[[") and line.endswith("]]"):
+            table = line[2:-2].strip()
+            components = table.split(".")
+            current = root
+            for component in components[:-1]:
+                child = current.setdefault(component, {})
+                if not isinstance(child, dict):
+                    raise ValueError(f"invalid TOML table in {path}: {table}")
+                current = child
+            collection = current.setdefault(components[-1], [])
+            if not isinstance(collection, list):
+                raise ValueError(f"invalid TOML array table in {path}: {table}")
+            item: dict[str, object] = {}
+            collection.append(item)
+            current = item
+            continue
         if line.startswith("[") and line.endswith("]"):
             table = line[1:-1].strip()
             current = root
