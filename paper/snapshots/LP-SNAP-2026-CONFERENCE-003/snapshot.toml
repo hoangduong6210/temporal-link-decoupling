@@ -1,0 +1,16 @@
+schema_version = 1
+state = "FROZEN"
+snapshot_id = "LP-SNAP-2026-CONFERENCE-003"
+venue = "Conference candidate"
+submission_state = "immutable-candidate"
+source_commit = "5b629b6d0d276db2713aa3402974035b5ac970ed"
+wiki_commit = "5b629b6d0d276db2713aa3402974035b5ac970ed"
+evidence_release = "LP-REL-2026-A003-001"
+paper_build_job = "LP-JOB-LOCAL-20260821-PAPER-BUILD-003"
+results_lock = "results.lock.yaml"
+numeric_registry = "numeric-provenance.jsonl"
+checksum_manifest = "checksums.sha256"
+supersedes = "LP-SNAP-2026-CONFERENCE-002"
+source_files = ["link-prediction-conference.md"]
+rendered_files = ["link-prediction-conference.html"]
+figure_files = []
