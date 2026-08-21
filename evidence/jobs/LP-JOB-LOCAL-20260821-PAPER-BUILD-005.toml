@@ -1,0 +1,41 @@
+schema_version = 1
+job_id = "LP-JOB-LOCAL-20260821-PAPER-BUILD-005"
+scientific = false
+execution_kind = "clean-clone-paper-rebuild"
+date = "2026-08-21"
+source_commit = "c85e0660634ddb1de75cf27c94e83e49d3d146b8"
+source_state = "CLEAN"
+command = "python scripts/build_conference_package.py --output-dir <clean-temporary-directory>"
+exit_code = 0
+outcome = "COMPLETED"
+result_pointer = "paper/candidate/link-prediction-conference.pdf"
+result_sha256 = "209ff0c5dfda154b2695187fdc21f575912504915eb74e8cc75999dbb8820e47"
+evidence_release = "LP-REL-2026-A003-001"
+supersedes = "LP-JOB-LOCAL-20260821-PAPER-BUILD-004"
+clean_clone_state = "INDEPENDENT_NO_LOCAL_OBJECTS_CLONE"
+deterministic_rebuild_state = "IDENTICAL_TO_REGISTERED_BUILD_AND_FROZEN_SNAPSHOT"
+python_version = "3.9.21"
+latexmk_version = "4.86a"
+pdftex_version = "1.40.21"
+matplotlib_version = "3.9.4"
+limitations = "Publication rendering only; this job does not create or strengthen a scientific claim."
+
+[[additional_artifacts]]
+path = "paper/candidate/link-prediction-overleaf.zip"
+sha256 = "ae2b892517152ce39660452dd7d6ce8e9fa13344353d41be84379755d2583c53"
+role = "self-contained-overleaf-package"
+
+[[additional_artifacts]]
+path = "paper/candidate/overleaf/figs/inductive-ordering.pdf"
+sha256 = "9da51f5d9c3f6f5fa1ce6a907fd8919b090fe3737059f77f7640e68c7f38c899"
+role = "monochrome-vector-result-figure"
+
+[[additional_artifacts]]
+path = "paper/candidate/overleaf/figs/protocol-contrast.pdf"
+sha256 = "6f65178eebdfa63e1237c4cf29cde862d79155c5f5bf95ada1c513a2e70528f7"
+role = "monochrome-vector-protocol-figure"
+
+[[additional_artifacts]]
+path = "paper/vendor/IEEEtran.cls"
+sha256 = "da751920a317ed318b7b5cd7fa585a6cc7d28502d457856382e9be24b10a3bd7"
+role = "lppl-overleaf-class"

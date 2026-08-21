@@ -1,6 +1,6 @@
 # Immutable conference-paper snapshots
 
-The active snapshot is `LP-SNAP-2026-CONFERENCE-004`. Earlier snapshots remain
+The active snapshot is `LP-SNAP-2026-CONFERENCE-005`. Earlier snapshots remain
 immutable and may be superseded only by advancing the pointer through a reviewed
 snapshot plan.
 

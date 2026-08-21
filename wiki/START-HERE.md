@@ -13,7 +13,7 @@ The project tests decoupling-by-construction against coupled end-to-end training
 for inductive temporal link prediction. The current stage is
 `reproducible-publication-candidate`. Current evidence release:
 `LP-REL-2026-A003-001`. Current paper snapshot:
-`LP-SNAP-2026-CONFERENCE-004`.
+`LP-SNAP-2026-CONFERENCE-005`.
 
 ## Supported now
 
@@ -31,7 +31,7 @@ for inductive temporal link prediction. The current stage is
   reconstructed aggregates are validated by `LP-E-SCIENTIFIC-MATRIX-001` and
   `LP-JOB-SLURM-A003-FINAL-RECONCILE-R2`.
 - The conference PDF, monochrome vector figures, and self-contained Overleaf
-  archive are checksum-bound by `LP-JOB-LOCAL-20260821-PAPER-BUILD-004`.
+  archive are checksum-bound by `LP-JOB-LOCAL-20260821-PAPER-BUILD-005`.
 
 ## Unsupported or blocked now
 

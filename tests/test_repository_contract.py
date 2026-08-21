@@ -155,7 +155,7 @@ def test_wiki_identifier_and_governance_contracts() -> None:
         "Acceptance-gate outcome", "Supported claim IDs", "Rejected claim IDs",
         "Scientific-use boundary",
     ):
-        assert evidence.count(f"**{field}:**") == 9
+        assert evidence.count(f"**{field}:**") == 7
 
     decision = (WIKI / "decisions/0001-separate-link-prediction-and-lifecycle-readout.md").read_text()
     for heading in (
@@ -258,7 +258,7 @@ def test_audit_toml_loader_preserves_build_artifact_array_tables() -> None:
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     record = module._load_toml(
-        ROOT / "evidence/jobs/LP-JOB-LOCAL-20260821-PAPER-BUILD-004.toml"
+        ROOT / "evidence/jobs/LP-JOB-LOCAL-20260821-PAPER-BUILD-005.toml"
     )
     artifacts = record["additional_artifacts"]
     assert isinstance(artifacts, list)
@@ -268,6 +268,16 @@ def test_audit_toml_loader_preserves_build_artifact_array_tables() -> None:
         "monochrome-vector-protocol-figure",
         "lppl-overleaf-class",
     }
+
+
+def test_every_public_evidence_job_reference_resolves() -> None:
+    evidence = (WIKI / "evidence/Evidence-Ledger.md").read_text(encoding="utf-8")
+    registry = (ROOT / "evidence/jobs/checksums.sha256").read_text(encoding="utf-8")
+    for job_id in set(re.findall(r"\bLP-JOB-[A-Z0-9-]+\b", evidence)):
+        rel = f"evidence/jobs/{job_id}.toml"
+        record = ROOT / rel
+        assert record.is_file(), f"evidence ledger references missing job: {job_id}"
+        assert rel in registry, f"evidence ledger job is not checksum-registered: {job_id}"
 
 
 def test_claim_evidence_namespace_resolves() -> None:
