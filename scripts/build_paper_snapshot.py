@@ -41,7 +41,7 @@ SNAPSHOT_ID = re.compile(r"LP-SNAP-[A-Z0-9-]+")
 NUMBER_TOKEN = numeric_evidence.NUMBER_TOKEN
 INTERNAL_MARKER = re.compile(
     r"\b(?:claude|grok|chatgpt|codex|openai|anthropic|gemini)\b|"
-    r"\bPM(?:'s)?\b|reviewer\s*(?:#|Q|§)|panel asked|rebuttal|"
+    r"(?<!\\)\bPM(?:'s)?\b|reviewer\s*(?:#|Q|§)|panel asked|rebuttal|"
     r"humanization|de-AI|AI[- ]tell|flagged to PM|reported to PM",
     re.IGNORECASE,
 )

@@ -53,7 +53,7 @@ STRUCTURAL_IDENTIFIER = re.compile(
 )
 INTERNAL_MARKER = re.compile(
     r"\b(?:claude|grok|chatgpt|codex|openai|anthropic|gemini)\b|"
-    r"\bPM(?:'s)?\b|reviewer\s*(?:#|Q|§)|panel asked|rebuttal|"
+    r"(?<!\\)\bPM(?:'s)?\b|reviewer\s*(?:#|Q|§)|panel asked|rebuttal|"
     r"humanization|de-AI|AI[- ]tell|flagged to PM|reported to PM",
     re.IGNORECASE,
 )

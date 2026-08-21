@@ -108,3 +108,9 @@ def test_snapshot_rejects_quarantined_working_source(tmp_path: Path) -> None:
         snapshot.build_paper_snapshot(root, plan)
 
     assert not (root / "paper/snapshots/LP-SNAP-TEST-001").exists()
+
+
+def test_internal_marker_gate_distinguishes_latex_pm_from_project_management() -> None:
+    snapshot = _load(SNAPSHOT_SCRIPT, "build_snapshot_internal_marker")
+    assert snapshot.INTERNAL_MARKER.search(r"mean $\pm$ sample standard deviation") is None
+    assert snapshot.INTERNAL_MARKER.search("PM directive") is not None
