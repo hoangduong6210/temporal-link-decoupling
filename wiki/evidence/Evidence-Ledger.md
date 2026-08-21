@@ -22,17 +22,18 @@ Current evidence release: `UNRELEASED`. No entry below is frozen scientific evid
   `evidence/jobs/`; the underlying Slurm array and reconciliation IDs are in the
   scheduler-history artifact.
 - **Artifact path or release URI:**
-  `evidence/execution/LP-SCHEDULER-HISTORY-20260820.json`.
+  `evidence/execution/LP-SCHEDULER-HISTORY-20260820.json`, which checksum-binds
+  the raw pipe-delimited `sacct` capture under `evidence/execution/raw/`.
 - **Artifact checksum:** Bound by the local job record and incorporated as a
   required input to the matrix reconciler.
 - **Coverage and failures:** The artifact retains failed bootstrap arrays,
   dependency cancellation, superseded successful main-arm attempts, the
   non-finite recurrent-memory proxy failure, and the failed reconciliation.
-- **Acceptance-gate outcome:** PASS for attempt preservation; REJECTED for
-  numerical claims and aggregate reuse.
+- **Acceptance-gate outcome:** PASS for native scheduler-state preservation;
+  INADMISSIBLE for numerical claims and aggregate reuse.
 - **Supported claim IDs:** none.
-- **Rejected claim IDs:** none; the affected result artifacts are excluded rather
-  than interpreted as claim evidence.
+- **Rejected claim IDs:** none; affected result artifacts retain their native
+  FAILED, CANCELLED, or COMPLETED state but are scientifically inadmissible.
 - **Scientific-use boundary:** Scheduler accounting and adjudication only.
 
 ## LP-E-DATA-MIGRATION-001

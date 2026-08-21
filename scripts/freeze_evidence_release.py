@@ -329,11 +329,195 @@ def _validate_attempt_ledger(
 ) -> dict[str, Any]:
     ledger = _require_mapping(payload, "attempt ledger")
     _required(ledger, ("schema_version", "job_id", "expected_tasks", "attempts"), "attempt ledger")
-    if ledger["schema_version"] != 1 or ledger["job_id"] != job_id:
+    if ledger["job_id"] != job_id:
         raise GateError(f"attempt ledger identity mismatch for {job_id}")
     ledger_expected = _unique_strings(ledger["expected_tasks"], "attempt ledger expected_tasks")
     if sorted(ledger_expected) != sorted(expected_tasks):
         raise GateError(f"attempt ledger task matrix disagrees with runner coverage for {job_id}")
+    if ledger["schema_version"] == 2:
+        _required(
+            ledger,
+            ("campaign_id", "source_artifacts", "tasks", "audit_attempts", "aggregate_selection", "accounting"),
+            "attempt ledger v2",
+        )
+        attempts = _require_list(ledger["attempts"], "attempt ledger attempts")
+        audit_attempts = _require_list(ledger["audit_attempts"], "attempt ledger audit_attempts")
+        if not attempts:
+            raise GateError(f"attempt ledger is empty for {job_id}")
+        source_artifacts = _require_list(ledger["source_artifacts"], "attempt ledger source_artifacts")
+        if not source_artifacts:
+            raise GateError("attempt ledger has no checksum-bound source artifact")
+        for index, raw in enumerate(source_artifacts):
+            record = _require_mapping(raw, f"attempt ledger source_artifact[{index}]")
+            _required(record, ("path", "sha256"), f"attempt ledger source_artifact[{index}]")
+            if not isinstance(record["path"], str) or HEX64.fullmatch(str(record["sha256"])) is None:
+                raise GateError("attempt ledger source artifact identity is invalid")
+
+        by_task: dict[str, list[dict[str, Any]]] = {task: [] for task in expected_tasks}
+        all_attempt_ids: set[str] = set()
+        scheduler_tuples: set[tuple[str, str, int]] = set()
+
+        def validate_attempt(raw: Any, label: str, *, audit: bool) -> dict[str, Any]:
+            item = _require_mapping(raw, label)
+            _required(
+                item,
+                (
+                    "attempt_id", "campaign_id", "generation", "task_id", "attempt_index",
+                    "scheduler_job_id", "array_job_id", "array_task_id", "restart_count",
+                    "submitted_at", "started_at", "finished_at", "scheduler_state",
+                    "exit_code", "admissibility", "selected_for_aggregate", "source_commit",
+                    "protocol_sha256", "configuration_sha256", "data_manifest_sha256",
+                    "dependency_lock_sha256", "environment_digest_sha256",
+                    "submission_script_sha256", "result_path", "result_sha256",
+                ),
+                label,
+            )
+            attempt_id = item["attempt_id"]
+            if not isinstance(attempt_id, str) or not attempt_id.startswith("slurm:") or attempt_id in all_attempt_ids:
+                raise GateError(f"attempt_id is invalid or duplicated: {attempt_id!r}")
+            all_attempt_ids.add(attempt_id)
+            task_id = item["task_id"]
+            if not audit and task_id not in by_task:
+                raise GateError(f"attempt references undeclared task: {task_id}")
+            if not isinstance(item["attempt_index"], int) or item["attempt_index"] < 0:
+                raise GateError(f"invalid attempt_index for {attempt_id}")
+            if not isinstance(item["generation"], int) or item["generation"] < 0:
+                raise GateError(f"invalid generation for {attempt_id}")
+            if not isinstance(item["restart_count"], int) or item["restart_count"] < 0:
+                raise GateError(f"invalid restart_count for {attempt_id}")
+            array_job_id = str(item["array_job_id"])
+            array_task_id = str(item["array_task_id"])
+            if not array_job_id.isdigit() or (array_task_id != "None" and not array_task_id.isdigit()):
+                raise GateError(f"invalid Slurm array tuple for {attempt_id}")
+            scheduler_tuple = (array_job_id, array_task_id, item["restart_count"])
+            if scheduler_tuple in scheduler_tuples:
+                raise GateError(f"duplicate scheduler tuple: {scheduler_tuple}")
+            scheduler_tuples.add(scheduler_tuple)
+            if str(item["scheduler_job_id"]) in {"", "NOT_APPLICABLE", "UNKNOWN"}:
+                raise GateError(f"attempt lacks scheduler identity: {attempt_id}")
+            if item["submitted_at"] is not None and not isinstance(item["submitted_at"], str):
+                raise GateError(f"attempt submitted_at has invalid type: {attempt_id}")
+            if item["started_at"] is not None and not isinstance(item["started_at"], str):
+                raise GateError(f"attempt started_at has invalid type: {attempt_id}")
+            if not isinstance(item["finished_at"], str):
+                raise GateError(f"attempt lacks finished_at: {attempt_id}")
+            for field in (
+                "protocol_sha256", "configuration_sha256", "data_manifest_sha256",
+                "dependency_lock_sha256", "environment_digest_sha256",
+                "submission_script_sha256", "result_sha256",
+            ):
+                if HEX64.fullmatch(str(item[field])) is None:
+                    raise GateError(f"invalid {field} for {attempt_id}")
+            if HEX40.fullmatch(str(item["source_commit"])) is None:
+                raise GateError(f"invalid source_commit for {attempt_id}")
+            state = item["scheduler_state"]
+            if state == "COMPLETED":
+                if item["exit_code"] != 0:
+                    raise GateError(f"completed attempt has nonzero exit code: {attempt_id}")
+            elif state == "FAILED":
+                if not isinstance(item["exit_code"], int) or item["exit_code"] == 0 or not item.get("error"):
+                    raise GateError(f"failed attempt lacks nonzero exit/error: {attempt_id}")
+            elif state == "CANCELLED":
+                if item["exit_code"] not in (None, 0):
+                    raise GateError(f"cancelled attempt has invalid exit code: {attempt_id}")
+            else:
+                raise GateError(f"invalid scheduler_state {state!r}: {attempt_id}")
+            admissibility = item["admissibility"]
+            selected = item["selected_for_aggregate"]
+            if admissibility not in {"ELIGIBLE", "INADMISSIBLE"} or not isinstance(selected, bool):
+                raise GateError(f"invalid admissibility/selection for {attempt_id}")
+            if audit and (admissibility != "INADMISSIBLE" or selected):
+                raise GateError(f"audit attempt is aggregate-eligible: {attempt_id}")
+            if admissibility == "INADMISSIBLE" and not item.get("reason"):
+                raise GateError(f"inadmissible attempt lacks reason: {attempt_id}")
+            if selected and (state != "COMPLETED" or admissibility != "ELIGIBLE"):
+                raise GateError(f"selected attempt is not eligible/completed: {attempt_id}")
+            return item
+
+        scientific = [
+            validate_attempt(raw, f"attempt[{index}]", audit=False)
+            for index, raw in enumerate(attempts)
+        ]
+        audited = [
+            validate_attempt(raw, f"audit_attempt[{index}]", audit=True)
+            for index, raw in enumerate(audit_attempts)
+        ]
+        for item in scientific:
+            by_task[str(item["task_id"])].append(item)
+
+        task_rows = _require_list(ledger["tasks"], "attempt ledger tasks")
+        if len(task_rows) != len(expected_tasks):
+            raise GateError("attempt ledger task-selection table is incomplete")
+        task_selection: dict[str, dict[str, Any]] = {}
+        for index, raw in enumerate(task_rows):
+            row = _require_mapping(raw, f"attempt ledger task[{index}]")
+            _required(row, ("task_id", "terminal_attempt_id", "selected_attempt_id"), f"attempt ledger task[{index}]")
+            task_id = row["task_id"]
+            if task_id not in by_task or task_id in task_selection:
+                raise GateError(f"invalid/duplicate task-selection row: {task_id}")
+            task_selection[str(task_id)] = row
+
+        selection = _require_mapping(ledger["aggregate_selection"], "aggregate selection")
+        _required(selection, ("policy", "included"), "aggregate selection")
+        included_rows = _require_list(selection["included"], "aggregate selection included")
+        included: dict[str, dict[str, Any]] = {}
+        for index, raw in enumerate(included_rows):
+            row = _require_mapping(raw, f"aggregate selection[{index}]")
+            _required(row, ("task_id", "attempt_id", "scheduler_job_id", "result_path", "result_sha256"), f"aggregate selection[{index}]")
+            if row["task_id"] in included:
+                raise GateError(f"duplicate aggregate-selection task: {row['task_id']}")
+            included[str(row["task_id"])] = row
+
+        final_seeds: dict[str, int] = {}
+        selected_attempts: dict[str, dict[str, Any]] = {}
+        for task_id, task_attempts in by_task.items():
+            if not task_attempts:
+                raise GateError(f"task has no recorded attempt: {task_id}")
+            ordered = sorted(task_attempts, key=lambda item: item["attempt_index"])
+            if [item["attempt_index"] for item in ordered] != list(range(len(ordered))):
+                raise GateError(f"task attempt indexes are not contiguous: {task_id}")
+            terminal = ordered[-1]
+            selected = [item for item in ordered if item["selected_for_aggregate"]]
+            row = task_selection[task_id]
+            if row["terminal_attempt_id"] != terminal["attempt_id"]:
+                raise GateError(f"terminal attempt identity mismatch: {task_id}")
+            if len(selected) != 1 or row["selected_attempt_id"] != selected[0]["attempt_id"]:
+                raise GateError(f"task has no unique explicit selected attempt: {task_id}")
+            chosen = selected[0]
+            if terminal["attempt_id"] != chosen["attempt_id"]:
+                raise GateError(f"task terminal attempt is not the selected completed attempt: {task_id}")
+            aggregate = included.get(task_id)
+            if aggregate is None or any(
+                aggregate[field] != chosen[field]
+                for field in ("attempt_id", "scheduler_job_id", "result_path", "result_sha256")
+            ):
+                raise GateError(f"aggregate selection differs from selected attempt: {task_id}")
+            if not isinstance(chosen.get("seed"), int):
+                raise GateError(f"selected attempt seed is invalid: {task_id}")
+            final_seeds[task_id] = int(chosen["seed"])
+            selected_attempts[task_id] = chosen
+        if set(included) != set(expected_tasks):
+            raise GateError("aggregate selection does not exactly cover the scientific task matrix")
+
+        expected_counts = {
+            "attempt_count": len(scientific),
+            "failed_attempt_count": sum(item["scheduler_state"] == "FAILED" for item in scientific),
+            "excluded_attempt_count": sum(item["admissibility"] == "INADMISSIBLE" for item in scientific),
+            "audit_attempt_count": len(audited),
+            "audit_failed_attempt_count": sum(item["scheduler_state"] == "FAILED" for item in audited),
+            "audit_cancelled_attempt_count": sum(item["scheduler_state"] == "CANCELLED" for item in audited),
+        }
+        for key, expected in expected_counts.items():
+            if declared_counts.get(key) != expected:
+                raise GateError(f"job record {key} mismatch: expected {expected}")
+        return {
+            **expected_counts,
+            "task_count": len(expected_tasks),
+            "final_seeds": final_seeds,
+            "selected_attempts": selected_attempts,
+        }
+    if ledger["schema_version"] != 1:
+        raise GateError(f"unsupported attempt ledger schema for {job_id}")
     attempts = _require_list(ledger["attempts"], "attempt ledger attempts")
     if not attempts:
         raise GateError(f"attempt ledger is empty for {job_id}")
@@ -669,6 +853,19 @@ def _validate_job(
     for task_id, run in run_tasks.items():
         if run.get("seed") != ledger_report["final_seeds"][task_id]:
             raise GateError(f"run/attempt seed mismatch: {job_id}/{task_id}")
+        selected_attempts = ledger_report.get("selected_attempts")
+        if isinstance(selected_attempts, dict):
+            selected = _require_mapping(
+                selected_attempts.get(task_id), f"selected attempt {job_id}/{task_id}"
+            )
+            if (
+                run.get("selected_attempt_id") != selected.get("attempt_id")
+                or run.get("parent_result_path") != selected.get("result_path")
+                or run.get("parent_result_sha256") != selected.get("result_sha256")
+            ):
+                raise GateError(
+                    f"normalized run does not bind the explicit selected attempt: {job_id}/{task_id}"
+                )
     reconstruction = _reconstruct_aggregates(result, entry["aggregation"], result_rel)
     return {
         "job_id": job_id,
@@ -684,6 +881,14 @@ def _validate_job(
             **{key: ledger_report[key] for key in (
                 "task_count", "attempt_count", "failed_attempt_count", "excluded_attempt_count"
             )},
+            **{
+                key: ledger_report[key]
+                for key in (
+                    "audit_attempt_count", "audit_failed_attempt_count",
+                    "audit_cancelled_attempt_count",
+                )
+                if key in ledger_report
+            },
         },
         "aggregate_reconstruction": reconstruction,
     }

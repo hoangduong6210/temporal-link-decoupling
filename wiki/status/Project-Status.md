@@ -36,10 +36,11 @@ clean acquisition uses the reviewed source registry and explicit builders.
 - A fresh current-corpus scheduler matrix has not yet completed, so accelerator
   records and current performance aggregates are not admitted.
 - The initial fresh attempts are preserved by `LP-E-SCHEDULER-HISTORY-001` and
-  job `LP-JOB-LOCAL-20260820-002`. They are excluded: the first submission used
-  an invalid Slurm spool-derived root, the retry exposed ambiguous node-memory
-  collision semantics, and all temporal comparator implementations were
-  adjudicated as simplified proxies rather than faithful external baselines.
+  job `LP-JOB-LOCAL-20260820-002`. Native scheduler outcomes remain unchanged;
+  scientific admissibility is recorded separately. Bootstrap root-cause wording
+  is UNVERIFIED, the retry exposed ambiguous node-memory collision semantics,
+  and all temporal comparator implementations were adjudicated as simplified
+  proxies rather than faithful external baselines.
 - No frozen evidence release, admitted performance claim, results lock, or
   immutable paper snapshot exists.
 - Strong numerical and generalization wording in `paper/working/` remains QUARANTINED.

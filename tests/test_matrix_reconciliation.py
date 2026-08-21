@@ -40,22 +40,48 @@ def test_scheduler_bootstrap_failures_expand_into_every_main_task() -> None:
     module = _module()
     protocol = module._load_toml(ROOT / "protocols/link_prediction_v1.toml")
     matrix = module.expected_matrix(protocol)
-    attempts = module._external_attempts(
+    attempts, audit_attempts = module._external_attempts(
         ROOT,
         ROOT / "evidence/execution/LP-SCHEDULER-HISTORY-20260820.json",
         protocol,
         matrix,
     )
 
-    assert len(attempts) == 27
+    assert len(attempts) == 54
     assert {item["task_id"] for item in attempts} == set(matrix)
-    assert {item["status"] for item in attempts} == {"EXCLUDED"}
+    assert {item["scheduler_state"] for item in attempts} == {"FAILED", "COMPLETED"}
+    assert {item["admissibility"] for item in attempts} == {"INADMISSIBLE"}
+    assert not any(item["selected_for_aggregate"] for item in attempts)
     assert {item["source_commit"] for item in attempts} == {
-        "61d3839ad9c5b896f8f20634d9d9a08da5bf957a"
+        "61d3839ad9c5b896f8f20634d9d9a08da5bf957a",
+        "3da5159246c2f94cf9cc2bd5a969e1d68dfaa9a1",
     }
-    assert all(item["scheduler_job_id"].split("_")[0] in {
-        "6907586", "6907587", "6907588"
+    assert all(item["array_job_id"] in {
+        "6907586", "6907587", "6907588", "6907662", "6907663", "6907664"
     } for item in attempts)
+    assert len({item["attempt_id"] for item in attempts}) == 54
+
+    assert len(audit_attempts) == 164
+    assert sum(item["scheduler_state"] == "COMPLETED" for item in audit_attempts) == 80
+    assert sum(item["scheduler_state"] == "FAILED" for item in audit_attempts) == 38
+    assert sum(item["scheduler_state"] == "CANCELLED" for item in audit_attempts) == 46
+    assert all(item["admissibility"] == "INADMISSIBLE" for item in audit_attempts)
+    assert not any(item["selected_for_aggregate"] for item in audit_attempts)
+
+
+def test_raw_sacct_capture_has_unique_complete_array_tuples() -> None:
+    module = _module()
+    rows = module._sacct_rows(
+        ROOT / "evidence/execution/raw/LP-SACCT-20260820.psv"
+    )
+
+    assert len(rows) == 218
+    assert rows[("6907589", 35)]["scheduler_state"] == "FAILED"
+    assert rows[("6907589", 36)]["scheduler_state"] == "CANCELLED"
+    assert rows[("6907665", 43)]["scheduler_state"] == "FAILED"
+    assert rows[("6907665", 44)]["scheduler_state"] == "COMPLETED"
+    assert rows[("6907590", None)]["scheduler_state"] == "CANCELLED"
+    assert rows[("6907666", None)]["scheduler_state"] == "FAILED"
 
 
 def test_reconciled_summary_uses_sample_standard_deviation() -> None:

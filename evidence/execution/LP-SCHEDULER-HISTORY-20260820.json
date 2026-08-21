@@ -1,104 +1,83 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "captured_at": "2026-08-20T15:51:01Z",
-  "source": "Slurm sacct -X accounting queried on ascend-login01",
-  "task_attempt_arrays": [
+  "source": {
+    "system": "slurm",
+    "host": "ascend-login01",
+    "query": "sacct -X -n -P -j 6907586,6907587,6907588,6907589,6907590,6907662,6907663,6907664,6907665,6907666 --format=JobID,JobIDRaw,State,ExitCode,Submit,Start,End,Elapsed",
+    "artifacts": [
+      {
+        "path": "evidence/execution/raw/LP-SACCT-20260820.psv",
+        "sha256": "b7e313c9affdcf9d165f39f4f1e12d714bc4bda4fc69228876ce53ebc9fa34cf",
+        "kind": "raw-sacct-pipe-delimited"
+      }
+    ]
+  },
+  "campaigns": [
     {
-      "array_job_id": "6907586",
-      "task_profile": "coupled-end-to-end",
+      "campaign_id": "LP-CAM-BOOTSTRAP-20260820",
+      "generation": 0,
+      "admissibility": "INADMISSIBLE",
+      "adjudication": "UNVERIFIED_BOOTSTRAP_FAILURE",
       "source_commit": "61d3839ad9c5b896f8f20634d9d9a08da5bf957a",
-      "submitted_at": "2026-08-20T06:12:36",
-      "started_at": "2026-08-20T06:13:05",
-      "finished_at_by_index": [
-        "2026-08-20T06:13:08", "2026-08-20T06:13:07", "2026-08-20T06:13:07",
-        "2026-08-20T06:13:08", "2026-08-20T06:13:07", "2026-08-20T06:13:07",
-        "2026-08-20T06:13:07", "2026-08-20T06:13:07", "2026-08-20T06:13:07"
+      "protocol_sha256": "4c021006262e4c5581d21f2aa750452b3e42e06f75e98c545b888aa54e82bbe4",
+      "configuration_sha256": "67c2e877c114a0aca0bb8a367b34c03ea676132a19e5f28ac2a2c6148166376d",
+      "data_manifest_sha256": "37464655a41a62b227b00c118fbbca4979e95b83f4dc000c312705c4c301b4f9",
+      "dependency_lock_sha256": "90ceae7c184de3be418f4ce0f1b700b7f6d13c3945abb9eb2cbf033bfec9f35f",
+      "environment_digest_sha256": "d8c962326cd2a8120e858260d9101562e2bec82b5861d92cfa791b166d202d6e",
+      "submission_script_sha256": "728aaf696024eef3b8953ae0c5e493f19fcfbca1a4a1de06c67974e40a507737",
+      "scientific_arrays": [
+        {"array_job_id": "6907586", "task_profile": "coupled-end-to-end", "index_range": "0-8", "scheduler_state": "FAILED"},
+        {"array_job_id": "6907587", "task_profile": "decoupled", "index_range": "0-8", "scheduler_state": "FAILED"},
+        {"array_job_id": "6907588", "task_profile": "freeze-then-probe", "index_range": "0-8", "scheduler_state": "FAILED"}
       ],
-      "scheduler_state": "FAILED",
-      "exit_code": 1,
-      "reason": "Slurm copied the submission script into its spool; BASH_SOURCE resolved the wrong project root, so the runner never started. Superseded before evidence."
-    },
-    {
-      "array_job_id": "6907587",
-      "task_profile": "decoupled",
-      "source_commit": "61d3839ad9c5b896f8f20634d9d9a08da5bf957a",
-      "submitted_at": "2026-08-20T06:12:36",
-      "started_at": "2026-08-20T06:13:05",
-      "finished_at_by_index": [
-        "2026-08-20T06:13:08", "2026-08-20T06:13:07", "2026-08-20T06:13:07",
-        "2026-08-20T06:13:07", "2026-08-20T06:13:08", "2026-08-20T06:13:07",
-        "2026-08-20T06:13:08", "2026-08-20T06:13:07", "2026-08-20T06:13:07"
+      "quarantined_arrays": [
+        {
+          "array_job_id": "6907589",
+          "task_profile": "temporal-baselines",
+          "index_range": "0-80",
+          "scheduler_state_groups": [
+            {"index_range": "0-35", "scheduler_state": "FAILED"},
+            {"index_range": "36-80", "scheduler_state": "CANCELLED"}
+          ]
+        }
       ],
-      "scheduler_state": "FAILED",
-      "exit_code": 1,
-      "reason": "Slurm copied the submission script into its spool; BASH_SOURCE resolved the wrong project root, so the runner never started. Superseded before evidence."
+      "lifecycle_jobs": [
+        {"scheduler_job_id": "6907590", "purpose": "reconciliation", "scheduler_state": "CANCELLED"}
+      ]
     },
     {
-      "array_job_id": "6907588",
-      "task_profile": "freeze-then-probe",
-      "source_commit": "61d3839ad9c5b896f8f20634d9d9a08da5bf957a",
-      "submitted_at": "2026-08-20T06:12:37",
-      "started_at": "2026-08-20T06:13:05",
-      "finished_at_by_index": [
-        "2026-08-20T06:13:08", "2026-08-20T06:13:07", "2026-08-20T06:13:08",
-        "2026-08-20T06:13:08", "2026-08-20T06:13:07", "2026-08-20T06:13:07",
-        "2026-08-20T06:13:08", "2026-08-20T06:13:07", "2026-08-20T06:13:08"
+      "campaign_id": "LP-CAM-SUPERSEDED-20260820",
+      "generation": 1,
+      "admissibility": "INADMISSIBLE",
+      "adjudication": "SUPERSEDED_BY_LP-P-DECOUPLING-001-A002",
+      "source_commit": "3da5159246c2f94cf9cc2bd5a969e1d68dfaa9a1",
+      "protocol_sha256": "4c021006262e4c5581d21f2aa750452b3e42e06f75e98c545b888aa54e82bbe4",
+      "configuration_sha256": "67c2e877c114a0aca0bb8a367b34c03ea676132a19e5f28ac2a2c6148166376d",
+      "data_manifest_sha256": "37464655a41a62b227b00c118fbbca4979e95b83f4dc000c312705c4c301b4f9",
+      "dependency_lock_sha256": "90ceae7c184de3be418f4ce0f1b700b7f6d13c3945abb9eb2cbf033bfec9f35f",
+      "environment_digest_sha256": "d8c962326cd2a8120e858260d9101562e2bec82b5861d92cfa791b166d202d6e",
+      "submission_script_sha256": "b1adcef55245b492f8e3d564eed158bb28260bdbfae5fe0e91a1f6be8a2fc933",
+      "scientific_arrays": [
+        {"array_job_id": "6907662", "task_profile": "coupled-end-to-end", "index_range": "0-8", "scheduler_state": "COMPLETED"},
+        {"array_job_id": "6907663", "task_profile": "decoupled", "index_range": "0-8", "scheduler_state": "COMPLETED"},
+        {"array_job_id": "6907664", "task_profile": "freeze-then-probe", "index_range": "0-8", "scheduler_state": "COMPLETED"}
       ],
-      "scheduler_state": "FAILED",
-      "exit_code": 1,
-      "reason": "Slurm copied the submission script into its spool; BASH_SOURCE resolved the wrong project root, so the runner never started. Superseded before evidence."
-    }
-  ],
-  "other_scheduler_jobs": [
-    {
-      "job_id": "6907589",
-      "purpose": "quarantined temporal proxy array",
-      "state": "CANCELLED",
-      "failed_indices": "0-35",
-      "cancelled_indices": "36-80",
-      "reason": "same submission-root defect; remaining pending tasks cancelled"
-    },
-    {
-      "job_id": "6907590",
-      "purpose": "first reconciliation dependency",
-      "state": "CANCELLED",
-      "reason": "upstream array dependency failed"
-    },
-    {
-      "job_id": "6907662",
-      "purpose": "superseded coupled-end-to-end array",
-      "state": "COMPLETED",
-      "completed_tasks": 9
-    },
-    {
-      "job_id": "6907663",
-      "purpose": "superseded decoupled array",
-      "state": "COMPLETED",
-      "completed_tasks": 9
-    },
-    {
-      "job_id": "6907664",
-      "purpose": "superseded freeze-then-probe array",
-      "state": "COMPLETED",
-      "completed_tasks": 9
-    },
-    {
-      "job_id": "6907665",
-      "purpose": "quarantined temporal proxy array",
-      "state": "COMPLETED_WITH_FAILED_ELEMENT",
-      "completed_tasks": 80,
-      "failed_tasks": 1,
-      "failed_index": 43,
-      "failed_identity": "recurrent implementation previously mislabeled graphmixer/mooc/seed-7",
-      "reason": "non-finite output and external-model identity mismatch"
-    },
-    {
-      "job_id": "6907666",
-      "purpose": "superseded reconciliation",
-      "state": "FAILED",
-      "completed_tasks": 107,
-      "expected_tasks": 108,
-      "reason": "one proxy task failed; amendment later removed all proxies from the admissible matrix"
+      "quarantined_arrays": [
+        {
+          "array_job_id": "6907665",
+          "task_profile": "temporal-baselines",
+          "index_range": "0-80",
+          "scheduler_state_groups": [
+            {"index_range": "0-42", "scheduler_state": "COMPLETED"},
+            {"index_range": "43", "scheduler_state": "FAILED"},
+            {"index_range": "44-80", "scheduler_state": "COMPLETED"}
+          ]
+        }
+      ],
+      "lifecycle_jobs": [
+        {"scheduler_job_id": "6907666", "purpose": "reconciliation", "scheduler_state": "FAILED"}
+      ]
     }
   ]
 }

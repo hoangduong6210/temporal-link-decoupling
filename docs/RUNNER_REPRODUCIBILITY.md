@@ -64,7 +64,10 @@ exact comparison does not close.
 Submit the reviewed scheduler arrays through `slurm/scientific_matrix.sbatch`.
 After all attempts terminate, run `slurm/reconcile_scientific_matrix.sbatch`
 with an `afterany` dependency on every array. The reconciler retains all attempts,
-requires a successful final attempt for each protocol cell, verifies every
-parent source/input/environment/accelerator binding, and reconstructs means and
-sample standard deviations from the per-seed rows. Only its complete scheduler
-result and attempt ledger may feed the evidence freeze gate.
+keeps scheduler outcome separate from scientific admissibility, requires one
+explicit current-generation selected attempt for each protocol cell, verifies
+every parent source/input/environment/accelerator binding, and reconstructs
+means and sample standard deviations from the per-seed rows. The ledger also
+retains quarantined proxy and reconciliation lifecycle attempts without making
+them aggregate-eligible. Only its complete scheduler result and checksum-bound
+attempt ledger may feed the evidence freeze gate.

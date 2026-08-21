@@ -12,12 +12,17 @@ exit_code = 0
 outcome = "SCHEDULER_HISTORY_CAPTURED"
 protocol_id = "LP-P-DECOUPLING-001"
 result_pointer = "evidence/execution/LP-SCHEDULER-HISTORY-20260820.json"
-result_sha256 = "f6343c244e6936456ca1b2eda587e6f82d0c35bdb3b32bf91fce3e03799577fd"
-attempt_count = 3
-failed_attempt_count = 1
+result_sha256 = "89220cd4ded1fa2502321d155662f00c5da74a291dba85273002493b892a7a64"
+acquisition_attempt_count = 3
+acquisition_failed_attempt_count = 1
 supported_evidence_ids = ["LP-E-SCHEDULER-HISTORY-001"]
 supported_scientific_claim_ids = []
 limitations = "Read-only scheduler accounting and adjudication evidence. It preserves failed, cancelled, superseded, and proxy attempts but supports no performance claim."
+
+[[additional_artifacts]]
+path = "evidence/execution/raw/LP-SACCT-20260820.psv"
+sha256 = "b7e313c9affdcf9d165f39f4f1e12d714bc4bda4fc69228876ce53ebc9fa34cf"
+role = "raw-sacct-accounting"
 
 [[attempts]]
 attempt_index = 0
