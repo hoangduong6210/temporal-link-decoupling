@@ -76,18 +76,38 @@ def load_dataset(name: str):
             f"Checksum mismatch for {path}: expected {entry['sha256']}, got {actual}."
         )
     data = np.load(path, allow_pickle=False)
-    # Sanitize features: the Jodie wikipedia.csv has a truncated final row whose
-    # trailing feature fields are NaN (edge 157468, cols 149-171). Identity on
-    # mooc/coedit (0 NaN/inf), so this does not perturb their numerics.
-    features = np.nan_to_num(data["features"].astype(np.float32),
-                             nan=0.0, posinf=0.0, neginf=0.0)
+    features = data["features"].astype(np.float32)
+    timestamps = data["timestamps"]
+    if not np.isfinite(features).all():
+        raise ValueError(
+            f"Non-finite features in checksum-verified corpus {path}; "
+            "repair the deterministic builder and register a new corpus digest."
+        )
+    if not np.isfinite(timestamps).all():
+        raise ValueError(f"Non-finite timestamps in checksum-verified corpus {path}.")
+    if len(timestamps) > 1 and np.any(timestamps[1:] < timestamps[:-1]):
+        raise ValueError(f"Corpus is not in stable chronological order: {path}.")
+    sources = data["sources"]
+    destinations = data["destinations"]
+    num_nodes = int(data["num_nodes"][0])
+    if np.intersect1d(sources, destinations).size:
+        raise ValueError(f"Corpus violates disjoint bipartite node IDs: {path}.")
+    if (
+        sources.size == 0
+        or destinations.size == 0
+        or sources.min() < 0
+        or destinations.min() < 0
+        or sources.max() >= num_nodes
+        or destinations.max() >= num_nodes
+    ):
+        raise ValueError(f"Corpus node IDs are empty or outside registered bounds: {path}.")
     return {
-        "sources": data["sources"],
-        "destinations": data["destinations"],
-        "timestamps": data["timestamps"],
+        "sources": sources,
+        "destinations": destinations,
+        "timestamps": timestamps,
         "labels": data["labels"],
         "features": features,
-        "num_nodes": int(data["num_nodes"][0]),
+        "num_nodes": num_nodes,
         "num_edges": int(data["num_edges"][0]),
         "feat_dim": int(data["feat_dim"][0]),
     }

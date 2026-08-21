@@ -22,10 +22,11 @@ python experiments/run_model.py --config configs/default.toml \
   --lambda_edge_trans 0.5
 ```
 
-The protocol owns four checksum-covered profiles: `coupled-end-to-end`,
-`decoupled`, `freeze-then-probe`, and `temporal-baselines`. Main-arm profiles
-validate every model-semantic flag exactly. The baseline profile permits unique
-subsets of its registered model list. Dataset and seed subsets remain valid
+The protocol owns three publication-matrix profiles: `coupled-end-to-end`,
+`decoupled`, and `freeze-then-probe`. Main-arm profiles validate every
+model-semantic flag exactly. The discoverable `temporal-baselines` profile is a
+quarantine registry for simplified proxies and aborts before scientific
+execution; it cannot support a baseline or paper claim. Dataset and seed subsets remain valid
 scheduler-array decomposition. Missing or mismatched `--task-id` is recorded as
 a startup blocker; a registered scientific scheduler job persists the failure
 and exits before training when any startup blocker exists.
@@ -34,6 +35,13 @@ The warmup is a real forward/backward/optimizer pass for kernel initialization,
 but model parameters and buffers, optimizer slots, RNG streams, and temporal
 stores are restored afterward. It therefore contributes no hidden training
 epoch.
+
+Stateful models score a mini-batch from one pre-batch snapshot. Repeated node
+IDs are reduced in stable chronological input order before indexed assignment,
+with the final row providing the committed candidate. This is batch-snapshot
+semantics, not full event-by-event replay. Inputs, outputs, losses, gradients,
+parameters, optimizer slots, and metric inputs are finite-checked; any violation
+fails the task without value replacement or task omission.
 
 Every output JSON contains resolved file hashes, CLI arguments, source state,
 scheduler identity, deterministic settings, environment versions, expected and

@@ -148,7 +148,7 @@ def test_wiki_identifier_and_governance_contracts() -> None:
         "Acceptance-gate outcome", "Supported claim IDs", "Rejected claim IDs",
         "Scientific-use boundary",
     ):
-        assert evidence.count(f"**{field}:**") == 5
+        assert evidence.count(f"**{field}:**") == 6
 
     decision = (WIKI / "decisions/0001-separate-link-prediction-and-lifecycle-readout.md").read_text()
     for heading in (
@@ -349,7 +349,7 @@ def test_reproducibility_manifest_is_honest_and_hash_closed() -> None:
         'clean_clone_corpus_state = '
         '"VERIFIED_NETWORK_ACQUISITION_AND_DETERMINISTIC_REBUILD"'
     ) in text
-    assert 'task_seed_attempt_failure_coverage = "FRESH_MATRIX_PENDING"' in text
+    assert 'task_seed_attempt_failure_coverage = "CORRECTIVE_MATRIX_PENDING"' in text
     for hash_key, path_key in (
         ("protocol_sha256", "protocol_path"),
         ("runtime_manifest_sha256", "runtime_manifest"),

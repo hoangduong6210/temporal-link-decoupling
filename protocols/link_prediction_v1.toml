@@ -1,10 +1,10 @@
 protocol_id = "LP-P-DECOUPLING-001"
 status = "FROZEN"
-amendment = "protocols/amendments/LP-P-DECOUPLING-001-A001.md"
+amendment = "protocols/amendments/LP-P-DECOUPLING-001-A002.md"
 datasets = ["coedit", "wikipedia", "mooc"]
 seeds = [1, 7, 42]
 primary_metric = "inductive_average_precision"
-comparators = ["coupled-end-to-end", "freeze-then-probe", "temporal-baselines"]
+comparators = ["coupled-end-to-end", "freeze-then-probe"]
 negative_regimes = ["fair-random-destination"]
 requires_disjoint_bipartite_ids = true
 heavy_compute = "scheduler-only"
@@ -30,6 +30,9 @@ determinism = "strict"
 python_hash_seed = 0
 cublas_workspace_config = ":4096:8"
 warmup_policy = "state-neutral-training-pass"
+finite_policy = "fail-task-before-metric-or-retained-optimizer-state"
+node_memory_collision_semantics = "batch-snapshot-stable-last-row-commit-v1"
+causal_batch_scope = "deterministic-pair-accumulators-not-full-event-replay"
 require_scheduler_identity = true
 require_clean_source = true
 require_job_metadata = true
@@ -127,14 +130,17 @@ probe_epochs = 20
 [task_profiles.temporal-baselines]
 runner = "run_baselines"
 allow_model_subsets = true
+scientific_matrix_eligible = false
+publication_eligible = false
+identity_state = "QUARANTINED_SIMPLIFIED_PROXIES"
 allowed_models = [
-  "jodie",
-  "dyrep",
-  "tgat",
-  "tgn",
-  "graphmixer",
-  "dygformer",
-  "cawn",
-  "edgebank_inf",
-  "edgebank_tw",
+  "proxy_jodie",
+  "proxy_dyrep",
+  "proxy_tgat",
+  "proxy_tgn",
+  "recurrent_mlp_memory",
+  "proxy_dygformer",
+  "proxy_cawn",
+  "diagnostic_edgebank_inf",
+  "diagnostic_edgebank_tw",
 ]

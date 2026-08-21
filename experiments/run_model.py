@@ -250,6 +250,9 @@ def run_one(dataset: str, seed: int, epochs: int, hidden: int,
             _dev_sync()
             print(f"  E{ep:02d}  tr_AP={tr['AP']:.4f}  va_AP={va['AP']:.4f}  [{time.time()-t0:.0f}s]")
 
+    if best_state is None:
+        raise RuntimeError("training produced no finite best-validation checkpoint")
+
     # ── FREEZE-THEN-PROBE PHASE 2 (control protocol) ───────────────────────
     # Pretraining above ran with enable_main_predictor=True (forced when
     # frozen_probe), so the backbone is now shaped by link-pred BCE. Load the
@@ -298,6 +301,8 @@ def run_one(dataset: str, seed: int, epochs: int, hidden: int,
                 _dev_sync()
                 print(f"  [FtP] E{ep:02d}  tr_AP={tr['AP']:.4f}  "
                       f"va_AP={va['AP']:.4f}  [{time.time()-t0:.0f}s]")
+        if best_state is None:
+            raise RuntimeError("probe training produced no finite best-validation checkpoint")
 
     # Transductive test (capture per-edge scores for the post-CP dump)
     if hasattr(model, "reset"): model.reset()

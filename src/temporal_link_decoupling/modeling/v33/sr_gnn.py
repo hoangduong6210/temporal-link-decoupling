@@ -68,7 +68,14 @@ class TimeEncoder(nn.Module):
 # ────────────────────────────────────────────────────────────
 
 class NodeMemoryStore:
-    """Dense node memory [num_nodes, hidden] + last-seen timestamp."""
+    """Dense node memory with deterministic duplicate-index commits.
+
+    A temporal mini-batch is scored from one pre-batch snapshot.  When the same
+    node occurs more than once, the candidate produced by its last row wins.
+    The reduction happens before indexed assignment so CUDA never receives an
+    advanced-index write with duplicate indices (whose winner is undefined).
+    Input rows are chronological and stable, making this policy reproducible.
+    """
     def __init__(self, num_nodes: int, hidden: int, device: torch.device):
         self.device = device
         self.memory = torch.zeros(num_nodes, hidden, device=device)
@@ -77,14 +84,30 @@ class NodeMemoryStore:
     def get(self, idx: Tensor) -> Tensor:
         return self.memory[idx]
 
+    @staticmethod
+    def _last_positions(idx: Tensor) -> Tensor:
+        if idx.ndim != 1:
+            raise ValueError("node-memory indices must be one-dimensional")
+        last: Dict[int, int] = {}
+        for position, node_id in enumerate(idx.detach().cpu().tolist()):
+            last[int(node_id)] = position
+        positions = sorted(last.values())
+        return torch.tensor(positions, dtype=torch.long, device=idx.device)
+
     def set(self, idx: Tensor, h: Tensor):
-        self.memory[idx] = h.detach()
+        if idx.size(0) != h.size(0):
+            raise ValueError("node-memory indices and values differ in length")
+        positions = self._last_positions(idx)
+        self.memory[idx[positions]] = h.detach()[positions]
 
     def delta_t(self, idx: Tensor, t: Tensor) -> Tensor:
         return (t.float() - self.last_t[idx]).clamp(min=0.0)
 
     def update_time(self, idx: Tensor, t: Tensor):
-        self.last_t[idx] = t.float()
+        if idx.size(0) != t.size(0):
+            raise ValueError("node-memory indices and timestamps differ in length")
+        positions = self._last_positions(idx)
+        self.last_t[idx[positions]] = t.float()[positions]
 
     def reset(self):
         self.memory.zero_()

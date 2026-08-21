@@ -52,13 +52,16 @@ paper_source: false
 | Dataset | `LP-D-MOOC-001` | [Dataset Registry](datasets/Dataset-Registry.md) |
 | Protocol | `LP-P-DECOUPLING-001` | [Protocol](../protocols/link_prediction_v1.toml) |
 | Protocol amendment | `LP-P-DECOUPLING-001-A001` | [Amendment](../protocols/amendments/LP-P-DECOUPLING-001-A001.md) |
+| Protocol amendment | `LP-P-DECOUPLING-001-A002` | [Corrective amendment](../protocols/amendments/LP-P-DECOUPLING-001-A002.md) |
 | Evidence | `LP-E-DATA-MIGRATION-001` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | Evidence | `LP-E-RUNTIME-MIGRATION-001` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | Evidence | `LP-E-LEGACY-RESULTS-001` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | Evidence | `LP-E-LEGACY-PAPER-001` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | Evidence | `LP-E-PROVENANCE-AUDIT-001` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
+| Evidence | `LP-E-SCHEDULER-HISTORY-001` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | Execution job | `LP-JOB-LOCAL-20260819-001` | [Job record](../evidence/jobs/LP-JOB-LOCAL-20260819-001.toml) |
 | Execution job | `LP-JOB-LOCAL-20260819-002` | [Provenance-audit job](../evidence/jobs/LP-JOB-LOCAL-20260819-002.toml) |
+| Execution job | `LP-JOB-LOCAL-20260820-002` | [Scheduler-accounting job](../evidence/jobs/LP-JOB-LOCAL-20260820-002.toml) |
 | Current claim | `LP-C-IDFIX-001` | [Current Claim Language](claims/Current-Claim-Language.md) |
 | Current claim | `LP-C-DECOUPLING-001` | [Current Claim Language](claims/Current-Claim-Language.md) |
 | Current claim | `LP-C-IRREVERSIBILITY-001` | [Current Claim Language](claims/Current-Claim-Language.md) |

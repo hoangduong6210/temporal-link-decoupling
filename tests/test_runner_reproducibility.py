@@ -70,6 +70,13 @@ def test_tracked_protocol_and_config_resolve_without_hidden_defaults() -> None:
     assert resolved.optimizer == "adam"
     assert resolved.scheduler == "cosine-annealing"
     assert resolved.warmup_policy == "state-neutral-training-pass"
+    assert resolved.finite_policy == "fail-task-before-metric-or-retained-optimizer-state"
+    assert (
+        resolved.node_memory_collision_semantics
+        == "batch-snapshot-stable-last-row-commit-v1"
+    )
+    assert resolved.causal_batch_scope == "deterministic-pair-accumulators-not-full-event-replay"
+    assert resolved.requires_disjoint_bipartite_ids is True
     assert resolved.protocol_conformant
     assert not resolved.deviations
     assert len(resolved.protocol_sha256) == 64
@@ -124,15 +131,16 @@ def test_baseline_profile_allows_only_registered_unique_subsets() -> None:
         protocol,
         task_id="temporal-baselines",
         runner="run_baselines",
-        arguments={"models": "jodie,tgat,edgebank_inf"},
+        arguments={"models": "proxy_jodie,proxy_tgat,diagnostic_edgebank_inf"},
     )
     assert valid["valid"] is True
+    assert valid["scientific_matrix_eligible"] is False
 
     duplicate = validate_task_profile(
         protocol,
         task_id="temporal-baselines",
         runner="run_baselines",
-        arguments={"models": "jodie,jodie"},
+        arguments={"models": "proxy_jodie,proxy_jodie"},
     )
     assert duplicate["valid"] is False
     assert "duplicates" in duplicate["errors"][0]
@@ -141,13 +149,13 @@ def test_baseline_profile_allows_only_registered_unique_subsets() -> None:
         protocol,
         task_id="temporal-baselines",
         runner="run_baselines",
-        arguments={"models": "jodie,unknown"},
+        arguments={"models": "proxy_jodie,unknown"},
     )
     assert unknown["valid"] is False
     assert "outside registry" in unknown["errors"][0]
 
     missing = validate_task_profile(
-        protocol, task_id=None, runner="run_baselines", arguments={"models": "jodie"}
+        protocol, task_id=None, runner="run_baselines", arguments={"models": "proxy_jodie"}
     )
     assert missing["valid"] is False
     assert missing["errors"] == ["task_id is missing"]

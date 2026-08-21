@@ -9,6 +9,32 @@ paper_source: false
 
 Current evidence release: `UNRELEASED`. No entry below is frozen scientific evidence.
 
+## LP-E-SCHEDULER-HISTORY-001
+
+- **Scientific purpose:** Preserve the complete scheduler history that triggered
+  the collision-semantics and comparator-identity correction.
+- **Lifecycle:** VALIDATED accounting evidence; not ADMITTED performance evidence.
+- **Source commit:** The queried attempts retain their submitted commit identity
+  in `evidence/execution/LP-SCHEDULER-HISTORY-20260820.json`.
+- **Protocol, configuration, and data hashes:** Parent runner outputs retain their
+  original bindings; amendment `LP-P-DECOUPLING-001-A002` supersedes them.
+- **Execution identity:** `LP-JOB-LOCAL-20260820-002`, checksum-registered under
+  `evidence/jobs/`; the underlying Slurm array and reconciliation IDs are in the
+  scheduler-history artifact.
+- **Artifact path or release URI:**
+  `evidence/execution/LP-SCHEDULER-HISTORY-20260820.json`.
+- **Artifact checksum:** Bound by the local job record and incorporated as a
+  required input to the matrix reconciler.
+- **Coverage and failures:** The artifact retains failed bootstrap arrays,
+  dependency cancellation, superseded successful main-arm attempts, the
+  non-finite recurrent-memory proxy failure, and the failed reconciliation.
+- **Acceptance-gate outcome:** PASS for attempt preservation; REJECTED for
+  numerical claims and aggregate reuse.
+- **Supported claim IDs:** none.
+- **Rejected claim IDs:** none; the affected result artifacts are excluded rather
+  than interpreted as claim evidence.
+- **Scientific-use boundary:** Scheduler accounting and adjudication only.
+
 ## LP-E-DATA-MIGRATION-001
 
 - **Scientific purpose:** Verify local corpus identities and disjoint bipartite ID

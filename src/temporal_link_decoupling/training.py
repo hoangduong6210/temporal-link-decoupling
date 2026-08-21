@@ -34,6 +34,38 @@ else:
 print(f"[device] {DEVICE}")
 
 
+class NonFiniteExecutionError(RuntimeError):
+    """A scientific task produced a non-finite input, output, or optimizer state."""
+
+
+def _require_finite_tensor(value, *, field: str, context: str) -> None:
+    if not isinstance(value, torch.Tensor):
+        raise TypeError(f"{context}: {field} is not a tensor")
+    finite = torch.isfinite(value)
+    if not bool(finite.all().item()):
+        count = int((~finite).sum().item())
+        raise NonFiniteExecutionError(
+            f"{context}: non-finite tensor {field} (count={count}, shape={tuple(value.shape)})"
+        )
+
+
+def _require_finite_optimizer_state(
+    model: nn.Module, optimizer: torch.optim.Optimizer, *, context: str
+) -> None:
+    for name, parameter in model.named_parameters():
+        _require_finite_tensor(parameter, field=f"parameter:{name}", context=context)
+        if parameter.grad is not None:
+            _require_finite_tensor(parameter.grad, field=f"gradient:{name}", context=context)
+    for parameter_index, state in enumerate(optimizer.state.values()):
+        for key, value in state.items():
+            if isinstance(value, torch.Tensor):
+                _require_finite_tensor(
+                    value,
+                    field=f"optimizer_state:{parameter_index}:{key}",
+                    context=context,
+                )
+
+
 def _dev_sync():
     """Make wall-clock reads trustworthy on CUDA (async kernels) — no-op elsewhere."""
     if DEVICE.type == "cuda":
@@ -85,15 +117,15 @@ def build_model(name: str, num_nodes: int, feat_dim: int, hidden: int):
         "srgnn": lambda: SRGNN(*args, **kw),
         "srgnn_v2": lambda: SRGNN_v2(*args, **kw),
         "srgnn_v3": lambda: SRGNN_v3(*args, **kw),
-        "jodie": lambda: JODIE(*args, **kw),
-        "dyrep": lambda: DyRep(*args, **kw),
-        "tgat": lambda: TGAT(*args, **kw),
-        "tgn": lambda: TGN(*args, **kw),
-        "graphmixer": lambda: GraphMixer(*args, **kw),
-        "dygformer": lambda: DyGFormer(*args, **kw),
-        "cawn": lambda: CAWN(*args, **kw),
-        "edgebank_inf": lambda: EdgeBankInf(*args, **kw),
-        "edgebank_tw": lambda: EdgeBankTW(*args, **kw),
+        "proxy_jodie": lambda: JODIE(*args, **kw),
+        "proxy_dyrep": lambda: DyRep(*args, **kw),
+        "proxy_tgat": lambda: TGAT(*args, **kw),
+        "proxy_tgn": lambda: TGN(*args, **kw),
+        "recurrent_mlp_memory": lambda: GraphMixer(*args, **kw),
+        "proxy_dygformer": lambda: DyGFormer(*args, **kw),
+        "proxy_cawn": lambda: CAWN(*args, **kw),
+        "diagnostic_edgebank_inf": lambda: EdgeBankInf(*args, **kw),
+        "diagnostic_edgebank_tw": lambda: EdgeBankTW(*args, **kw),
         "srgnn_nocsn": lambda: SRGNN_noCSN(*args, **kw),
         "srgnn_notip": lambda: SRGNN_noTIP(*args, **kw),
         "srgnn_nonscp": lambda: SRGNN_noNSCP(*args, **kw),
@@ -179,6 +211,13 @@ def run_epoch(model, split_data, num_nodes, batch_size, optimizer=None,
             dst  = torch.tensor(dst_all[idx],  dtype=torch.long,  device=DEVICE)
             t    = torch.tensor(t_all[idx],    dtype=torch.float, device=DEVICE)
             feat = torch.tensor(feat_all[idx], dtype=torch.float, device=DEVICE)
+            context = f"stage={desc},batch_start={start},batch_stop={start + len(idx)}"
+            _require_finite_tensor(t, field="input:timestamps", context=context)
+            _require_finite_tensor(feat, field="input:features", context=context)
+            if bool(((src < 0) | (src >= num_nodes)).any().item()):
+                raise ValueError(f"{context}: source node index outside [0,{num_nodes})")
+            if bool(((dst < 0) | (dst >= num_nodes)).any().item()):
+                raise ValueError(f"{context}: destination node index outside [0,{num_nodes})")
 
             # ── Negative sampling ────────────────────────────────────────────
             # neg_strategy:
@@ -232,21 +271,42 @@ def run_epoch(model, split_data, num_nodes, batch_size, optimizer=None,
                 neg_dst_np = sample_negatives(dst_all[idx], num_nodes)
 
             neg_dst = torch.tensor(neg_dst_np, dtype=torch.long, device=DEVICE)
+            if bool(((neg_dst < 0) | (neg_dst >= num_nodes)).any().item()):
+                raise ValueError(f"{context}: negative destination outside [0,{num_nodes})")
 
             out = model(src, dst, t, feat, neg_dst)
+            for field in ("pos_score", "neg_score", "loss"):
+                if field not in out:
+                    raise KeyError(f"{context}: model output is missing {field}")
+            for field, value in out.items():
+                if isinstance(value, torch.Tensor):
+                    _require_finite_tensor(value, field=f"output:{field}", context=context)
+                elif isinstance(value, (int, float)) and not np.isfinite(value):
+                    raise NonFiniteExecutionError(
+                        f"{context}: non-finite scalar output:{field}"
+                    )
 
             if is_train:
                 optimizer.zero_grad()
                 out["loss"].backward()
-                nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+                _require_finite_optimizer_state(model, optimizer, context=context)
+                grad_norm = nn.utils.clip_grad_norm_(
+                    model.parameters(), 1.0, error_if_nonfinite=True
+                )
+                _require_finite_tensor(grad_norm, field="gradient:norm", context=context)
                 optimizer.step()
+                _require_finite_optimizer_state(model, optimizer, context=context)
                 # Invariant I3: Hopfield pass MUST be after optimizer step (anti-leakage)
                 if hasattr(model, "post_step"):
                     model.post_step()
+                    _require_finite_optimizer_state(model, optimizer, context=context)
 
             pos_np = torch.sigmoid(out["pos_score"]).detach().cpu().numpy()
             neg_np = torch.sigmoid(out["neg_score"]).detach().cpu().numpy()
             loss_val = out["loss"].item()
+            if not (np.isfinite(pos_np).all() and np.isfinite(neg_np).all()
+                    and np.isfinite(loss_val)):
+                raise NonFiniteExecutionError(f"{context}: metric input is non-finite")
 
             extras = {}
             for k in ("ccs", "salience", "tip_loss", "causal_loss"):

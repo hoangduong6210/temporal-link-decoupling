@@ -1,10 +1,13 @@
 """
-Baseline temporal graph models for comparison with SR-GNN.
+Quarantined simplified temporal-model proxies.
+
+These classes are not faithful external-baseline identities and are excluded
+from the scientific matrix by protocol amendment LP-P-DECOUPLING-001-A002.
   1. JODIE       — coupled RNN  (Kumar et al., 2019)
   2. DyRep       — temporal GNN (Trivedi et al., 2019)
   3. TGAT        — temporal attention (Xu et al., 2020)
   4. TGN         — memory + GRU (Rossi et al., 2020)
-  5. GraphMixer  — MLP-based (Cong et al., 2023)
+  5. Recurrent MLP memory — internal diagnostic (not GraphMixer)
   6. Ablation variants of SR-GNN
 """
 
@@ -192,10 +195,16 @@ class TGN(nn.Module):
 
 
 # ────────────────────────────────────────────────────────────
-# 5. GraphMixer
+# 5. Recurrent MLP-memory diagnostic (historically mislabeled GraphMixer)
 # ────────────────────────────────────────────────────────────
 
 class GraphMixer(nn.Module):
+    """Legacy class name for the quarantined recurrent-MLP-memory diagnostic.
+
+    The public execution key is ``recurrent_mlp_memory``. This class must not be
+    cited or reported as GraphMixer; it has mutable memory and no temporal
+    neighbor MLP-Mixer encoder.
+    """
     def __init__(self, num_nodes: int, feat_dim: int, hidden: int = 128,
                  device=torch.device("cpu")):
         super().__init__()

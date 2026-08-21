@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-08-20T15:51:01Z",
+  "source": "Slurm sacct -X accounting queried on ascend-login01",
+  "task_attempt_arrays": [
+    {
+      "array_job_id": "6907586",
+      "task_profile": "coupled-end-to-end",
+      "source_commit": "61d3839ad9c5b896f8f20634d9d9a08da5bf957a",
+      "submitted_at": "2026-08-20T06:12:36",
+      "started_at": "2026-08-20T06:13:05",
+      "finished_at_by_index": [
+        "2026-08-20T06:13:08", "2026-08-20T06:13:07", "2026-08-20T06:13:07",
+        "2026-08-20T06:13:08", "2026-08-20T06:13:07", "2026-08-20T06:13:07",
+        "2026-08-20T06:13:07", "2026-08-20T06:13:07", "2026-08-20T06:13:07"
+      ],
+      "scheduler_state": "FAILED",
+      "exit_code": 1,
+      "reason": "Slurm copied the submission script into its spool; BASH_SOURCE resolved the wrong project root, so the runner never started. Superseded before evidence."
+    },
+    {
+      "array_job_id": "6907587",
+      "task_profile": "decoupled",
+      "source_commit": "61d3839ad9c5b896f8f20634d9d9a08da5bf957a",
+      "submitted_at": "2026-08-20T06:12:36",
+      "started_at": "2026-08-20T06:13:05",
+      "finished_at_by_index": [
+        "2026-08-20T06:13:08", "2026-08-20T06:13:07", "2026-08-20T06:13:07",
+        "2026-08-20T06:13:07", "2026-08-20T06:13:08", "2026-08-20T06:13:07",
+        "2026-08-20T06:13:08", "2026-08-20T06:13:07", "2026-08-20T06:13:07"
+      ],
+      "scheduler_state": "FAILED",
+      "exit_code": 1,
+      "reason": "Slurm copied the submission script into its spool; BASH_SOURCE resolved the wrong project root, so the runner never started. Superseded before evidence."
+    },
+    {
+      "array_job_id": "6907588",
+      "task_profile": "freeze-then-probe",
+      "source_commit": "61d3839ad9c5b896f8f20634d9d9a08da5bf957a",
+      "submitted_at": "2026-08-20T06:12:37",
+      "started_at": "2026-08-20T06:13:05",
+      "finished_at_by_index": [
+        "2026-08-20T06:13:08", "2026-08-20T06:13:07", "2026-08-20T06:13:08",
+        "2026-08-20T06:13:08", "2026-08-20T06:13:07", "2026-08-20T06:13:07",
+        "2026-08-20T06:13:08", "2026-08-20T06:13:07", "2026-08-20T06:13:08"
+      ],
+      "scheduler_state": "FAILED",
+      "exit_code": 1,
+      "reason": "Slurm copied the submission script into its spool; BASH_SOURCE resolved the wrong project root, so the runner never started. Superseded before evidence."
+    }
+  ],
+  "other_scheduler_jobs": [
+    {
+      "job_id": "6907589",
+      "purpose": "quarantined temporal proxy array",
+      "state": "CANCELLED",
+      "failed_indices": "0-35",
+      "cancelled_indices": "36-80",
+      "reason": "same submission-root defect; remaining pending tasks cancelled"
+    },
+    {
+      "job_id": "6907590",
+      "purpose": "first reconciliation dependency",
+      "state": "CANCELLED",
+      "reason": "upstream array dependency failed"
+    },
+    {
+      "job_id": "6907662",
+      "purpose": "superseded coupled-end-to-end array",
+      "state": "COMPLETED",
+      "completed_tasks": 9
+    },
+    {
+      "job_id": "6907663",
+      "purpose": "superseded decoupled array",
+      "state": "COMPLETED",
+      "completed_tasks": 9
+    },
+    {
+      "job_id": "6907664",
+      "purpose": "superseded freeze-then-probe array",
+      "state": "COMPLETED",
+      "completed_tasks": 9
+    },
+    {
+      "job_id": "6907665",
+      "purpose": "quarantined temporal proxy array",
+      "state": "COMPLETED_WITH_FAILED_ELEMENT",
+      "completed_tasks": 80,
+      "failed_tasks": 1,
+      "failed_index": 43,
+      "failed_identity": "recurrent implementation previously mislabeled graphmixer/mooc/seed-7",
+      "reason": "non-finite output and external-model identity mismatch"
+    },
+    {
+      "job_id": "6907666",
+      "purpose": "superseded reconciliation",
+      "state": "FAILED",
+      "completed_tasks": 107,
+      "expected_tasks": 108,
+      "reason": "one proxy task failed; amendment later removed all proxies from the admissible matrix"
+    }
+  ]
+}

@@ -1,22 +1,21 @@
 """
-External-baseline benchmark for head-to-head vs SR-GNN v3.3.
+Quarantined diagnostic proxy runner; not external-comparator evidence.
 
-Runs the registered temporal-graph baselines through the SAME train.py harness
+Runs simplified architectural proxies through the SAME train.py harness
 that produces the v3.3 numbers (identical get_data_splits chronological split,
 identical fair inductive negative sampling, identical AP/AUC metric, identical
-epochs/batch). The ONLY thing that varies is the model. This guarantees protocol
-parity — the comparison is apples-to-apples.
+epochs/batch). This controls the local harness only; it does not establish
+faithful upstream model identity or publication eligibility.
 
 Metric aggregation is packed INTO the run: after every completed (model,dataset,seed)
 run the output json is rewritten with both `runs` (per-seed) and `summary`
 (mean±std grouped by model×dataset). A wall-clock timeout therefore still leaves a
-valid, aggregated partial result on disk — no separate post-hoc aggregator pass.
+diagnostic partial result on disk — no separate post-hoc aggregator pass.
 
 Default protocol matches the v3.3 A/B exactly:
   seeds [1,7,42] x 20 epochs x hidden 128 x batch 500 x lr 1e-3.
 
-Excluded by design:
-  - dygformer: BROKEN (PatchEncoder.forward signature mismatch, dygformer.py:114) — ML-owned bug.
+All outputs are excluded by protocol amendment LP-P-DECOUPLING-001-A002.
 """
 import argparse
 from pathlib import Path
@@ -35,9 +34,12 @@ from temporal_link_decoupling.reproducibility import (
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
-# Working external baselines (all CPU-smoke verified: construct+forward+backward,
-# correct (B,) score shapes, nonzero grads). dygformer excluded (broken forward).
-DEFAULT_MODELS = ["jodie", "dyrep", "tgat", "tgn", "graphmixer", "cawn"]
+# These labels deliberately cannot be confused with faithful external models.
+# The entire task profile is excluded from scientific-matrix and paper evidence.
+DEFAULT_MODELS = [
+    "proxy_jodie", "proxy_dyrep", "proxy_tgat", "proxy_tgn",
+    "recurrent_mlp_memory", "proxy_cawn",
+]
 
 
 def summarize(results):

@@ -45,11 +45,6 @@ from temporal_link_decoupling.reproducibility import (  # noqa: E402
 JOB_ID = re.compile(r"LP-JOB-[A-Z0-9-]+")
 SEED_SUFFIX = re.compile(r":seed-(\d+)$")
 MAIN_PROFILES = ("coupled-end-to-end", "decoupled", "freeze-then-probe")
-BASELINE_PROFILE = "temporal-baselines"
-BASELINE_MODELS = (
-    "jodie", "dyrep", "tgat", "tgn", "graphmixer", "dygformer", "cawn",
-    "edgebank_inf", "edgebank_tw",
-)
 METRICS = ("trans_ap", "trans_auc", "ind_ap", "ind_auc")
 
 
@@ -112,10 +107,6 @@ def expected_matrix(protocol: Mapping[str, Any]) -> dict[str, dict[str, Any]]:
     profiles = _mapping(protocol.get("task_profiles"), "protocol task profiles")
     if tuple(profile for profile in MAIN_PROFILES if profile in profiles) != MAIN_PROFILES:
         raise MatrixError("protocol main task profiles are incomplete")
-    baseline = _mapping(profiles.get(BASELINE_PROFILE), "baseline profile")
-    models = tuple(baseline.get("allowed_models", ()))
-    if models != BASELINE_MODELS:
-        raise MatrixError("protocol baseline allowlist differs from the audited matrix")
     expected: dict[str, dict[str, Any]] = {}
     for profile in MAIN_PROFILES:
         for dataset in datasets:
@@ -126,18 +117,6 @@ def expected_matrix(protocol: Mapping[str, Any]) -> dict[str, dict[str, Any]]:
                     "task_profile": profile,
                     "runner_task": runner_task,
                     "model": "srgnn-v3-3",
-                    "dataset": dataset,
-                    "seed": seed,
-                }
-    for model in models:
-        for dataset in datasets:
-            for seed in seeds:
-                runner_task = f"{model}:{dataset}:seed-{seed}"
-                task = f"{BASELINE_PROFILE}/{runner_task}"
-                expected[task] = {
-                    "task_profile": BASELINE_PROFILE,
-                    "runner_task": runner_task,
-                    "model": model,
                     "dataset": dataset,
                     "seed": seed,
                 }
@@ -167,6 +146,72 @@ def _candidate_files(input_root: Path, excluded: Iterable[Path]) -> list[Path]:
         path for path in sorted(input_root.rglob("*.json"))
         if path.resolve() not in excluded_resolved and path.is_file() and not path.is_symlink()
     ]
+
+
+def _external_attempts(
+    root: Path,
+    history_path: Path,
+    protocol: Mapping[str, Any],
+    expected: Mapping[str, Mapping[str, Any]],
+) -> list[dict[str, Any]]:
+    """Expand checksumable Slurm accounting for attempts with no runner JSON."""
+
+    try:
+        payload = _mapping(
+            json.loads(history_path.read_text(encoding="utf-8")), "scheduler history"
+        )
+    except (OSError, UnicodeError, json.JSONDecodeError) as error:
+        raise MatrixError(f"invalid external scheduler history: {error}") from error
+    if payload.get("schema_version") != 1:
+        raise MatrixError("external scheduler history schema is unsupported")
+    study = _mapping(protocol.get("study"), "protocol study")
+    datasets = [str(item) for item in study.get("datasets", ())]
+    seeds = [int(item) for item in study.get("seeds", ())]
+    task_count = len(datasets) * len(seeds)
+    relative = history_path.relative_to(root).as_posix()
+    digest = sha256_file(history_path)
+    expanded: list[dict[str, Any]] = []
+    for raw in _list(payload.get("task_attempt_arrays"), "scheduler task arrays"):
+        group = _mapping(raw, "scheduler task array")
+        profile = str(group.get("task_profile", ""))
+        array_job_id = str(group.get("array_job_id", ""))
+        finished = _list(group.get("finished_at_by_index"), "array finished timestamps")
+        if profile not in MAIN_PROFILES or len(finished) != task_count:
+            raise MatrixError(f"external task array does not match protocol grid: {profile}")
+        if not array_job_id.isdigit() or group.get("scheduler_state") != "FAILED":
+            raise MatrixError(f"external task array has invalid scheduler identity/state: {profile}")
+        if not isinstance(group.get("exit_code"), int) or int(group["exit_code"]) == 0:
+            raise MatrixError(f"external failed array has no nonzero exit code: {profile}")
+        reason = str(group.get("reason", "")).strip()
+        if not reason:
+            raise MatrixError(f"external task array has no exclusion reason: {profile}")
+        for index in range(task_count):
+            dataset = datasets[index // len(seeds)]
+            seed = seeds[index % len(seeds)]
+            runner_task = f"p0-off:{dataset}:seed-{seed}"
+            task = f"{profile}/{runner_task}"
+            if task not in expected:
+                raise MatrixError(f"external attempt references unknown task: {task}")
+            parent_job_id = f"LP-JOB-SLURM-{array_job_id}-{index}-BOOTSTRAP"
+            expanded.append({
+                "task_id": task,
+                "parent_job_id": parent_job_id,
+                "scheduler_job_id": f"{array_job_id}_{index}",
+                "array_job_id": array_job_id,
+                "array_task_id": str(index),
+                "seed": seed,
+                "started_at": str(group.get("started_at")),
+                "finished_at": str(finished[index]),
+                "status": "EXCLUDED",
+                "exit_code": int(group["exit_code"]),
+                "reason": reason,
+                "error": reason,
+                "result_path": relative,
+                "result_sha256": digest,
+                "source_commit": str(group.get("source_commit", "UNKNOWN")),
+                "payload": None,
+            })
+    return expanded
 
 
 def _validate_candidate(
@@ -305,6 +350,9 @@ def reconcile(
         "dependency_lock": _file_record(root, lock_path),
         "dependency_lock_policy": _file_record(root, policy_path),
         "runner": _file_record(root, "scripts/reconcile_scientific_matrix.py"),
+        "scheduler_history": _file_record(
+            root, "evidence/execution/LP-SCHEDULER-HISTORY-20260820.json"
+        ),
     }
     protocol = _load_toml(root / protocol_path)
     expected = expected_matrix(protocol)
@@ -314,6 +362,11 @@ def reconcile(
     started_at = utc_now()
     candidates: dict[str, list[dict[str, Any]]] = defaultdict(list)
     seen_job_ids: set[str] = set()
+
+    history_path = root / records["scheduler_history"]["path"]
+    for attempt in _external_attempts(root, history_path, protocol, expected):
+        candidates[str(attempt["task_id"])].append(attempt)
+        seen_job_ids.add(str(attempt["parent_job_id"]))
 
     for path in _candidate_files(input_root, (out_path, ledger_path)):
         try:
@@ -368,6 +421,7 @@ def reconcile(
                 status = "FAILED"
                 exit_code = int(job.get("exit_code") or 1)
             scheduler = _mapping(job.get("scheduler"), f"{path}.scheduler")
+            source_record = job.get("source")
             relative = path.relative_to(root).as_posix()
             candidates[semantic_task].append({
                 "task_id": semantic_task,
@@ -384,6 +438,11 @@ def reconcile(
                 "reason": "; ".join(issues),
                 "result_path": relative,
                 "result_sha256": sha256_file(path),
+                "source_commit": str(
+                    source_record.get("commit", "UNKNOWN")
+                    if isinstance(source_record, dict)
+                    else "UNKNOWN"
+                ),
                 "payload": payload,
             })
         except (OSError, UnicodeError, json.JSONDecodeError) as error:
@@ -404,6 +463,7 @@ def reconcile(
                     "task_id", "scheduler_job_id", "array_task_id", "seed",
                     "started_at", "finished_at", "status", "exit_code",
                     "result_path", "result_sha256", "parent_job_id", "array_job_id",
+                    "source_commit",
                 )
             }
             attempt["attempt_id"] = item["parent_job_id"]
@@ -515,6 +575,7 @@ def reconcile(
             "dataset_manifest": records["dataset_manifest"],
             "data_checksums": records["data_checksums"],
             "dataset_source_registry": records["source_registry"],
+            "scheduler_history": records["scheduler_history"],
             "datasets": [datasets[name] for name in protocol["study"]["datasets"]],
         },
         "coverage": {

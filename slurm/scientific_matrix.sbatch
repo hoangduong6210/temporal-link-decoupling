@@ -29,10 +29,12 @@ export PYTHONPATH="$project_root/src${PYTHONPATH:+:$PYTHONPATH}"
 
 datasets=(coedit wikipedia mooc)
 seeds=(1 7 42)
-models=(jodie dyrep tgat tgn graphmixer dygformer cawn edgebank_inf edgebank_tw)
+models=(proxy_jodie proxy_dyrep proxy_tgat proxy_tgn recurrent_mlp_memory proxy_dygformer proxy_cawn diagnostic_edgebank_inf diagnostic_edgebank_tw)
 task_index="$SLURM_ARRAY_TASK_ID"
 
 if [[ "$LP_TASK" == "temporal-baselines" ]]; then
+  echo "temporal-baselines is quarantined and is not part of the scientific matrix" >&2
+  exit 65
   if (( task_index < 0 || task_index >= ${#models[@]} * ${#datasets[@]} * ${#seeds[@]} )); then
     echo "baseline array index outside protocol matrix: $task_index" >&2
     exit 64

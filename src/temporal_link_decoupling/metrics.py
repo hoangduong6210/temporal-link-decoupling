@@ -35,6 +35,12 @@ class RunningMetrics:
         self._extras = {}
 
     def update(self, pos_scores, neg_scores, loss: float, extras: dict = None):
+        if not (
+            np.isfinite(pos_scores).all()
+            and np.isfinite(neg_scores).all()
+            and np.isfinite(loss)
+        ):
+            raise ValueError("metric update received a non-finite score or loss")
         self._pos.append(pos_scores)
         self._neg.append(neg_scores)
         self._losses.append(loss)

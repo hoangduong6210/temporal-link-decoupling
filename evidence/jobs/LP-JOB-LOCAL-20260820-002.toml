@@ -1,0 +1,38 @@
+schema_version = 1
+job_id = "LP-JOB-LOCAL-20260820-002"
+execution_kind = "scheduler-accounting-capture"
+scientific = false
+scheduler_job_id = "NOT_APPLICABLE"
+date = "2026-08-20"
+source_commit = "3da5159246c2f94cf9cc2bd5a969e1d68dfaa9a1"
+source_state = "DIRTY_CORRECTIVE_WORKTREE"
+project = "link-prediction"
+command = "sacct -X -n -P -j 6907586,6907587,6907588,6907589,6907590,6907662,6907663,6907664,6907665,6907666 --format=JobID,State,ExitCode,Submit,Start,End"
+exit_code = 0
+outcome = "SCHEDULER_HISTORY_CAPTURED"
+protocol_id = "LP-P-DECOUPLING-001"
+result_pointer = "evidence/execution/LP-SCHEDULER-HISTORY-20260820.json"
+result_sha256 = "f6343c244e6936456ca1b2eda587e6f82d0c35bdb3b32bf91fce3e03799577fd"
+attempt_count = 3
+failed_attempt_count = 1
+supported_evidence_ids = ["LP-E-SCHEDULER-HISTORY-001"]
+supported_scientific_claim_ids = []
+limitations = "Read-only scheduler accounting and adjudication evidence. It preserves failed, cancelled, superseded, and proxy attempts but supports no performance claim."
+
+[[attempts]]
+attempt_index = 0
+outcome = "FAILED"
+exit_code = 255
+error = "Restricted-process DNS could not resolve the scheduler login host."
+
+[[attempts]]
+attempt_index = 1
+outcome = "COMPLETED"
+exit_code = 0
+error = "NONE"
+
+[[attempts]]
+attempt_index = 2
+outcome = "COMPLETED"
+exit_code = 0
+error = "NONE"

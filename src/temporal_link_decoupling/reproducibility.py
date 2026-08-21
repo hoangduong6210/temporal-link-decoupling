@@ -128,6 +128,10 @@ class ResolvedRunConfig:
     python_hash_seed: int
     cublas_workspace_config: str
     warmup_policy: str
+    finite_policy: str
+    node_memory_collision_semantics: str
+    causal_batch_scope: str
+    requires_disjoint_bipartite_ids: bool
     protocol_conformant: bool
     deviations: tuple[str, ...]
 
@@ -170,6 +174,21 @@ def resolve_run_config(
     config_optimizer = config.get("optimizer", {})
     protocol_repro = protocol.get("reproducibility", {})
     config_repro = config.get("reproducibility", {})
+    protocol_identity = {
+        "finite_policy": protocol_repro.get("finite_policy"),
+        "node_memory_collision_semantics": protocol_repro.get(
+            "node_memory_collision_semantics"
+        ),
+        "causal_batch_scope": protocol_repro.get("causal_batch_scope"),
+        "requires_disjoint_bipartite_ids": protocol.get(
+            "requires_disjoint_bipartite_ids"
+        ),
+    }
+    missing_identity = sorted(
+        key for key, value in protocol_identity.items() if value in (None, "")
+    )
+    if missing_identity:
+        raise ValueError(f"Protocol is missing execution semantics: {missing_identity}")
 
     authoritative = {
         "datasets": tuple(protocol_study.get("datasets", protocol.get("datasets", ()))),
@@ -304,6 +323,14 @@ def resolve_run_config(
         python_hash_seed=int(authoritative["python_hash_seed"]),
         cublas_workspace_config=str(authoritative["cublas_workspace_config"]),
         warmup_policy=str(authoritative["warmup_policy"]),
+        finite_policy=str(protocol_identity["finite_policy"]),
+        node_memory_collision_semantics=str(
+            protocol_identity["node_memory_collision_semantics"]
+        ),
+        causal_batch_scope=str(protocol_identity["causal_batch_scope"]),
+        requires_disjoint_bipartite_ids=bool(
+            protocol_identity["requires_disjoint_bipartite_ids"]
+        ),
         protocol_conformant=not deviations,
         deviations=deviations,
     )
@@ -367,6 +394,9 @@ def validate_task_profile(
         "runner": runner,
         "profile_found": bool(profile),
         "valid": bool(profile) and not errors and not mismatches,
+        "scientific_matrix_eligible": bool(
+            profile.get("scientific_matrix_eligible", True)
+        ) if profile else False,
         "errors": errors,
         "mismatches": mismatches,
     }
@@ -775,6 +805,8 @@ def build_job_metadata(
         scientific_blockers.append("strict determinism prerequisites are unmet")
     if not task_profile_validation or not task_profile_validation.get("valid", False):
         scientific_blockers.append("task profile is missing or does not match resolved arguments")
+    elif not task_profile_validation.get("scientific_matrix_eligible", True):
+        scientific_blockers.append("task profile is quarantined from the scientific matrix")
     lock_status = "MISSING"
     if lock_policy.is_file():
         lock_section = _load_toml(lock_policy).get("lock", {})

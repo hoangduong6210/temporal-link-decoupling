@@ -3,7 +3,8 @@
 This project studies whether preventing the link-prediction loss from shaping
 the temporal backbone improves inductive link prediction. Its scope includes
 the controlled coupled/decoupled contrast, freeze-then-probe, hard negatives,
-baseline parity, and split/leakage controls across CoEdit, Wikipedia, and MOOC.
+and split/leakage controls across CoEdit, Wikipedia, and MOOC. Simplified
+temporal-model proxies are quarantined and provide no external-baseline claim.
 
 The repository is independent from the lifecycle-readout project: it owns its
 source snapshot, corpora manifests, result history, paper working tree, wiki,

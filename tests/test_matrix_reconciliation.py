@@ -23,18 +23,39 @@ def test_protocol_matrix_is_exact_and_unique() -> None:
     protocol = module._load_toml(ROOT / "protocols/link_prediction_v1.toml")
     matrix = module.expected_matrix(protocol)
 
-    assert len(matrix) == 108
+    assert len(matrix) == 27
     assert len(set(matrix)) == len(matrix)
     assert {item["task_profile"] for item in matrix.values()} == {
         "coupled-end-to-end",
         "decoupled",
         "freeze-then-probe",
-        "temporal-baselines",
     }
     assert {item["seed"] for item in matrix.values()} == {1, 7, 42}
     assert {item["dataset"] for item in matrix.values()} == {
         "coedit", "wikipedia", "mooc"
     }
+
+
+def test_scheduler_bootstrap_failures_expand_into_every_main_task() -> None:
+    module = _module()
+    protocol = module._load_toml(ROOT / "protocols/link_prediction_v1.toml")
+    matrix = module.expected_matrix(protocol)
+    attempts = module._external_attempts(
+        ROOT,
+        ROOT / "evidence/execution/LP-SCHEDULER-HISTORY-20260820.json",
+        protocol,
+        matrix,
+    )
+
+    assert len(attempts) == 27
+    assert {item["task_id"] for item in attempts} == set(matrix)
+    assert {item["status"] for item in attempts} == {"EXCLUDED"}
+    assert {item["source_commit"] for item in attempts} == {
+        "61d3839ad9c5b896f8f20634d9d9a08da5bf957a"
+    }
+    assert all(item["scheduler_job_id"].split("_")[0] in {
+        "6907586", "6907587", "6907588"
+    } for item in attempts)
 
 
 def test_reconciled_summary_uses_sample_standard_deviation() -> None:

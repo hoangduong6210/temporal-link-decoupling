@@ -22,6 +22,8 @@ snapshot: `UNRELEASED`.
 - The scientific runner, dependency lock, accelerator record, attempt reconciler,
   evidence freezer, and paper snapshot builder are fail-closed.
 - Legacy execution attempts and claims are retained for audit without admission.
+- Failed and superseded fresh attempts are retained in checksum-bound scheduler
+  history; the corrected publication matrix excludes simplified model proxies.
 
 ## Unsupported or blocked now
 
