@@ -12,7 +12,8 @@ Promote a staged file only after recording its raw-source digest, license, build
 revision, processed checksum, and dataset-registry review. `apply_idfix.py` reads the
 preserved inputs under `resources/corpora/pre_idfix/`.
 
-The upstream raw-file digests and licenses are currently `UNKNOWN/BLOCKED`; do not
-use a fresh download as evidence for an existing claim or release.
-`download.py` therefore requires a reviewed `<DATASET>_RAW_SHA256` environment
-variable and rejects an unverified raw CSV.
+The upstream raw-file digests are registered in
+`resources/source_registry.json`; no upstream redistribution license was
+identified. Keep acquisition fetch-only and do not commit raw or derived corpus
+bytes. `download.py` rejects any raw CSV that does not match the registered
+digest.

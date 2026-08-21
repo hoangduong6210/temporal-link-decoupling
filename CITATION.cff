@@ -1,11 +1,16 @@
 cff-version: 1.2.0
-message: "Please cite the archived paper snapshot associated with the evidence release you use."
+message: "If you use this software, please cite it using these metadata."
 title: "Temporal Link Prediction by Decoupling"
 type: software
 authors:
   - family-names: Duong
     given-names: Viet Hoang
+  - family-names: Duong
+    given-names: Viet Huy
   - family-names: Shih
     given-names: Lun-Min
 version: 0.1.0
-date-released: 2026-08-19
+date-released: 2026-08-21
+license: BSD-3-Clause
+repository-code: "https://github.com/hoangduong6210/temporal-link-decoupling"
+url: "https://github.com/hoangduong6210/temporal-link-decoupling"

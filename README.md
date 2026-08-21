@@ -125,8 +125,16 @@ boundary.
 
 ## Citation and license
 
-Citation metadata is provided in [`CITATION.cff`](CITATION.cff). No software
-license has been granted for this public research snapshot; visibility does not
-imply permission to copy, modify, or redistribute the code. Dataset and
-third-party assets retain their upstream terms. See
+Citation metadata is provided in [`CITATION.cff`](CITATION.cff).
+
+Unless otherwise noted, project-authored software and supporting material are
+licensed under the [BSD 3-Clause License](LICENSE). The exact grant and
+exclusions are defined in [`LICENSE-SCOPE.md`](LICENSE-SCOPE.md).
+
+This license does not grant rights to downloaded datasets, third-party
+software, external assets, frozen evidence, or conference artifacts. Dataset
+bytes are not redistributed; acquisition and rights boundaries are documented
+in [`resources/source_registry.json`](resources/source_registry.json) and
 [`wiki/governance/License-and-Assets.md`](wiki/governance/License-and-Assets.md).
+See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) for third-party
+boundaries.

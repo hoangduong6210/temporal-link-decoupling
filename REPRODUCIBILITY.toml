@@ -40,6 +40,6 @@ task_seed_attempt_failure_coverage = "COMPLETE_EXACT_PROTOCOL_MATRIX"
 aggregation_reconstruction = "VERIFIED_FROM_SELECTED_PER_SEED_ROWS_WITH_SAMPLE_STD"
 frozen_results_state = "FROZEN_CHECKSUM_CLOSED_RELEASE"
 latest_audit_job = "LP-JOB-LOCAL-20260820-002"
-public_source_release_state = "OWNER_LICENSE_DECISION_REQUIRED"
+public_source_release_state = "BSD_3_CLAUSE_LICENSED_SOURCE"
 
 blockers = []

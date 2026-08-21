@@ -4,6 +4,7 @@ name = "Temporal Link Prediction by Decoupling"
 stage = "reproducible-publication-candidate"
 implementation_version = "0.1.0"
 last_updated = "2026-08-21"
+software_license = "BSD-3-Clause"
 
 [pointers]
 evidence_release = "LP-REL-2026-A003-001"

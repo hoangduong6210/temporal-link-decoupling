@@ -4,7 +4,10 @@
   "policy_sha256": "cbf68745418f2482b07c0d015f55e32c77310c9b9471a34763f205c23b7e5170",
   "source_prefix": "Hoang/SR-GNN/link-prediction",
   "relation": "EXACT_PUBLIC_ALLOWLIST_PROJECTION",
-  "allowed_public_overlays": ["wiki/INDEX.md"],
+  "allowed_public_overlays": [
+    "wiki/INDEX.md",
+    "wiki/governance/License-and-Assets.md"
+  ],
   "commits": {
     "024030f58cdae9df5623caa1ebd0f7ad5b97cf54": {"public_commit": "28ca30388c390968b27b506e7112b46d60deb8d8", "relation": "EXACT_PUBLIC_ALLOWLIST_PROJECTION"},
     "0ca0fd59e36bcadd8246d8c03ee9b0ecd7af7148": {"public_commit": "d56b6614d167432264cbd0e98e8dbbdec29d28c3", "relation": "EXACT_PUBLIC_ALLOWLIST_PROJECTION"},

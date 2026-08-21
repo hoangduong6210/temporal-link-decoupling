@@ -53,7 +53,8 @@ def _manifest_entries() -> list[dict[str, str]]:
 
 def test_required_repository_contract() -> None:
     required = [
-        "README.md", "PROJECT.toml", "pyproject.toml",
+        "README.md", "LICENSE", "LICENSE-SCOPE.md", "THIRD_PARTY_NOTICES.md",
+        "PROJECT.toml", "pyproject.toml", "CITATION.cff",
         "REPRODUCIBILITY.toml",
         "results/CURRENT", "paper/CURRENT", "resources/manifest.toml",
         "wiki/README.md", "wiki/INDEX.md", "wiki/START-HERE.md",
@@ -180,6 +181,62 @@ def test_public_export_excludes_internal_artifacts() -> None:
     ).stdout.splitlines()
     reachable_paths = [line.split(" ", 1)[1] for line in reachable if " " in line]
     assert not [path for path in excluded if any(item.startswith(path) for item in reachable_paths)]
+    snapshot_root_files = {
+        path.name for path in (ROOT / "paper/snapshots").iterdir() if path.is_file()
+    }
+    assert snapshot_root_files == {"README.md"}
+
+
+def test_license_metadata_and_asset_boundaries() -> None:
+    license_text = (ROOT / "LICENSE").read_text(encoding="utf-8")
+    assert license_text.startswith("BSD 3-Clause License\n")
+    assert "Temporal Link Prediction by Decoupling contributors" in license_text
+    assert "Neither the name of the copyright holder" in license_text
+    assert '\"AS IS\"' in license_text
+
+    pyproject = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
+    citation = (ROOT / "CITATION.cff").read_text(encoding="utf-8")
+    project = (ROOT / "PROJECT.toml").read_text(encoding="utf-8")
+    reproducibility = (ROOT / "REPRODUCIBILITY.toml").read_text(encoding="utf-8")
+    assert 'license = "BSD-3-Clause"' in pyproject
+    assert "license: BSD-3-Clause" in citation
+    assert 'software_license = "BSD-3-Clause"' in project
+    assert 'public_source_release_state = "BSD_3_CLAUSE_LICENSED_SOURCE"' in reproducibility
+
+    scope = (ROOT / "LICENSE-SCOPE.md").read_text(encoding="utf-8")
+    notices = (ROOT / "THIRD_PARTY_NOTICES.md").read_text(encoding="utf-8")
+    governance = (WIKI / "governance/License-and-Assets.md").read_text(encoding="utf-8")
+    for text in (scope, notices, governance):
+        assert "dataset" in text.lower()
+        assert "third-party" in text.lower()
+
+    registry = json.loads((ROOT / "resources/source_registry.json").read_text())
+    rights = registry["rights_policy"]
+    assert rights["upstream_license_grant_identified"] is False
+    assert rights["redistribution_by_this_project"] is False
+
+    policy = (ROOT / "evidence/export/PUBLIC-HISTORY-POLICY.toml").read_text()
+    assert "license_added = false" in policy
+    mapping = json.loads(
+        (ROOT / "evidence/export/COMMIT-EQUIVALENCE.json").read_text()
+    )
+    assert mapping["allowed_public_overlays"] == [
+        "wiki/INDEX.md",
+        "wiki/governance/License-and-Assets.md",
+    ]
+
+
+def test_license_identifier_is_structural_but_scientific_numbers_remain_visible() -> None:
+    spec = importlib.util.spec_from_file_location(
+        "audit_scientific_provenance",
+        ROOT / "scripts/audit_scientific_provenance.py",
+    )
+    assert spec and spec.loader
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    mask = module._mask_structural_wiki_tokens
+    assert "3" not in mask("Software license: BSD-3-Clause")
+    assert "81%" in mask("BSD-3-Clause does not evidence a value of 81%")
 
 
 def test_claim_evidence_namespace_resolves() -> None:

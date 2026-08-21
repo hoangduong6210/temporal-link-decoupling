@@ -195,6 +195,10 @@ def _claim_sections(text: str) -> dict[str, str]:
 def _mask_structural_wiki_tokens(line: str) -> str:
     """Mask governance locators while leaving disguised scientific values visible."""
     masked = re.sub(r"\d{4}-\d{2}-\d{2}", "", line)
+    # SPDX identifiers are governance metadata, not scientific measurements.
+    # Keep this exemption exact so an arbitrary number next to a license name
+    # remains visible to the evidence audit.
+    masked = re.sub(r"\bBSD(?:-| )3-Clause(?: License)?\b", "", masked)
     masked = STRUCTURAL_IDENTIFIER.sub("", masked)
     masked = re.sub(r"\bv?\d+(?:\.\d+)+\b", "", masked, flags=re.IGNORECASE)
     masked = re.sub(r"^\s*\d+[.)]\s+", "", masked)
