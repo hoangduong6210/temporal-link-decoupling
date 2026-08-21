@@ -28,7 +28,8 @@ trusts builder-authored audit fields.
 
 The export allowlist excludes `paper/working/`, top-level `paper/figs/`,
 `figures/generated/`, mutable audit results, and historical results. Current
-DOCX/ZIP working exports lack visible quarantine text and are unsafe to submit.
-The active pointer is `LP-SNAP-2026-CONFERENCE-003`; it remains publishable only
-while `python scripts/audit_scientific_provenance.py --require-release`
-succeeds.
+working exports remain unsafe to submit. A submission package must use the
+checksum-bound PDF and self-contained Overleaf archive inside the active
+snapshot. The active pointer is `LP-SNAP-2026-CONFERENCE-004`; it remains
+publishable only while
+`python scripts/audit_scientific_provenance.py --require-release` succeeds.

@@ -155,7 +155,7 @@ def test_wiki_identifier_and_governance_contracts() -> None:
         "Acceptance-gate outcome", "Supported claim IDs", "Rejected claim IDs",
         "Scientific-use boundary",
     ):
-        assert evidence.count(f"**{field}:**") == 8
+        assert evidence.count(f"**{field}:**") == 9
 
     decision = (WIKI / "decisions/0001-separate-link-prediction-and-lifecycle-readout.md").read_text()
     for heading in (
@@ -187,6 +187,14 @@ def test_public_export_excludes_internal_artifacts() -> None:
     assert snapshot_root_files == {"README.md"}
 
 
+def test_public_history_allows_only_the_named_overleaf_zip() -> None:
+    verifier = (ROOT / "scripts/verify_public_history.py").read_text(encoding="utf-8")
+    assert "candidate/link-prediction-overleaf\\.zip" in verifier
+    assert "link-prediction-overleaf\\.zip" in verifier
+    assert 'BANNED_SUFFIX = {".docx", ".zip", ".pyc", ".log", ".out"}' in verifier
+    assert "ALLOWED_OVERLEAF_ZIP.fullmatch(path)" in verifier
+
+
 def test_license_metadata_and_asset_boundaries() -> None:
     license_text = (ROOT / "LICENSE").read_text(encoding="utf-8")
     assert license_text.startswith("BSD 3-Clause License\n")
@@ -209,6 +217,8 @@ def test_license_metadata_and_asset_boundaries() -> None:
     for text in (scope, notices, governance):
         assert "dataset" in text.lower()
         assert "third-party" in text.lower()
+    assert "manuscript source" in scope
+    assert "submission bundles" in scope
 
     registry = json.loads((ROOT / "resources/source_registry.json").read_text())
     rights = registry["rights_policy"]

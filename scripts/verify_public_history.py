@@ -16,6 +16,10 @@ BANNED_PATH = re.compile(
     r"paper/snapshots/LP-SNAP-2026-CONFERENCE-00[12]/)"
 )
 BANNED_SUFFIX = {".docx", ".zip", ".pyc", ".log", ".out"}
+ALLOWED_OVERLEAF_ZIP = re.compile(
+    r"^paper/(?:candidate/link-prediction-overleaf\.zip|"
+    r"snapshots/LP-SNAP-[A-Z0-9-]+/link-prediction-overleaf\.zip)$"
+)
 PRIVATE_TEXT = re.compile(
     rb"/(?:users|home|private|scratch)/|ghp_[A-Za-z0-9]{20,}|"
     rb"binben14@ascend-rw01\.ten\.osc\.edu"
@@ -44,7 +48,10 @@ def verify() -> dict[str, object]:
         if not separator or not path:
             continue
         paths.append(path)
-        if BANNED_PATH.search(path) or Path(path).suffix.lower() in BANNED_SUFFIX:
+        banned_suffix = Path(path).suffix.lower() in BANNED_SUFFIX
+        if Path(path).suffix.lower() == ".zip" and ALLOWED_OVERLEAF_ZIP.fullmatch(path):
+            banned_suffix = False
+        if BANNED_PATH.search(path) or banned_suffix:
             issues.append(f"publication-excluded path is reachable: {path}")
         if str(_git("cat-file", "-t", object_id)).strip() == "blob":
             blob_ids.add(object_id)

@@ -12,7 +12,7 @@ paper_source: false
 The Link Prediction project has an independent implementation, corpus registry,
 result partition, wiki, and paper root. Current scientific execution is complete
 under `LP-E-SCIENTIFIC-MATRIX-001`, `LP-REL-2026-A003-001` is the active frozen
-evidence release, and `LP-SNAP-2026-CONFERENCE-003` is the immutable conference
+evidence release, and `LP-SNAP-2026-CONFERENCE-004` is the immutable conference
 snapshot. The original mixed tree is read-only migration input and cannot
 support current claims.
 
@@ -36,14 +36,17 @@ The current paper is Link Prediction-only and is built without quarantined
 working documents, historical results, legacy figures, or lifecycle-readout
 material. Every numeric occurrence in both source and rendered text is owned by
 the admitted claim, frozen evidence, scientific job, artifact checksum, strict
-selector, and explicit equality or rounding assertion.
+selector, and explicit equality or rounding assertion. The PDF, monochrome
+vector figures, and self-contained Overleaf archive are checksum-bound by
+`LP-JOB-LOCAL-20260821-PAPER-BUILD-004`.
 
-Public source licensing remains an owner decision; it does not weaken the
-internal evidence chain, and dataset bytes remain fetch-only.
+Project-authored source is released under BSD-3-Clause within the path-level
+scope documented by the licensing policy. Dataset bytes, frozen evidence,
+conference artifacts, and third-party material remain outside that grant.
 
 Quarantined manuscript history, proxy comparators, lifecycle-readout material,
-generated figures outside the allowlist, and historical results remain outside
-the publication surface.
+generated figures outside the registered build allowlist, and historical results
+remain outside the publication surface.
 
 ## Revision boundary
 

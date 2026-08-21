@@ -16,7 +16,9 @@ The root license does not grant rights to:
   `resources/corpora/` or `resources/staging/`;
 - third-party software, dependencies, templates, or assets;
 - frozen evidence under `results/frozen/`, execution evidence under
-  `evidence/`, or conference artifacts under `paper/snapshots/`.
+  `evidence/`; or
+- manuscript source, figures, rendered PDFs, and submission bundles under
+  `paper/`, including immutable conference snapshots.
 
 Excluded material remains subject to its applicable upstream terms or, when no
 separate grant is stated, all rights remain reserved. A file-specific license

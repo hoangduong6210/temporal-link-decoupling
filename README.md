@@ -20,7 +20,7 @@ The active result and manuscript are immutable, checksum-closed artifacts:
 | Scientific claims | [`wiki/claims/Current-Claim-Language.md`](wiki/claims/Current-Claim-Language.md) |
 | Evidence ledger | [`wiki/evidence/Evidence-Ledger.md`](wiki/evidence/Evidence-Ledger.md) |
 | Evidence release | [`LP-REL-2026-A003-001`](results/frozen/LP-REL-2026-A003-001/) |
-| Conference snapshot | [`LP-SNAP-2026-CONFERENCE-003`](paper/snapshots/LP-SNAP-2026-CONFERENCE-003/) |
+| Conference snapshot | [`LP-SNAP-2026-CONFERENCE-004`](paper/snapshots/LP-SNAP-2026-CONFERENCE-004/) |
 | Scientific execution | [`LP-JOB-SLURM-A003-FINAL-RECONCILE-R2`](evidence/jobs/LP-JOB-SLURM-A003-FINAL-RECONCILE-R2.toml) |
 | Reproducibility contract | [`REPRODUCIBILITY.toml`](REPRODUCIBILITY.toml) |
 

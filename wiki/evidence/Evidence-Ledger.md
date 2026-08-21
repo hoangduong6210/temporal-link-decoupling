@@ -9,6 +9,37 @@ paper_source: false
 
 Current evidence release: `LP-REL-2026-A003-001`.
 
+## LP-E-PUBLICATION-SNAPSHOT-001
+
+- **Scientific purpose:** Bind the conference manuscript source, compiled PDF,
+  monochrome vector figures, and self-contained Overleaf archive to the current
+  frozen evidence release without creating a new scientific result.
+- **Lifecycle:** FROZEN and VALIDATED publication evidence; not scientific
+  performance evidence.
+- **Source commit:** `c85e0660634ddb1de75cf27c94e83e49d3d146b8`, recorded as
+  CLEAN by the conference build job.
+- **Protocol, configuration, and data hashes:** Inherited without modification
+  from `LP-REL-2026-A003-001`; all printed empirical values resolve through the
+  frozen scientific matrix and its registered selectors.
+- **Execution identity:** `LP-JOB-LOCAL-20260821-PAPER-BUILD-004`; repeated clean
+  builds produced identical PDF and Overleaf-package hashes.
+- **Artifact path or release URI:** The immutable payload under
+  `paper/snapshots/LP-SNAP-2026-CONFERENCE-004/`.
+- **Artifact checksum:** The snapshot checksum manifest binds every payload file;
+  the build job independently binds the candidate PDF, Overleaf archive, vector
+  figures, and vendored IEEEtran class.
+- **Coverage and failures:** Covers the complete author block, removal of the
+  provisional release note, exclusion of unsupported legacy claims, embedded
+  fonts, absence of raster image objects, and the exact Overleaf member allowlist.
+- **Acceptance-gate outcome:** PASS is required for committed-source identity,
+  clean compilation, deterministic rebuild, numeric provenance, checksum,
+  public-history, active-surface, and pointer-consistency gates.
+- **Supported claim IDs:** none; printed scientific values remain owned by
+  `LP-C-DECOUPLING-001` and `LP-E-SCIENTIFIC-MATRIX-001`.
+- **Rejected claim IDs:** none.
+- **Scientific-use boundary:** Publication packaging and presentation only; this
+  record cannot create, strengthen, or generalize a scientific claim.
+
 ## LP-E-SCIENTIFIC-MATRIX-001
 
 - **Scientific purpose:** Preserve the current-corpus coupled, decoupled, and
