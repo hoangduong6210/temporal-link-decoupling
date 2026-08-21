@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "policy_id": "LP-PUBLIC-HISTORY-20260821",
+  "policy_sha256": "cbf68745418f2482b07c0d015f55e32c77310c9b9471a34763f205c23b7e5170",
+  "source_prefix": "Hoang/SR-GNN/link-prediction",
+  "relation": "EXACT_PUBLIC_ALLOWLIST_PROJECTION",
+  "allowed_public_overlays": ["wiki/INDEX.md"],
+  "commits": {
+    "024030f58cdae9df5623caa1ebd0f7ad5b97cf54": {"public_commit": "28ca30388c390968b27b506e7112b46d60deb8d8", "relation": "EXACT_PUBLIC_ALLOWLIST_PROJECTION"},
+    "0ca0fd59e36bcadd8246d8c03ee9b0ecd7af7148": {"public_commit": "d56b6614d167432264cbd0e98e8dbbdec29d28c3", "relation": "EXACT_PUBLIC_ALLOWLIST_PROJECTION"},
+    "1274367034dcaeb3b3672541da26b4eb3a524125": {"public_commit": "76f8976899432d217ed9218ab5842bdcc933e72c", "relation": "EXACT_PUBLIC_ALLOWLIST_PROJECTION"},
+    "1ee96ccdd9c4705cc12ede2ecd58b9fd914132ed": {"public_commit": "651392877cd9c6ffb8dd832d3897ed7e09edce69", "relation": "EXACT_PUBLIC_ALLOWLIST_PROJECTION"},
+    "3919f4cc6e8fd16ac3e7eeaec04511ddae9222f4": {"public_commit": "b013f16543f8d6ace6dcb3b2d81e67b86cc1d40e", "relation": "EXACT_PUBLIC_ALLOWLIST_PROJECTION"},
+    "3da5159246c2f94cf9cc2bd5a969e1d68dfaa9a1": {"public_commit": "1dc4c132506b90a443eccb2bd7143a6f6cfb099b", "relation": "EXACT_PUBLIC_ALLOWLIST_PROJECTION"},
+    "56db0f814cdf6098cab3b40249048e00fbc43af3": {"public_commit": "e0bece593b4cdb35f700f05595c005280243b9c1", "relation": "EXACT_PUBLIC_ALLOWLIST_PROJECTION"},
+    "5b629b6d0d276db2713aa3402974035b5ac970ed": {"public_commit": "f4c62067bd2999548fbbce3837b72f676de13fc9", "relation": "EXACT_PUBLIC_ALLOWLIST_PROJECTION"},
+    "61d3839ad9c5b896f8f20634d9d9a08da5bf957a": {"public_commit": "7e717585d959a18b535278e95ab68d2722158228", "relation": "EXACT_PUBLIC_ALLOWLIST_PROJECTION"},
+    "63c43b1e34c6d9a3c9f9efc66b7379bb940302b2": {"public_commit": "874e3e7fce1b56aa448b21b4371d243379ae059f", "relation": "EXACT_PUBLIC_ALLOWLIST_PROJECTION"},
+    "7802d82c9d846ce7ca21ba97b990a473d90d83e2": {"public_commit": "b9f424e752909049c46852cdc3c6abf647941a01", "relation": "EXACT_PUBLIC_ALLOWLIST_PROJECTION"},
+    "7ecbf73bc2df04f288c5093d2894851b8a17aa9d": {"public_commit": "68cbf892de431f3964debff45e4e8cc732496151", "relation": "EXACT_PUBLIC_ALLOWLIST_PROJECTION"},
+    "a2b3d2620b016652bc42e86591c3a45a9bf13cf8": {"public_commit": "d59c4c35b236efd838e4e7a40160bd05adc56c89", "relation": "EXACT_PUBLIC_ALLOWLIST_PROJECTION"},
+    "a3b280e753dfdb23ddd8aa3a00d79b1f14d9518a": {"public_commit": "bcb0bf8aa3d7a4495182bac2ec43a1509e724933", "relation": "EXACT_PUBLIC_ALLOWLIST_PROJECTION"},
+    "adf0f1026b7e67f3031a19cea52f1211b008d29b": {"public_commit": "d0cd84493baaae87d629f1fef8419b1942c5a547", "relation": "EXACT_PUBLIC_ALLOWLIST_PROJECTION"},
+    "bd84c540e2dfc72f3247867d7940f1c4c997de72": {"public_commit": "551ab2f5b39fa50f399475dbd244336108d3c9fc", "relation": "EXACT_PUBLIC_ALLOWLIST_PROJECTION"},
+    "cbfae4e0a46b6d8cf1d6ac7f457ac12b83be9ac0": {"public_commit": "5040fe8ce00ea544084bdd4f0c48d2b1b41e5b7a", "relation": "EXACT_PUBLIC_ALLOWLIST_PROJECTION"},
+    "d243dc2ddd928e841edd9091ab038f8c06825df6": {"public_commit": "1154a1361ee45e0e2469f5015bf3e2e10d0c8b31", "relation": "EXACT_PUBLIC_ALLOWLIST_PROJECTION"},
+    "d3bfddd63c2a07b5932248ad195399e92be427b7": {"public_commit": "93e144e985b28b719bd5f64d6e0192b3990bb0df", "relation": "EXACT_PUBLIC_ALLOWLIST_PROJECTION"},
+    "d46fa8247ff304b9fab6f3e3cd44812616a2992c": {"public_commit": "12e1b653f4c44f05d2257c5e59bc90e5b70eb00e", "relation": "EXACT_PUBLIC_ALLOWLIST_PROJECTION"},
+    "d635c64e71df2ca6034a114bd3f551d24c19c08e": {"public_commit": "81d3a795f85beb1b4daf9746bade30a5ba7f56ef", "relation": "EXACT_PUBLIC_ALLOWLIST_PROJECTION"},
+    "ed227ad1cbc8143ff23e78aee476f01b7c9028de": {"public_commit": "6fd70414e85934791448623aa8567482249be623", "relation": "EXACT_PUBLIC_ALLOWLIST_PROJECTION"}
+  }
+}

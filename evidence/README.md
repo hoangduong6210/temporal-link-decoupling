@@ -1,10 +1,12 @@
 # Evidence records
 
-This directory owns structured execution identity. Wiki claims may cite an
-Evidence ID, but every assertion produced by a command must also resolve to a
-record under `jobs/` and to `jobs/checksums.sha256`.
+This directory contains the execution identities used by current claims and
+the plans that assembled the active evidence release and paper snapshot. Each
+job record is checksum-registered in `jobs/checksums.sha256`.
 
-Local records remain structural unless `scientific = true` and every field in
-`jobs/SCIENTIFIC_JOB_CONTRACT.md` closes. The current scientific reconciliation
-record is registered, but paper admission still requires an activated frozen
-release containing the record and every artifact it owns.
+Scientific status requires `scientific = true` and every field in
+`jobs/SCIENTIFIC_JOB_CONTRACT.md`. Local records can document acquisition,
+accounting, or paper assembly, but they cannot create a performance claim.
+
+`export/` records the policy and commit-equivalence map used to create this
+standalone public history without making parent-monorepo objects reachable.

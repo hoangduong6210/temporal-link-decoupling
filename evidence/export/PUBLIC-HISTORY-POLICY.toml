@@ -1,0 +1,31 @@
+schema_version = 1
+policy_id = "LP-PUBLIC-HISTORY-20260821"
+source_prefix = "Hoang/SR-GNN/link-prediction"
+projection = "publication-facing allowlist"
+
+[identity]
+author_name = "Hoang Duong"
+author_email = "Hoangduong4316@icloud.com"
+
+[excluded]
+paths = [
+  "AGENTS.md",
+  "docs/MIGRATION.md",
+  "evidence/audits/",
+  "evidence/jobs/LP-JOB-LOCAL-20260819-001.toml",
+  "evidence/jobs/LP-JOB-LOCAL-20260819-002.toml",
+  "figures/",
+  "paper/figs/",
+  "paper/working/",
+  "paper/snapshots/LP-SNAP-2026-CONFERENCE-001/",
+  "paper/snapshots/LP-SNAP-2026-CONFERENCE-002/",
+  "resources/corpora/",
+  "results/audit/",
+  "results/historical/",
+]
+
+[safety]
+single_public_ref = "refs/heads/main"
+second_hop_object_store = true
+original_monorepo_objects_allowed = false
+license_added = false

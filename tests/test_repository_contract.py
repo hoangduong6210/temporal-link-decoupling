@@ -53,7 +53,7 @@ def _manifest_entries() -> list[dict[str, str]]:
 
 def test_required_repository_contract() -> None:
     required = [
-        "README.md", "AGENTS.md", "PROJECT.toml", "pyproject.toml",
+        "README.md", "PROJECT.toml", "pyproject.toml",
         "REPRODUCIBILITY.toml",
         "results/CURRENT", "paper/CURRENT", "resources/manifest.toml",
         "wiki/README.md", "wiki/INDEX.md", "wiki/START-HERE.md",
@@ -63,8 +63,6 @@ def test_required_repository_contract() -> None:
         "wiki/evidence/Evidence-Ledger.md",
         "wiki/governance/License-and-Assets.md",
         "wiki/governance/Numeric-Evidence-and-Publication-Hygiene.md",
-        "evidence/jobs/LP-JOB-LOCAL-20260819-001.toml",
-        "evidence/jobs/LP-JOB-LOCAL-20260819-002.toml",
         "evidence/jobs/LP-JOB-LOCAL-20260820-001.toml",
         "evidence/jobs/SCIENTIFIC_JOB_CONTRACT.md",
         "evidence/jobs/checksums.sha256",
@@ -73,6 +71,10 @@ def test_required_repository_contract() -> None:
         "scripts/reconcile_scientific_matrix.py",
         "scripts/freeze_evidence_release.py",
         "scripts/build_paper_snapshot.py",
+        "scripts/public_source_identity.py",
+        "scripts/verify_public_history.py",
+        "evidence/export/COMMIT-EQUIVALENCE.json",
+        "evidence/export/PUBLIC-HISTORY-POLICY.toml",
         "slurm/scientific_matrix.sbatch",
         "slurm/reconcile_scientific_matrix.sbatch",
     ]
@@ -163,15 +165,21 @@ def test_wiki_identifier_and_governance_contracts() -> None:
         assert heading in decision
 
 
-def test_legacy_paper_quarantine_banners() -> None:
-    required = [
-        ROOT / "paper/README.md",
-        ROOT / "paper/working/RSGNN_core_IEEE.md",
-        ROOT / "paper/working/overleaf/main.tex",
-        ROOT / "paper/working/overleaf/supplementary.tex",
+def test_public_export_excludes_internal_artifacts() -> None:
+    excluded = [
+        "AGENTS.md", "docs/MIGRATION.md", "evidence/audits", "figures",
+        "paper/figs", "paper/working", "results/audit", "results/historical",
+        "resources/corpora/pre_idfix",
+        "paper/snapshots/LP-SNAP-2026-CONFERENCE-001",
+        "paper/snapshots/LP-SNAP-2026-CONFERENCE-002",
     ]
-    for path in required:
-        assert "QUARANTINED LEGACY WORKING" in path.read_text(encoding="utf-8")
+    assert not [path for path in excluded if (ROOT / path).exists()]
+    reachable = subprocess.run(
+        ["git", "rev-list", "--objects", "HEAD"], cwd=ROOT,
+        text=True, capture_output=True, check=True,
+    ).stdout.splitlines()
+    reachable_paths = [line.split(" ", 1)[1] for line in reachable if " " in line]
+    assert not [path for path in excluded if any(item.startswith(path) for item in reachable_paths)]
 
 
 def test_claim_evidence_namespace_resolves() -> None:
@@ -248,18 +256,16 @@ def test_public_files_contain_no_private_paths() -> None:
         assert not pattern.search(path.read_text(encoding="utf-8", errors="ignore")), path
 
 
-def test_runtime_and_historical_checksum_manifests() -> None:
+def test_runtime_and_public_checksum_manifests() -> None:
     for manifest_path in [
         ROOT / "configs/shared-runtime.sha256",
         ROOT / "resources/checksums.sha256",
-        ROOT / "results/historical/legacy_import/checksums.sha256",
-        ROOT / "paper/working/checksums.sha256",
         ROOT / "evidence/jobs/checksums.sha256",
     ]:
         for line in manifest_path.read_text().splitlines():
             expected, rel = line.split(maxsplit=1)
             artifact = ROOT / rel
-            if not artifact.exists() and artifact.suffix in {".npz", ".zip"}:
+            if not artifact.exists() and artifact.is_relative_to(ROOT / "resources/corpora"):
                 continue
             assert artifact.exists()
             assert _sha256(artifact) == expected
@@ -269,8 +275,7 @@ def test_numeric_evidence_jobs_and_publication_boundary() -> None:
     claims = (WIKI / "claims/Current-Claim-Language.md").read_text(encoding="utf-8")
     assert claims.count("**Execution job:**") == 3
 
-    wiki_text = "\n".join(path.read_text(encoding="utf-8") for path in WIKI.rglob("*.md"))
-    job_ids = set(re.findall(r"\bLP-JOB-[A-Z0-9-]+\b", wiki_text))
+    job_ids = set(re.findall(r"\bLP-JOB-[A-Z0-9-]+\b", claims))
     assert job_ids
     checksums = (ROOT / "evidence/jobs/checksums.sha256").read_text(encoding="utf-8")
     for job_id in job_ids:
@@ -299,14 +304,10 @@ def test_numeric_evidence_jobs_and_publication_boundary() -> None:
                 violations.append(f"{page.relative_to(ROOT)}:{lineno}:{line}")
     assert not violations
 
-    gate = (ROOT.parent / "publication/PUBLICATION_GATE.toml").read_text(encoding="utf-8")
-    reproducibility = (ROOT / "REPRODUCIBILITY.toml").read_text(encoding="utf-8")
-    expected_gate = "READY" if 'status = "REPRODUCIBLE"' in reproducibility else "BLOCKED"
-    assert f'status = "{expected_gate}"' in gate
-    for banned in (".claude/", "team/", "paper/working/", "results/historical/",
-                   "SR-GNN_paper_code.zip", "link-prediction/paper/figs/",
-                   "link-prediction/figures/generated/"):
-        assert banned in gate
+    policy = (ROOT / "evidence/export/PUBLIC-HISTORY-POLICY.toml").read_text(encoding="utf-8")
+    for banned in ("AGENTS.md", "paper/working/", "results/historical/",
+                   "paper/figs/", "figures/", "evidence/audits/"):
+        assert banned in policy
 
 
 def test_active_surface_has_no_ai_or_internal_orphan_markers() -> None:
@@ -347,13 +348,13 @@ def test_provenance_auditor_and_release_readiness_semantics() -> None:
     assert report["active_internal_markers"] == []
     assert report["wiki"]["unclassified_numeric_tokens_outside_claim_registry"] == []
     assert report["wiki"]["unclassified_number_words_outside_claim_registry"] == []
-    assert report["quarantine_diagnostics"]["historical_json_files"] == 53
+    assert report["quarantine_diagnostics"]["historical_json_files"] == 0
     assert report["quarantine_diagnostics"][
         "historical_json_with_normalized_execution_identity"
-    ] == 1
-    assert not all(report["quarantine_diagnostics"][
+    ] == 0
+    assert report["quarantine_diagnostics"][
         "legacy_binary_has_visible_quarantine_banner"
-    ].values())
+    ] == {}
 
     release = subprocess.run(
         [*command, "--require-release"], cwd=ROOT,

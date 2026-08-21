@@ -18,8 +18,10 @@ import zipfile
 
 try:
     from scripts import numeric_evidence
+    from scripts import public_source_identity
 except ModuleNotFoundError:  # pragma: no cover - direct script execution
     import numeric_evidence  # type: ignore[no-redef]
+    import public_source_identity  # type: ignore[no-redef]
 
 try:  # Python 3.11+
     import tomllib  # type: ignore[import-not-found]
@@ -142,49 +144,14 @@ def _checksums(path: Path) -> dict[str, str]:
 
 
 def _git_blob(commit: str, project_relative: str) -> bytes:
-    git_root_result = subprocess.run(
-        ["git", "-C", str(ROOT), "rev-parse", "--show-toplevel"],
-        text=True,
-        capture_output=True,
-        check=False,
-    )
-    if git_root_result.returncode != 0:
-        raise ValueError("cannot resolve git repository root")
-    git_root = Path(git_root_result.stdout.strip()).resolve()
-    project_prefix = ROOT.resolve().relative_to(git_root)
-    repository_path = (project_prefix / project_relative).as_posix()
-    result = subprocess.run(
-        ["git", "-C", str(ROOT), "show", f"{commit}:{repository_path}"],
-        capture_output=True,
-        check=False,
-    )
-    if result.returncode != 0:
-        raise ValueError(
-            f"source is absent from declared commit: {project_relative}"
-        )
-    return result.stdout
+    try:
+        return public_source_identity.git_blob(ROOT, commit, project_relative)
+    except public_source_identity.SourceIdentityError as exc:
+        raise ValueError(str(exc)) from exc
 
 
 def _wiki_matches_commit(commit: str) -> bool:
-    git_root_result = subprocess.run(
-        ["git", "-C", str(ROOT), "rev-parse", "--show-toplevel"],
-        text=True,
-        capture_output=True,
-        check=False,
-    )
-    if git_root_result.returncode != 0:
-        return False
-    git_root = Path(git_root_result.stdout.strip()).resolve()
-    wiki_path = (ROOT / "wiki").resolve().relative_to(git_root).as_posix()
-    result = subprocess.run(
-        [
-            "git", "-C", str(ROOT), "diff", "--quiet", commit, "--",
-            f":(top){wiki_path}",
-        ],
-        capture_output=True,
-        check=False,
-    )
-    return result.returncode == 0
+    return public_source_identity.tree_matches_head(ROOT, commit, "wiki")
 
 
 def _yaml_scalar_map(path: Path) -> dict[str, str]:
@@ -287,7 +254,7 @@ def _audit_wiki(issues: list[str]) -> dict[str, object]:
     number_word_locations: list[str] = []
     structural_numeric_occurrences = 0
     claim_numeric_occurrences = 0
-    for path in sorted(WIKI.rglob("*.md")):
+    for path in [ROOT / "README.md", *sorted(WIKI.rglob("*.md"))]:
         in_front_matter = False
         for lineno, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
             if lineno == 1 and line == "---":

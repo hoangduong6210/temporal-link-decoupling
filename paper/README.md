@@ -1,18 +1,10 @@
-# Paper lifecycle
+# Paper snapshot
 
-> **QUARANTINED LEGACY WORKING DRAFTS:** Every file under `working/` contains
-> unadmitted historical wording. It is not current evidence, permitted claim
-> language, or an immutable paper snapshot. Do not submit, cite, or export it.
+`CURRENT` selects the immutable conference snapshot admitted by `PROJECT.toml`.
+The selected directory contains manuscript source, rendered output, the frozen
+build plan, result lock, numeric-provenance registry, and checksums.
 
-`working/` contains mutable Paper 1 imports. `snapshots/` is reserved for
-immutable exports locked to a frozen evidence release. `CURRENT` remains
-`UNRELEASED` until the export contract passes.
-
-Existing DOCX, PDF, and ZIP files may not carry the visible source quarantine
-banner and still contain unsupported scalars. Their presence is preservation,
-not export permission; the workspace publication gate excludes all of `working/`.
-
-Top-level `figs/` and project-level `figures/generated/` are exact or historical
-legacy exports containing embedded numeric labels. They are also quarantined
-and cannot be copied into a snapshot. A future figure must be regenerated from
-locked evidence and carry a checksum-locked numeric sidecar plus its plot job.
+The standalone public history does not include mutable working manuscripts,
+legacy figures, or superseded snapshots. New revisions must be built with
+`scripts/build_paper_snapshot.py` from a reviewed plan and a frozen evidence
+release; existing snapshot directories are never edited in place.

@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 #SBATCH --job-name=lp-reconcile
-#SBATCH --account=PGS0407
-#SBATCH --partition=nextgen
 #SBATCH --time=00:30:00
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=16G

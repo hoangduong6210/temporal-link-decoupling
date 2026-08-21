@@ -31,6 +31,11 @@ import subprocess
 import tempfile
 from typing import Any, Iterable, Mapping, Sequence
 
+try:
+    from scripts import public_source_identity
+except ModuleNotFoundError:  # pragma: no cover - direct script execution
+    import public_source_identity  # type: ignore[no-redef]
+
 try:  # Python 3.11+
     import tomllib  # type: ignore[import-not-found]
 except ModuleNotFoundError:  # pragma: no cover - Python 3.9/3.10
@@ -246,7 +251,10 @@ def _verify_clean_worktree(root: Path) -> str:
 def _verify_commit(root: Path, commit: Any, label: str) -> str:
     if not isinstance(commit, str) or HEX40.fullmatch(commit) is None:
         raise GateError(f"{label} must be a full lowercase 40-hex commit")
-    _git(root, "cat-file", "-e", f"{commit}^{{commit}}")
+    try:
+        public_source_identity.resolve_commit(root, commit)
+    except public_source_identity.SourceIdentityError as exc:
+        raise GateError(f"{label} is not resolvable: {exc}") from exc
     return commit
 
 

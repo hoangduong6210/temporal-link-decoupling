@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 #SBATCH --job-name=lp-scientific
-#SBATCH --account=PGS0407
-#SBATCH --partition=nextgen
 #SBATCH --time=20:00:00
 #SBATCH --gpus-per-node=1
 #SBATCH --cpus-per-task=8

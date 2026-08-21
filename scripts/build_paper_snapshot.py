@@ -29,9 +29,11 @@ from typing import Any, Iterable, Mapping, Sequence
 try:  # Works both as ``python scripts/...`` and as an imported test module.
     from scripts import freeze_evidence_release as common
     from scripts import numeric_evidence
+    from scripts import public_source_identity
 except ModuleNotFoundError:  # pragma: no cover - direct script execution
     import freeze_evidence_release as common  # type: ignore[no-redef]
     import numeric_evidence  # type: ignore[no-redef]
+    import public_source_identity  # type: ignore[no-redef]
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -143,20 +145,11 @@ def _verify_frozen_release(root: Path, release_id: Any) -> dict[str, Any]:
 
 
 def _git_blob(root: Path, commit: str, path: Path) -> bytes:
-    git_root = Path(common._git(root, "rev-parse", "--show-toplevel")).resolve()
     try:
-        rel = path.resolve().relative_to(git_root).as_posix()
-    except ValueError as exc:
-        raise common.GateError(f"source is outside the git repository: {path}") from exc
-    result = subprocess.run(
-        ["git", "-C", str(root), "show", f"{commit}:{rel}"],
-        capture_output=True,
-        check=False,
-    )
-    if result.returncode != 0:
-        detail = result.stderr.decode("utf-8", errors="replace").strip()
-        raise common.GateError(f"source is not present at {commit}: {rel}: {detail}")
-    return result.stdout
+        rel = path.resolve().relative_to(root.resolve()).as_posix()
+        return public_source_identity.git_blob(root, commit, rel)
+    except (ValueError, public_source_identity.SourceIdentityError) as exc:
+        raise common.GateError(f"source is not present at {commit}: {path}: {exc}") from exc
 
 
 def _verify_source_at_commit(root: Path, commit: str, path: Path) -> None:
@@ -165,23 +158,8 @@ def _verify_source_at_commit(root: Path, commit: str, path: Path) -> None:
 
 
 def _verify_wiki_commit(root: Path, wiki_commit: str) -> None:
-    git_root = Path(common._git(root, "rev-parse", "--show-toplevel")).resolve()
-    wiki_rel = (root / "wiki").resolve().relative_to(git_root).as_posix()
-    result = subprocess.run(
-        [
-            "git", "-C", str(root), "diff", "--quiet", wiki_commit, "HEAD", "--",
-            f":(top){wiki_rel}",
-        ],
-        capture_output=True,
-        check=False,
-    )
-    if result.returncode == 1:
+    if not public_source_identity.tree_matches_head(root, wiki_commit, "wiki"):
         raise common.GateError("current canonical wiki differs from declared wiki_commit")
-    if result.returncode != 0:
-        raise common.GateError(
-            "unable to compare wiki_commit: "
-            + result.stderr.decode("utf-8", errors="replace").strip()
-        )
 
 
 def _verify_build_job(root: Path, job_id: Any, source_commit: str) -> dict[str, Any]:
