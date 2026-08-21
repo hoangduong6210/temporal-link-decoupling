@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "captured_at": "2026-08-21T01:29:36Z",
+  "captured_at": "2026-08-21T02:33:18Z",
   "source": {
     "system": "slurm",
     "host": "ascend-login01",
@@ -14,6 +14,11 @@
       {
         "path": "evidence/execution/raw/LP-SACCT-20260821-A002.psv",
         "sha256": "37aa0b83775a9ed33e8301e55b8ae9ec5ee8ad1c22a4e3a338e468cfbf31a38f",
+        "kind": "raw-sacct-pipe-delimited"
+      },
+      {
+        "path": "evidence/execution/raw/LP-SACCT-20260821-A003-SUBMIT.psv",
+        "sha256": "30c0a2c93343689d165dfc6f0dbdb90f1bc2d4fc92c3e1461f8feddb1e6b3d4a",
         "kind": "raw-sacct-pipe-delimited"
       }
     ]
@@ -112,6 +117,28 @@
       "quarantined_arrays": [],
       "lifecycle_jobs": [
         {"scheduler_job_id": "6915243", "purpose": "reconciliation", "scheduler_state": "CANCELLED"}
+      ]
+    },
+    {
+      "campaign_id": "LP-CAM-A003-SUBMIT-20260820",
+      "generation": 3,
+      "admissibility": "INADMISSIBLE",
+      "adjudication": "SUBMISSION_DIRECTORY_PRECONDITION_FAILURE",
+      "source_commit": "1ee96ccdd9c4705cc12ede2ecd58b9fd914132ed",
+      "protocol_sha256": "6186c279806cf86d2a4c704997e4d179e341e0a095cc85c107cae890cb6b34c3",
+      "configuration_sha256": "67c2e877c114a0aca0bb8a367b34c03ea676132a19e5f28ac2a2c6148166376d",
+      "data_manifest_sha256": "3f13779b2d3e0c055cebe3e6e07e2bf5f0e76c9ce07a52c3456efb76223000a2",
+      "dependency_lock_sha256": "90ceae7c184de3be418f4ce0f1b700b7f6d13c3945abb9eb2cbf033bfec9f35f",
+      "environment_digest_sha256": "d8c962326cd2a8120e858260d9101562e2bec82b5861d92cfa791b166d202d6e",
+      "submission_script_sha256": "b4fa5fb5f697cb4c56b945d8ac0b018d38952c31afaaac06da3b6add8397c976",
+      "scientific_arrays": [
+        {"array_job_id": "6915387", "task_profile": "coupled-end-to-end", "index_range": "0-8", "scheduler_state": "FAILED"},
+        {"array_job_id": "6915388", "task_profile": "decoupled", "index_range": "0-8", "scheduler_state": "FAILED"},
+        {"array_job_id": "6915389", "task_profile": "freeze-then-probe", "index_range": "0-8", "scheduler_state": "FAILED"}
+      ],
+      "quarantined_arrays": [],
+      "lifecycle_jobs": [
+        {"scheduler_job_id": "6915391", "purpose": "reconciliation", "scheduler_state": "CANCELLED"}
       ]
     }
   ]

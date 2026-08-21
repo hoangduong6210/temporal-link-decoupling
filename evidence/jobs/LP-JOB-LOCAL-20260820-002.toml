@@ -4,16 +4,16 @@ execution_kind = "scheduler-accounting-capture"
 scientific = false
 scheduler_job_id = "NOT_APPLICABLE"
 date = "2026-08-21"
-source_commit = "0ca0fd59e36bcadd8246d8c03ee9b0ecd7af7148"
+source_commit = "1ee96ccdd9c4705cc12ede2ecd58b9fd914132ed"
 source_state = "DIRTY_CORRECTIVE_WORKTREE"
 project = "link-prediction"
-command = "Two read-only sacct captures; exact job sets and format are preserved in the scheduler-history source record."
+command = "Checksum-bound read-only sacct captures; exact job sets and format are preserved in the scheduler-history source record."
 exit_code = 0
 outcome = "SCHEDULER_HISTORY_CAPTURED"
 protocol_id = "LP-P-DECOUPLING-001"
 result_pointer = "evidence/execution/LP-SCHEDULER-HISTORY-20260820.json"
-result_sha256 = "f8f11c4404b4eff8800b634ffd26746cd3bef983ffa92161ff9725c0c993b0ae"
-acquisition_attempt_count = 4
+result_sha256 = "2144c6a4274a072ea2fbcf6e79d6936ee68731fb492a67c4c1c5cf6e7d3f50e0"
+acquisition_attempt_count = 5
 acquisition_failed_attempt_count = 1
 supported_evidence_ids = ["LP-E-SCHEDULER-HISTORY-001"]
 supported_scientific_claim_ids = []
@@ -27,6 +27,11 @@ role = "raw-sacct-accounting"
 [[additional_artifacts]]
 path = "evidence/execution/raw/LP-SACCT-20260821-A002.psv"
 sha256 = "37aa0b83775a9ed33e8301e55b8ae9ec5ee8ad1c22a4e3a338e468cfbf31a38f"
+role = "raw-sacct-accounting"
+
+[[additional_artifacts]]
+path = "evidence/execution/raw/LP-SACCT-20260821-A003-SUBMIT.psv"
+sha256 = "30c0a2c93343689d165dfc6f0dbdb90f1bc2d4fc92c3e1461f8feddb1e6b3d4a"
 role = "raw-sacct-accounting"
 
 [[attempts]]
@@ -49,6 +54,12 @@ error = "NONE"
 
 [[attempts]]
 attempt_index = 3
+outcome = "COMPLETED"
+exit_code = 0
+error = "NONE"
+
+[[attempts]]
+attempt_index = 4
 outcome = "COMPLETED"
 exit_code = 0
 error = "NONE"

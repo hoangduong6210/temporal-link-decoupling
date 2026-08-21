@@ -46,6 +46,10 @@ clean acquisition uses the reviewed source registry and explicit builders.
   reconciliation job were cancelled. Amendment `LP-P-DECOUPLING-001-A003`
   restores the registered homogeneous CoEdit topology while retaining disjoint
   user/item namespaces for Wikipedia and MOOC.
+- The initial A003 submission-directory attempt failed before runner startup and
+  its dependent reconciliation was cancelled. Its exact native accounting is
+  retained in the same scheduler-history evidence; replacement execution must
+  originate from the project root.
 - No frozen evidence release, admitted performance claim, results lock, or
   immutable paper snapshot exists.
 - Strong numerical and generalization wording in `paper/working/` remains QUARANTINED.

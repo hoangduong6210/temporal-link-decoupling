@@ -47,7 +47,7 @@ def test_scheduler_history_expands_every_main_attempt_without_state_laundering()
         matrix,
     )
 
-    assert len(attempts) == 81
+    assert len(attempts) == 108
     assert {item["task_id"] for item in attempts} == set(matrix)
     assert {item["scheduler_state"] for item in attempts} == {
         "FAILED", "COMPLETED", "CANCELLED"
@@ -58,20 +58,22 @@ def test_scheduler_history_expands_every_main_attempt_without_state_laundering()
         "61d3839ad9c5b896f8f20634d9d9a08da5bf957a",
         "3da5159246c2f94cf9cc2bd5a969e1d68dfaa9a1",
         "0ca0fd59e36bcadd8246d8c03ee9b0ecd7af7148",
+        "1ee96ccdd9c4705cc12ede2ecd58b9fd914132ed",
     }
     assert all(item["array_job_id"] in {
         "6907586", "6907587", "6907588", "6907662", "6907663", "6907664",
-        "6915240", "6915241", "6915242"
+        "6915240", "6915241", "6915242",
+        "6915387", "6915388", "6915389"
     } for item in attempts)
-    assert len({item["attempt_id"] for item in attempts}) == 81
-    assert sum(item["scheduler_state"] == "FAILED" for item in attempts) == 30
+    assert len({item["attempt_id"] for item in attempts}) == 108
+    assert sum(item["scheduler_state"] == "FAILED" for item in attempts) == 57
     assert sum(item["scheduler_state"] == "COMPLETED" for item in attempts) == 27
     assert sum(item["scheduler_state"] == "CANCELLED" for item in attempts) == 24
 
-    assert len(audit_attempts) == 165
+    assert len(audit_attempts) == 166
     assert sum(item["scheduler_state"] == "COMPLETED" for item in audit_attempts) == 80
     assert sum(item["scheduler_state"] == "FAILED" for item in audit_attempts) == 38
-    assert sum(item["scheduler_state"] == "CANCELLED" for item in audit_attempts) == 47
+    assert sum(item["scheduler_state"] == "CANCELLED" for item in audit_attempts) == 48
     assert all(item["admissibility"] == "INADMISSIBLE" for item in audit_attempts)
     assert not any(item["selected_for_aggregate"] for item in audit_attempts)
 
@@ -98,6 +100,14 @@ def test_raw_sacct_capture_has_unique_complete_array_tuples() -> None:
     assert a002_rows[("6915240", 3)]["scheduler_state"] == "CANCELLED"
     assert a002_rows[("6915242", 8)]["scheduler_state"] == "CANCELLED"
     assert a002_rows[("6915243", None)]["scheduler_state"] == "CANCELLED"
+
+    submit_rows = module._sacct_rows(
+        ROOT / "evidence/execution/raw/LP-SACCT-20260821-A003-SUBMIT.psv"
+    )
+    assert len(submit_rows) == 28
+    assert submit_rows[("6915387", 0)]["exit_code"] == 66
+    assert submit_rows[("6915389", 8)]["scheduler_state"] == "FAILED"
+    assert submit_rows[("6915391", None)]["scheduler_state"] == "CANCELLED"
 
 
 def test_reconciled_summary_uses_sample_standard_deviation() -> None:
