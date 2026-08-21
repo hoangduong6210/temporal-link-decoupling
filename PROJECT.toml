@@ -1,9 +1,9 @@
 [project]
 id = "temporal-link-decoupling"
 name = "Temporal Link Prediction by Decoupling"
-stage = "scientific-execution-ready"
+stage = "corrective-scientific-execution-ready"
 implementation_version = "0.1.0"
-last_updated = "2026-08-20"
+last_updated = "2026-08-21"
 
 [pointers]
 evidence_release = "UNRELEASED"

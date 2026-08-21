@@ -9,6 +9,7 @@ sha256 = "cbdb09bfbd83456be01a039fa3a0b4c2e37415af43a3406fc8d3f55be4a5c736"
 state = "CURRENT"
 source_id = "LP-D-WIKIPEDIA-003"
 builder = "experiments/dataset_builders/build_coedit.py"
+topology = "homogeneous-shared-node-space"
 
 [[dataset]]
 id = "LP-D-WIKIPEDIA-003"
@@ -17,6 +18,7 @@ sha256 = "f035f7dd2e97dbb931d48a4b3c099d43b2fdc25d0e15828de6fa2c604b8017c7"
 state = "CURRENT-IDFIX"
 raw_sha256 = "a6b73e09c0d1e5b9db11e7e7aa416f2e87838a745273e0446a79952cf4cfae09"
 builder = "experiments/dataset_builders/download.py"
+topology = "disjoint-bipartite"
 
 [[dataset]]
 id = "LP-D-MOOC-003"
@@ -25,6 +27,7 @@ sha256 = "e422cf5e1e6a95763b24a6a5dc53fec993c9ae80948b3fd7ef4f82816b26a278"
 state = "CURRENT-IDFIX"
 raw_sha256 = "5e29679063c6e416c2ae741d94a8f2b8e996f21e7cbf278488687fb6cb1df15a"
 builder = "experiments/dataset_builders/download.py"
+topology = "disjoint-bipartite"
 
 [[dataset]]
 id = "LP-D-COEDIT-001"

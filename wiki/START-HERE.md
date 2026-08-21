@@ -1,7 +1,7 @@
 ---
 title: Start Here
 status: canonical onboarding
-last_updated: 2026-08-20
+last_updated: 2026-08-21
 paper_source: false
 ---
 
@@ -24,6 +24,8 @@ snapshot: `UNRELEASED`.
 - Legacy execution attempts and claims are retained for audit without admission.
 - Failed and superseded fresh attempts are retained in checksum-bound scheduler
   history; the corrected publication matrix excludes simplified model proxies.
+- Dataset topology is checksum-owned per corpus: CoEdit uses a homogeneous
+  shared node space, while Wikipedia and MOOC use disjoint bipartite namespaces.
 
 ## Unsupported or blocked now
 

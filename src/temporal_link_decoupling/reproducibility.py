@@ -131,7 +131,8 @@ class ResolvedRunConfig:
     finite_policy: str
     node_memory_collision_semantics: str
     causal_batch_scope: str
-    requires_disjoint_bipartite_ids: bool
+    disjoint_bipartite_datasets: tuple[str, ...]
+    homogeneous_shared_node_space_datasets: tuple[str, ...]
     protocol_conformant: bool
     deviations: tuple[str, ...]
 
@@ -174,14 +175,16 @@ def resolve_run_config(
     config_optimizer = config.get("optimizer", {})
     protocol_repro = protocol.get("reproducibility", {})
     config_repro = config.get("reproducibility", {})
+    protocol_topology = protocol.get("dataset_topology", {})
     protocol_identity = {
         "finite_policy": protocol_repro.get("finite_policy"),
         "node_memory_collision_semantics": protocol_repro.get(
             "node_memory_collision_semantics"
         ),
         "causal_batch_scope": protocol_repro.get("causal_batch_scope"),
-        "requires_disjoint_bipartite_ids": protocol.get(
-            "requires_disjoint_bipartite_ids"
+        "disjoint_bipartite_datasets": protocol_topology.get("disjoint_bipartite"),
+        "homogeneous_shared_node_space_datasets": protocol_topology.get(
+            "homogeneous_shared_node_space"
         ),
     }
     missing_identity = sorted(
@@ -251,6 +254,33 @@ def resolve_run_config(
         )
 
     allowed_datasets = _unique((str(item) for item in authoritative["datasets"]), "datasets")
+    disjoint_datasets = _unique(
+        (str(item) for item in protocol_identity["disjoint_bipartite_datasets"]),
+        "disjoint bipartite datasets",
+    )
+    homogeneous_datasets = _unique(
+        (
+            str(item)
+            for item in protocol_identity["homogeneous_shared_node_space_datasets"]
+        ),
+        "homogeneous shared-node-space datasets",
+    )
+    if set(disjoint_datasets).intersection(homogeneous_datasets):
+        raise ValueError("Dataset topology classes overlap")
+    if set(disjoint_datasets).union(homogeneous_datasets) != set(allowed_datasets):
+        raise ValueError("Dataset topology classes do not partition the protocol datasets")
+    manifest = _load_toml(root / "resources/manifest.toml")
+    manifest_topology = {
+        Path(str(item.get("path", ""))).stem: str(item.get("topology", ""))
+        for item in manifest.get("dataset", [])
+        if str(item.get("state", "")).startswith("CURRENT")
+    }
+    expected_topology = {
+        **{name: "disjoint-bipartite" for name in disjoint_datasets},
+        **{name: "homogeneous-shared-node-space" for name in homogeneous_datasets},
+    }
+    if manifest_topology != expected_topology:
+        raise ValueError("Current resource manifest topology drifts from the protocol")
     allowed_seeds = _unique((int(item) for item in authoritative["seeds"]), "seeds")
     selected_datasets = _unique(
         (str(item) for item in (datasets if datasets is not None else allowed_datasets)),
@@ -328,9 +358,8 @@ def resolve_run_config(
             protocol_identity["node_memory_collision_semantics"]
         ),
         causal_batch_scope=str(protocol_identity["causal_batch_scope"]),
-        requires_disjoint_bipartite_ids=bool(
-            protocol_identity["requires_disjoint_bipartite_ids"]
-        ),
+        disjoint_bipartite_datasets=tuple(disjoint_datasets),
+        homogeneous_shared_node_space_datasets=tuple(homogeneous_datasets),
         protocol_conformant=not deviations,
         deviations=deviations,
     )

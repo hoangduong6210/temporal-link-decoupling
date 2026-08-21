@@ -1,7 +1,7 @@
 ---
 title: Dataset Registry
 status: canonical dataset registry
-last_updated: 2026-08-20
+last_updated: 2026-08-21
 paper_source: false
 ---
 
@@ -16,12 +16,14 @@ paper_source: false
 - **License and redistribution:** Fetch/build locally; dataset bytes are excluded
   from source releases under the project rights policy.
 - **Checksum:** Owned by `resources/manifest.toml` and `resources/checksums.sha256`.
-- **Population and geometry:** Non-bipartite contributor co-edit event graph.
+- **Population and geometry:** Homogeneous contributor co-edit event graph using
+  a shared node namespace for both endpoint roles.
 - **Inputs, targets, units, and fidelity:** NPZ schema is owned by
   [Data and Target Contract](Data-and-Target-Contract.md); the exact raw parent and
   transformation identity are machine-readable.
 - **Inclusion, exclusion, and quality gates:** Builder settings, stable ordering,
-  output digest, schema, and finite-value checks are mandatory.
+  output digest, schema, finite-value, node-bound, and shared-space overlap
+  checks are mandatory.
 - **Split and leakage controls:** Owned by `LP-P-DECOUPLING-001`; execution-specific
   split and negative-pool identities must be captured by each scientific job.
 - **Known defects:** No dataset redistribution grant is asserted.

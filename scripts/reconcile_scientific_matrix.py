@@ -238,13 +238,23 @@ def _external_attempts(
         raise MatrixError("external scheduler history schema is unsupported")
     source = _mapping(payload.get("source"), "scheduler history source")
     artifacts = _list(source.get("artifacts"), "scheduler history source artifacts")
-    if len(artifacts) != 1:
-        raise MatrixError("scheduler history must bind exactly one raw sacct artifact")
-    source_artifact = _mapping(artifacts[0], "scheduler history source artifact")
-    artifact_record = _file_record(root, str(source_artifact.get("path", "")))
-    if source_artifact.get("sha256") != artifact_record["sha256"]:
-        raise MatrixError("scheduler history raw sacct checksum differs")
-    sacct = _sacct_rows(root / artifact_record["path"])
+    if not artifacts:
+        raise MatrixError("scheduler history must bind at least one raw sacct artifact")
+    sacct: dict[tuple[str, int | None], dict[str, Any]] = {}
+    for artifact_index, raw_artifact in enumerate(artifacts):
+        source_artifact = _mapping(
+            raw_artifact, f"scheduler history source artifact[{artifact_index}]"
+        )
+        artifact_record = _file_record(root, str(source_artifact.get("path", "")))
+        if source_artifact.get("sha256") != artifact_record["sha256"]:
+            raise MatrixError("scheduler history raw sacct checksum differs")
+        captured_rows = _sacct_rows(root / artifact_record["path"])
+        duplicates = sorted(set(sacct).intersection(captured_rows))
+        if duplicates:
+            raise MatrixError(
+                f"scheduler tuple occurs in multiple raw sacct artifacts: {duplicates[0]}"
+            )
+        sacct.update(captured_rows)
     study = _mapping(protocol.get("study"), "protocol study")
     datasets = [str(item) for item in study.get("datasets", ())]
     seeds = [int(item) for item in study.get("seeds", ())]
@@ -277,15 +287,39 @@ def _external_attempts(
             profile = str(group.get("task_profile", ""))
             array_job_id = str(group.get("array_job_id", ""))
             indexes = _indices(group.get("index_range"), upper_bound=task_count, label="scientific array range")
-            state = str(group.get("scheduler_state", ""))
             if profile not in MAIN_PROFILES or len(indexes) != task_count or not array_job_id.isdigit():
                 raise MatrixError(f"external scientific array does not match protocol grid: {profile}")
             if array_job_id in seen_arrays:
                 raise MatrixError(f"duplicate scheduler array in history: {array_job_id}")
             seen_arrays.add(array_job_id)
+            expected_states: dict[int, str] = {}
+            if "scheduler_state_groups" in group:
+                for raw_state_group in _list(
+                    group.get("scheduler_state_groups"), "scientific scheduler state groups"
+                ):
+                    state_group = _mapping(raw_state_group, "scientific scheduler state group")
+                    state = str(state_group.get("scheduler_state", ""))
+                    for index in _indices(
+                        state_group.get("index_range"),
+                        upper_bound=task_count,
+                        label="scientific scheduler state range",
+                    ):
+                        if index in expected_states:
+                            raise MatrixError(
+                                f"overlapping scientific scheduler state group: "
+                                f"{array_job_id}_{index}"
+                            )
+                        expected_states[index] = state
+            else:
+                state = str(group.get("scheduler_state", ""))
+                expected_states = {index: state for index in indexes}
+            if set(expected_states) != set(indexes):
+                raise MatrixError(
+                    f"scientific state groups do not cover array: {array_job_id}"
+                )
             for index in indexes:
                 row = sacct.get((array_job_id, index))
-                if row is None or row["scheduler_state"] != state:
+                if row is None or row["scheduler_state"] != expected_states[index]:
                     raise MatrixError(f"scientific array differs from raw sacct: {array_job_id}_{index}")
                 dataset = datasets[index // len(seeds)]
                 seed = seeds[index % len(seeds)]
@@ -545,7 +579,7 @@ def reconcile(
         for item in _list(history_payload.get("campaigns"), "scheduler campaigns")
     ]
     current_generation = max(generations, default=-1) + 1
-    current_campaign_id = f"LP-CAM-A002-{str(source.get('commit', 'UNKNOWN'))[:12].upper()}"
+    current_campaign_id = f"LP-CAM-A003-{str(source.get('commit', 'UNKNOWN'))[:12].upper()}"
 
     for path in _candidate_files(input_root, (out_path, ledger_path)):
         try:

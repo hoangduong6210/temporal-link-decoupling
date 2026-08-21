@@ -1,7 +1,7 @@
 ---
 title: Exhaustive Wiki Index
 status: canonical index
-last_updated: 2026-08-20
+last_updated: 2026-08-21
 paper_source: false
 ---
 
@@ -53,6 +53,7 @@ paper_source: false
 | Protocol | `LP-P-DECOUPLING-001` | [Protocol](../protocols/link_prediction_v1.toml) |
 | Protocol amendment | `LP-P-DECOUPLING-001-A001` | [Amendment](../protocols/amendments/LP-P-DECOUPLING-001-A001.md) |
 | Protocol amendment | `LP-P-DECOUPLING-001-A002` | [Corrective amendment](../protocols/amendments/LP-P-DECOUPLING-001-A002.md) |
+| Protocol amendment | `LP-P-DECOUPLING-001-A003` | [Dataset-topology amendment](../protocols/amendments/LP-P-DECOUPLING-001-A003.md) |
 | Evidence | `LP-E-DATA-MIGRATION-001` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | Evidence | `LP-E-RUNTIME-MIGRATION-001` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | Evidence | `LP-E-LEGACY-RESULTS-001` | [Evidence Ledger](evidence/Evidence-Ledger.md) |

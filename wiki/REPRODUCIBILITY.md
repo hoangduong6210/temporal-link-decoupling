@@ -1,7 +1,7 @@
 ---
 title: Reproducibility Contract
 status: canonical contract
-last_updated: 2026-08-20
+last_updated: 2026-08-21
 paper_source: false
 ---
 
@@ -27,6 +27,13 @@ All affected outputs retain native scheduler state while scientific
 admissibility and aggregate selection are recorded separately; every registered
 SR-GNN task profile must run again from the corrective commit.
 
+The next campaign also remains inadmissible. It failed closed because a global
+bipartite-ID invariant was incorrectly applied to the intentionally homogeneous
+CoEdit graph; pending work was cancelled once the defect was isolated. Amendment
+`LP-P-DECOUPLING-001-A003` replaces that boolean with checksum-owned per-dataset
+topology classes. Native scheduler outcomes remain in
+`LP-E-SCHEDULER-HISTORY-001`; no affected output can be selected.
+
 The foundation is now fail-closed. Upstream raw bytes and processed corpora are
 checksum-pinned; acquisition is explicit and deterministic; data rights use a
 fetch-only/no-redistribution policy where no redistribution grant was found.
@@ -37,8 +44,9 @@ submission script, CUDA runtime, accelerator UUID, PCI identity, driver,
 environment digest, task coverage, and failures.
 
 The active dataset loader is fail-closed: it neither downloads nor preprocesses
-implicitly, rejects non-finite or non-chronological arrays and overlapping
-bipartite IDs, and rejects bytes that disagree with `resources/manifest.toml`.
+implicitly, rejects non-finite or non-chronological arrays, enforces the
+registered per-dataset topology, and rejects bytes that disagree with
+`resources/manifest.toml`.
 The explicit builders have also reproduced all current corpus bytes from the
 registered raw inputs in a clean staging tree.
 

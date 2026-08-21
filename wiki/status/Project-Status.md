@@ -1,7 +1,7 @@
 ---
 title: Project Status
 status: active migration status
-last_updated: 2026-08-20
+last_updated: 2026-08-21
 paper_source: false
 ---
 
@@ -41,6 +41,11 @@ clean acquisition uses the reviewed source registry and explicit builders.
   is UNVERIFIED, the retry exposed ambiguous node-memory collision semantics,
   and all temporal comparator implementations were adjudicated as simplified
   proxies rather than faithful external baselines.
+- The subsequent A002 campaign is also preserved and inadmissible. CoEdit failed
+  closed under a wrongly global bipartite-ID invariant; queued work and the
+  reconciliation job were cancelled. Amendment `LP-P-DECOUPLING-001-A003`
+  restores the registered homogeneous CoEdit topology while retaining disjoint
+  user/item namespaces for Wikipedia and MOOC.
 - No frozen evidence release, admitted performance claim, results lock, or
   immutable paper snapshot exists.
 - Strong numerical and generalization wording in `paper/working/` remains QUARANTINED.

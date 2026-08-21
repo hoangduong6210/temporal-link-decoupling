@@ -229,7 +229,11 @@ def test_json_and_artifact_hygiene() -> None:
 
 
 def test_public_files_contain_no_private_paths() -> None:
-    excluded = [ROOT / "results/historical", ROOT / "paper/working"]
+    excluded = [
+        ROOT / "results/historical",
+        ROOT / "results/audit",
+        ROOT / "paper/working",
+    ]
     suffixes = {".py", ".sh", ".sbatch", ".md", ".toml", ".yaml", ".yml", ".json"}
     pattern = re.compile(r"/(?:users|home|private|scratch)/")
     for path in ROOT.rglob("*"):
@@ -430,7 +434,11 @@ def test_dataset_manifest_schema_and_idfix_contract() -> None:
             assert data["sources"].max() < nodes and data["destinations"].max() < nodes
             assert np.all(np.diff(data["timestamps"]) >= 0)
             if "WIKIPEDIA" in entry["id"] or "MOOC" in entry["id"]:
+                assert entry["topology"] == "disjoint-bipartite"
                 assert np.intersect1d(data["sources"], data["destinations"]).size == 0
+            if entry["id"] == "LP-D-COEDIT-002":
+                assert entry["topology"] == "homogeneous-shared-node-space"
+                assert np.intersect1d(data["sources"], data["destinations"]).size > 0
 
     assert by_id["LP-D-WIKIPEDIA-002"]["sha256"] != by_id["LP-D-WIKIPEDIA-001"]["sha256"]
     assert by_id["LP-D-MOOC-002"]["sha256"] != by_id["LP-D-MOOC-001"]["sha256"]

@@ -1,13 +1,16 @@
 protocol_id = "LP-P-DECOUPLING-001"
 status = "FROZEN"
-amendment = "protocols/amendments/LP-P-DECOUPLING-001-A002.md"
+amendment = "protocols/amendments/LP-P-DECOUPLING-001-A003.md"
 datasets = ["coedit", "wikipedia", "mooc"]
 seeds = [1, 7, 42]
 primary_metric = "inductive_average_precision"
 comparators = ["coupled-end-to-end", "freeze-then-probe"]
 negative_regimes = ["fair-random-destination"]
-requires_disjoint_bipartite_ids = true
 heavy_compute = "scheduler-only"
+
+[dataset_topology]
+disjoint_bipartite = ["wikipedia", "mooc"]
+homogeneous_shared_node_space = ["coedit"]
 
 [study]
 datasets = ["coedit", "wikipedia", "mooc"]

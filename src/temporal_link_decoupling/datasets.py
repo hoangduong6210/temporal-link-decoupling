@@ -90,8 +90,6 @@ def load_dataset(name: str):
     sources = data["sources"]
     destinations = data["destinations"]
     num_nodes = int(data["num_nodes"][0])
-    if np.intersect1d(sources, destinations).size:
-        raise ValueError(f"Corpus violates disjoint bipartite node IDs: {path}.")
     if (
         sources.size == 0
         or destinations.size == 0
@@ -101,6 +99,16 @@ def load_dataset(name: str):
         or destinations.max() >= num_nodes
     ):
         raise ValueError(f"Corpus node IDs are empty or outside registered bounds: {path}.")
+    overlap_size = np.intersect1d(sources, destinations).size
+    topology = entry.get("topology")
+    if topology == "disjoint-bipartite":
+        if overlap_size:
+            raise ValueError(f"Corpus violates disjoint bipartite node IDs: {path}.")
+    elif topology == "homogeneous-shared-node-space":
+        if not overlap_size:
+            raise ValueError(f"Corpus does not exhibit its registered shared node space: {path}.")
+    else:
+        raise ValueError(f"Corpus has an unknown registered topology {topology!r}: {path}.")
     return {
         "sources": sources,
         "destinations": destinations,

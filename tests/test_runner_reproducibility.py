@@ -76,7 +76,8 @@ def test_tracked_protocol_and_config_resolve_without_hidden_defaults() -> None:
         == "batch-snapshot-stable-last-row-commit-v1"
     )
     assert resolved.causal_batch_scope == "deterministic-pair-accumulators-not-full-event-replay"
-    assert resolved.requires_disjoint_bipartite_ids is True
+    assert resolved.disjoint_bipartite_datasets == ("wikipedia", "mooc")
+    assert resolved.homogeneous_shared_node_space_datasets == ("coedit",)
     assert resolved.protocol_conformant
     assert not resolved.deviations
     assert len(resolved.protocol_sha256) == 64

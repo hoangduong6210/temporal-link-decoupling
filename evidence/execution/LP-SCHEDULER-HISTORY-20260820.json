@@ -1,14 +1,19 @@
 {
   "schema_version": 2,
-  "captured_at": "2026-08-20T15:51:01Z",
+  "captured_at": "2026-08-21T01:29:36Z",
   "source": {
     "system": "slurm",
     "host": "ascend-login01",
-    "query": "sacct -X -n -P -j 6907586,6907587,6907588,6907589,6907590,6907662,6907663,6907664,6907665,6907666 --format=JobID,JobIDRaw,State,ExitCode,Submit,Start,End,Elapsed",
+    "query": "Two checksum-bound sacct captures using -X -n -P and --format=JobID,JobIDRaw,State,ExitCode,Submit,Start,End,Elapsed",
     "artifacts": [
       {
         "path": "evidence/execution/raw/LP-SACCT-20260820.psv",
         "sha256": "b7e313c9affdcf9d165f39f4f1e12d714bc4bda4fc69228876ce53ebc9fa34cf",
+        "kind": "raw-sacct-pipe-delimited"
+      },
+      {
+        "path": "evidence/execution/raw/LP-SACCT-20260821-A002.psv",
+        "sha256": "37aa0b83775a9ed33e8301e55b8ae9ec5ee8ad1c22a4e3a338e468cfbf31a38f",
         "kind": "raw-sacct-pipe-delimited"
       }
     ]
@@ -77,6 +82,36 @@
       ],
       "lifecycle_jobs": [
         {"scheduler_job_id": "6907666", "purpose": "reconciliation", "scheduler_state": "FAILED"}
+      ]
+    },
+    {
+      "campaign_id": "LP-CAM-A002-20260820",
+      "generation": 2,
+      "admissibility": "INADMISSIBLE",
+      "adjudication": "ABORTED_DATASET_TOPOLOGY_INVARIANT_SCOPE_ERROR",
+      "source_commit": "0ca0fd59e36bcadd8246d8c03ee9b0ecd7af7148",
+      "protocol_sha256": "cda13da3f1f8a4d184cfa076487d5b4b94ec762d81f91f09287e06f59f9d1add",
+      "configuration_sha256": "67c2e877c114a0aca0bb8a367b34c03ea676132a19e5f28ac2a2c6148166376d",
+      "data_manifest_sha256": "37464655a41a62b227b00c118fbbca4979e95b83f4dc000c312705c4c301b4f9",
+      "dependency_lock_sha256": "90ceae7c184de3be418f4ce0f1b700b7f6d13c3945abb9eb2cbf033bfec9f35f",
+      "environment_digest_sha256": "d8c962326cd2a8120e858260d9101562e2bec82b5861d92cfa791b166d202d6e",
+      "submission_script_sha256": "b4fa5fb5f697cb4c56b945d8ac0b018d38952c31afaaac06da3b6add8397c976",
+      "scientific_arrays": [
+        {
+          "array_job_id": "6915240",
+          "task_profile": "coupled-end-to-end",
+          "index_range": "0-8",
+          "scheduler_state_groups": [
+            {"index_range": "0-2", "scheduler_state": "FAILED"},
+            {"index_range": "3-8", "scheduler_state": "CANCELLED"}
+          ]
+        },
+        {"array_job_id": "6915241", "task_profile": "decoupled", "index_range": "0-8", "scheduler_state": "CANCELLED"},
+        {"array_job_id": "6915242", "task_profile": "freeze-then-probe", "index_range": "0-8", "scheduler_state": "CANCELLED"}
+      ],
+      "quarantined_arrays": [],
+      "lifecycle_jobs": [
+        {"scheduler_job_id": "6915243", "purpose": "reconciliation", "scheduler_state": "CANCELLED"}
       ]
     }
   ]

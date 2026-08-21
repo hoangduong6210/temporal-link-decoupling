@@ -1,7 +1,7 @@
 ---
 title: Evidence Ledger
 status: canonical evidence ledger
-last_updated: 2026-08-20
+last_updated: 2026-08-21
 paper_source: false
 ---
 
@@ -17,7 +17,8 @@ Current evidence release: `UNRELEASED`. No entry below is frozen scientific evid
 - **Source commit:** The queried attempts retain their submitted commit identity
   in `evidence/execution/LP-SCHEDULER-HISTORY-20260820.json`.
 - **Protocol, configuration, and data hashes:** Parent runner outputs retain their
-  original bindings; amendment `LP-P-DECOUPLING-001-A002` supersedes them.
+  original bindings; amendments `LP-P-DECOUPLING-001-A002` and
+  `LP-P-DECOUPLING-001-A003` supersede the affected campaigns.
 - **Execution identity:** `LP-JOB-LOCAL-20260820-002`, checksum-registered under
   `evidence/jobs/`; the underlying Slurm array and reconciliation IDs are in the
   scheduler-history artifact.
@@ -28,7 +29,8 @@ Current evidence release: `UNRELEASED`. No entry below is frozen scientific evid
   required input to the matrix reconciler.
 - **Coverage and failures:** The artifact retains failed bootstrap arrays,
   dependency cancellation, superseded successful main-arm attempts, the
-  non-finite recurrent-memory proxy failure, and the failed reconciliation.
+  non-finite recurrent-memory proxy failure, the failed reconciliation, and the
+  failed/cancelled dataset-topology campaign.
 - **Acceptance-gate outcome:** PASS for native scheduler-state preservation;
   INADMISSIBLE for numerical claims and aggregate reuse.
 - **Supported claim IDs:** none.
@@ -38,8 +40,8 @@ Current evidence release: `UNRELEASED`. No entry below is frozen scientific evid
 
 ## LP-E-DATA-MIGRATION-001
 
-- **Scientific purpose:** Verify local corpus identities and disjoint bipartite ID
-  namespaces after migration.
+- **Scientific purpose:** Verify local corpus identities and their registered
+  homogeneous or disjoint-bipartite topology after migration.
 - **Lifecycle:** VALIDATED for local migration integrity; not ADMITTED.
 - **Source commit:** The clean acquisition run used the committed baseline named
   by `REPRODUCIBILITY.toml`; no frozen release commit exists yet.
@@ -56,7 +58,7 @@ Current evidence release: `UNRELEASED`. No entry below is frozen scientific evid
   No frozen-release checksum manifest exists.
 - **Coverage and failures:** Current corpora were rebuilt deterministically from
   registered raw inputs in clean staging and matched their declared digests.
-- **Acceptance-gate outcome:** Schema/hash/ID-disjointness, upstream digest, and
+- **Acceptance-gate outcome:** Schema/hash/dataset-topology, upstream digest, and
   clean-acquisition gates PASS; evidence release remains BLOCKED.
 - **Supported claim IDs:** `LP-C-IDFIX-001` at VALIDATED technical status only.
 - **Rejected claim IDs:** none.
