@@ -435,8 +435,14 @@ def _validate_attempt_ledger(
                 if item["exit_code"] != 0:
                     raise GateError(f"completed attempt has nonzero exit code: {attempt_id}")
             elif state == "FAILED":
-                if not isinstance(item["exit_code"], int) or item["exit_code"] == 0 or not item.get("error"):
-                    raise GateError(f"failed attempt lacks nonzero exit/error: {attempt_id}")
+                if (
+                    not isinstance(item["exit_code"], int)
+                    or item["exit_code"] == 0
+                    or not (item.get("error") or item.get("reason"))
+                ):
+                    raise GateError(
+                        f"failed attempt lacks nonzero exit and error/reason: {attempt_id}"
+                    )
             elif state == "CANCELLED":
                 if item["exit_code"] not in (None, 0):
                     raise GateError(f"cancelled attempt has invalid exit code: {attempt_id}")

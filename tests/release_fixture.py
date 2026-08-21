@@ -194,7 +194,6 @@ def create_release_project(
     }
     if incomplete_attempt:
         attempt["reason"] = "SYNTHETIC_FAILURE"
-        attempt["error"] = "synthetic failure"
     ledger = root / "results/audit/scientific-attempts.json"
     dump_json(
         ledger,
