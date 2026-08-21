@@ -1,0 +1,16 @@
+schema_version = 1
+state = "FROZEN"
+snapshot_id = "LP-SNAP-2026-CONFERENCE-005"
+venue = "Conference candidate"
+submission_state = "immutable-candidate"
+source_commit = "c85e0660634ddb1de75cf27c94e83e49d3d146b8"
+wiki_commit = "8bd1e4f3595c98cc8788de261d8b52dc2259c070"
+evidence_release = "LP-REL-2026-A003-001"
+paper_build_job = "LP-JOB-LOCAL-20260821-PAPER-BUILD-005"
+results_lock = "results.lock.yaml"
+numeric_registry = "numeric-provenance.jsonl"
+checksum_manifest = "checksums.sha256"
+supersedes = "LP-SNAP-2026-CONFERENCE-004"
+source_files = ["overleaf/main.tex", "overleaf/README.md"]
+rendered_files = ["link-prediction-conference.pdf", "link-prediction-overleaf.zip", "overleaf/figs/inductive-ordering.pdf", "overleaf/figs/protocol-contrast.pdf", "overleaf/IEEEtran.cls"]
+figure_files = []
