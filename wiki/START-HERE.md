@@ -12,7 +12,8 @@ paper_source: false
 The project tests decoupling-by-construction against coupled end-to-end training
 for inductive temporal link prediction. The current stage is
 `paper-snapshot-assembly`. Current evidence release:
-`LP-REL-2026-A003-001`. Current paper snapshot: `UNRELEASED`.
+`LP-REL-2026-A003-001`. Current paper snapshot:
+`LP-SNAP-2026-CONFERENCE-002`.
 
 ## Supported now
 
@@ -36,7 +37,8 @@ for inductive temporal link prediction. The current stage is
   occurrence still needs checksum-owned numeric provenance.
 - Irreversibility, hard-negative, external-baseline, state-of-the-art, causal,
   and architecture-general claims remain blocked.
-- No immutable conference snapshot exists.
+- External-baseline parity, hard-negative robustness, causality, physical-world
+  validity, and architecture-general irreversibility remain unsupported.
 
 ## Running work and ownership
 
@@ -47,9 +49,9 @@ only after that release exists.
 
 ## Next actions
 
-1. Author only the claim language supported by the frozen release.
-2. Build the immutable conference snapshot.
-3. Audit every snapshot value and release pointer.
+1. Verify the current frozen release and snapshot checksums.
+2. Recompute every registered snapshot value from its frozen selector.
+3. Preserve unsupported claim boundaries in any venue-specific revision.
 
 ## Safe first checks and task routes
 

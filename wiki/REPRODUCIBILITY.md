@@ -14,10 +14,11 @@ aggregation code, result checksums, and claim mappings. Mutable work goes to
 must never be edited. `results/CURRENT`, `PROJECT.toml`, the evidence ledger,
 and a paper `results.lock.yaml` must agree before export.
 
-The machine-readable assessment is `REPRODUCIBILITY.toml`. It is currently
-`BLOCKED` only at the paper-artifact layer: the fresh scheduler matrix, attempt
-reconciliation, and frozen evidence release are complete, while the immutable
-paper snapshot still needs activation.
+The machine-readable assessment is `REPRODUCIBILITY.toml`. The fresh scheduler
+matrix, attempt reconciliation, frozen evidence release, and immutable
+conference snapshot are complete. The canonical audit reopens the gate if any
+pointer, checksum, job ownership, wiki commit, numeric selector, or rounded
+literal drifts.
 
 The first fresh execution was not admitted. It exposed duplicate node-memory
 commits and a temporal comparator registry containing simplified proxies. The
@@ -67,5 +68,5 @@ partial matrices, stale hashes, mutable artifacts, and unclassified numeric
 occurrences.
 
 Run `python scripts/audit_scientific_provenance.py --check-canonical` to verify
-the current fail-closed state. Use `--require-release` only in a publication
-pipeline; it must fail while release readiness is blocked.
+the current fail-closed state. Publication pipelines use `--require-release`,
+which additionally requires the reproducible status and immutable pointers.

@@ -1,6 +1,6 @@
 ---
 title: Project Status
-status: paper snapshot assembly
+status: reproducible publication candidate
 last_updated: 2026-08-21
 paper_source: false
 ---
@@ -11,10 +11,10 @@ paper_source: false
 
 The Link Prediction project has an independent implementation, corpus registry,
 result partition, wiki, and paper root. Current scientific execution is complete
-under `LP-E-SCIENTIFIC-MATRIX-001`, and `LP-REL-2026-A003-001` is the active
-frozen evidence release. The paper pointer remains `UNRELEASED` while the
-conference snapshot is assembled. The original mixed tree is read-only
-migration input and cannot support current claims.
+under `LP-E-SCIENTIFIC-MATRIX-001`, `LP-REL-2026-A003-001` is the active frozen
+evidence release, and `LP-SNAP-2026-CONFERENCE-002` is the immutable conference
+snapshot. The original mixed tree is read-only migration input and cannot
+support current claims.
 
 ## Verification state
 
@@ -30,20 +30,23 @@ The complete current task matrix and its terminal Slurm accounting are bound to
 retains native scheduler state under `LP-E-SCHEDULER-HISTORY-001`; none of those
 attempts can silently enter the selected aggregate.
 
-## Active blockers
+## Closed publication chain
 
-- Build a fresh Link Prediction-only conference candidate from the admitted
-  release, inventory every numeric occurrence, and freeze its snapshot.
-- Run the canonical and clean-clone audits against those immutable pointers.
-- Public source licensing remains an owner decision; it does not weaken the
-  internal evidence chain, and dataset bytes remain fetch-only.
+The current paper is Link Prediction-only and is built without quarantined
+working documents, historical results, legacy figures, or lifecycle-readout
+material. Every numeric occurrence in both source and rendered text is owned by
+the admitted claim, frozen evidence, scientific job, artifact checksum, strict
+selector, and explicit equality or rounding assertion.
+
+Public source licensing remains an owner decision; it does not weaken the
+internal evidence chain, and dataset bytes remain fetch-only.
 
 Quarantined manuscript history, proxy comparators, lifecycle-readout material,
 generated figures outside the allowlist, and historical results remain outside
 the publication surface.
 
-## Next stage
+## Revision boundary
 
-Freeze the evidence release, admit only the bounded current claim, build the
-conference snapshot from that release, and require the final provenance gate to
-recompute every registered paper value from the frozen payload.
+Any venue-specific revision must create a new source commit, paper-build job,
+numeric registry, and immutable superseding snapshot. Existing frozen artifacts
+must never be overwritten.

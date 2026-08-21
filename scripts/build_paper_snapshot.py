@@ -447,6 +447,8 @@ def _write_snapshot_toml(path: Path, manifest: Mapping[str, Any]) -> None:
     )
     lines = ["schema_version = 1"]
     lines.extend(f"{key} = {_toml_quote(str(manifest[key]))}" for key in scalar_keys)
+    if manifest.get("supersedes") is not None:
+        lines.append(f"supersedes = {_toml_quote(str(manifest['supersedes']))}")
     for key in ("source_files", "rendered_files", "figure_files"):
         rendered = ", ".join(_toml_quote(str(item)) for item in manifest[key])
         lines.append(f"{key} = [{rendered}]")
@@ -692,6 +694,7 @@ def build_paper_snapshot(
             "wiki_commit": wiki_commit,
             "evidence_release": plan["evidence_release"],
             "paper_build_job": plan["paper_build_job"],
+            "supersedes": plan.get("supersedes"),
             "results_lock": "results.lock.yaml",
             "numeric_registry": "numeric-provenance.jsonl",
             "checksum_manifest": "checksums.sha256",

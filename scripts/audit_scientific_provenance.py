@@ -13,6 +13,7 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import subprocess
 import zipfile
 
 try:
@@ -68,6 +69,7 @@ ALLOWED_STRUCTURAL_EXEMPTIONS = {
 }
 SNAPSHOT_REQUIRED = {
     "snapshot.toml",
+    "snapshot-plan.json",
     "results.lock.yaml",
     "numeric-provenance.jsonl",
     "checksums.sha256",
@@ -137,6 +139,52 @@ def _checksums(path: Path) -> dict[str, str]:
         digest, rel = line.split(maxsplit=1)
         entries[rel] = digest
     return entries
+
+
+def _git_blob(commit: str, project_relative: str) -> bytes:
+    git_root_result = subprocess.run(
+        ["git", "-C", str(ROOT), "rev-parse", "--show-toplevel"],
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    if git_root_result.returncode != 0:
+        raise ValueError("cannot resolve git repository root")
+    git_root = Path(git_root_result.stdout.strip()).resolve()
+    project_prefix = ROOT.resolve().relative_to(git_root)
+    repository_path = (project_prefix / project_relative).as_posix()
+    result = subprocess.run(
+        ["git", "-C", str(ROOT), "show", f"{commit}:{repository_path}"],
+        capture_output=True,
+        check=False,
+    )
+    if result.returncode != 0:
+        raise ValueError(
+            f"source is absent from declared commit: {project_relative}"
+        )
+    return result.stdout
+
+
+def _wiki_matches_commit(commit: str) -> bool:
+    git_root_result = subprocess.run(
+        ["git", "-C", str(ROOT), "rev-parse", "--show-toplevel"],
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    if git_root_result.returncode != 0:
+        return False
+    git_root = Path(git_root_result.stdout.strip()).resolve()
+    wiki_path = (ROOT / "wiki").resolve().relative_to(git_root).as_posix()
+    result = subprocess.run(
+        [
+            "git", "-C", str(ROOT), "diff", "--quiet", commit, "--",
+            f":(top){wiki_path}",
+        ],
+        capture_output=True,
+        check=False,
+    )
+    return result.returncode == 0
 
 
 def _yaml_scalar_map(path: Path) -> dict[str, str]:
@@ -302,6 +350,11 @@ def _audit_snapshot(snapshot_id: str, evidence_release: str, issues: list[str]) 
 
     manifest = _load_toml(snapshot / "snapshot.toml")
     lock = _yaml_scalar_map(snapshot / "results.lock.yaml")
+    try:
+        plan = json.loads((snapshot / "snapshot-plan.json").read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+        issues.append(f"cannot load frozen snapshot plan: {exc}")
+        plan = {}
     if manifest.get("snapshot_id") != snapshot_id:
         issues.append("snapshot manifest identity does not match paper/CURRENT")
     if manifest.get("evidence_release") != evidence_release:
@@ -311,13 +364,33 @@ def _audit_snapshot(snapshot_id: str, evidence_release: str, issues: list[str]) 
     for key in ("source_commit", "wiki_commit"):
         if not re.fullmatch(r"[0-9a-f]{40}", str(manifest.get(key, ""))):
             issues.append(f"snapshot lacks a clean 40-hex {key}")
+    for key in (
+        "snapshot_id", "source_commit", "wiki_commit", "evidence_release",
+        "paper_build_job",
+    ):
+        if plan.get(key) != manifest.get(key):
+            issues.append(f"frozen snapshot plan disagrees with manifest: {key}")
+    wiki_commit = str(manifest.get("wiki_commit", ""))
+    if re.fullmatch(r"[0-9a-f]{40}", wiki_commit) and not _wiki_matches_commit(wiki_commit):
+        issues.append("current canonical wiki differs from snapshot wiki_commit")
 
     checksums = _checksums(snapshot / "checksums.sha256")
+    actual_files = {
+        path.relative_to(snapshot).as_posix(): path
+        for path in snapshot.rglob("*")
+        if path.is_file() and path.name != "checksums.sha256"
+    }
+    if set(checksums) != set(actual_files):
+        issues.append("snapshot checksum manifest does not cover exactly every file")
+    for rel, path in actual_files.items():
+        if checksums.get(rel) != _sha256(path):
+            issues.append(f"snapshot file checksum mismatch: {rel}")
     declared = [
         *manifest.get("source_files", []),
         *manifest.get("rendered_files", []),
         *manifest.get("figure_files", []),
-        "snapshot.toml", "results.lock.yaml", "numeric-provenance.jsonl",
+        "snapshot.toml", "snapshot-plan.json", "results.lock.yaml",
+        "numeric-provenance.jsonl",
     ]
     for rel in declared:
         artifact = (snapshot / str(rel)).resolve()
@@ -328,6 +401,62 @@ def _audit_snapshot(snapshot_id: str, evidence_release: str, issues: list[str]) 
             issues.append(f"snapshot artifact is missing: {rel}")
         elif checksums.get(str(rel)) != _sha256(artifact):
             issues.append(f"snapshot artifact checksum mismatch: {rel}")
+
+    source_commit = str(manifest.get("source_commit", ""))
+    plan_sources = plan.get("source_files", [])
+    if not isinstance(plan_sources, list):
+        issues.append("frozen snapshot plan source_files is not an array")
+        plan_sources = []
+    source_targets: set[str] = set()
+    for item in plan_sources:
+        if not isinstance(item, dict) or not isinstance(item.get("path"), str) or not isinstance(item.get("target"), str):
+            issues.append("frozen snapshot plan contains an invalid source mapping")
+            continue
+        source_path = Path(item["path"])
+        target = Path(item["target"])
+        if source_path.is_absolute() or ".." in source_path.parts or target.is_absolute() or ".." in target.parts:
+            issues.append("frozen snapshot plan contains an unsafe source mapping")
+            continue
+        source_targets.add(target.as_posix())
+        frozen_source = snapshot / target
+        try:
+            committed = _git_blob(source_commit, source_path.as_posix())
+        except ValueError as exc:
+            issues.append(str(exc))
+            continue
+        if not frozen_source.is_file() or frozen_source.read_bytes() != committed:
+            issues.append(f"snapshot source differs from declared commit: {target.as_posix()}")
+    if source_targets != set(str(item) for item in manifest.get("source_files", [])):
+        issues.append("snapshot source target set differs from frozen plan")
+
+    build_job_id = str(manifest.get("paper_build_job", ""))
+    build_record = _job_record(build_job_id, issues)
+    rendered_bindings: dict[str, str] = {}
+    if build_record is not None:
+        pointer = build_record.get("result_pointer")
+        digest = build_record.get("result_sha256")
+        if isinstance(pointer, str) and isinstance(digest, str):
+            rendered_bindings[pointer] = digest
+        additional = build_record.get("additional_artifacts", [])
+        if isinstance(additional, list):
+            for item in additional:
+                if isinstance(item, dict) and isinstance(item.get("path"), str) and isinstance(item.get("sha256"), str):
+                    rendered_bindings[item["path"]] = item["sha256"]
+    plan_rendered = plan.get("rendered_files", [])
+    if not isinstance(plan_rendered, list):
+        issues.append("frozen snapshot plan rendered_files is not an array")
+        plan_rendered = []
+    rendered_targets: set[str] = set()
+    for item in plan_rendered:
+        if not isinstance(item, dict) or not isinstance(item.get("path"), str) or not isinstance(item.get("target"), str):
+            issues.append("frozen snapshot plan contains an invalid rendered mapping")
+            continue
+        rendered_targets.add(item["target"])
+        rendered_path = snapshot / item["target"]
+        if not rendered_path.is_file() or rendered_bindings.get(item["path"]) != _sha256(rendered_path):
+            issues.append(f"snapshot rendered output is not bound by paper build job: {item['target']}")
+    if rendered_targets != set(str(item) for item in manifest.get("rendered_files", [])):
+        issues.append("snapshot rendered target set differs from frozen plan")
 
     claims_text = (WIKI / "claims/Current-Claim-Language.md").read_text(encoding="utf-8")
     evidence_text = (WIKI / "evidence/Evidence-Ledger.md").read_text(encoding="utf-8")

@@ -14,4 +14,6 @@ paper_source: false
 - `LP-RQ-HARDNEG-001`: Does the ordering persist under historical and inductive
   hard-negative regimes?
 
-All remain pending formal evidence-release review after migration.
+The decoupling question has the bounded admitted answer registered under
+`LP-C-DECOUPLING-001`. The irreversibility and hard-negative questions remain
+open and have no admitted positive answer.

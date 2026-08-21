@@ -29,5 +29,6 @@ trusts builder-authored audit fields.
 The export allowlist excludes `paper/working/`, top-level `paper/figs/`,
 `figures/generated/`, mutable audit results, and historical results. Current
 DOCX/ZIP working exports lack visible quarantine text and are unsafe to submit.
-`paper/CURRENT` must remain `UNRELEASED` until
-`python scripts/audit_scientific_provenance.py --require-release` succeeds.
+The active pointer is `LP-SNAP-2026-CONFERENCE-002`; it remains publishable only
+while `python scripts/audit_scientific_provenance.py --require-release`
+succeeds.

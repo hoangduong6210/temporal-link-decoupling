@@ -125,7 +125,11 @@ def test_wiki_identifier_and_governance_contracts() -> None:
     ids = set(re.findall(r"\b(?:LP-(?:RQ|D|P|E|C|H)-[A-Z0-9-]+|DEC-\d{4})\b", identity_text))
     assert ids
     assert not [identifier for identifier in sorted(ids) if f"`{identifier}`" not in index]
-    assert "None. `paper/CURRENT`" in index
+    paper_current = (ROOT / "paper/CURRENT").read_text(encoding="utf-8").strip()
+    if paper_current == "UNRELEASED":
+        assert "None. `paper/CURRENT`" in index
+    else:
+        assert f"`{paper_current}`" in index
 
     claims = (WIKI / "claims/Current-Claim-Language.md").read_text(encoding="utf-8")
     for field in (
@@ -296,7 +300,9 @@ def test_numeric_evidence_jobs_and_publication_boundary() -> None:
     assert not violations
 
     gate = (ROOT.parent / "publication/PUBLICATION_GATE.toml").read_text(encoding="utf-8")
-    assert 'status = "BLOCKED"' in gate
+    reproducibility = (ROOT / "REPRODUCIBILITY.toml").read_text(encoding="utf-8")
+    expected_gate = "READY" if 'status = "REPRODUCIBLE"' in reproducibility else "BLOCKED"
+    assert f'status = "{expected_gate}"' in gate
     for banned in (".claude/", "team/", "paper/working/", "results/historical/",
                    "SR-GNN_paper_code.zip", "link-prediction/paper/figs/",
                    "link-prediction/figures/generated/"):
@@ -330,8 +336,14 @@ def test_provenance_auditor_and_release_readiness_semantics() -> None:
     assert canonical.returncode == 0, canonical.stdout + canonical.stderr
     report = json.loads(canonical.stdout)
     assert report["canonical_status"] == "PASS"
-    assert report["paper_snapshot"]["state"] == "NOT_PRESENT"
-    assert report["release_readiness"] == "BLOCKED"
+    paper_current = (ROOT / "paper/CURRENT").read_text(encoding="utf-8").strip()
+    expected_snapshot_state = "NOT_PRESENT" if paper_current == "UNRELEASED" else "AUDITED"
+    assert report["paper_snapshot"]["state"] == expected_snapshot_state
+    reproducible = (
+        'status = "REPRODUCIBLE"'
+        in (ROOT / "REPRODUCIBILITY.toml").read_text(encoding="utf-8")
+    )
+    assert report["release_readiness"] == ("READY" if reproducible else "BLOCKED")
     assert report["active_internal_markers"] == []
     assert report["wiki"]["unclassified_numeric_tokens_outside_claim_registry"] == []
     assert report["wiki"]["unclassified_number_words_outside_claim_registry"] == []
@@ -347,7 +359,7 @@ def test_provenance_auditor_and_release_readiness_semantics() -> None:
         [*command, "--require-release"], cwd=ROOT,
         text=True, capture_output=True, check=False,
     )
-    assert release.returncode == 2
+    assert release.returncode == (0 if reproducible else 2)
 
 
 def test_reproducibility_manifest_is_honest_and_hash_closed() -> None:

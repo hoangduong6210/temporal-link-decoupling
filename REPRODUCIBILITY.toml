@@ -43,5 +43,5 @@ latest_audit_job = "LP-JOB-LOCAL-20260820-002"
 public_source_release_state = "OWNER_LICENSE_DECISION_REQUIRED"
 
 blockers = [
-  "no immutable paper snapshot exists",
+  "final superseding conference snapshot activation pending",
 ]

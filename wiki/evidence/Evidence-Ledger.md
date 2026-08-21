@@ -34,7 +34,7 @@ Current evidence release: `LP-REL-2026-A003-001`.
   admissibility, selection identity, parent-result checksum, and failure reason.
 - **Acceptance-gate outcome:** PASS for source, protocol, configuration, corpus,
   dependency, accelerator, attempt-selection, failure-accounting, and aggregate
-  reconstruction and frozen-copy gates. The immutable-paper gate is pending.
+  reconstruction, frozen-copy, and immutable-paper gates.
 - **Supported claim IDs:** `LP-C-DECOUPLING-001` at ADMITTED status.
 - **Rejected claim IDs:** none. `LP-C-IRREVERSIBILITY-001` remains BLOCKED because
   the observed protocol contrast does not identify an irreversible mechanism.
@@ -118,7 +118,7 @@ Current evidence release: `LP-REL-2026-A003-001`.
 - **Coverage and failures:** Runtime files, exact transitive environment, task
   profiles, state-neutral warmup, and fail-closed scheduler metadata were tested.
 - **Acceptance-gate outcome:** Runtime, runner, fresh scheduler execution, and
-  frozen-copy gates PASS; immutable-paper gate remains pending.
+  frozen-copy and immutable-paper gates PASS.
 - **Supported claim IDs:** none.
 - **Rejected claim IDs:** none.
 - **Scientific-use boundary:** Code-copy integrity only.

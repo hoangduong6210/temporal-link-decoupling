@@ -73,7 +73,9 @@ paper_source: false
 
 ## Paper snapshot index
 
-None. `paper/CURRENT` and `PROJECT.toml` both declare `UNRELEASED`.
+Current: `LP-SNAP-2026-CONFERENCE-002`, bound to
+`LP-REL-2026-A003-001`. The prior immutable snapshot remains preserved and is
+not the active publication pointer.
 
 Identifier namespaces are project-local: questions `LP-RQ-*`, datasets `LP-D-*`,
 protocols `LP-P-*`, evidence `LP-E-*`, claims `LP-C-*`, and historical claims

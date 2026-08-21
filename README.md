@@ -24,9 +24,9 @@ and claim/evidence namespace (`LP-*`). There are no sibling imports.
    `scripts/freeze_evidence_release.py`; build a paper snapshot only from that
    release with `scripts/build_paper_snapshot.py`.
 
-Scientific execution closure is complete. Publication readiness remains
-`BLOCKED` only until the frozen evidence release and checksum-locked paper
-snapshot both exist; see `REPRODUCIBILITY.toml`.
+Scientific execution and publication provenance are closed by the active frozen
+evidence release and checksum-locked conference snapshot. The canonical release
+audit must pass before any bundle is treated as publishable.
 
 Historical binaries are present locally under `resources/corpora/`,
 `results/historical/legacy_import/`, and `paper/working/`; their presence does

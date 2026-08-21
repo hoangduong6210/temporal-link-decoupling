@@ -1,6 +1,8 @@
 # Immutable conference-paper snapshots
 
-There is no current snapshot. `paper/CURRENT` remains `UNRELEASED`.
+The active snapshot is `LP-SNAP-2026-CONFERENCE-002`. Earlier snapshots remain
+immutable and may be superseded only by advancing the pointer through a reviewed
+snapshot plan.
 
 Each future `<snapshot-id>/` must contain `snapshot.toml`,
 `results.lock.yaml`, `numeric-provenance.jsonl`, `checksums.sha256`, all declared
