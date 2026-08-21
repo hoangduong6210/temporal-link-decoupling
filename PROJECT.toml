@@ -1,12 +1,12 @@
 [project]
 id = "temporal-link-decoupling"
 name = "Temporal Link Prediction by Decoupling"
-stage = "immutable-release-assembly"
+stage = "paper-snapshot-assembly"
 implementation_version = "0.1.0"
 last_updated = "2026-08-21"
 
 [pointers]
-evidence_release = "UNRELEASED"
+evidence_release = "LP-REL-2026-A003-001"
 paper_snapshot = "UNRELEASED"
 status = "wiki/status/Project-Status.md"
 claims = "wiki/claims/Current-Claim-Language.md"

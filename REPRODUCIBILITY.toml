@@ -1,9 +1,9 @@
 schema_version = 1
-status = "BLOCKED"
+status = "EVIDENCE_FROZEN"
 evaluated_at = "2026-08-21"
 source_commit = "ed227ad1cbc8143ff23e78aee476f01b7c9028de"
 source_state = "CLEAN_SCIENTIFIC_EXECUTION"
-evidence_release = "UNRELEASED"
+evidence_release = "LP-REL-2026-A003-001"
 paper_snapshot = "UNRELEASED"
 protocol_id = "LP-P-DECOUPLING-001"
 protocol_path = "protocols/link_prediction_v1.toml"
@@ -38,10 +38,10 @@ comparator_identity_state = "SIMPLIFIED_PROXIES_QUARANTINED"
 execution_registry_state = "ALL_ATTEMPTS_RETAINED_AND_EXPLICITLY_ADJUDICATED"
 task_seed_attempt_failure_coverage = "COMPLETE_EXACT_PROTOCOL_MATRIX"
 aggregation_reconstruction = "VERIFIED_FROM_SELECTED_PER_SEED_ROWS_WITH_SAMPLE_STD"
-frozen_results_state = "MISSING"
+frozen_results_state = "FROZEN_CHECKSUM_CLOSED_RELEASE"
 latest_audit_job = "LP-JOB-LOCAL-20260820-002"
 public_source_release_state = "OWNER_LICENSE_DECISION_REQUIRED"
 
 blockers = [
-  "no frozen evidence release or immutable paper snapshot exists",
+  "no immutable paper snapshot exists",
 ]

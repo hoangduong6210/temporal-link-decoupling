@@ -131,7 +131,7 @@ def create_release_project(
     write(root / "paper/CURRENT", "UNRELEASED\n")
     write(
         root / "REPRODUCIBILITY.toml",
-        'status = "REPRODUCIBLE"\nevidence_release = "UNRELEASED"\n'
+        'status = "EVIDENCE_FROZEN"\nevidence_release = "UNRELEASED"\n'
         'paper_snapshot = "UNRELEASED"\n',
     )
     protocol = root / "protocols/test.toml"

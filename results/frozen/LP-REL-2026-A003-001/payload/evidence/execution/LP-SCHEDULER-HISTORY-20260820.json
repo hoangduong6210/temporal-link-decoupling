@@ -1,0 +1,180 @@
+{
+  "schema_version": 2,
+  "captured_at": "2026-08-21T03:07:19Z",
+  "source": {
+    "system": "slurm",
+    "host": "ascend-login01",
+    "query": "Two checksum-bound sacct captures using -X -n -P and --format=JobID,JobIDRaw,State,ExitCode,Submit,Start,End,Elapsed",
+    "artifacts": [
+      {
+        "path": "evidence/execution/raw/LP-SACCT-20260820.psv",
+        "sha256": "b7e313c9affdcf9d165f39f4f1e12d714bc4bda4fc69228876ce53ebc9fa34cf",
+        "kind": "raw-sacct-pipe-delimited"
+      },
+      {
+        "path": "evidence/execution/raw/LP-SACCT-20260821-A002.psv",
+        "sha256": "37aa0b83775a9ed33e8301e55b8ae9ec5ee8ad1c22a4e3a338e468cfbf31a38f",
+        "kind": "raw-sacct-pipe-delimited"
+      },
+      {
+        "path": "evidence/execution/raw/LP-SACCT-20260821-A003-SUBMIT.psv",
+        "sha256": "30c0a2c93343689d165dfc6f0dbdb90f1bc2d4fc92c3e1461f8feddb1e6b3d4a",
+        "kind": "raw-sacct-pipe-delimited"
+      },
+      {
+        "path": "evidence/execution/raw/LP-SACCT-20260821-A003-PREFREEZE.psv",
+        "sha256": "d27e84c455f1c4dbaf6b45726e1cfc776c1cf06f14810bbdf235a0e387a52f98",
+        "kind": "raw-sacct-pipe-delimited"
+      }
+    ]
+  },
+  "campaigns": [
+    {
+      "campaign_id": "LP-CAM-BOOTSTRAP-20260820",
+      "generation": 0,
+      "admissibility": "INADMISSIBLE",
+      "adjudication": "UNVERIFIED_BOOTSTRAP_FAILURE",
+      "source_commit": "61d3839ad9c5b896f8f20634d9d9a08da5bf957a",
+      "protocol_sha256": "4c021006262e4c5581d21f2aa750452b3e42e06f75e98c545b888aa54e82bbe4",
+      "configuration_sha256": "67c2e877c114a0aca0bb8a367b34c03ea676132a19e5f28ac2a2c6148166376d",
+      "data_manifest_sha256": "37464655a41a62b227b00c118fbbca4979e95b83f4dc000c312705c4c301b4f9",
+      "dependency_lock_sha256": "90ceae7c184de3be418f4ce0f1b700b7f6d13c3945abb9eb2cbf033bfec9f35f",
+      "environment_digest_sha256": "d8c962326cd2a8120e858260d9101562e2bec82b5861d92cfa791b166d202d6e",
+      "submission_script_sha256": "728aaf696024eef3b8953ae0c5e493f19fcfbca1a4a1de06c67974e40a507737",
+      "scientific_arrays": [
+        {"array_job_id": "6907586", "task_profile": "coupled-end-to-end", "index_range": "0-8", "scheduler_state": "FAILED"},
+        {"array_job_id": "6907587", "task_profile": "decoupled", "index_range": "0-8", "scheduler_state": "FAILED"},
+        {"array_job_id": "6907588", "task_profile": "freeze-then-probe", "index_range": "0-8", "scheduler_state": "FAILED"}
+      ],
+      "quarantined_arrays": [
+        {
+          "array_job_id": "6907589",
+          "task_profile": "temporal-baselines",
+          "index_range": "0-80",
+          "scheduler_state_groups": [
+            {"index_range": "0-35", "scheduler_state": "FAILED"},
+            {"index_range": "36-80", "scheduler_state": "CANCELLED"}
+          ]
+        }
+      ],
+      "lifecycle_jobs": [
+        {"scheduler_job_id": "6907590", "purpose": "reconciliation", "scheduler_state": "CANCELLED"}
+      ]
+    },
+    {
+      "campaign_id": "LP-CAM-SUPERSEDED-20260820",
+      "generation": 1,
+      "admissibility": "INADMISSIBLE",
+      "adjudication": "SUPERSEDED_BY_LP-P-DECOUPLING-001-A002",
+      "source_commit": "3da5159246c2f94cf9cc2bd5a969e1d68dfaa9a1",
+      "protocol_sha256": "4c021006262e4c5581d21f2aa750452b3e42e06f75e98c545b888aa54e82bbe4",
+      "configuration_sha256": "67c2e877c114a0aca0bb8a367b34c03ea676132a19e5f28ac2a2c6148166376d",
+      "data_manifest_sha256": "37464655a41a62b227b00c118fbbca4979e95b83f4dc000c312705c4c301b4f9",
+      "dependency_lock_sha256": "90ceae7c184de3be418f4ce0f1b700b7f6d13c3945abb9eb2cbf033bfec9f35f",
+      "environment_digest_sha256": "d8c962326cd2a8120e858260d9101562e2bec82b5861d92cfa791b166d202d6e",
+      "submission_script_sha256": "b1adcef55245b492f8e3d564eed158bb28260bdbfae5fe0e91a1f6be8a2fc933",
+      "scientific_arrays": [
+        {"array_job_id": "6907662", "task_profile": "coupled-end-to-end", "index_range": "0-8", "scheduler_state": "COMPLETED"},
+        {"array_job_id": "6907663", "task_profile": "decoupled", "index_range": "0-8", "scheduler_state": "COMPLETED"},
+        {"array_job_id": "6907664", "task_profile": "freeze-then-probe", "index_range": "0-8", "scheduler_state": "COMPLETED"}
+      ],
+      "quarantined_arrays": [
+        {
+          "array_job_id": "6907665",
+          "task_profile": "temporal-baselines",
+          "index_range": "0-80",
+          "scheduler_state_groups": [
+            {"index_range": "0-42", "scheduler_state": "COMPLETED"},
+            {"index_range": "43", "scheduler_state": "FAILED"},
+            {"index_range": "44-80", "scheduler_state": "COMPLETED"}
+          ]
+        }
+      ],
+      "lifecycle_jobs": [
+        {"scheduler_job_id": "6907666", "purpose": "reconciliation", "scheduler_state": "FAILED"}
+      ]
+    },
+    {
+      "campaign_id": "LP-CAM-A002-20260820",
+      "generation": 2,
+      "admissibility": "INADMISSIBLE",
+      "adjudication": "ABORTED_DATASET_TOPOLOGY_INVARIANT_SCOPE_ERROR",
+      "source_commit": "0ca0fd59e36bcadd8246d8c03ee9b0ecd7af7148",
+      "protocol_sha256": "cda13da3f1f8a4d184cfa076487d5b4b94ec762d81f91f09287e06f59f9d1add",
+      "configuration_sha256": "67c2e877c114a0aca0bb8a367b34c03ea676132a19e5f28ac2a2c6148166376d",
+      "data_manifest_sha256": "37464655a41a62b227b00c118fbbca4979e95b83f4dc000c312705c4c301b4f9",
+      "dependency_lock_sha256": "90ceae7c184de3be418f4ce0f1b700b7f6d13c3945abb9eb2cbf033bfec9f35f",
+      "environment_digest_sha256": "d8c962326cd2a8120e858260d9101562e2bec82b5861d92cfa791b166d202d6e",
+      "submission_script_sha256": "b4fa5fb5f697cb4c56b945d8ac0b018d38952c31afaaac06da3b6add8397c976",
+      "scientific_arrays": [
+        {
+          "array_job_id": "6915240",
+          "task_profile": "coupled-end-to-end",
+          "index_range": "0-8",
+          "scheduler_state_groups": [
+            {"index_range": "0-2", "scheduler_state": "FAILED"},
+            {"index_range": "3-8", "scheduler_state": "CANCELLED"}
+          ]
+        },
+        {"array_job_id": "6915241", "task_profile": "decoupled", "index_range": "0-8", "scheduler_state": "CANCELLED"},
+        {"array_job_id": "6915242", "task_profile": "freeze-then-probe", "index_range": "0-8", "scheduler_state": "CANCELLED"}
+      ],
+      "quarantined_arrays": [],
+      "lifecycle_jobs": [
+        {"scheduler_job_id": "6915243", "purpose": "reconciliation", "scheduler_state": "CANCELLED"}
+      ]
+    },
+    {
+      "campaign_id": "LP-CAM-A003-SUBMIT-20260820",
+      "generation": 3,
+      "admissibility": "INADMISSIBLE",
+      "adjudication": "SUBMISSION_DIRECTORY_PRECONDITION_FAILURE",
+      "source_commit": "1ee96ccdd9c4705cc12ede2ecd58b9fd914132ed",
+      "protocol_sha256": "6186c279806cf86d2a4c704997e4d179e341e0a095cc85c107cae890cb6b34c3",
+      "configuration_sha256": "67c2e877c114a0aca0bb8a367b34c03ea676132a19e5f28ac2a2c6148166376d",
+      "data_manifest_sha256": "3f13779b2d3e0c055cebe3e6e07e2bf5f0e76c9ce07a52c3456efb76223000a2",
+      "dependency_lock_sha256": "90ceae7c184de3be418f4ce0f1b700b7f6d13c3945abb9eb2cbf033bfec9f35f",
+      "environment_digest_sha256": "d8c962326cd2a8120e858260d9101562e2bec82b5861d92cfa791b166d202d6e",
+      "submission_script_sha256": "b4fa5fb5f697cb4c56b945d8ac0b018d38952c31afaaac06da3b6add8397c976",
+      "scientific_arrays": [
+        {"array_job_id": "6915387", "task_profile": "coupled-end-to-end", "index_range": "0-8", "scheduler_state": "FAILED"},
+        {"array_job_id": "6915388", "task_profile": "decoupled", "index_range": "0-8", "scheduler_state": "FAILED"},
+        {"array_job_id": "6915389", "task_profile": "freeze-then-probe", "index_range": "0-8", "scheduler_state": "FAILED"}
+      ],
+      "quarantined_arrays": [],
+      "lifecycle_jobs": [
+        {"scheduler_job_id": "6915391", "purpose": "reconciliation", "scheduler_state": "CANCELLED"}
+      ]
+    },
+    {
+      "campaign_id": "LP-CAM-A003-PREFREEZE-20260820",
+      "generation": 4,
+      "admissibility": "INADMISSIBLE",
+      "adjudication": "PRE_RELEASE_CONFIGURATION_STATUS_MISMATCH",
+      "source_commit": "024030f58cdae9df5623caa1ebd0f7ad5b97cf54",
+      "protocol_sha256": "6186c279806cf86d2a4c704997e4d179e341e0a095cc85c107cae890cb6b34c3",
+      "configuration_sha256": "67c2e877c114a0aca0bb8a367b34c03ea676132a19e5f28ac2a2c6148166376d",
+      "data_manifest_sha256": "3f13779b2d3e0c055cebe3e6e07e2bf5f0e76c9ce07a52c3456efb76223000a2",
+      "dependency_lock_sha256": "90ceae7c184de3be418f4ce0f1b700b7f6d13c3945abb9eb2cbf033bfec9f35f",
+      "environment_digest_sha256": "d8c962326cd2a8120e858260d9101562e2bec82b5861d92cfa791b166d202d6e",
+      "submission_script_sha256": "b4fa5fb5f697cb4c56b945d8ac0b018d38952c31afaaac06da3b6add8397c976",
+      "scientific_arrays": [
+        {
+          "array_job_id": "6915561",
+          "task_profile": "coupled-end-to-end",
+          "index_range": "0-8",
+          "scheduler_state_groups": [
+            {"index_range": "0-2", "scheduler_state": "COMPLETED"},
+            {"index_range": "3-8", "scheduler_state": "CANCELLED"}
+          ]
+        },
+        {"array_job_id": "6915562", "task_profile": "freeze-then-probe", "index_range": "0-8", "scheduler_state": "CANCELLED"},
+        {"array_job_id": "6915563", "task_profile": "decoupled", "index_range": "0-8", "scheduler_state": "CANCELLED"}
+      ],
+      "quarantined_arrays": [],
+      "lifecycle_jobs": [
+        {"scheduler_job_id": "6915564", "purpose": "reconciliation", "scheduler_state": "CANCELLED"}
+      ]
+    }
+  ]
+}

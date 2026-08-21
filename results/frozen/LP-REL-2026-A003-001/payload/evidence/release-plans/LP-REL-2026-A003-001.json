@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "release_id": "LP-REL-2026-A003-001",
+  "source_commit": "ed227ad1cbc8143ff23e78aee476f01b7c9028de",
+  "protocol": {
+    "path": "protocols/link_prediction_v1.toml",
+    "sha256": "6186c279806cf86d2a4c704997e4d179e341e0a095cc85c107cae890cb6b34c3"
+  },
+  "configuration": {
+    "path": "configs/default.toml",
+    "sha256": "d6b6362b89252916cc1e7009977854de6bad23979202f96c6e410a9c29fb71cd"
+  },
+  "data_manifest": {
+    "path": "resources/manifest.toml",
+    "sha256": "3f13779b2d3e0c055cebe3e6e07e2bf5f0e76c9ce07a52c3456efb76223000a2"
+  },
+  "data_checksums": {
+    "path": "resources/checksums.sha256",
+    "sha256": "62b05b192dde37e36632adbd45ee18f3dbdabd406ecca692bfd661d6c4cde48c"
+  },
+  "dependency_lock": {
+    "path": "configs/scientific-requirements-py39-cu128.lock",
+    "sha256": "90ceae7c184de3be418f4ce0f1b700b7f6d13c3945abb9eb2cbf033bfec9f35f"
+  },
+  "environment_digest_sha256": "d8c962326cd2a8120e858260d9101562e2bec82b5861d92cfa791b166d202d6e",
+  "evidence_ids": ["LP-E-SCIENTIFIC-MATRIX-001"],
+  "claim_ids": ["LP-C-DECOUPLING-001"],
+  "jobs": [
+    {
+      "record": "evidence/jobs/LP-JOB-SLURM-A003-FINAL-RECONCILE-R2.toml",
+      "result": "results/audit/scientific-matrix.json",
+      "attempt_ledger": "results/audit/scientific-matrix-attempts.json",
+      "final_accounting": {
+        "path": "evidence/execution/raw/LP-SACCT-20260821-A003-FINAL.psv",
+        "sha256": "a3a26606991db6816a90c1377b0a6971c0670893df936b63e02e53fdc8596d1c"
+      },
+      "aggregation": {
+        "group_by": ["task_profile", "model", "dataset"],
+        "metrics": [
+          {"run": "ind_ap", "mean": "ind_ap_mean", "std": "ind_ap_std"},
+          {"run": "ind_auc", "mean": "ind_auc_mean", "std": "ind_auc_std"},
+          {"run": "trans_ap", "mean": "trans_ap_mean", "std": "trans_ap_std"},
+          {"run": "trans_auc", "mean": "trans_auc_mean", "std": "trans_auc_std"}
+        ],
+        "ddof": 1,
+        "count_field": "n_seeds",
+        "absolute_tolerance": 1e-12
+      }
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/execution/raw/LP-SACCT-20260821-A003-RECONCILE-FAIL.psv",
+      "sha256": "cd31e0ea06af298b089488111b46d579dfaa6381044d42ed1745eaa22624ffac",
+      "job_id": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "role": "failed-reconciliation-accounting"
+    }
+  ]
+}

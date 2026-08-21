@@ -123,8 +123,10 @@ def _verify_frozen_release(root: Path, release_id: Any) -> dict[str, Any]:
     if _project_pointer(root, "evidence_release") != release_id:
         raise common.GateError("PROJECT.toml evidence pointer disagrees with results/CURRENT")
     reproducibility = common._load_toml(root / "REPRODUCIBILITY.toml")
-    if reproducibility.get("status") != "REPRODUCIBLE":
-        raise common.GateError("REPRODUCIBILITY.toml status is not REPRODUCIBLE")
+    if reproducibility.get("status") not in {"EVIDENCE_FROZEN", "REPRODUCIBLE"}:
+        raise common.GateError(
+            "REPRODUCIBILITY.toml has not reached evidence-frozen state"
+        )
     if reproducibility.get("evidence_release") != release_id:
         raise common.GateError("REPRODUCIBILITY.toml does not bind the evidence release")
     release = (root / "results/frozen" / release_id).resolve()

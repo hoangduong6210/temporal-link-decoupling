@@ -7,14 +7,13 @@ paper_source: false
 
 # Evidence Ledger
 
-Current evidence release: `UNRELEASED`. The complete current scientific matrix is
-validated below and awaits atomic copy into its declared frozen release.
+Current evidence release: `LP-REL-2026-A003-001`.
 
 ## LP-E-SCIENTIFIC-MATRIX-001
 
 - **Scientific purpose:** Preserve the current-corpus coupled, decoupled, and
   freeze-then-probe protocol arms with complete attempt accounting.
-- **Lifecycle:** VALIDATED scientific evidence; FROZEN activation pending.
+- **Lifecycle:** FROZEN and ADMITTED scientific evidence.
 - **Source commit:** `ed227ad1cbc8143ff23e78aee476f01b7c9028de`, captured as a
   clean source identity by every selected runner envelope.
 - **Protocol, configuration, and data hashes:** Bound in
@@ -24,8 +23,8 @@ validated below and awaits atomic copy into its declared frozen release.
 - **Execution identity:** `LP-JOB-SLURM-A003-FINAL-RECONCILE-R2`; native array
   identities and the successful reconciliation identity are preserved in the
   final Slurm accounting capture.
-- **Artifact path or release URI:** `results/audit/scientific-matrix.json` and
-  `results/audit/scientific-matrix-attempts.json`; the release plan is
+- **Artifact path or release URI:** The immutable payload under
+  `results/frozen/LP-REL-2026-A003-001/`; the release plan remains at
   `evidence/release-plans/LP-REL-2026-A003-001.json`.
 - **Artifact checksum:** The matrix, ledger, source captures, terminal Slurm
   accounting, failed reconciliation accounting, and job record are individually
@@ -35,8 +34,8 @@ validated below and awaits atomic copy into its declared frozen release.
   admissibility, selection identity, parent-result checksum, and failure reason.
 - **Acceptance-gate outcome:** PASS for source, protocol, configuration, corpus,
   dependency, accelerator, attempt-selection, failure-accounting, and aggregate
-  reconstruction gates. Frozen-copy and immutable-paper gates are pending.
-- **Supported claim IDs:** `LP-C-DECOUPLING-001` at VALIDATED status.
+  reconstruction and frozen-copy gates. The immutable-paper gate is pending.
+- **Supported claim IDs:** `LP-C-DECOUPLING-001` at ADMITTED status.
 - **Rejected claim IDs:** none. `LP-C-IRREVERSIBILITY-001` remains BLOCKED because
   the observed protocol contrast does not identify an irreversible mechanism.
 - **Scientific-use boundary:** Within-protocol SR-GNN arm comparison only. No
@@ -90,11 +89,11 @@ validated below and awaits atomic copy into its declared frozen release.
   `resources/checksums.sha256`, and local ignored files under `resources/corpora/`.
 - **Artifact checksum:** Raw and processed bytes are declared in the source/data
   registries; the execution record is pinned by `evidence/jobs/checksums.sha256`.
-  The pending scientific release plan checksum-binds the same registries.
+  The frozen scientific release checksum-binds the same registries.
 - **Coverage and failures:** Current corpora were rebuilt deterministically from
   registered raw inputs in clean staging and matched their declared digests.
 - **Acceptance-gate outcome:** Schema/hash/dataset-topology, upstream digest, and
-  clean-acquisition gates PASS; immutable release copy is pending.
+  clean-acquisition and immutable release-copy gates PASS.
 - **Supported claim IDs:** `LP-C-IDFIX-001` at VALIDATED technical status only.
 - **Rejected claim IDs:** none.
 - **Scientific-use boundary:** Dataset migration integrity only; no performance or
@@ -118,8 +117,8 @@ validated below and awaits atomic copy into its declared frozen release.
   `evidence/jobs/checksums.sha256`. No release-level checksum exists.
 - **Coverage and failures:** Runtime files, exact transitive environment, task
   profiles, state-neutral warmup, and fail-closed scheduler metadata were tested.
-- **Acceptance-gate outcome:** Runtime, runner, and fresh scheduler execution
-  gates PASS; frozen-copy and immutable-paper gates remain pending.
+- **Acceptance-gate outcome:** Runtime, runner, fresh scheduler execution, and
+  frozen-copy gates PASS; immutable-paper gate remains pending.
 - **Supported claim IDs:** none.
 - **Rejected claim IDs:** none.
 - **Scientific-use boundary:** Code-copy integrity only.

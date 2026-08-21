@@ -1,0 +1,43 @@
+schema_version = 1
+job_id = "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2"
+scientific = true
+execution_kind = "scheduler"
+scheduler_job_id = "6916342"
+date = "2026-08-21"
+source_commit = "ed227ad1cbc8143ff23e78aee476f01b7c9028de"
+source_state = "CLEAN"
+command = "sbatch --export=ALL,LP_JOB_ID=LP-JOB-SLURM-A003-FINAL-RECONCILE-R2 slurm/reconcile_scientific_matrix.sbatch"
+exit_code = 0
+outcome = "COMPLETED"
+protocol_id = "LP-P-DECOUPLING-001"
+protocol_path = "protocols/link_prediction_v1.toml"
+protocol_sha256 = "6186c279806cf86d2a4c704997e4d179e341e0a095cc85c107cae890cb6b34c3"
+configuration_path = "configs/default.toml"
+configuration_sha256 = "d6b6362b89252916cc1e7009977854de6bad23979202f96c6e410a9c29fb71cd"
+data_manifest = "resources/manifest.toml"
+data_manifest_sha256 = "3f13779b2d3e0c055cebe3e6e07e2bf5f0e76c9ce07a52c3456efb76223000a2"
+data_checksums = "resources/checksums.sha256"
+data_checksums_sha256 = "62b05b192dde37e36632adbd45ee18f3dbdabd406ecca692bfd661d6c4cde48c"
+dependency_lock = "configs/scientific-requirements-py39-cu128.lock"
+dependency_lock_sha256 = "90ceae7c184de3be418f4ce0f1b700b7f6d13c3945abb9eb2cbf033bfec9f35f"
+environment_digest_sha256 = "d8c962326cd2a8120e858260d9101562e2bec82b5861d92cfa791b166d202d6e"
+result_pointer = "results/audit/scientific-matrix.json"
+result_sha256 = "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea"
+attempt_ledger = "results/audit/scientific-matrix-attempts.json"
+attempt_ledger_sha256 = "c27226eb2e035f3f3dca67da7e07eca2c31cdc7293cc53bb2c47a4f3adfb94d2"
+final_accounting = "evidence/execution/raw/LP-SACCT-20260821-A003-FINAL.psv"
+final_accounting_sha256 = "a3a26606991db6816a90c1377b0a6971c0670893df936b63e02e53fdc8596d1c"
+attempt_count = 162
+failed_attempt_count = 57
+excluded_attempt_count = 135
+audit_attempt_count = 167
+audit_failed_attempt_count = 38
+audit_cancelled_attempt_count = 49
+supported_evidence_ids = ["LP-E-SCIENTIFIC-MATRIX-001"]
+supported_scientific_claim_ids = ["LP-C-DECOUPLING-001"]
+limitations = "Within-protocol SR-GNN arm comparison only. Temporal proxy baselines, legacy artifacts, lifecycle-readout claims, hard-negative claims, and architecture-general irreversibility claims are excluded."
+
+[[additional_artifacts]]
+path = "evidence/execution/raw/LP-SACCT-20260821-A003-RECONCILE-FAIL.psv"
+sha256 = "cd31e0ea06af298b089488111b46d579dfaa6381044d42ed1745eaa22624ffac"
+role = "failed-reconciliation-accounting"

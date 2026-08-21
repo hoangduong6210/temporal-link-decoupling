@@ -11,8 +11,8 @@ paper_source: false
 
 The project tests decoupling-by-construction against coupled end-to-end training
 for inductive temporal link prediction. The current stage is
-`immutable-release-assembly`. Current evidence release: `UNRELEASED`. Current
-paper snapshot: `UNRELEASED`.
+`paper-snapshot-assembly`. Current evidence release:
+`LP-REL-2026-A003-001`. Current paper snapshot: `UNRELEASED`.
 
 ## Supported now
 
@@ -32,11 +32,11 @@ paper snapshot: `UNRELEASED`.
 
 ## Unsupported or blocked now
 
-- Quantitative wording is validated only inside `LP-C-DECOUPLING-001`; paper
-  admission waits for the frozen release.
+- Quantitative wording is admitted only inside `LP-C-DECOUPLING-001`; each paper
+  occurrence still needs checksum-owned numeric provenance.
 - Irreversibility, hard-negative, external-baseline, state-of-the-art, causal,
   and architecture-general claims remain blocked.
-- No frozen evidence release or immutable conference snapshot exists.
+- No immutable conference snapshot exists.
 
 ## Running work and ownership
 
@@ -47,9 +47,9 @@ only after that release exists.
 
 ## Next actions
 
-1. Freeze the declared `LP-*` evidence release.
-2. Author only the claim language supported by that release.
-3. Build and audit the immutable conference snapshot.
+1. Author only the claim language supported by the frozen release.
+2. Build the immutable conference snapshot.
+3. Audit every snapshot value and release pointer.
 
 ## Safe first checks and task routes
 

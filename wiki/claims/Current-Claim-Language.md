@@ -9,11 +9,6 @@ paper_source: false
 
 ## Admitted claims
 
-None until the validated scientific matrix is copied into an immutable evidence
-release. Validation does not by itself authorize paper export.
-
-## Validated claims pending evidence-release activation
-
 ### LP-C-DECOUPLING-001
 
 - **Exact permitted statement:** Under the registered current-corpus protocol,
@@ -21,7 +16,8 @@ release. Validation does not by itself authorize paper export.
   than the coupled end-to-end arm on each registered corpus. This is a
   within-protocol arm comparison, not a baseline, state-of-the-art,
   architecture-general, or causal claim.
-- **Lifecycle status:** VALIDATED; release activation pending.
+- **Lifecycle status:** ADMITTED from frozen evidence release
+  `LP-REL-2026-A003-001`.
 - **Scope and population:** The exact task, seed, attempt, and failure population
   recorded by the scientific matrix and its attempt ledger.
 - **Dataset and fidelity:** `LP-D-COEDIT-002`, `LP-D-MOOC-003`, and
@@ -31,7 +27,9 @@ release. Validation does not by itself authorize paper export.
   round-half-even to four decimal places from the named JSON selectors.
 - **Evidence IDs:** `LP-E-SCIENTIFIC-MATRIX-001`.
 - **Execution job:** `LP-JOB-SLURM-A003-FINAL-RECONCILE-R2`.
-- **Artifact:** `results/audit/scientific-matrix.json`, SHA-256
+- **Artifact:**
+  `results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json`,
+  SHA-256
   `09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea`.
 
 | Profile | Dataset | Inductive AP mean | Sample SD | Selected seeds | JSON selectors |
@@ -47,7 +45,8 @@ release. Validation does not by itself authorize paper export.
 | freeze then probe | Wikipedia | 0.9623 | 0.0128 | 3 | `$.summary[8].ind_ap_mean`; `$.summary[8].ind_ap_std`; `$.summary[8].n_seeds` |
 
 - **Attempt-accounting artifact:**
-  `results/audit/scientific-matrix-attempts.json`, SHA-256
+  `results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix-attempts.json`,
+  SHA-256
   `c27226eb2e035f3f3dca67da7e07eca2c31cdc7293cc53bb2c47a4f3adfb94d2`.
 
 | Accounting field | Value | JSON selector |
@@ -67,8 +66,8 @@ release. Validation does not by itself authorize paper export.
 - **Known limitations:** No faithful external temporal baseline is admitted; the
   registered negative-sampling regime is the only evaluated regime; the
   freeze-then-probe rows do not establish irreversibility.
-- **Paper eligibility:** false until `LP-REL-2026-A003-001` is FROZEN and the
-  artifact paths above are rebound to its payload.
+- **Paper eligibility:** true for the exact bounded statement and registered
+  values above; every paper occurrence still requires a numeric registry record.
 - **Last review date:** 2026-08-21.
 
 ## Validated artifacts that are not admitted claims

@@ -1,6 +1,6 @@
 ---
 title: Project Status
-status: evidence release assembly
+status: paper snapshot assembly
 last_updated: 2026-08-21
 paper_source: false
 ---
@@ -11,9 +11,10 @@ paper_source: false
 
 The Link Prediction project has an independent implementation, corpus registry,
 result partition, wiki, and paper root. Current scientific execution is complete
-under `LP-E-SCIENTIFIC-MATRIX-001`; evidence and paper pointers remain
-`UNRELEASED` while immutable artifacts are assembled. The original mixed tree
-is read-only migration input and cannot support current claims.
+under `LP-E-SCIENTIFIC-MATRIX-001`, and `LP-REL-2026-A003-001` is the active
+frozen evidence release. The paper pointer remains `UNRELEASED` while the
+conference snapshot is assembled. The original mixed tree is read-only
+migration input and cannot support current claims.
 
 ## Verification state
 
@@ -31,7 +32,6 @@ attempts can silently enter the selected aggregate.
 
 ## Active blockers
 
-- Materialize and activate `LP-REL-2026-A003-001` from its checksum-closed plan.
 - Build a fresh Link Prediction-only conference candidate from the admitted
   release, inventory every numeric occurrence, and freeze its snapshot.
 - Run the canonical and clean-clone audits against those immutable pointers.

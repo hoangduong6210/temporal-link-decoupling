@@ -1,0 +1,174 @@
+{
+  "aggregate_reconstruction": "aggregate-reconstruction.json",
+  "artifacts": [
+    {
+      "job_id": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "path": "payload/evidence/execution/raw/LP-SACCT-20260821-A003-RECONCILE-FAIL.psv",
+      "role": "failed-reconciliation-accounting",
+      "sha256": "cd31e0ea06af298b089488111b46d579dfaa6381044d42ed1745eaa22624ffac"
+    }
+  ],
+  "assembly_commit": "cbfae4e0a46b6d8cf1d6ac7f457ac12b83be9ac0",
+  "checksum_manifest": "checksums.sha256",
+  "claim_ids": [
+    "LP-C-DECOUPLING-001"
+  ],
+  "configuration": {
+    "path": "configs/default.toml",
+    "sha256": "d6b6362b89252916cc1e7009977854de6bad23979202f96c6e410a9c29fb71cd"
+  },
+  "current_datasets": {
+    "coedit": {
+      "id": "LP-D-COEDIT-002",
+      "path": "corpora/coedit.npz",
+      "sha256": "cbdb09bfbd83456be01a039fa3a0b4c2e37415af43a3406fc8d3f55be4a5c736",
+      "state": "CURRENT"
+    },
+    "mooc": {
+      "id": "LP-D-MOOC-003",
+      "path": "corpora/mooc.npz",
+      "sha256": "e422cf5e1e6a95763b24a6a5dc53fec993c9ae80948b3fd7ef4f82816b26a278",
+      "state": "CURRENT-IDFIX"
+    },
+    "wikipedia": {
+      "id": "LP-D-WIKIPEDIA-003",
+      "path": "corpora/wikipedia.npz",
+      "sha256": "f035f7dd2e97dbb931d48a4b3c099d43b2fdc25d0e15828de6fa2c604b8017c7",
+      "state": "CURRENT-IDFIX"
+    }
+  },
+  "data_checksums": {
+    "path": "resources/checksums.sha256",
+    "sha256": "62b05b192dde37e36632adbd45ee18f3dbdabd406ecca692bfd661d6c4cde48c"
+  },
+  "data_manifest": {
+    "path": "resources/manifest.toml",
+    "sha256": "3f13779b2d3e0c055cebe3e6e07e2bf5f0e76c9ce07a52c3456efb76223000a2"
+  },
+  "dependency_lock": {
+    "path": "configs/scientific-requirements-py39-cu128.lock",
+    "sha256": "90ceae7c184de3be418f4ce0f1b700b7f6d13c3945abb9eb2cbf033bfec9f35f"
+  },
+  "environment_digest_sha256": "d8c962326cd2a8120e858260d9101562e2bec82b5861d92cfa791b166d202d6e",
+  "evidence_ids": [
+    "LP-E-SCIENTIFIC-MATRIX-001"
+  ],
+  "jobs": [
+    {
+      "attempt_ledger": "payload/results/audit/scientific-matrix-attempts.json",
+      "coverage": {
+        "attempt_count": 162,
+        "audit_attempt_count": 167,
+        "audit_cancelled_attempt_count": 49,
+        "audit_failed_attempt_count": 38,
+        "completed": [
+          "coupled-end-to-end/p0-off:coedit:seed-1",
+          "coupled-end-to-end/p0-off:coedit:seed-42",
+          "coupled-end-to-end/p0-off:coedit:seed-7",
+          "coupled-end-to-end/p0-off:mooc:seed-1",
+          "coupled-end-to-end/p0-off:mooc:seed-42",
+          "coupled-end-to-end/p0-off:mooc:seed-7",
+          "coupled-end-to-end/p0-off:wikipedia:seed-1",
+          "coupled-end-to-end/p0-off:wikipedia:seed-42",
+          "coupled-end-to-end/p0-off:wikipedia:seed-7",
+          "decoupled/p0-off:coedit:seed-1",
+          "decoupled/p0-off:coedit:seed-42",
+          "decoupled/p0-off:coedit:seed-7",
+          "decoupled/p0-off:mooc:seed-1",
+          "decoupled/p0-off:mooc:seed-42",
+          "decoupled/p0-off:mooc:seed-7",
+          "decoupled/p0-off:wikipedia:seed-1",
+          "decoupled/p0-off:wikipedia:seed-42",
+          "decoupled/p0-off:wikipedia:seed-7",
+          "freeze-then-probe/p0-off:coedit:seed-1",
+          "freeze-then-probe/p0-off:coedit:seed-42",
+          "freeze-then-probe/p0-off:coedit:seed-7",
+          "freeze-then-probe/p0-off:mooc:seed-1",
+          "freeze-then-probe/p0-off:mooc:seed-42",
+          "freeze-then-probe/p0-off:mooc:seed-7",
+          "freeze-then-probe/p0-off:wikipedia:seed-1",
+          "freeze-then-probe/p0-off:wikipedia:seed-42",
+          "freeze-then-probe/p0-off:wikipedia:seed-7"
+        ],
+        "excluded_attempt_count": 135,
+        "expected": [
+          "coupled-end-to-end/p0-off:coedit:seed-1",
+          "coupled-end-to-end/p0-off:coedit:seed-42",
+          "coupled-end-to-end/p0-off:coedit:seed-7",
+          "coupled-end-to-end/p0-off:mooc:seed-1",
+          "coupled-end-to-end/p0-off:mooc:seed-42",
+          "coupled-end-to-end/p0-off:mooc:seed-7",
+          "coupled-end-to-end/p0-off:wikipedia:seed-1",
+          "coupled-end-to-end/p0-off:wikipedia:seed-42",
+          "coupled-end-to-end/p0-off:wikipedia:seed-7",
+          "decoupled/p0-off:coedit:seed-1",
+          "decoupled/p0-off:coedit:seed-42",
+          "decoupled/p0-off:coedit:seed-7",
+          "decoupled/p0-off:mooc:seed-1",
+          "decoupled/p0-off:mooc:seed-42",
+          "decoupled/p0-off:mooc:seed-7",
+          "decoupled/p0-off:wikipedia:seed-1",
+          "decoupled/p0-off:wikipedia:seed-42",
+          "decoupled/p0-off:wikipedia:seed-7",
+          "freeze-then-probe/p0-off:coedit:seed-1",
+          "freeze-then-probe/p0-off:coedit:seed-42",
+          "freeze-then-probe/p0-off:coedit:seed-7",
+          "freeze-then-probe/p0-off:mooc:seed-1",
+          "freeze-then-probe/p0-off:mooc:seed-42",
+          "freeze-then-probe/p0-off:mooc:seed-7",
+          "freeze-then-probe/p0-off:wikipedia:seed-1",
+          "freeze-then-probe/p0-off:wikipedia:seed-42",
+          "freeze-then-probe/p0-off:wikipedia:seed-7"
+        ],
+        "failed_attempt_count": 57,
+        "task_count": 27
+      },
+      "final_accounting": {
+        "path": "payload/evidence/execution/raw/LP-SACCT-20260821-A003-FINAL.psv",
+        "sha256": "a3a26606991db6816a90c1377b0a6971c0670893df936b63e02e53fdc8596d1c"
+      },
+      "job_id": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "record": "payload/evidence/jobs/LP-JOB-SLURM-A003-FINAL-RECONCILE-R2.toml",
+      "result": "payload/results/audit/scientific-matrix.json",
+      "source_artifacts": [
+        {
+          "path": "payload/evidence/execution/LP-SCHEDULER-HISTORY-20260820.json",
+          "sha256": "60f1dfefec4fe8ef5cc163598a725ea1d692430ff3981f450ba126609cd85230"
+        },
+        {
+          "path": "payload/evidence/execution/raw/LP-SACCT-20260820.psv",
+          "sha256": "b7e313c9affdcf9d165f39f4f1e12d714bc4bda4fc69228876ce53ebc9fa34cf"
+        },
+        {
+          "path": "payload/evidence/execution/raw/LP-SACCT-20260821-A002.psv",
+          "sha256": "37aa0b83775a9ed33e8301e55b8ae9ec5ee8ad1c22a4e3a338e468cfbf31a38f"
+        },
+        {
+          "path": "payload/evidence/execution/raw/LP-SACCT-20260821-A003-SUBMIT.psv",
+          "sha256": "30c0a2c93343689d165dfc6f0dbdb90f1bc2d4fc92c3e1461f8feddb1e6b3d4a"
+        },
+        {
+          "path": "payload/evidence/execution/raw/LP-SACCT-20260821-A003-PREFREEZE.psv",
+          "sha256": "d27e84c455f1c4dbaf6b45726e1cfc776c1cf06f14810bbdf235a0e387a52f98"
+        }
+      ],
+      "supported_evidence_ids": [
+        "LP-E-SCIENTIFIC-MATRIX-001"
+      ],
+      "supported_scientific_claim_ids": [
+        "LP-C-DECOUPLING-001"
+      ]
+    }
+  ],
+  "protocol": {
+    "path": "protocols/link_prediction_v1.toml",
+    "sha256": "6186c279806cf86d2a4c704997e4d179e341e0a095cc85c107cae890cb6b34c3"
+  },
+  "release_id": "LP-REL-2026-A003-001",
+  "release_plan": "payload/evidence/release-plans/LP-REL-2026-A003-001.json",
+  "release_plan_sha256": "60333bdc7584cb7d7fe379e4c837c59ce9cf579de4bebf7712d6c864c505d8d5",
+  "schema_version": 1,
+  "source_commit": "ed227ad1cbc8143ff23e78aee476f01b7c9028de",
+  "state": "FROZEN",
+  "supersedes": null
+}

@@ -15,9 +15,9 @@ must never be edited. `results/CURRENT`, `PROJECT.toml`, the evidence ledger,
 and a paper `results.lock.yaml` must agree before export.
 
 The machine-readable assessment is `REPRODUCIBILITY.toml`. It is currently
-`BLOCKED` only at the immutable-artifact layer: the fresh scheduler matrix and
-attempt reconciliation are complete, while the frozen evidence release and
-paper snapshot still need activation.
+`BLOCKED` only at the paper-artifact layer: the fresh scheduler matrix, attempt
+reconciliation, and frozen evidence release are complete, while the immutable
+paper snapshot still needs activation.
 
 The first fresh execution was not admitted. It exposed duplicate node-memory
 commits and a temporal comparator registry containing simplified proxies. The

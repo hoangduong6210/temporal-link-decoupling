@@ -352,7 +352,7 @@ def test_provenance_auditor_and_release_readiness_semantics() -> None:
 
 def test_reproducibility_manifest_is_honest_and_hash_closed() -> None:
     text = (ROOT / "REPRODUCIBILITY.toml").read_text(encoding="utf-8")
-    assert 'status = "BLOCKED"' in text
+    assert re.search(r'^status = "(?:EVIDENCE_FROZEN|REPRODUCIBLE)"$', text, re.MULTILINE)
     assert 'source_state = "CLEAN_SCIENTIFIC_EXECUTION"' in text
     assert re.search(r'^source_commit = "[0-9a-f]{40}"$', text, re.MULTILINE)
     assert (
