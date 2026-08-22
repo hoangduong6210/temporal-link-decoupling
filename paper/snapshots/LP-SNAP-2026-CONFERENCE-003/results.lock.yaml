@@ -1,8 +1,0 @@
-schema_version: "1"
-snapshot_id: "LP-SNAP-2026-CONFERENCE-003"
-evidence_release: "LP-REL-2026-A003-001"
-evidence_release_manifest_sha256: "cbae32519b6e98660706ee0f047de559346f0803cdf05638a4cc6e90654f71d5"
-evidence_release_checksums_sha256: "11fc83d659f023893fdaa2830f4d51bc7e15bd71bae6955635cc657f3099fb6e"
-source_commit: "5b629b6d0d276db2713aa3402974035b5ac970ed"
-wiki_commit: "5b629b6d0d276db2713aa3402974035b5ac970ed"
-paper_build_job: "LP-JOB-LOCAL-20260821-PAPER-BUILD-003"

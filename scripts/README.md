@@ -21,3 +21,8 @@ The provenance pipeline is fail-closed:
 
 The freeze and snapshot tools update pointers only when `--activate` is supplied
 and all prerequisites pass. They stage atomically and refuse overwrites.
+
+The current conference manuscript is preserved under `paper/conference/` but is
+not evidence-admitted. Continuous integration therefore runs the canonical
+consistency audit; the stricter release gate remains blocked until a future
+wiki-derived manuscript has complete numeric provenance.

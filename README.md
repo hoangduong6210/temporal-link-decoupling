@@ -13,31 +13,32 @@ are excluded from scientific comparisons.
 
 ## Evidence status
 
-The active result and manuscript are immutable, checksum-closed artifacts:
+The active scientific result is immutable and checksum-closed. No manuscript
+is currently admitted as scientific evidence:
 
 | Record | Current artifact |
 |---|---|
 | Scientific claims | [`wiki/claims/Current-Claim-Language.md`](wiki/claims/Current-Claim-Language.md) |
 | Evidence ledger | [`wiki/evidence/Evidence-Ledger.md`](wiki/evidence/Evidence-Ledger.md) |
 | Evidence release | [`LP-REL-2026-A003-001`](results/frozen/LP-REL-2026-A003-001/) |
-| Conference snapshot | [`LP-SNAP-2026-CONFERENCE-005`](paper/snapshots/LP-SNAP-2026-CONFERENCE-005/) |
+| Evidence-admitted paper | None; [`paper/CURRENT`](paper/CURRENT) is `UNRELEASED` |
 | Scientific execution | [`LP-JOB-SLURM-A003-FINAL-RECONCILE-R2`](evidence/jobs/LP-JOB-SLURM-A003-FINAL-RECONCILE-R2.toml) |
 | Reproducibility contract | [`REPRODUCIBILITY.toml`](REPRODUCIBILITY.toml) |
 
-Every quantitative statement admitted to the wiki or conference snapshot
-resolves to a claim, an evidence selector, a registered execution job, and a
-checksum-locked source artifact. The executable gate verifies this chain in a
-clean clone.
+Every quantitative statement admitted to the wiki resolves to a claim, an
+evidence selector, a registered execution job, and a checksum-locked source
+artifact. A future paper must be generated from that wiki-owned claim surface
+and pass the same executable gate.
 
-## Author-edited manuscript
+## Conference manuscript
 
-The preserved full-length author manuscript is available as
-[`Link_Predict.pdf`](paper/author-submission/Link_Predict.pdf), together with a
-self-contained [`Overleaf package`](paper/author-submission/Link_Predict_Overleaf.zip).
+The single preserved conference manuscript is available as
+[`Link_Predict.pdf`](paper/conference/Link_Predict.pdf), together with a
+self-contained [`Overleaf package`](paper/conference/Link_Predict_Overleaf.zip).
 This artifact applies only the requested author-block update, removal of the
-specified reproducibility note, and grayscale figure rendering. It is kept
-separate from the evidence-admitted snapshot above because its result set is
-not registered in the current frozen release.
+specified reproducibility note, and grayscale figure rendering. It is not an
+evidence-admitted snapshot because its result set is not registered in the
+current frozen release.
 
 ## Repository layout
 
@@ -50,7 +51,7 @@ resources/      fetch-only dataset registry and checksum manifests
 evidence/       execution records and release/snapshot plans
 results/frozen/ immutable scientific evidence release
 paper/snapshots immutable conference manuscript snapshot
-paper/author-submission preserved author-edited PDF and Overleaf package
+paper/conference single preserved conference PDF and Overleaf package
 wiki/           methods, claims, evidence, limitations, and workflow
 scripts/        release, paper, provenance, and public-history gates
 slurm/          scheduler entry points with site settings supplied at submit time

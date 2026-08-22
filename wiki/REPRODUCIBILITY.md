@@ -15,10 +15,10 @@ must never be edited. `results/CURRENT`, `PROJECT.toml`, the evidence ledger,
 and a paper `results.lock.yaml` must agree before export.
 
 The machine-readable assessment is `REPRODUCIBILITY.toml`. The fresh scheduler
-matrix, attempt reconciliation, frozen evidence release, and immutable
-conference snapshot are complete. The canonical audit reopens the gate if any
-pointer, checksum, job ownership, wiki commit, numeric selector, or rounded
-literal drifts.
+matrix, attempt reconciliation, and frozen evidence release are complete. Paper
+release readiness is blocked while `paper/CURRENT` is `UNRELEASED`. The
+canonical audit reopens the scientific gate if any pointer, checksum, job
+ownership, wiki commit, numeric selector, or rounded literal drifts.
 
 The first fresh execution was not admitted. It exposed duplicate node-memory
 commits and a temporal comparator registry containing simplified proxies. The

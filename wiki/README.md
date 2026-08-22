@@ -11,8 +11,8 @@ This wiki owns current scientific interpretation, claim status, limitations,
 and publication eligibility for the decoupling study. Executable code is in
 `src/` and `experiments/`; protocols/configuration are in `protocols/` and
 `configs/`; local raw corpus copies are in ignored `resources/corpora/`; mutable
-and frozen evidence belong under `results/`; working and immutable paper states
-belong under `paper/`. None replaces this wiki.
+and frozen evidence belong under `results/`; the sole preserved conference
+manuscript is under `paper/conference/`. None replaces this wiki.
 
 | Reader or task | Begin with | Continue with |
 |---|---|---|
@@ -25,5 +25,5 @@ belong under `paper/`. None replaces this wiki.
 
 The [Index](INDEX.md) enumerates every maintained page and identifier. A legacy
 result becomes publishable only after an immutable release, evidence-ledger
-closure, and claim admission. `paper/working/` is quarantined editorial history,
-not a source of permitted claim language.
+closure, and claim admission. Retired working-paper copies are not a source of
+permitted claim language; future paper revisions are written from this wiki.

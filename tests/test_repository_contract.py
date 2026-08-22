@@ -155,7 +155,7 @@ def test_wiki_identifier_and_governance_contracts() -> None:
         "Acceptance-gate outcome", "Supported claim IDs", "Rejected claim IDs",
         "Scientific-use boundary",
     ):
-        assert evidence.count(f"**{field}:**") == 7
+        assert evidence.count(f"**{field}:**") == 6
 
     decision = (WIKI / "decisions/0001-separate-link-prediction-and-lifecycle-readout.md").read_text()
     for heading in (
@@ -191,6 +191,7 @@ def test_public_history_allows_only_the_named_overleaf_zip() -> None:
     verifier = (ROOT / "scripts/verify_public_history.py").read_text(encoding="utf-8")
     assert "candidate/link-prediction-overleaf\\.zip" in verifier
     assert "author-submission/Link_Predict_Overleaf\\.zip" in verifier
+    assert "conference/Link_Predict_Overleaf\\.zip" in verifier
     assert "link-prediction-overleaf\\.zip" in verifier
     assert 'BANNED_SUFFIX = {".docx", ".zip", ".pyc", ".log", ".out"}' in verifier
     assert "ALLOWED_OVERLEAF_ZIP.fullmatch(path)" in verifier
@@ -259,16 +260,11 @@ def test_audit_toml_loader_preserves_build_artifact_array_tables() -> None:
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     record = module._load_toml(
-        ROOT / "evidence/jobs/LP-JOB-LOCAL-20260821-PAPER-BUILD-005.toml"
+        ROOT / "evidence/jobs/LP-JOB-SLURM-A003-FINAL-RECONCILE-R2.toml"
     )
     artifacts = record["additional_artifacts"]
     assert isinstance(artifacts, list)
-    assert {item["role"] for item in artifacts} == {
-        "self-contained-overleaf-package",
-        "monochrome-vector-result-figure",
-        "monochrome-vector-protocol-figure",
-        "lppl-overleaf-class",
-    }
+    assert {item["role"] for item in artifacts} == {"failed-reconciliation-accounting"}
 
 
 def test_every_public_evidence_job_reference_resolves() -> None:
@@ -443,7 +439,8 @@ def test_provenance_auditor_and_release_readiness_semantics() -> None:
         'status = "REPRODUCIBLE"'
         in (ROOT / "REPRODUCIBILITY.toml").read_text(encoding="utf-8")
     )
-    assert report["release_readiness"] == ("READY" if reproducible else "BLOCKED")
+    release_ready = reproducible and paper_current != "UNRELEASED"
+    assert report["release_readiness"] == ("READY" if release_ready else "BLOCKED")
     assert report["active_internal_markers"] == []
     assert report["wiki"]["unclassified_numeric_tokens_outside_claim_registry"] == []
     assert report["wiki"]["unclassified_number_words_outside_claim_registry"] == []
@@ -459,7 +456,7 @@ def test_provenance_auditor_and_release_readiness_semantics() -> None:
         [*command, "--require-release"], cwd=ROOT,
         text=True, capture_output=True, check=False,
     )
-    assert release.returncode == (0 if reproducible else 2)
+    assert release.returncode == (0 if release_ready else 2)
 
 
 def test_reproducibility_manifest_is_honest_and_hash_closed() -> None:

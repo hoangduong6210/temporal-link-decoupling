@@ -12,9 +12,9 @@ No other manuscript prose, number, table, equation, citation, or claim was
 rewritten. `Link_Predict.pdf` is the compiled paper. The `overleaf/` directory
 and `Link_Predict_Overleaf.zip` contain the self-contained LaTeX package.
 
-This package preserves the author's requested manuscript; it is separate from
-the evidence-admitted conference snapshot selected by `paper/CURRENT`. Keeping
-that boundary avoids presenting results that are not registered in the current
+This is the sole conference manuscript retained in the current tree. It is not
+evidence-admitted, and `paper/CURRENT` is therefore `UNRELEASED`. Keeping that
+boundary avoids presenting results that are not registered in the current
 frozen release as current evidence, while leaving the requested paper text
 untouched.
 

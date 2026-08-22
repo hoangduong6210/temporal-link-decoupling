@@ -7,11 +7,12 @@ paper_source: false
 
 # Paper Export Contract
 
-`paper/working/` is mutable and non-canonical. Export requires an admitted claim
+The current tree retains no mutable candidate or working-paper copy. A future
+export must be written from the canonical wiki and requires an admitted claim
 set, current frozen evidence release, source wiki commit, figure hashes,
 bibliography hash, toolchain identity, and `results.lock.yaml`. The resulting
-`paper/snapshots/<snapshot-id>/` is immutable and `paper/CURRENT` is advanced
-only after consistency tests pass.
+`paper/snapshots/<snapshot-id>/` is immutable and `paper/CURRENT` advances only
+after consistency tests pass.
 
 Every snapshot must satisfy `paper/snapshots/README.md` and include a manifest,
 results lock, checksum manifest, paper-build job, and complete per-occurrence
@@ -26,10 +27,9 @@ equality or an explicit decimal precision and rounding rule. Both the snapshot
 builder and canonical auditor independently recompute the assertion; neither
 trusts builder-authored audit fields.
 
-The export allowlist excludes `paper/working/`, top-level `paper/figs/`,
-`figures/generated/`, mutable audit results, and historical results. Current
-working exports remain unsafe to submit. A submission package must use the
-checksum-bound PDF and self-contained Overleaf archive inside the active
-snapshot. The active pointer is `LP-SNAP-2026-CONFERENCE-005`; it remains
-publishable only while
-`python scripts/audit_scientific_provenance.py --require-release` succeeds.
+The export allowlist excludes mutable paper sources, top-level figures, mutable
+audit results, and historical results. The preserved manuscript under
+`paper/conference/` is checksum-closed but is not evidence-admitted.
+`paper/CURRENT` is `UNRELEASED`; release readiness remains blocked until a
+wiki-derived snapshot passes
+`python scripts/audit_scientific_provenance.py --require-release`.

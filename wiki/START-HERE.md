@@ -11,9 +11,9 @@ paper_source: false
 
 The project tests decoupling-by-construction against coupled end-to-end training
 for inductive temporal link prediction. The current stage is
-`reproducible-publication-candidate`. Current evidence release:
-`LP-REL-2026-A003-001`. Current paper snapshot:
-`LP-SNAP-2026-CONFERENCE-005`.
+`evidence-frozen-paper-pending`. Current evidence release:
+`LP-REL-2026-A003-001`. No paper is evidence-admitted;
+`paper/CURRENT` is `UNRELEASED`.
 
 ## Supported now
 
@@ -30,8 +30,8 @@ for inductive temporal link prediction. The current stage is
 - The complete current scientific task matrix, terminal accounting, and
   reconstructed aggregates are validated by `LP-E-SCIENTIFIC-MATRIX-001` and
   `LP-JOB-SLURM-A003-FINAL-RECONCILE-R2`.
-- The conference PDF, monochrome vector figures, and self-contained Overleaf
-  archive are checksum-bound by `LP-JOB-LOCAL-20260821-PAPER-BUILD-005`.
+- The sole preserved conference manuscript and Overleaf package are
+  checksum-closed under `paper/conference/`, but are not evidence-admitted.
 
 ## Unsupported or blocked now
 
@@ -51,9 +51,9 @@ only after that release exists.
 
 ## Next actions
 
-1. Verify the current frozen release and snapshot checksums.
-2. Recompute every registered snapshot value from its frozen selector.
-3. Preserve unsupported claim boundaries in any venue-specific revision.
+- Verify the current frozen evidence release.
+- Draft any future manuscript from the canonical wiki claim surface.
+- Admit a future snapshot only after complete numeric provenance passes.
 
 ## Safe first checks and task routes
 

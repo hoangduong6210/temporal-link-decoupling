@@ -9,37 +9,6 @@ paper_source: false
 
 Current evidence release: `LP-REL-2026-A003-001`.
 
-## LP-E-PUBLICATION-SNAPSHOT-001
-
-- **Scientific purpose:** Bind the conference manuscript source, compiled PDF,
-  monochrome vector figures, and self-contained Overleaf archive to the current
-  frozen evidence release without creating a new scientific result.
-- **Lifecycle:** FROZEN and VALIDATED publication evidence; not scientific
-  performance evidence.
-- **Source commit:** `c85e0660634ddb1de75cf27c94e83e49d3d146b8`, recorded as
-  CLEAN by the conference build job.
-- **Protocol, configuration, and data hashes:** Inherited without modification
-  from `LP-REL-2026-A003-001`; all printed empirical values resolve through the
-  frozen scientific matrix and its registered selectors.
-- **Execution identity:** `LP-JOB-LOCAL-20260821-PAPER-BUILD-005`; repeated clean
-  builds produced identical PDF and Overleaf-package hashes.
-- **Artifact path or release URI:** The immutable payload under
-  `paper/snapshots/LP-SNAP-2026-CONFERENCE-005/`.
-- **Artifact checksum:** The snapshot checksum manifest binds every payload file;
-  the build job independently binds the candidate PDF, Overleaf archive, vector
-  figures, and vendored IEEEtran class.
-- **Coverage and failures:** Covers the complete author block, removal of the
-  provisional release note, exclusion of unsupported legacy claims, embedded
-  fonts, absence of raster image objects, and the exact Overleaf member allowlist.
-- **Acceptance-gate outcome:** PASS is required for committed-source identity,
-  clean compilation, deterministic rebuild, numeric provenance, checksum,
-  public-history, active-surface, and pointer-consistency gates.
-- **Supported claim IDs:** none; printed scientific values remain owned by
-  `LP-C-DECOUPLING-001` and `LP-E-SCIENTIFIC-MATRIX-001`.
-- **Rejected claim IDs:** none.
-- **Scientific-use boundary:** Publication packaging and presentation only; this
-  record cannot create, strengthen, or generalize a scientific claim.
-
 ## LP-E-SCIENTIFIC-MATRIX-001
 
 - **Scientific purpose:** Preserve the current-corpus coupled, decoupled, and
@@ -178,17 +147,17 @@ Current evidence release: `LP-REL-2026-A003-001`.
 
 ## LP-E-LEGACY-PAPER-001
 
-- **Scientific purpose:** Preserve the pre-split link-prediction working paper.
-- **Lifecycle:** QUARANTINED.
+- **Scientific purpose:** Record the disposition of pre-split working-paper copies.
+- **Lifecycle:** RETIRED FROM CURRENT TREE.
 - **Source commit:** UNKNOWN.
 - **Protocol, configuration, and data hashes:** UNKNOWN; no results lock exists.
 - **Execution identity:** not applicable.
-- **Artifact path or release URI:** `paper/working/`.
-- **Artifact checksum:** Local preservation hashes are in
-  `paper/working/checksums.sha256`; no immutable paper snapshot hash exists.
+- **Artifact path or release URI:** none in the current project tree; recovery
+  copies remain available from repository history and are not scientific evidence.
+- **Artifact checksum:** No immutable paper-snapshot hash was admitted.
 - **Coverage and failures:** Scientific, baseline-parity, and citation audits are incomplete.
 - **Acceptance-gate outcome:** Paper-export gate BLOCKED.
 - **Supported claim IDs:** none.
 - **Rejected claim IDs:** none.
-- **Scientific-use boundary:** Editorial history only; strong wording inside these
-  files is not permitted current claim language.
+- **Scientific-use boundary:** Retired editorial history only; it is not permitted
+  current claim language or paper source.

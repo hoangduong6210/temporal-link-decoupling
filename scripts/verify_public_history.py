@@ -19,7 +19,13 @@ BANNED_SUFFIX = {".docx", ".zip", ".pyc", ".log", ".out"}
 ALLOWED_OVERLEAF_ZIP = re.compile(
     r"^paper/(?:candidate/link-prediction-overleaf\.zip|"
     r"author-submission/Link_Predict_Overleaf\.zip|"
+    r"conference/Link_Predict_Overleaf\.zip|"
     r"snapshots/LP-SNAP-[A-Z0-9-]+/link-prediction-overleaf\.zip)$"
+)
+RETIRED_HEAD_PREFIXES = (
+    "paper/author-submission/",
+    "paper/candidate/",
+    "paper/snapshots/LP-SNAP-",
 )
 PRIVATE_TEXT = re.compile(
     rb"/(?:users|home|private|scratch)/|ghp_[A-Za-z0-9]{20,}|"
@@ -56,6 +62,11 @@ def verify() -> dict[str, object]:
             issues.append(f"publication-excluded path is reachable: {path}")
         if str(_git("cat-file", "-t", object_id)).strip() == "blob":
             blob_ids.add(object_id)
+
+    head_paths = str(_git("ls-tree", "-r", "--name-only", "HEAD")).splitlines()
+    for path in head_paths:
+        if path.startswith(RETIRED_HEAD_PREFIXES):
+            issues.append(f"retired paper version remains in HEAD: {path}")
 
     for commit in commits:
         identity = str(_git("show", "-s", "--format=%ae%n%ce", commit)).splitlines()
