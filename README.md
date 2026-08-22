@@ -29,6 +29,16 @@ resolves to a claim, an evidence selector, a registered execution job, and a
 checksum-locked source artifact. The executable gate verifies this chain in a
 clean clone.
 
+## Author-edited manuscript
+
+The preserved full-length author manuscript is available as
+[`Link_Predict.pdf`](paper/author-submission/Link_Predict.pdf), together with a
+self-contained [`Overleaf package`](paper/author-submission/Link_Predict_Overleaf.zip).
+This artifact applies only the requested author-block update, removal of the
+specified reproducibility note, and grayscale figure rendering. It is kept
+separate from the evidence-admitted snapshot above because its result set is
+not registered in the current frozen release.
+
 ## Repository layout
 
 ```text
@@ -40,6 +50,7 @@ resources/      fetch-only dataset registry and checksum manifests
 evidence/       execution records and release/snapshot plans
 results/frozen/ immutable scientific evidence release
 paper/snapshots immutable conference manuscript snapshot
+paper/author-submission preserved author-edited PDF and Overleaf package
 wiki/           methods, claims, evidence, limitations, and workflow
 scripts/        release, paper, provenance, and public-history gates
 slurm/          scheduler entry points with site settings supplied at submit time

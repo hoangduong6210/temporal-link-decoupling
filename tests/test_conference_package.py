@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import importlib.util
 from pathlib import Path
 import shutil
@@ -107,3 +108,36 @@ def test_conference_package_clean_builds(tmp_path: Path) -> None:
             "main.tex",
         }
     assert payload
+
+
+def test_author_submission_is_hash_closed_and_not_promoted() -> None:
+    package = ROOT / "paper/author-submission"
+    current = (ROOT / "paper/CURRENT").read_text(encoding="utf-8").strip()
+    assert current != "author-submission"
+
+    source_path = package / "overleaf/main.tex"
+    source = source_path.read_text(encoding="utf-8")
+    assert hashlib.sha256(source_path.read_bytes()).hexdigest() == (
+        "22ab0d4806c619769f9991ad43260cfc7afee7827a2c8bd6a7ce9d83189ba459"
+    )
+    assert "Duong Viet Huy" in source
+    assert "huydv6210@gmail.com" in source
+    assert "Reproducibility note:" not in source
+    assert (package / "Link_Predict.pdf").read_bytes().startswith(b"%PDF-")
+
+    with zipfile.ZipFile(package / "Link_Predict_Overleaf.zip") as archive:
+        assert set(archive.namelist()) == {
+            "IEEEtran.cls",
+            "README.md",
+            "figs/fig4_coedit_headline.png",
+            "figs/fig5_cross_dataset.png",
+            "figs/fig6_decoupling_ablation.png",
+            "main.tex",
+        }
+        assert archive.testzip() is None
+
+    for line in (package / "checksums.sha256").read_text(encoding="utf-8").splitlines():
+        expected, relative = line.split("  ", 1)
+        artifact = package / relative
+        assert artifact.is_file()
+        assert hashlib.sha256(artifact.read_bytes()).hexdigest() == expected

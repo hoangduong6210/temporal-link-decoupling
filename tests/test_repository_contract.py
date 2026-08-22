@@ -190,6 +190,7 @@ def test_public_export_excludes_internal_artifacts() -> None:
 def test_public_history_allows_only_the_named_overleaf_zip() -> None:
     verifier = (ROOT / "scripts/verify_public_history.py").read_text(encoding="utf-8")
     assert "candidate/link-prediction-overleaf\\.zip" in verifier
+    assert "author-submission/Link_Predict_Overleaf\\.zip" in verifier
     assert "link-prediction-overleaf\\.zip" in verifier
     assert 'BANNED_SUFFIX = {".docx", ".zip", ".pyc", ".log", ".out"}' in verifier
     assert "ALLOWED_OVERLEAF_ZIP.fullmatch(path)" in verifier

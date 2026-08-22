@@ -11,11 +11,12 @@ provenance records do not create or imply rights in the underlying data. The
 fetch-only policy and known rights status are recorded in
 `resources/source_registry.json`.
 
-The self-contained Overleaf package includes the unmodified `IEEEtran.cls`
+The self-contained Overleaf packages include the unmodified `IEEEtran.cls`
 conference class, version V1.8b. Its source notice states that it is distributed
-under the LaTeX Project Public License, version 1.3. The class is stored at
-`paper/vendor/IEEEtran.cls`, retains its upstream notices, and is excluded from
-the project's BSD 3-Clause grant.
+under the LaTeX Project Public License, version 1.3. The canonical copy is stored
+at `paper/vendor/IEEEtran.cls`; packaged copies retain the same upstream notices.
+The class and its packaged copies are excluded from the project's BSD 3-Clause
+grant.
 
 Any future vendored file must retain its original notice and license, and this
 document must be updated before release.

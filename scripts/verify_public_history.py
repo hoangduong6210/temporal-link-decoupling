@@ -18,6 +18,7 @@ BANNED_PATH = re.compile(
 BANNED_SUFFIX = {".docx", ".zip", ".pyc", ".log", ".out"}
 ALLOWED_OVERLEAF_ZIP = re.compile(
     r"^paper/(?:candidate/link-prediction-overleaf\.zip|"
+    r"author-submission/Link_Predict_Overleaf\.zip|"
     r"snapshots/LP-SNAP-[A-Z0-9-]+/link-prediction-overleaf\.zip)$"
 )
 PRIVATE_TEXT = re.compile(
