@@ -27,5 +27,11 @@
   "word_display_equations": 12,
   "word_tables_including_diagram": 3,
   "overfull_box_review": "One 11.4433 pt vertical-box warning at multicols closure; final rendered reference page inspected, no visible clipping or overlap.",
-  "standalone_archive_compilation": "PASS: extracted ZIP compiled independently using Tectonic 0.15.0; native editor separately confirmed bundled-font fallback."
+  "standalone_archive_compilation": "PASS: extracted ZIP compiled independently using Tectonic 0.15.0; native editor separately confirmed bundled-font fallback.",
+  "current_source_review": {
+    "source_sha256": "fb9ae1ed1098a7e49790a8a18653916aa57e2a59a22b40fcbcac1eeb6279a4a6",
+    "change": "English and Chinese titles now describe gradient decoupling and stateful representations",
+    "native_editor_compilation": "success",
+    "export_status": "Previously exported PDF, Word and ZIP retain the preceding title; exports have not been regenerated in this source-only revision."
+  }
 }
