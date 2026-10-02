@@ -583,9 +583,16 @@
       "path": "results/recovered/artifacts/mixed-experiments/regime_baselines_v2.json",
       "source": "experiments/results/regime_baselines_v2.json",
       "source_aliases": [],
-      "sha256": "b2a2ef0892840bfb03912de371e62ccf749ac68398705b30e3ca02c5347009a7",
-      "bytes": 82244,
-      "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
+      "sha256": "e14e541de055f43c4bddaec1a76b3f1ed10d2d96cbe94b7d97e9e04ec22d10f5",
+      "bytes": 81704,
+      "status": "RECOVERED_HISTORICAL_PATH_REDACTED_NOT_ADMITTED",
+      "source_sha256": "b2a2ef0892840bfb03912de371e62ccf749ac68398705b30e3ca02c5347009a7",
+      "publication_transform": {
+        "kind": "remove_machine_prefix_from_peredge_npz",
+        "fields_changed": 12,
+        "retained": "source-relative prediction-array path",
+        "numeric_values_changed": false
+      }
     },
     {
       "path": "results/recovered/artifacts/mixed-experiments/synth_robustness/exp1_coedit_v1.json",

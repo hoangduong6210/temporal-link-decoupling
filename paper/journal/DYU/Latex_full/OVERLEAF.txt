@@ -1,0 +1,5 @@
+Upload DYU_Overleaf.zip as a new Overleaf project. Select XeLaTeX and main.tex. The complete bibliography and diagram are embedded in main.tex. No external images, bibliography or research dataset is needed to compile.
+
+The delivered PDF uses Times New Roman / Songti TC. Overleaf uses the included TeX-distribution font fallback (Termes / Fandol) if those fonts are unavailable, so page breaks may differ. Do not substitute an unverified font file.
+
+prepare.py and build.sh regenerate verified numerical inputs when run within the complete research repository. They are not required for the standalone Overleaf compile. export_word.py additionally requires the repository Word/template.docx, Pandoc and python-docx.

@@ -1,0 +1,28 @@
+AUDIT BIÊN TẬP VÀ NGUỒN DẪN — JOURNAL DYU
+Ngày: 2026-10-02
+
+PHẠM VI “NON AI”
+Đã rà soát để câu văn rõ, tự nhiên, có chủ thể và nội dung cụ thể; giảm đoạn chuyển ý công thức, lời tuyên bố đóng góp chung chung và các đoạn lặp về giới hạn kết luận. Đây là đánh giá biên tập có AI hỗ trợ, không phải chứng nhận tác giả là con người, kiểm tra đạo văn hoặc cam kết vượt công cụ phát hiện AI. Không thêm lỗi ngữ pháp, trải nghiệm hư cấu hay trích dẫn giả để làm sai lệch nhận diện. Tác giả cần tự đọc, xác nhận trách nhiệm nội dung và khai báo hỗ trợ nếu tòa soạn yêu cầu.
+
+CÁC CHỈNH SỬA THỰC TẾ
+- Mở rộng related work thành các nhóm có quan hệ với câu hỏi nghiên cứu: biểu diễn cấu trúc và readout; mô hình thời gian; mục tiêu biểu diễn và gradient; đánh giá và chuyển miền; đặc trưng lịch sử và triển khai.
+- Danh mục đúng 72 nguồn độc lập theo citation key, tất cả xuất hiện trong trích dẫn nội dung. Các bài chỉ dùng làm nền tảng hoặc đề xuất mở rộng không được mô tả là baseline đã chạy.
+- Đối chiếu tiêu đề, tác giả và abstract của 49 nguồn bổ sung trên arXiv; một nguồn bổ sung từ JMLR. Loại bỏ hai gợi ý DOI của Crossref vì trùng tiêu đề nhưng khác bài/tác giả. Giữ nguyên nhận diện phiên bản arXiv khi chưa xác minh đầy đủ phiên bản xuất bản.
+- Bỏ 12 đoạn lặp hoặc giải thích quy trình không cần thiết; thay đoạn liệt kê đóng góp bằng câu hỏi nghiên cứu và phạm vi so sánh cụ thể.
+- Giữ các giới hạn có ý nghĩa: CoEdit chia sẻ nguồn Wikipedia, timestamp midpoint có thông tin hồi cứu, negative pool không ràng buộc loại nút đích, memory kết hợp batch snapshot và cập nhật tuần tự.
+- Phân biệt stop-gradient của đường scoring với toàn bộ loss có trọng số; không biến probe thành chứng minh “irreversible damage”.
+- Không thêm số liệu thí nghiệm. Bảng hiện tại vẫn lấy từ frozen A003; phép tính mean/SD và số seed được kiểm tra lại bằng prepare.py.
+- Sửa caption bị tách khỏi sơ đồ trong LaTeX. Bản Word tái tạo bảng, sơ đồ chỉnh sửa được và 12 công thức Office Math; không để nguyên mã LaTeX hay placeholder.
+
+NHỮNG ĐIỂM CHƯA ĐƯỢC CHỨNG NHẬN
+- Không có đánh giá bằng Turnitin/iThenticate hoặc kiểm định tác giả tự động. Không đưa ra “AI score”.
+- Nhiều mục trích dẫn là phiên bản arXiv đã kiểm tra, không được gán nhầm thành bài peer-reviewed; tên hội nghị/tạp chí chỉ dùng ở các mục có căn cứ.
+- Literature audit xác minh danh tính nguồn và mức phù hợp của nội dung trích dẫn; không phải tái lập các thí nghiệm của 72 tài liệu.
+- Historical evidence chưa có đủ chuỗi source/data/environment cho mọi claim. Không trộn vào bảng confirmatory.
+- Chưa hoàn tất formal paper snapshot admission. Cần tác giả duyệt thông tin liên hệ, tên khoa/địa chỉ và tài liệu nộp tòa soạn.
+- Public-history gate còn lỗi đường dẫn máy cũ trong JSON đã push ở đợt phục hồi trước. Việc xuất Journal không xóa hay chứng nhận sạch lịch sử đó.
+
+ĐỊNH DẠNG
+Theo mẫu được cung cấp: A4, lề trên 3.5 cm, các lề khác 2 cm, thân bài Times New Roman 9 pt và hai cột; abstract tiếng Anh riêng đầu bài, tiếng Trung riêng cuối bài; references đánh số alphabet. Thống kê trang và hash bản cuối ghi trong Latex_full/verification.json. Word có thể phân trang khác LaTeX do công thức Office Math và engine dàn trang.
+Nguồn hướng dẫn: https://jo.dyu.edu.tw/setjournal/contribute.htm
+Nguồn quy cách: https://jo.dyu.edu.tw/setjournal/document/jour04-1.pdf

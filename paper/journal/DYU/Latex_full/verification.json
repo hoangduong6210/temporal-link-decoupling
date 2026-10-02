@@ -1,0 +1,31 @@
+{
+  "status": "WORKING_DRAFT_NOT_ADMITTED_SNAPSHOT",
+  "pages": 12,
+  "references": 72,
+  "pdf_sha256": "db7a6a5fb36c85e502e052b84ed4083d1c008c3b155f4f137c4e1a5878c72a40",
+  "source_sha256": "2ddf5639baed02cac4bdd14f3a552fa7939f123fff7f65ac0cbeb04e6326527d",
+  "native_editor_compilation": "success using bundled font fallback",
+  "delivered_export": "Tectonic 0.15.0; Times New Roman and Songti TC",
+  "visual_review": "All 12 final LaTeX PDF pages and all 13 DOCX pages inspected. Legacy DOC rendered to 13 pages and inspected as page contact sheets, with prose-token comparison; no observed clipping or missing glyphs.",
+  "overfull_box_warnings": 1,
+  "missing_character_warnings": 0,
+  "validation": [
+    "Recovered checksums and 121 aggregate reconstructions passed; four original discrepancies retained",
+    "Nine result rows recalculated from 27 admitted runs",
+    "Canonical provenance audit passed; formal paper admission remains blocked"
+  ],
+  "validation_limits": [
+    "Public-history gate flags legacy machine paths in a JSON already present in the earlier pushed recovery commit",
+    "Local repository tests not run: selected Python runtime lacks pytest"
+  ],
+  "word_pages": 13,
+  "legacy_doc_pages": 13,
+  "docx_sha256": "2233d4aa2669d2349eb900f03a158a1dcfd371b02f5df47c8d0397f1c39ef92f",
+  "doc_sha256": "e8cff2abf2c291cde310b4e2ad79d68a0f2c894aca1384bc40b0dd283b6fe10a",
+  "all_references_cited": true,
+  "ai_authorship_certification": false,
+  "word_display_equations": 12,
+  "word_tables_including_diagram": 3,
+  "overfull_box_review": "One 11.4433 pt vertical-box warning at multicols closure; final rendered reference page inspected, no visible clipping or overlap.",
+  "standalone_archive_compilation": "PASS: extracted ZIP compiled independently using Tectonic 0.15.0; native editor separately confirmed bundled-font fallback."
+}

@@ -22,6 +22,13 @@ ALLOWED_OVERLEAF_ZIP = re.compile(
     r"conference/Link_Predict_Overleaf\.zip|"
     r"snapshots/LP-SNAP-[A-Z0-9-]+/link-prediction-overleaf\.zip)$"
 )
+# Published journal source and editable manuscript packages. Other DOCX/ZIP files remain excluded.
+ALLOWED_DYU_ARTIFACTS = {
+    "paper/journal/DYU/DYU_Overleaf.zip",
+    "paper/journal/DYU/Word/DYU_Journal_Manuscript.docx",
+    "paper/journal/DYU/Word/DYU_Journal_Manuscript.doc",
+    "paper/journal/DYU/Word/template.docx",
+}
 RETIRED_HEAD_PREFIXES = (
     "paper/author-submission/",
     "paper/candidate/",
@@ -57,6 +64,8 @@ def verify() -> dict[str, object]:
         paths.append(path)
         banned_suffix = Path(path).suffix.lower() in BANNED_SUFFIX
         if Path(path).suffix.lower() == ".zip" and ALLOWED_OVERLEAF_ZIP.fullmatch(path):
+            banned_suffix = False
+        if path in ALLOWED_DYU_ARTIFACTS:
             banned_suffix = False
         if BANNED_PATH.search(path) or banned_suffix:
             issues.append(f"publication-excluded path is reachable: {path}")

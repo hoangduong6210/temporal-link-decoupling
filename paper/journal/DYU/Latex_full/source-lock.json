@@ -1,5 +1,5 @@
 {
-  "source_commit": "2e51a4ca3614b73a11237330e9766f1e3afbb179",
+  "source_commit": "f25e077d5d783a675ea64c3f5619d6dae8fccc38",
   "inputs": {
     "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
     "protocols/link_prediction_v1.toml": "6186c279806cf86d2a4c704997e4d179e341e0a095cc85c107cae890cb6b34c3",
@@ -9,6 +9,6 @@
     "src/temporal_link_decoupling/training.py": "852eaea7d42a3313fe34e968ae6515d84966cb39b704980870576f451b87a4f2",
     "experiments/dataset_builders/build_coedit.py": "2747e719fa9000b1b4970622604ab6e7a8d91096d514b19b294335df6f71b3eb"
   },
-  "source_sha256": "cef4563143762dc95bc7fae6e91a8410592d4b3905a47b20d88e0c96fe791a94",
-  "references": 22
+  "source_sha256": "2ddf5639baed02cac4bdd14f3a552fa7939f123fff7f65ac0cbeb04e6326527d",
+  "references": 72
 }
