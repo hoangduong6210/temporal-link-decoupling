@@ -9,4 +9,4 @@ The canonical editable manuscript is Latex_full/main.tex. It contains the comple
 - Word/template.docx: retained conversion of the supplied instructional template, used by the Word exporter.
 - EDITORIAL_AUDIT_VI.txt: editorial, citation and evidence review, with limitations.
 
-The PDF and Word exports contain the same manuscript and result values. Pagination may differ between renderers and fonts. These files are working submission materials; no submission or formal evidence-snapshot admission is implied.
+The editable LaTeX now includes retrospective experimental tables that are not yet in the existing PDF, Word and Overleaf ZIP exports. Those exports retain the preceding title revision and must be regenerated before submission. Pagination may differ between renderers and fonts. These files are working submission materials; no submission or formal evidence-snapshot admission is implied.

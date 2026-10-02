@@ -3,6 +3,8 @@ from pathlib import Path
 from decimal import Decimal, ROUND_HALF_EVEN
 import hashlib, json, math, re, statistics, subprocess
 HERE = Path(__file__).resolve().parent
+import runpy
+runpy.run_path(str(HERE / "prepare_historical.py"))
 ROOT = next(p for p in HERE.parents if (p / "PROJECT.toml").is_file())
 MATRIX = ROOT / "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json"
 EXPECTED = "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea"
@@ -54,6 +56,9 @@ inputs = [MATRIX, ROOT/"protocols/link_prediction_v1.toml", ROOT/"resources/sour
           ROOT/"src/temporal_link_decoupling/modeling/v33/sr_gnn_v3_3.py",
           ROOT/"src/temporal_link_decoupling/training.py",
           ROOT/"experiments/dataset_builders/build_coedit.py"]
+inputs += [HERE/"historical-numeric-sources.json", HERE/"prepare_historical.py"]
+historical = json.loads((HERE/"historical-numeric-sources.json").read_text())
+inputs += [ROOT/historical["source_root"]/name for name in historical["source_hashes"]]
 lock = {q.relative_to(ROOT).as_posix(): digest(q) for q in inputs}
 (HERE/"source-lock.json").write_text(json.dumps(dict(source_commit=subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip(), inputs=lock, source_sha256=digest(p), references=len(refs)), indent=2)+"\n")
 print(f"PASS: nine result cells reconstructed from 27 runs; {len(refs)} cited references; source lock written.")

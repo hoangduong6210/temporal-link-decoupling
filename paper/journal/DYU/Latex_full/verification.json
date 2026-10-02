@@ -28,10 +28,11 @@
   "overfull_box_review": "One 11.4433 pt vertical-box warning at multicols closure; final rendered reference page inspected, no visible clipping or overlap.",
   "standalone_archive_compilation": "Standalone main.tex compiled locally and with the native editor; ZIP source checked byte-for-byte against the compiled source.",
   "current_source_review": {
-    "source_sha256": "fb9ae1ed1098a7e49790a8a18653916aa57e2a59a22b40fcbcac1eeb6279a4a6",
-    "change": "English and Chinese titles now describe gradient decoupling and stateful representations",
+    "source_sha256": "bfdc352a2c6f34a231e9033a6cdb0d218c3d0317b91967a6bf01012ce60cb607",
+    "change": "Retrospective preset, knob, candidate-pool, backbone and probe analyses; five new tables, 37 reconstructed AP cells from 13 recovered files.",
     "native_editor_compilation": "success",
-    "export_status": "PDF, DOCX, DOC and Overleaf archive regenerated with the current English and Chinese titles."
+    "export_status": "Existing PDF, DOCX, DOC and ZIP retain the preceding title revision; not regenerated for this source-only edit.",
+    "validation": "Current frozen matrix, historical per-seed aggregates, recovered integrity and canonical provenance checked; no new training."
   },
   "ci_baseline": {
     "commit": "3fea70042f2a967187ebd605836a80bc056890b0",

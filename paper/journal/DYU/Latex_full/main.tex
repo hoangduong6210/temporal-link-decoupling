@@ -39,7 +39,7 @@
 \vspace{18pt}
 \begin{center}\fontsize{11}{16.5}\selectfont\bfseries ABSTRACT\end{center}
 \begin{list}{}{\setlength{\leftmargin}{2cm}\setlength{\rightmargin}{2cm}}\item[]
-Inductive temporal link prediction requires a model to score interactions involving entities absent from earlier observations. Jointly optimizing a temporal representation and its link readout is a natural design choice, but it need not be the most effective choice for a particular inductive protocol. This study investigates gradient routing in SR-GNN, a temporal model combining event encoding, recurrent node memory, deterministic pair-history signals and a hierarchical readout. We specify the scored gradient boundary, distinguish parameter learning from event-state evolution, and compare coupled and decoupled versions of the same registered readout. A separate freeze-then-probe procedure examines a different training trajectory. Experiments use chronological partitions of CoEdit, Wikipedia and MOOC and a fixed random-destination evaluation procedure. Checksum-bound results are reported as mean inductive average precision and sample standard deviation across the registered seeds. The observed decoupled arm has higher mean inductive average precision than the coupled arm on each corpus. This supports a bounded within-protocol comparison rather than a general claim that end-to-end learning is harmful. The analysis identifies important interpretation limits: CoEdit shares its source with Wikipedia, its event construction includes retrospective information, the candidate sampler is not destination-type constrained, and temporal memory follows mixed batch and sequential semantics. Historical experiments are reconciled at the level of configuration identity but are not pooled with the current results. The study contributes an explicit account of gradient routing and temporal evaluation that makes the observed comparison reproducible and its scope assessable.
+Inductive temporal link prediction requires a model to score interactions involving entities absent from earlier observations. Jointly optimizing a temporal representation and its link readout is a natural design choice, but it need not be the most effective choice for a particular inductive protocol. This study investigates gradient routing in SR-GNN, a temporal model combining event encoding, recurrent node memory, deterministic pair-history signals and a hierarchical readout. We specify the scored gradient boundary, distinguish parameter learning from event-state evolution, and compare coupled and decoupled versions of the same registered readout. A separate freeze-then-probe procedure examines a different training trajectory. Experiments use chronological partitions of CoEdit, Wikipedia and MOOC and a fixed random-destination evaluation procedure. Checksum-bound results are reported as mean inductive average precision and sample standard deviation across the registered seeds. The observed decoupled arm has higher mean inductive average precision than the coupled arm on each corpus. This supports a bounded within-protocol comparison rather than a general claim that end-to-end learning is harmful. The analysis identifies important interpretation limits: CoEdit shares its source with Wikipedia, its event construction includes retrospective information, the candidate sampler is not destination-type constrained, and temporal memory follows mixed batch and sequential semantics. Retrospective experiments additionally examine design presets, predictor and gate ablations, harder candidate pools, backbone removal and frozen probes. They show that predictor choice and learned features matter in the recorded configurations, while remaining separate from the current same-readout comparison. The study contributes an explicit account of gradient routing and temporal evaluation that makes the observed comparison reproducible and its scope assessable.
 
 \vspace{10pt}\noindent\textbf{Key words:} temporal graphs, inductive link prediction, gradient decoupling, recurrent memory, reproducible evaluation
 \end{list}
@@ -312,7 +312,129 @@ The selected scientific matrix covers 27 tasks. Its accounting retains 162 scien
 
 The release preserves failed and superseded attempts so that incomplete or unsuccessful work does not disappear from the experiment's provenance. Means and sample deviations are reconstructed from the selected per-seed records. That reconstruction checks numerical consistency of the table with its underlying records. It is distinct from independently repeating training, and no new training is claimed as part of preparing this manuscript.
 
-The recovered historical archive provides an additional audit trail for the earlier draft. It contains broader ablations, hard-negative runs, probes and proxy-model results, but not a complete current-release execution chain for each claim. Recovering those bytes is valuable because it permits configuration reconciliation. It does not justify adding their task counts to the current matrix or treating their outcomes as current confirmatory evidence.
+The following retrospective analyses recover the broader experimental scope of the earlier draft. Their per-seed arithmetic is verifiable, while their original execution bindings remain less complete than those of the current matrix. We report their observations with those limitations rather than discard them or count them as additional current-release replications.
+
+\subsection{Retrospective experiments from model development}
+The earlier study investigated a broader set of configurations than the shared-readout comparison. We retain those experiments here to examine predictor choice, candidate-pool sensitivity, learned-backbone contributions and recovery by a newly trained probe. Tables~\ref{tab:presets}--\ref{tab:probes} reconstruct means and sample deviations directly from recovered per-seed records. The accompanying source map identifies each input file, checksum, selected observations and aggregation rule.
+
+These are retrospective results. The recovered records describe chronological 70/15/15 partitions, a 20-epoch training budget and average-precision evaluation, but do not bind every run to its original data, source and environment as completely as the current matrix does. We consequently interpret each experimental family within its recorded configuration and do not pool it with Table~2. Separate repetitions of configuration B remain separate rather than selecting whichever repetition gives the largest contrast.
+
+\subsection{Preset comparison and predictor ablations}
+The five-seed CoEdit experiment in Table~\ref{tab:presets} recovers the earlier draft's broad preset comparison. B uses the detached hierarchical scoring configuration, whereas C selects the alternative end-to-end design preset. The local TGAT-labeled implementation is a simplified proxy; its result describes that implementation and does not establish a comparison against a faithful reproduction of published TGAT.
+
+% BEGIN HISTORICAL PRESETS
+\begin{center}
+\captionof{table}{Historical CoEdit presets and local proxy; five seeds. AP: mean and sample SD.}\label{tab:presets}
+\small\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Configuration & Inductive AP & Transductive AP\\ \midrule
+B preset & $0.9876\pm0.0030$ & $0.9985\pm0.0003$\\
+C preset & $0.7593\pm0.0140$ & $0.9600\pm0.0044$\\
+TGAT proxy & $0.8466\pm0.0133$ & $0.8645\pm0.0083$\\
+\bottomrule
+\end{tabular}
+\end{center}
+% END HISTORICAL PRESETS
+
+The B--C difference is much larger for inductive AP than for transductive AP. This observation motivated the routing question, but it cannot identify a gradient effect on its own: the presets change predictor and gating choices together. The current shared-readout experiment addresses a narrower question by preserving the readout while changing the scored-feature derivative path. The large historical preset gap should therefore not be used as its effect size.
+
+Table~\ref{tab:knobs} separates the preset changes. Relative to B, K1 enables the main predictor, K2 changes the compliance gate from soft to hard, and K3 sets the floor to zero. K2+K3 combines the gate changes, while C combines all three. The CoEdit study covers the full set; the Wikipedia and MOOC studies retain the B--K1 contrast.
+
+% BEGIN HISTORICAL KNOBS
+\begin{center}
+\captionof{table}{Historical configuration ablations; three seeds per row. Inductive AP, mean and sample SD.}\label{tab:knobs}
+\small\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Corpus & Configuration & AP\\ \midrule
+CoEdit & B & $0.9899\pm0.0016$\\
+ & K1: predictor & $0.7788\pm0.0193$\\
+ & K2: hard gate & $0.9868\pm0.0014$\\
+ & K3: zero floor & $0.9889\pm0.0018$\\
+ & K2 + K3 & $0.9870\pm0.0021$\\
+ & C: K1 + K2 + K3 & $0.7798\pm0.0221$\\
+Wikipedia & B & $0.9981\pm0.0002$\\
+ & K1: predictor & $0.9490\pm0.0072$\\
+MOOC & B & $0.9935\pm0.0008$\\
+ & K1: predictor & $0.9844\pm0.0017$\\
+\bottomrule
+\end{tabular}
+\end{center}
+% END HISTORICAL KNOBS
+
+On CoEdit, enabling the main predictor produces the largest observed reduction, whereas the gate-only variants remain close to B. The combined C preset also lies near K1. The corresponding B--K1 ordering appears on Wikipedia and MOOC, with smaller differences. This pattern points to predictor choice as an important part of the earlier result. It does not establish that gate changes are universally irrelevant: only the recorded settings and budgets were tested, and interactions can depend on the readout. In particular, K1 is not the same intervention as reconnecting the scored features of an otherwise unchanged hierarchical head.
+
+\subsection{Sensitivity to harder candidate pools}
+Table~\ref{tab:negatives} restores the harder-negative experiment. Each trained model is evaluated under three candidate-pool rules; these evaluations are repeated measurements of that model, not independent retrainings. The records specify a fixed evaluation seed for pairing B and K1.
+
+The sampler labels require a precise interpretation. In the accompanying implementation, the historical pool is a multiset of training destinations, and the inductive pool is a multiset of destinations belonging to test pairs absent from training. Candidates are drawn from these destination pools and combined with the evaluated source. Thus, a historical candidate need not be a previously observed partner of that particular source, and inductive here does not mean exclusively unseen nodes. The legacy field named \texttt{indpool\_from\_train} denotes a nonempty test-only pool in the corrected implementation. Its name should not be read as the pool definition.
+
+% BEGIN HISTORICAL NEGATIVES
+\begin{center}
+\captionof{table}{Historical candidate-pool sensitivity. Inductive AP, mean and sample SD over three seeds; each trained model is evaluated under all pools.}\label{tab:negatives}
+\small\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}llll@{}}
+\toprule
+Corpus & Pool & B & K1\\ \midrule
+CoEdit & Random & $0.9898\pm0.0012$ & $0.7899\pm0.0545$\\
+ & Historical & $0.9573\pm0.0031$ & $0.5294\pm0.0276$\\
+ & Inductive & $0.9625\pm0.0024$ & $0.5579\pm0.0215$\\
+Wikipedia & Random & $0.9968\pm0.0005$ & $0.9011\pm0.0106$\\
+ & Historical & $0.9744\pm0.0047$ & $0.5585\pm0.0147$\\
+ & Inductive & $0.9682\pm0.0035$ & $0.5423\pm0.0032$\\
+\bottomrule
+\end{tabular}
+\end{center}
+% END HISTORICAL NEGATIVES
+
+Both configurations lose AP under the harder pools, but K1 loses substantially more. B retains the higher mean in every reported corpus--pool combination. This extends the descriptive B--K1 ordering beyond the random-destination setting used in those records. It does not establish equivalent behavior for the current same-readout detach contrast, which was not evaluated under these archived pools.
+
+There are further limits to this sensitivity test. The inductive pool uses test-split membership to construct an offline evaluation population. The rejection loop checks against positive pairs from the evaluation split but stops after a bounded number of retries, so it does not guarantee that every sampled negative is valid. The retained summaries do not count residual collisions. Accordingly, these results characterize the implemented pool perturbations, rather than certify benchmark parity or a fully causal online candidate-generation policy.
+
+\subsection{Contribution of the learned backbone}
+The backbone-removal experiment asks whether deterministic pair histories alone explain the performance of B. The reduced arm bypasses the event encoder and recurrent-memory contribution, keeps the memory unchanged, and supplies zero learned edge features to the scoring head. Pair-history channels remain available. The scoring head is still trainable, so this is a deterministic-feature representation with a learned readout, not a globally parameter-free model.
+
+% BEGIN HISTORICAL BACKBONE
+\begin{center}
+\captionof{table}{Backbone removal with a trainable readout retained; three seeds. Six decimals preserve the small nonzero Wikipedia SD.}\label{tab:backbone}
+\small\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Corpus & Representation & Inductive AP\\ \midrule
+CoEdit & Full B & $0.988326\pm0.002338$\\
+ & Pair statistics & $0.920500\pm0.001668$\\
+Wikipedia & Full B & $0.996296\pm0.000872$\\
+ & Pair statistics & $0.896506\pm0.000004$\\
+\bottomrule
+\end{tabular}
+\end{center}
+% END HISTORICAL BACKBONE
+
+The full representation has higher mean AP on both corpora. At the same time, the reduced representation retains substantial predictive performance, consistent with pair histories providing useful information. Together these observations favor a combined account: deterministic channels contribute useful signals, while the learned backbone adds information in these recorded configurations. Removing multiple components at once does not isolate the contribution of the event encoder, recurrent memory or auxiliary objective individually. A factorial study would be needed to separate those contributions.
+
+\subsection{Historical freeze-then-probe experiments}
+The recovered probe records compare a decoupled training trajectory with a freeze-then-probe trajectory. Table~\ref{tab:probes} reports the two procedures separately for CoEdit and Wikipedia. It also preserves an explicitly ID-corrected Wikipedia probe record as a distinct version. That record contains all three seeds; it is not merged with the earlier Wikipedia probe or treated as a matched correction experiment without a version-matched control.
+
+% BEGIN HISTORICAL PROBES
+\begin{center}
+\captionof{table}{Historical probe procedures; three seeds per row. The ID-corrected record is a separate version, not a paired continuation.}\label{tab:probes}
+\small\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Corpus & Procedure & Inductive AP\\ \midrule
+CoEdit & Decoupled & $0.9883\pm0.0028$\\
+ & Freeze then probe & $0.7684\pm0.0064$\\
+Wikipedia & Decoupled & $0.9961\pm0.0014$\\
+ & Freeze then probe & $0.9027\pm0.0177$\\
+Wikipedia & Probe, ID-corrected & $0.9513\pm0.0030$\\
+\bottomrule
+\end{tabular}
+\end{center}
+% END HISTORICAL PROBES
+
+In the earlier records, the probe remains below the decoupled procedure on both corpora. The ID-corrected Wikipedia probe has a different endpoint from the earlier probe, illustrating why dataset and configuration identity matter to this comparison. Neither contrast demonstrates irreversible representation damage. A finite probe budget tests a particular recovery procedure, and differences can reflect the pretrained features, head capacity, optimization or data version. The current probe results in Table~2 provide a separately specified comparison and should retain their own interpretation.
+
 
 \section{Discussion}
 \subsection{What the routing contrast can explain}
@@ -320,7 +442,7 @@ The mean ordering indicates that scored-feature routing is an empirically releva
 
 One possible explanation is adaptation to identity-related shortcuts \cite{shortcut}. Direct evidence would require measuring identity-related information, testing its relationship to performance, and intervening on the relevant features while holding other factors stable. A high inductive score and a favorable detached-arm ordering do not by themselves reveal which feature caused that ordering. They are outcomes to be explained, not measurements of the proposed mechanism.
 
-The deterministic channels offer another interpretation. When recurrence and cadence already supply useful signals, preserving them may reduce the need for task-driven transformation. However, performance could also depend on learned event features and recurrent memory. A complete decomposition would compare a deterministic-only representation, a learned representation without pair statistics, and controlled combinations under the same current protocol. Historical ablations provide design context but cannot substitute for those aligned measurements.
+The deterministic channels offer another interpretation. When recurrence and cadence already supply useful signals, preserving them may reduce the need for task-driven transformation. However, performance could also depend on learned event features and recurrent memory. A complete decomposition would compare a deterministic-only representation, a learned representation without pair statistics, and controlled combinations under the same current protocol. The backbone-removal results in Table~\ref{tab:backbone} show that the recorded full representation outperforms a learned readout over pair statistics alone. They support the usefulness of the combined representation, while leaving the individual learned components and their interaction with the current routing intervention unresolved.
 
 \subsection{Why historical contrasts differ}
 The earlier development record contains several different notions of coupling. A design-preset contrast changes more than a scored boundary; a main-predictor knob can replace the readout with another head; and a detach toggle on the same head changes a more specific route. Treating all of these as repeated estimates of a single causal effect would conflate architectural and optimization changes.
@@ -337,7 +459,7 @@ For prospective forecasting, the temporal availability of event attributes is eq
 \subsection{Limitations and next experiments}
 The study has a limited seed budget and a restricted set of corpora and model profiles. The reported uncertainty concerns selected seed variation rather than sampling of independent environments. CoEdit's shared origin with Wikipedia and its construction order further constrain external validity. These limits remain even when all recorded hashes and aggregate computations agree.
 
-The primary evaluation uses random destinations. Stronger tests should include destination-valid alternatives and clearly specified harder-negative regimes. They should preserve matched draws across arms, record pool support and avoid silent fallbacks when a requested pool is empty. A failed or degenerate pool should remain visible as an evaluation outcome rather than being interpreted as evidence of robustness.
+The primary evaluation uses random destinations. The historical harder-pool results extend the B--K1 configuration comparison, but their pool construction and bounded rejection introduce additional limitations. Further tests should apply destination-valid and strictly checked harder-negative regimes to the current same-readout intervention. They should preserve matched draws across arms, record pool support and avoid silent fallbacks when a requested pool is empty. A failed or degenerate pool should remain visible as an evaluation outcome rather than being interpreted as evidence of robustness.
 
 The intervention should also be replicated within faithful implementations of other temporal architectures. A sound replication must preserve each model's forward computation and change a well-defined gradient boundary. Replacing a published architecture by a simplified local approximation would answer a different question. Probe extensions should vary head capacity and recovery budget before proposing an explanation based on irreversibility.
 
@@ -441,7 +563,7 @@ The fuller specification distinguishes scored derivatives, auxiliary optimizatio
 \vspace{18pt}
 \begin{center}\fontsize{11}{16.5}\selectfont\bfseries 摘要\end{center}
 \begin{list}{}{\setlength{\leftmargin}{2cm}\setlength{\rightmargin}{2cm}}\item[]
-歸納式時序連結預測需要處理先前觀測中未出現的節點。本研究以結合事件編碼、循環節點記憶、確定性節點對歷史訊號與階層讀出器的 SR-GNN，探討評分路徑的梯度是否應更新時序表徵。我們明確區分梯度邊界、參數學習與事件狀態演化，並在相同已註冊讀出器下比較耦合及解耦訓練；另以先訓練再凍結並重新訓練預測頭的方法作為不同訓練流程的對照。研究採用 CoEdit、Wikipedia 與 MOOC 的時間切分及固定隨機負樣本協定。具校驗碼的封存結果顯示，解耦組在各語料上的平均歸納式平均精確率均高於耦合組。此結果支持協定內的觀察比較，而非端到端學習普遍有害的結論。CoEdit 與 Wikipedia 共享來源，且其事件建構包含事後資訊；候選取樣未限制目的端節點類型，記憶更新亦混合批次與循序語意。歷史實驗依設定差異加以辨識，不與目前結果合併。本研究提供可重現的梯度路由及時序評估說明，並界定效能比較的適用範圍。
+歸納式時序連結預測需要處理先前觀測中未出現的節點。本研究以結合事件編碼、循環節點記憶、確定性節點對歷史訊號與階層讀出器的 SR-GNN，探討評分路徑的梯度是否應更新時序表徵。我們明確區分梯度邊界、參數學習與事件狀態演化，並在相同已註冊讀出器下比較耦合及解耦訓練；另以先訓練再凍結並重新訓練預測頭的方法作為不同訓練流程的對照。研究採用 CoEdit、Wikipedia 與 MOOC 的時間切分及固定隨機負樣本協定。具校驗碼的封存結果顯示，解耦組在各語料上的平均歸納式平均精確率均高於耦合組。此結果支持協定內的觀察比較，而非端到端學習普遍有害的結論。CoEdit 與 Wikipedia 共享來源，且其事件建構包含事後資訊；候選取樣未限制目的端節點類型，記憶更新亦混合批次與循序語意。此外，回溯實驗涵蓋設計設定、預測器與閘門消融、較難候選池、骨幹移除及凍結探測，顯示預測器選擇與學習表徵在已記錄設定中的作用；各組依設定及資料版本分別呈現，不與目前結果合併。本研究提供可重現的梯度路由及時序評估說明，並界定效能比較的適用範圍。
 
 \vspace{10pt}\noindent\textbf{關鍵詞：}時序圖，歸納式連結預測，梯度解耦，循環記憶，可重現評估
 \end{list}

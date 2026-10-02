@@ -25,7 +25,15 @@ The native editor compilation and exported PDF build succeed. The result-table g
 
 ## Validation limits
 
-The canonical provenance audit and recovered-artifact verifier pass. The standalone public-history checker still flags a legacy machine-path string in the recovered regime-baseline JSON, already reachable in the earlier recovery commit. The current public artifact now removes machine-specific path prefixes, with original and public hashes recorded; this is a public-history hygiene issue, not an additional admitted experiment. The current update does not claim a clean public-history gate. The repository test suite was not executed locally because pytest is unavailable in the selected Python runtime.
+The canonical provenance audit and recovered-artifact verifier pass. Public-history cleanup and its CI checks were completed before the retrospective manuscript expansion. Full training has not been repeated locally. Formal paper-snapshot admission remains incomplete.
+
+## Retrospective empirical analysis
+
+The editable journal now includes the recovered preset comparison, predictor and gate ablations, candidate-pool sensitivity, backbone removal and frozen probes. `Latex_full/prepare_historical.py` reconstructs all displayed means and sample deviations from per-seed records. `historical-numeric-sources.json` records input hashes, selectors, values and aggregation details; `prepare.py` also binds these inputs in the source lock.
+
+The historical tables remain retrospective observations with incomplete original execution bindings. They are not added to the admitted current-release matrix. The manuscript distinguishes predictor-changing configurations from the current shared-readout derivative intervention, labels the TGAT implementation as a proxy, explains the actual destination-pool sampler and its bounded rejection, and keeps the ID-corrected probe separate. Neither recovery nor arithmetic reconstruction constitutes new training or evidence admission.
+
+The native editor compiles the expanded source successfully. Existing PDF, Word and archive exports still represent the preceding title revision; they require regeneration from this expanded source before submission.
 
 ## Expanded literature and submission files
 
