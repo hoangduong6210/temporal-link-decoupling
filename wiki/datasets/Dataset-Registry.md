@@ -1,7 +1,7 @@
 ---
 title: Dataset Registry
 status: canonical dataset registry
-last_updated: 2026-08-21
+last_updated: 2026-10-02
 paper_source: false
 ---
 
@@ -112,3 +112,7 @@ Pre-ID-fix identities remain quarantined under their original registry IDs. A
 dataset can enter frozen evidence only through a scientific job that binds the
 current source registry, processed checksum, resolved split, negative pools, and
 complete environment record.
+
+## Recovery verification
+
+The current processed corpus files recovered from the downloaded project match their registered digests. They are restored locally in the ignored corpus directory. This establishes byte identity of the available files, not a binding between those files and every historical result. PREIDFIX and other historical corpus versions remain separate.

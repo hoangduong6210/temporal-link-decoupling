@@ -1,7 +1,7 @@
 ---
 title: Numeric Evidence and Publication Hygiene
 status: canonical publication gate
-last_updated: 2026-08-21
+last_updated: 2026-10-02
 paper_source: false
 ---
 
@@ -32,5 +32,9 @@ numeric inventory and a plot job. The executable gate is
 Lexical scanning can detect vendor/persona names and internal-workflow markers;
 it cannot determine authorship. No authorship claim may be made from stylometry
 alone. `paper/working/`, top-level `paper/figs/`,
-`figures/generated/`, `results/historical/`, audit output, and the mixed parent
+`figures/generated/`, `results/recovered/`, audit output, and the mixed parent
 tree are outside the publication surface.
+
+## Historical recovery boundary
+
+The recovery report is an audit artifact with machine-readable selectors and hashes. It records arithmetic, not new model execution. Historical numerical values must remain outside admitted manuscript result tables until their claim-specific release bindings close. Manuscript discussion may explain configuration differences without transferring obsolete performance claims.

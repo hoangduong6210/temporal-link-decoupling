@@ -40,6 +40,10 @@ specified reproducibility note, and grayscale figure rendering. It is not an
 evidence-admitted snapshot because its result set is not registered in the
 current frozen release.
 
+## DYU journal working draft
+
+The expanded [LaTeX source and PDF](Paper/Journal/DYU/Latex_full/) follow the supplied DYU template and use current admitted result rows. The [journal wiki](wiki/manuscript/DYU-Journal.md) records its status. [Recovered historical evidence](wiki/evidence/Recovered-Evidence.md) is organized for retrospective reconciliation; it is not automatically promoted to the current release.
+
 ## Repository layout
 
 ```text

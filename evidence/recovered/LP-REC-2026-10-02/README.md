@@ -1,6 +1,6 @@
 # Recovered historical evidence
 
-Recovered from the owner's SR-GNN download on 2026-10-02. This is a preservation and reconciliation bundle, not a new training run or an admitted scientific release. Original files are copied byte-for-byte. `recovery-audit.json` records source-relative paths, duplicate aliases, SHA-256 hashes, aggregate checks and comparisons with the current release. `checksums.sha256` covers the bundle.
+Recovered from the owner's SR-GNN download on 2026-10-02. This is a preservation and reconciliation bundle, not a new training run or an admitted scientific release. Original result and script bytes are preserved. Results now live in `results/recovered/legacy_import/` and `results/recovered/artifacts/`; legacy scripts live in `evidence/source-archives/legacy-v33/`. Recovery metadata stays here. `recovery-audit.json` records source-relative paths, duplicate aliases, SHA-256 hashes, aggregate checks and comparisons with the current release. `checksums.sha256` uses repository-relative paths and covers the relocated files and recovery metadata. `relocation_map` preserves the previous package paths.
 
 ## Coverage
 

@@ -1,7 +1,7 @@
 ---
 title: Inductive Decoupling Benchmark
 status: validated current result index
-last_updated: 2026-08-21
+last_updated: 2026-10-02
 paper_source: false
 ---
 
@@ -16,3 +16,7 @@ denominator, artifact selector, and permitted interpretation lives in
 Historical baselines, hard-negative experiments, and pre-ID-fix results remain
 under `LP-E-LEGACY-RESULTS-001`. They are not comparator evidence for the
 current matrix and cannot enter the publication bundle.
+
+## Historical contrast is a separate experiment
+
+The current table remains the admitted shared-readout comparison. Recovered conference results include configuration contrasts and main-predictor substitutions with different optimization paths. Their magnitudes cannot be pooled with the current table or interpreted as repeated measurements of the same intervention. Follow [Recovered Evidence](../evidence/Recovered-Evidence.md) for the retrospective audit.

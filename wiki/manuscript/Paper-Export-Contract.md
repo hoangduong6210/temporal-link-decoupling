@@ -7,7 +7,7 @@ paper_source: false
 
 # Paper Export Contract
 
-The current tree retains no mutable candidate or working-paper copy. A future
+An editable journal draft is allowed in the journal source directory and is not an immutable or admitted snapshot. A final
 export must be written from the canonical wiki and requires an admitted claim
 set, current frozen evidence release, source wiki commit, figure hashes,
 bibliography hash, toolchain identity, and `results.lock.yaml`. The resulting

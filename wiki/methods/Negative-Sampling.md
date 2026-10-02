@@ -1,13 +1,16 @@
 ---
 title: Negative Sampling
-status: migration method record
-last_updated: 2026-08-19
+status: current implementation and historical context
+last_updated: 2026-10-02
 paper_source: false
 ---
 
 # Negative Sampling
 
-Random, historical, and inductive negative regimes are distinct protocols.
-Within a paired arm comparison, negative sets must be identical per seed and
-test edge. Inductive filtering and pool construction occur before metric
-aggregation. No result may silently switch regimes.
+The current admitted regime is fair-random-destination. The evaluator retains the positive source and samples a replacement destination from the seen or unseen pool corresponding to the true destination. It rejects the identical destination, not all contemporaneous positive pairs. Pools are not restricted to the destination endpoint type of bipartite corpora. Results are conditional on this candidate construction.
+
+Inductive nodes are test nodes absent from training and validation. The test stream is filtered before the inductive evaluator executes; omitted test events do not update memory in that run. Training and validation are replayed for warmup. This differs from maintaining state on the complete test stream and only filtering scored outputs.
+
+## Recovered harder-negative runs
+
+Historical and inductive hard-negative records exist in the restored history. Preserve original and corrected variants separately. The retained field `indpool_from_train` has a legacy name; in corrected code it indicates availability of the test-only-pair pool. Interpret it with the corresponding code, not by its label alone. Paired candidate draws, target availability and pool support need explicit checks before historical claims can be admitted.

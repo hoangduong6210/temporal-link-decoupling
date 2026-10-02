@@ -1,7 +1,7 @@
 ---
 title: Research Questions
 status: canonical questions
-last_updated: 2026-08-19
+last_updated: 2026-10-02
 paper_source: false
 ---
 
@@ -17,3 +17,7 @@ paper_source: false
 The decoupling question has the bounded admitted answer registered under
 `LP-C-DECOUPLING-001`. The irreversibility and hard-negative questions remain
 open and have no admitted positive answer.
+
+## Evidence available for further investigation
+
+Recovered hard-negative, head-control, backbone-removal, frozen-probe and expanded-seed records now permit a retrospective comparison with the conference narrative. The next question is which exact historical configuration each claim describes. Historical availability does not settle the causal mechanism or the adequacy of the recovery intervention.

@@ -1,7 +1,7 @@
 ---
 title: License and Assets
 status: canonical public licensing policy
-last_updated: 2026-08-21
+last_updated: 2026-10-02
 paper_source: false
 ---
 
@@ -33,3 +33,7 @@ LaTeX Project Public License notice and is outside the BSD grant. A future
 vendored asset must retain its original notice and be registered in
 [`THIRD_PARTY_NOTICES.md`](../../THIRD_PARTY_NOTICES.md). Nothing in the project
 license relicenses a dataset, dependency, external asset, or excluded artifact.
+
+## Recovered artifacts
+
+Recovered result and source-context files retain their provenance and the exclusions documented in `LICENSE-SCOPE.md`. The recovery operation does not assert a new license grant. Dataset content remains local and ignored; the public repository contains identity records and builders.

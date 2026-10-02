@@ -20,4 +20,8 @@ paper_source: false
   establish faithful external-baseline parity, hard-negative robustness,
   physical-world validity, causality, or architecture-general irreversibility.
 - Dataset bytes remain fetch-only because no upstream redistribution grant is
-  asserted; public source licensing remains an owner decision.
+  asserted; project-authored source licensing is defined in `LICENSE-SCOPE.md`.
+
+## Interpretation of recovered evidence
+
+Preservation hashes and agreement with printed conference values cannot establish missing execution provenance. The historical archive contains conflicting versions and non-finite placeholders for unmeasured metrics. These must remain distinguishable. Freeze-then-probe performance alone does not demonstrate irreversible damage, and proxy baselines do not establish superiority to published implementations.

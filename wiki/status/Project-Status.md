@@ -42,8 +42,7 @@ Project-authored source is released under BSD-3-Clause within the path-level
 scope documented by the licensing policy. Dataset bytes, frozen evidence,
 conference artifacts, and third-party material remain outside that grant.
 
-Mutable candidate and working-paper copies are absent. Future paper text must be
-written from the canonical wiki and admitted through the numeric-evidence gate.
+An editable DYU journal source has been compiled and visually reviewed from the canonical wiki. It is a working draft, separate from immutable snapshots, and must pass the publication gate before submission.
 
 ## Revision boundary
 
@@ -60,3 +59,7 @@ and corpus comparisons. Historical evidence remains non-admitted; recovery does
 not supersede the active scientific release. Next work is claim-specific
 provenance reconciliation for the journal, using the recovered records instead
 of assuming the historical result files are lost.
+
+## Active journal work
+
+Recovered results are distributed under the historical results tree, archived experiment context and recovery metadata. The full wiki now distinguishes recovered arithmetic from admitted performance evidence. The journal develops the conference methodology, literature, protocol specification and interpretation using current supported results. See [DYU Journal](../manuscript/DYU-Journal.md).

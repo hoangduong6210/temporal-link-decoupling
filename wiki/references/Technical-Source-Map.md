@@ -1,7 +1,7 @@
 ---
 title: Technical Source Map
 status: verified provenance map
-last_updated: 2026-08-21
+last_updated: 2026-10-02
 paper_source: false
 ---
 
@@ -24,3 +24,7 @@ proximity.
 Any future external comparison must add an exact primary source, stable official
 implementation identity, proposition supported, parity audit, and reviewer
 decision before claim admission.
+
+## Journal bibliography and archival sources
+
+The journal retains the conference literature on temporal models, point-process features, online statistics, variational objectives and gradient separation. Primary publication records should supply bibliographic metadata. The recovered result archive is an internal research source; it is not an external benchmark publication or independent corroboration.

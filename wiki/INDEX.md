@@ -35,6 +35,9 @@ paper_source: false
 - [Project Status](status/Project-Status.md)
 - [Live Execution](status/Live-Execution.md)
 
+- [Recovered Evidence](evidence/Recovered-Evidence.md)
+- [DYU Journal Development](manuscript/DYU-Journal.md)
+
 ## Identifier index
 
 | Kind | Identifier | Semantic owner |

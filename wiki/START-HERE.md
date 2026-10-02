@@ -1,7 +1,7 @@
 ---
 title: Start Here
 status: canonical onboarding
-last_updated: 2026-08-21
+last_updated: 2026-10-02
 paper_source: false
 ---
 
@@ -64,3 +64,7 @@ Claim reviewers read [Claim Registry](claims/Current-Claim-Language.md),
 Dataset reviewers read [Dataset Registry](datasets/Dataset-Registry.md) and
 [Source Map](references/Technical-Source-Map.md). Paper editors read the
 [Paper Export Contract](manuscript/Paper-Export-Contract.md).
+
+## Recovered material is available
+
+The owner-supplied archive restores historical result files and checksum-matching local corpora. See [recovery and reconciliation](evidence/Recovered-Evidence.md). Legacy evidence is available for claim-specific review; it is no longer treated as lost. The current admitted claim remains unchanged. Journal development proceeds through [the journal work page](manuscript/DYU-Journal.md).

@@ -1,7 +1,7 @@
 ---
 title: Reproducibility Contract
 status: canonical contract
-last_updated: 2026-08-21
+last_updated: 2026-10-02
 paper_source: false
 ---
 
@@ -70,3 +70,7 @@ occurrences.
 Run `python scripts/audit_scientific_provenance.py --check-canonical` to verify
 the current fail-closed state. Publication pipelines use `--require-release`,
 which additionally requires the reproducible status and immutable pointers.
+
+## Recovered local inputs
+
+The downloaded current corpora were compared with the existing source registry and restored to ignored `resources/corpora/`. No dataset bytes were added to Git. The restoration audit is linked from [Recovered Evidence](evidence/Recovered-Evidence.md). Historical aggregate reconstruction is available without training; it is distinct from replaying model optimization.

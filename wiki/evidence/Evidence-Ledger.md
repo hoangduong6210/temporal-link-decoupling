@@ -132,10 +132,10 @@ Current evidence release: `LP-REL-2026-A003-001`.
   and cannot be reconciled to the current data/protocol chain.
 - **Execution identity:** Surviving scheduler identities, artifacts, retries,
   terminal failures, and unknown fields are normalized in
-  `results/historical/legacy_import/execution_reconciliation.json`.
-- **Artifact path or release URI:** `results/historical/legacy_import/`.
-- **Artifact checksum:** Local preservation hashes are in
-  `results/historical/legacy_import/checksums.sha256`; no frozen release checksum.
+  `results/recovered/legacy_import/execution_reconciliation.json`.
+- **Artifact path or release URI:** `results/recovered/legacy_import/`.
+- **Artifact checksum:** Recovered preservation hashes are in
+  `results/recovered/legacy_import/checksums.sha256`; no frozen release checksum.
 - **Coverage and failures:** The retained legacy attempt matrix records completed,
   failed, timed-out, cancelled, inferred, and missing states without inventing
   absent evidence.
@@ -161,3 +161,7 @@ Current evidence release: `LP-REL-2026-A003-001`.
 - **Rejected claim IDs:** none.
 - **Scientific-use boundary:** Retired editorial history only; it is not permitted
   current claim language or paper source.
+
+## Recovery audit and locations
+
+[Recovered Evidence](Recovered-Evidence.md) maps the historical-results entry to its restored files, additional mixed-tree variants, archived scripts and preservation audit. The source archive and relocated bytes are identical. No current scientific release or claim status is changed by relocation.

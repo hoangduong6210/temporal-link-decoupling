@@ -6,7 +6,7 @@ bundle=ROOT/'evidence/recovered/LP-REC-2026-10-02'
 report=json.loads((bundle/'recovery-audit.json').read_text())
 for line in (bundle/'checksums.sha256').read_text().splitlines():
  digest,name=line.split(maxsplit=1)
- assert hashlib.sha256((bundle/name).read_bytes()).hexdigest()==digest,name
+ assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==digest,name
 checks=[]
 def check(path,sel,vals,mean,sd=None,n=None):
  if not vals or not all(isinstance(v,(int,float)) and math.isfinite(v) for v in vals):return
@@ -31,7 +31,7 @@ def walk(obj,path,sel='$'):
   for i,v in enumerate(obj):walk(v,path,sel+f'[{i}]')
 
 for row in report['artifacts']:
- walk(json.loads((bundle/row['path']).read_text()),row['path'])
+ walk(json.loads((ROOT/row['path']).read_text()),row['path'])
 assert checks==report['aggregate_checks'], 'Aggregate reconstruction changed'
 for row in report['frozen_comparison']:
  assert hashlib.sha256((ROOT/row['path']).read_bytes()).hexdigest()==row['sha256']

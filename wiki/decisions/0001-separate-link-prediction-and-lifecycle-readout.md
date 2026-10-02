@@ -46,3 +46,7 @@ Preserve the mixed source tree until parity and evidence audits complete.
 Supersedes no earlier link-prediction decision record. Superseded by: none.
 A later change must create a new decision and link both records; this accepted
 record is not edited to rewrite the historical choice.
+
+## Recovery preserves the project boundary
+
+The mixed archive is reference input. Its recovered ancillary and lifecycle results remain historical context; they do not expand the link-prediction project into the companion lifecycle study. Current source imports remain independent of the downloaded sibling projects.

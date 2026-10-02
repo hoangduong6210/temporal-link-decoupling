@@ -1,7 +1,7 @@
 ---
 title: Temporal Link Prediction Research Wiki
 status: canonical home
-last_updated: 2026-08-19
+last_updated: 2026-10-02
 paper_source: false
 ---
 
@@ -27,3 +27,7 @@ The [Index](INDEX.md) enumerates every maintained page and identifier. A legacy
 result becomes publishable only after an immutable release, evidence-ledger
 closure, and claim admission. Retired working-paper copies are not a source of
 permitted claim language; future paper revisions are written from this wiki.
+
+## Recovery and journal navigation
+
+The complete wiki remains the canonical narrative. Start with [recovered evidence](evidence/Recovered-Evidence.md) for historical-result locations and [journal development](manuscript/DYU-Journal.md) for the editable manuscript. Recovery, scientific admission, and manuscript publication are different states.

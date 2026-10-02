@@ -4,7 +4,7 @@
   "source_label": "User-provided SR-GNN download",
   "artifacts": [
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/a100_ab/v3_3_p0_ab.json",
+      "path": "results/recovered/legacy_import/a100_ab/v3_3_p0_ab.json",
       "source": "link-prediction/results/historical/legacy_import/a100_ab/v3_3_p0_ab.json",
       "source_aliases": [
         "experiments/results/a100_ab/v3_3_p0_ab.json"
@@ -14,7 +14,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/a100_ab/v3_3_p0_ab_wiki.json",
+      "path": "results/recovered/legacy_import/a100_ab/v3_3_p0_ab_wiki.json",
       "source": "link-prediction/results/historical/legacy_import/a100_ab/v3_3_p0_ab_wiki.json",
       "source_aliases": [
         "experiments/results/a100_ab/v3_3_p0_ab_wiki.json"
@@ -24,7 +24,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/backbone_removed/backbone_removed_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/backbone_removed/backbone_removed_coedit_3seed.json",
       "source": "link-prediction/results/historical/legacy_import/backbone_removed/backbone_removed_coedit_3seed.json",
       "source_aliases": [
         "experiments/results/backbone_removed/backbone_removed_coedit_3seed.json"
@@ -34,7 +34,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/backbone_removed/backbone_removed_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/backbone_removed/backbone_removed_wikipedia_3seed.json",
       "source": "link-prediction/results/historical/legacy_import/backbone_removed/backbone_removed_wikipedia_3seed.json",
       "source_aliases": [
         "experiments/results/backbone_removed/backbone_removed_wikipedia_3seed.json"
@@ -44,7 +44,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/baselines/_eb_mooc_s42.json",
+      "path": "results/recovered/legacy_import/baselines/_eb_mooc_s42.json",
       "source": "link-prediction/results/historical/legacy_import/baselines/_eb_mooc_s42.json",
       "source_aliases": [
         "experiments/results/baselines/_eb_mooc_s42.json"
@@ -54,7 +54,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/baselines/baselines_coedit_Bprotocol.json",
+      "path": "results/recovered/legacy_import/baselines/baselines_coedit_Bprotocol.json",
       "source": "link-prediction/results/historical/legacy_import/baselines/baselines_coedit_Bprotocol.json",
       "source_aliases": [
         "experiments/results/baselines/baselines_coedit_Bprotocol.json"
@@ -64,7 +64,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/baselines/baselines_coedit_TGAT_newseeds.json",
+      "path": "results/recovered/legacy_import/baselines/baselines_coedit_TGAT_newseeds.json",
       "source": "link-prediction/results/historical/legacy_import/baselines/baselines_coedit_TGAT_newseeds.json",
       "source_aliases": [
         "experiments/results/baselines/baselines_coedit_TGAT_newseeds.json"
@@ -74,7 +74,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/baselines/baselines_extra_coedit_Bprotocol.json",
+      "path": "results/recovered/legacy_import/baselines/baselines_extra_coedit_Bprotocol.json",
       "source": "link-prediction/results/historical/legacy_import/baselines/baselines_extra_coedit_Bprotocol.json",
       "source_aliases": [
         "experiments/results/baselines/baselines_extra_coedit_Bprotocol.json"
@@ -84,7 +84,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/baselines/baselines_extra_mooc_Bprotocol.json",
+      "path": "results/recovered/legacy_import/baselines/baselines_extra_mooc_Bprotocol.json",
       "source": "link-prediction/results/historical/legacy_import/baselines/baselines_extra_mooc_Bprotocol.json",
       "source_aliases": [
         "experiments/results/baselines/baselines_extra_mooc_Bprotocol.json"
@@ -94,7 +94,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/baselines/baselines_extra_mooc_Bprotocol_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/baselines/baselines_extra_mooc_Bprotocol_PREIDFIX.json",
       "source": "link-prediction/results/historical/legacy_import/baselines/baselines_extra_mooc_Bprotocol_PREIDFIX.json",
       "source_aliases": [
         "experiments/results/baselines/baselines_extra_mooc_Bprotocol_PREIDFIX.json"
@@ -104,7 +104,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/baselines/baselines_extra_wikipedia_Bprotocol.json",
+      "path": "results/recovered/legacy_import/baselines/baselines_extra_wikipedia_Bprotocol.json",
       "source": "link-prediction/results/historical/legacy_import/baselines/baselines_extra_wikipedia_Bprotocol.json",
       "source_aliases": [
         "experiments/results/baselines/baselines_extra_wikipedia_Bprotocol.json"
@@ -114,7 +114,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/baselines/baselines_extra_wikipedia_Bprotocol_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/baselines/baselines_extra_wikipedia_Bprotocol_PREIDFIX.json",
       "source": "link-prediction/results/historical/legacy_import/baselines/baselines_extra_wikipedia_Bprotocol_PREIDFIX.json",
       "source_aliases": [
         "experiments/results/baselines/baselines_extra_wikipedia_Bprotocol_PREIDFIX.json"
@@ -124,7 +124,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/baselines/baselines_mooc.json",
+      "path": "results/recovered/legacy_import/baselines/baselines_mooc.json",
       "source": "link-prediction/results/historical/legacy_import/baselines/baselines_mooc.json",
       "source_aliases": [
         "experiments/results/baselines/baselines_mooc.json"
@@ -134,7 +134,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/baselines/baselines_mooc_Bprotocol.json",
+      "path": "results/recovered/legacy_import/baselines/baselines_mooc_Bprotocol.json",
       "source": "link-prediction/results/historical/legacy_import/baselines/baselines_mooc_Bprotocol.json",
       "source_aliases": [
         "experiments/results/baselines/baselines_mooc_Bprotocol.json"
@@ -144,7 +144,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/baselines/baselines_mooc_Bprotocol_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/baselines/baselines_mooc_Bprotocol_PREIDFIX.json",
       "source": "link-prediction/results/historical/legacy_import/baselines/baselines_mooc_Bprotocol_PREIDFIX.json",
       "source_aliases": [
         "experiments/results/baselines/baselines_mooc_Bprotocol_PREIDFIX.json"
@@ -154,7 +154,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/baselines/baselines_wiki_coedit.json",
+      "path": "results/recovered/legacy_import/baselines/baselines_wiki_coedit.json",
       "source": "link-prediction/results/historical/legacy_import/baselines/baselines_wiki_coedit.json",
       "source_aliases": [
         "experiments/results/baselines/baselines_wiki_coedit.json"
@@ -164,7 +164,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/baselines/baselines_wikipedia_Bprotocol.json",
+      "path": "results/recovered/legacy_import/baselines/baselines_wikipedia_Bprotocol.json",
       "source": "link-prediction/results/historical/legacy_import/baselines/baselines_wikipedia_Bprotocol.json",
       "source_aliases": [
         "experiments/results/baselines/baselines_wikipedia_Bprotocol.json"
@@ -174,7 +174,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/baselines/baselines_wikipedia_Bprotocol_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/baselines/baselines_wikipedia_Bprotocol_PREIDFIX.json",
       "source": "link-prediction/results/historical/legacy_import/baselines/baselines_wikipedia_Bprotocol_PREIDFIX.json",
       "source_aliases": [
         "experiments/results/baselines/baselines_wikipedia_Bprotocol_PREIDFIX.json"
@@ -184,7 +184,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/baselines_coedit_TGAT_5seed.json",
+      "path": "results/recovered/legacy_import/baselines_coedit_TGAT_5seed.json",
       "source": "link-prediction/results/historical/legacy_import/baselines_coedit_TGAT_5seed.json",
       "source_aliases": [
         "experiments/results/baselines_coedit_TGAT_5seed.json"
@@ -194,7 +194,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/decoupling_invariants_verify.json",
+      "path": "results/recovered/legacy_import/decoupling_invariants_verify.json",
       "source": "link-prediction/results/historical/legacy_import/decoupling_invariants_verify.json",
       "source_aliases": [
         "experiments/LAB/v3_3/results/decoupling_invariants_verify.json"
@@ -204,7 +204,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/execution_reconciliation.json",
+      "path": "results/recovered/legacy_import/execution_reconciliation.json",
       "source": "link-prediction/results/historical/legacy_import/execution_reconciliation.json",
       "source_aliases": [],
       "sha256": "430314412f73982e6ac57a5d24263555d7f9a5cb3616ed53838199ef7b438f01",
@@ -212,7 +212,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed.json",
       "source": "link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed.json",
       "source_aliases": [
         "experiments/results/hardneg/hardneg_B_vs_K1_coedit_3seed.json"
@@ -222,7 +222,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed_v2.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed_v2.json",
       "source": "link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed_v2.json",
       "source_aliases": [
         "experiments/results/hardneg/hardneg_B_vs_K1_coedit_3seed_v2.json"
@@ -232,7 +232,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed.json",
       "source": "link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed.json",
       "source_aliases": [
         "experiments/results/hardneg/hardneg_B_vs_K1_wikipedia_3seed.json"
@@ -242,7 +242,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed_v2.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed_v2.json",
       "source": "link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed_v2.json",
       "source_aliases": [
         "experiments/results/hardneg/hardneg_B_vs_K1_wikipedia_3seed_v2.json"
@@ -252,7 +252,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/identhead/identhead_K1_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/identhead/identhead_K1_coedit_3seed.json",
       "source": "link-prediction/results/historical/legacy_import/identhead/identhead_K1_coedit_3seed.json",
       "source_aliases": [
         "experiments/results/identhead/identhead_K1_coedit_3seed.json"
@@ -262,7 +262,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/identhead/identhead_K1_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/identhead/identhead_K1_wikipedia_3seed.json",
       "source": "link-prediction/results/historical/legacy_import/identhead/identhead_K1_wikipedia_3seed.json",
       "source_aliases": [
         "experiments/results/identhead/identhead_K1_wikipedia_3seed.json"
@@ -272,7 +272,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/reconcile/reconcile_dyglib_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/reconcile/reconcile_dyglib_wikipedia_3seed.json",
       "source": "link-prediction/results/historical/legacy_import/reconcile/reconcile_dyglib_wikipedia_3seed.json",
       "source_aliases": [
         "experiments/results/reconcile/reconcile_dyglib_wikipedia_3seed.json"
@@ -282,7 +282,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_ARM_A_canonical_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_ARM_A_canonical_3seed.json",
       "source": "link-prediction/results/historical/legacy_import/v3_3_coedit_ARM_A_canonical_3seed.json",
       "source_aliases": [
         "experiments/results/v3_3_coedit_ARM_A_canonical_3seed.json"
@@ -292,7 +292,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_ARM_B_publishable_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_ARM_B_publishable_3seed.json",
       "source": "link-prediction/results/historical/legacy_import/v3_3_coedit_ARM_B_publishable_3seed.json",
       "source_aliases": [
         "experiments/results/v3_3_coedit_ARM_B_publishable_3seed.json"
@@ -302,7 +302,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_ARM_C_correct_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_ARM_C_correct_3seed.json",
       "source": "link-prediction/results/historical/legacy_import/v3_3_coedit_ARM_C_correct_3seed.json",
       "source_aliases": [
         "experiments/results/v3_3_coedit_ARM_C_correct_3seed.json"
@@ -312,7 +312,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_B_5seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_B_5seed.json",
       "source": "link-prediction/results/historical/legacy_import/v3_3_coedit_B_5seed.json",
       "source_aliases": [
         "experiments/results/v3_3_coedit_B_5seed.json"
@@ -322,7 +322,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_C_5seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_C_5seed.json",
       "source": "link-prediction/results/historical/legacy_import/v3_3_coedit_C_5seed.json",
       "source_aliases": [
         "experiments/results/v3_3_coedit_C_5seed.json"
@@ -332,7 +332,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_detach_probe_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_detach_probe_3seed.json",
       "source": "link-prediction/results/historical/legacy_import/v3_3_coedit_detach_probe_3seed.json",
       "source_aliases": [
         "experiments/results/v3_3_coedit_detach_probe_3seed.json"
@@ -342,7 +342,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_detach_probe_OFF_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_detach_probe_OFF_3seed.json",
       "source": "link-prediction/results/historical/legacy_import/v3_3_coedit_detach_probe_OFF_3seed.json",
       "source_aliases": [
         "experiments/results/v3_3_coedit_detach_probe_OFF_3seed.json"
@@ -352,7 +352,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_detach_probe_ON_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_detach_probe_ON_3seed.json",
       "source": "link-prediction/results/historical/legacy_import/v3_3_coedit_detach_probe_ON_3seed.json",
       "source_aliases": [
         "experiments/results/v3_3_coedit_detach_probe_ON_3seed.json"
@@ -362,7 +362,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
       "source": "link-prediction/results/historical/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
       "source_aliases": [
         "experiments/results/v3_3_coedit_knob_ablation_3seed.json"
@@ -372,7 +372,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_frozen_probe_ARM1_decoupling.json",
+      "path": "results/recovered/legacy_import/v3_3_frozen_probe_ARM1_decoupling.json",
       "source": "link-prediction/results/historical/legacy_import/v3_3_frozen_probe_ARM1_decoupling.json",
       "source_aliases": [
         "link-prediction/results/historical/legacy_import/v3_3_frozen_probe_ARM1_decoupling_PREIDFIX.json",
@@ -384,7 +384,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_frozen_probe_ARM2_ftp.json",
+      "path": "results/recovered/legacy_import/v3_3_frozen_probe_ARM2_ftp.json",
       "source": "link-prediction/results/historical/legacy_import/v3_3_frozen_probe_ARM2_ftp.json",
       "source_aliases": [
         "link-prediction/results/historical/legacy_import/v3_3_frozen_probe_ARM2_ftp_PREIDFIX.json",
@@ -396,7 +396,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_frozen_probe_ARM2_ftp_wikipedia_idfix.json",
+      "path": "results/recovered/legacy_import/v3_3_frozen_probe_ARM2_ftp_wikipedia_idfix.json",
       "source": "link-prediction/results/historical/legacy_import/v3_3_frozen_probe_ARM2_ftp_wikipedia_idfix.json",
       "source_aliases": [
         "experiments/LAB/v3_3/results/v3_3_frozen_probe_ARM2_ftp_wikipedia_idfix.json"
@@ -406,7 +406,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_frozen_probe_control_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_frozen_probe_control_3seed.json",
       "source": "link-prediction/results/historical/legacy_import/v3_3_frozen_probe_control_3seed.json",
       "source_aliases": [
         "link-prediction/results/historical/legacy_import/v3_3_frozen_probe_control_3seed_PREIDFIX.json",
@@ -418,7 +418,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_mooc_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_mooc_3seed.json",
       "source": "link-prediction/results/historical/legacy_import/v3_3_knob_ablation_mooc_3seed.json",
       "source_aliases": [
         "experiments/results/v3_3_knob_ablation_mooc_3seed.json"
@@ -428,7 +428,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_mooc_3seed_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_mooc_3seed_PREIDFIX.json",
       "source": "link-prediction/results/historical/legacy_import/v3_3_knob_ablation_mooc_3seed_PREIDFIX.json",
       "source_aliases": [
         "experiments/results/v3_3_knob_ablation_mooc_3seed_PREIDFIX.json"
@@ -438,7 +438,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_wikipedia_3seed.json",
       "source": "link-prediction/results/historical/legacy_import/v3_3_knob_ablation_wikipedia_3seed.json",
       "source_aliases": [
         "experiments/results/v3_3_knob_ablation_wikipedia_3seed.json"
@@ -448,7 +448,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_wikipedia_3seed_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_wikipedia_3seed_PREIDFIX.json",
       "source": "link-prediction/results/historical/legacy_import/v3_3_knob_ablation_wikipedia_3seed_PREIDFIX.json",
       "source_aliases": [
         "experiments/results/v3_3_knob_ablation_wikipedia_3seed_PREIDFIX.json"
@@ -458,7 +458,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_mooc_ARM_A_canonical_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_mooc_ARM_A_canonical_3seed.json",
       "source": "link-prediction/results/historical/legacy_import/v3_3_mooc_ARM_A_canonical_3seed.json",
       "source_aliases": [
         "experiments/results/v3_3_mooc_ARM_A_canonical_3seed.json"
@@ -468,7 +468,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_mooc_ARM_B_publishable_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_mooc_ARM_B_publishable_3seed.json",
       "source": "link-prediction/results/historical/legacy_import/v3_3_mooc_ARM_B_publishable_3seed.json",
       "source_aliases": [
         "experiments/results/v3_3_mooc_ARM_B_publishable_3seed.json"
@@ -478,7 +478,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_mooc_ARM_B_publishable_3seed_rerun.json",
+      "path": "results/recovered/legacy_import/v3_3_mooc_ARM_B_publishable_3seed_rerun.json",
       "source": "link-prediction/results/historical/legacy_import/v3_3_mooc_ARM_B_publishable_3seed_rerun.json",
       "source_aliases": [
         "experiments/results/v3_3_mooc_ARM_B_publishable_3seed_rerun.json"
@@ -488,7 +488,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_wikipedia_ARM_A_canonical_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_wikipedia_ARM_A_canonical_3seed.json",
       "source": "link-prediction/results/historical/legacy_import/v3_3_wikipedia_ARM_A_canonical_3seed.json",
       "source_aliases": [
         "experiments/results/v3_3_wikipedia_ARM_A_canonical_3seed.json"
@@ -498,7 +498,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_wikipedia_ARM_B_publishable_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_wikipedia_ARM_B_publishable_3seed.json",
       "source": "link-prediction/results/historical/legacy_import/v3_3_wikipedia_ARM_B_publishable_3seed.json",
       "source_aliases": [
         "experiments/results/v3_3_wikipedia_ARM_B_publishable_3seed.json"
@@ -508,7 +508,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/cf_trained_theta_3seed.json",
+      "path": "results/recovered/artifacts/mixed-experiments/cf_trained_theta_3seed.json",
       "source": "experiments/results/cf_trained_theta_3seed.json",
       "source_aliases": [],
       "sha256": "ed6f0c89c5acb4cc110636ae19eea35b24da2b360bb7f6db831fc607b65d22bf",
@@ -516,7 +516,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/fsm_v3_smoke/smoke_coedit_fixed_v2.json",
+      "path": "results/recovered/artifacts/mixed-experiments/fsm_v3_smoke/smoke_coedit_fixed_v2.json",
       "source": "experiments/results/fsm_v3_smoke/smoke_coedit_fixed_v2.json",
       "source_aliases": [],
       "sha256": "3f2f94840eafcfeea1bf5d82d1d8d513783912cfb7b05b56e59db2e1f4440a2f",
@@ -524,7 +524,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/fsm_v3_smoke/smoke_coedit_fixed_v3.json",
+      "path": "results/recovered/artifacts/mixed-experiments/fsm_v3_smoke/smoke_coedit_fixed_v3.json",
       "source": "experiments/results/fsm_v3_smoke/smoke_coedit_fixed_v3.json",
       "source_aliases": [],
       "sha256": "331c675b46f8f1b9a6c551d3b5617ed94e64932230c6d23495f03c90395d4167",
@@ -532,7 +532,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/fsm_v3_smoke/smoke_coedit_v2.json",
+      "path": "results/recovered/artifacts/mixed-experiments/fsm_v3_smoke/smoke_coedit_v2.json",
       "source": "experiments/results/fsm_v3_smoke/smoke_coedit_v2.json",
       "source_aliases": [],
       "sha256": "32e05916260120adaa1c6a91ef4d021f41f7a2974c2592e3bc89b3646acd3620",
@@ -540,7 +540,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/fsm_v3_smoke/smoke_coedit_v3.json",
+      "path": "results/recovered/artifacts/mixed-experiments/fsm_v3_smoke/smoke_coedit_v3.json",
       "source": "experiments/results/fsm_v3_smoke/smoke_coedit_v3.json",
       "source_aliases": [],
       "sha256": "5302eae3adaa4a51d001991d6e9e0f4340526a4263a53ccc0a61adf9844184aa",
@@ -548,7 +548,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/fsm_v3_smoke/sweep_let_coedit_v3_let0p1.json",
+      "path": "results/recovered/artifacts/mixed-experiments/fsm_v3_smoke/sweep_let_coedit_v3_let0p1.json",
       "source": "experiments/results/fsm_v3_smoke/sweep_let_coedit_v3_let0p1.json",
       "source_aliases": [],
       "sha256": "ac9982d3b7b0e3eb492851505760eea1d130dd0aa6238f1c0a89c660f9146cf2",
@@ -556,7 +556,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/fsm_v3_smoke/sweep_let_coedit_v3_let0p5.json",
+      "path": "results/recovered/artifacts/mixed-experiments/fsm_v3_smoke/sweep_let_coedit_v3_let0p5.json",
       "source": "experiments/results/fsm_v3_smoke/sweep_let_coedit_v3_let0p5.json",
       "source_aliases": [],
       "sha256": "e84c39057314d2bba3ae3e16ef539ee9b3860bc1084e4143e05254dac3cc10d6",
@@ -564,7 +564,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/fsm_v3_smoke/sweep_let_coedit_v3_let2p0.json",
+      "path": "results/recovered/artifacts/mixed-experiments/fsm_v3_smoke/sweep_let_coedit_v3_let2p0.json",
       "source": "experiments/results/fsm_v3_smoke/sweep_let_coedit_v3_let2p0.json",
       "source_aliases": [],
       "sha256": "250d8f03ac7fe0a8d7e2b55450cc65a60aa770fbfa4247f124c13c650f9f5851",
@@ -572,7 +572,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/regime_baselines.json",
+      "path": "results/recovered/artifacts/mixed-experiments/regime_baselines.json",
       "source": "experiments/results/regime_baselines.json",
       "source_aliases": [],
       "sha256": "8a92e69490e4108134f7eb5d34773c0ec7258f9bd70842c96af0d50b559d941e",
@@ -580,7 +580,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/regime_baselines_v2.json",
+      "path": "results/recovered/artifacts/mixed-experiments/regime_baselines_v2.json",
       "source": "experiments/results/regime_baselines_v2.json",
       "source_aliases": [],
       "sha256": "b2a2ef0892840bfb03912de371e62ccf749ac68398705b30e3ca02c5347009a7",
@@ -588,7 +588,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/synth_robustness/exp1_coedit_v1.json",
+      "path": "results/recovered/artifacts/mixed-experiments/synth_robustness/exp1_coedit_v1.json",
       "source": "experiments/results/synth_robustness/exp1_coedit_v1.json",
       "source_aliases": [],
       "sha256": "c8111f3fc2c49107a349e03def2353f5d558c97805e9b16d40e18dc4108f3846",
@@ -596,7 +596,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/synth_robustness/exp1_coedit_v2.json",
+      "path": "results/recovered/artifacts/mixed-experiments/synth_robustness/exp1_coedit_v2.json",
       "source": "experiments/results/synth_robustness/exp1_coedit_v2.json",
       "source_aliases": [],
       "sha256": "1e3dfa214492cf709cbc6a1975883dcd01fbcd87f498acdf204acf494cab9872",
@@ -604,7 +604,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/synth_robustness/exp1_synth_v1.json",
+      "path": "results/recovered/artifacts/mixed-experiments/synth_robustness/exp1_synth_v1.json",
       "source": "experiments/results/synth_robustness/exp1_synth_v1.json",
       "source_aliases": [],
       "sha256": "40dff8c747b6ad6a316cdbbcc7a10c931282a8d4c667576309fb36532369db9f",
@@ -612,7 +612,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/synth_robustness/exp1_synth_v2.json",
+      "path": "results/recovered/artifacts/mixed-experiments/synth_robustness/exp1_synth_v2.json",
       "source": "experiments/results/synth_robustness/exp1_synth_v2.json",
       "source_aliases": [],
       "sha256": "bdae8930612e4f72be27570e7bdaa0ac233a320ddb2294108f9ad56dc6d5ba38",
@@ -620,7 +620,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/synth_robustness/exp2_baselines_a10.json",
+      "path": "results/recovered/artifacts/mixed-experiments/synth_robustness/exp2_baselines_a10.json",
       "source": "experiments/results/synth_robustness/exp2_baselines_a10.json",
       "source_aliases": [],
       "sha256": "2664f8befa05e78acd49e1c21bdfdcbe73caa56dae165ceea2d2f1d1c8cb20d4",
@@ -628,7 +628,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/synth_robustness/exp2_baselines_a15.json",
+      "path": "results/recovered/artifacts/mixed-experiments/synth_robustness/exp2_baselines_a15.json",
       "source": "experiments/results/synth_robustness/exp2_baselines_a15.json",
       "source_aliases": [],
       "sha256": "54e61f893ad9d0fce91d343da00481d8c81132e05b054a2ffaa00a1609d197ac",
@@ -636,7 +636,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/synth_robustness/exp2_baselines_clean.json",
+      "path": "results/recovered/artifacts/mixed-experiments/synth_robustness/exp2_baselines_clean.json",
       "source": "experiments/results/synth_robustness/exp2_baselines_clean.json",
       "source_aliases": [],
       "sha256": "16936f86ccb2b321246ec293ec9b12eb276da06b28b59028e11475bee7c97b64",
@@ -644,7 +644,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/synth_robustness/exp2_srgnn_canonical_a10.json",
+      "path": "results/recovered/artifacts/mixed-experiments/synth_robustness/exp2_srgnn_canonical_a10.json",
       "source": "experiments/results/synth_robustness/exp2_srgnn_canonical_a10.json",
       "source_aliases": [],
       "sha256": "7b593e74af5968ed0bada9cc4dc2a3a44a4692afc6349f90db03ba6e45f64d06",
@@ -652,7 +652,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/synth_robustness/exp2_srgnn_canonical_a15.json",
+      "path": "results/recovered/artifacts/mixed-experiments/synth_robustness/exp2_srgnn_canonical_a15.json",
       "source": "experiments/results/synth_robustness/exp2_srgnn_canonical_a15.json",
       "source_aliases": [],
       "sha256": "5bdfdcc1827a7ccbd17ca11e380161ab83452555952831ac4104f0ad8d0fd8e8",
@@ -660,7 +660,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/synth_robustness/exp2_srgnn_canonical_clean.json",
+      "path": "results/recovered/artifacts/mixed-experiments/synth_robustness/exp2_srgnn_canonical_clean.json",
       "source": "experiments/results/synth_robustness/exp2_srgnn_canonical_clean.json",
       "source_aliases": [],
       "sha256": "9cccec74c1f15216b6e58448442f2d26d16676ab304f7aea281b9edbe04ede6c",
@@ -668,7 +668,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/synth_robustness/exp2_srgnn_causal_a10.json",
+      "path": "results/recovered/artifacts/mixed-experiments/synth_robustness/exp2_srgnn_causal_a10.json",
       "source": "experiments/results/synth_robustness/exp2_srgnn_causal_a10.json",
       "source_aliases": [],
       "sha256": "8b9a7626ac9a86db05d7a83fd79ba3583e47aa8f6c377a9c8f9d7f1cf4204498",
@@ -676,7 +676,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/synth_robustness/exp2_srgnn_causal_a15.json",
+      "path": "results/recovered/artifacts/mixed-experiments/synth_robustness/exp2_srgnn_causal_a15.json",
       "source": "experiments/results/synth_robustness/exp2_srgnn_causal_a15.json",
       "source_aliases": [],
       "sha256": "a199f1d2c62ce87053cb4d8ce09484518084d4f7c2986f3b5e29387470c73de3",
@@ -684,7 +684,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/synth_robustness/exp2_srgnn_causal_clean.json",
+      "path": "results/recovered/artifacts/mixed-experiments/synth_robustness/exp2_srgnn_causal_clean.json",
       "source": "experiments/results/synth_robustness/exp2_srgnn_causal_clean.json",
       "source_aliases": [],
       "sha256": "5f46f1efc34e92e57d4135ff882772650bd296a0f0d8e30168b692ccf53797c1",
@@ -692,7 +692,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_3_3arm_coedit_A_canonical_s42.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_3_3arm_coedit_A_canonical_s42.json",
       "source": "experiments/results/v3_3_3arm_coedit_A_canonical_s42.json",
       "source_aliases": [],
       "sha256": "35b72b85654a590dcc33c7bd1393666b9f2953bfbb0cf925c07b612f70d82a85",
@@ -700,7 +700,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_3_3arm_coedit_B_decoupled_s42.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_3_3arm_coedit_B_decoupled_s42.json",
       "source": "experiments/results/v3_3_3arm_coedit_B_decoupled_s42.json",
       "source_aliases": [],
       "sha256": "90e87a3d65fbcf8ca08fa5398db76d36d7037dabe66942fbf3423be01c78d94d",
@@ -708,7 +708,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_3_3arm_coedit_C_correct_s42.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_3_3arm_coedit_C_correct_s42.json",
       "source": "experiments/results/v3_3_3arm_coedit_C_correct_s42.json",
       "source_aliases": [],
       "sha256": "51de8a4c8a590c591f4b127a2ef51cdc3852f0e58ba0f7751666750b4b67c36b",
@@ -716,7 +716,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_3_causal_ab_coedit_cbOFF.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_3_causal_ab_coedit_cbOFF.json",
       "source": "experiments/results/v3_3_causal_ab_coedit_cbOFF.json",
       "source_aliases": [],
       "sha256": "1e569a6d11e9361c479151d0500c3ff7101318a2c5bfd4a0c9241ce86b2861c6",
@@ -724,7 +724,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_3_causal_ab_coedit_cbON.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_3_causal_ab_coedit_cbON.json",
       "source": "experiments/results/v3_3_causal_ab_coedit_cbON.json",
       "source_aliases": [],
       "sha256": "480daf7500cb882cc319d85537820d1437b47a92f1119d10f7c70b05b0d645d6",
@@ -732,7 +732,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_3_coedit_B_causalOFF_3seed.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_3_coedit_B_causalOFF_3seed.json",
       "source": "experiments/results/v3_3_coedit_B_causalOFF_3seed.json",
       "source_aliases": [],
       "sha256": "2f1ba034dd47baa95778649dacd51dd81bfbc64a77ef8acd1d94ff4446a605d1",
@@ -740,7 +740,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_3_coedit_B_hcpOFF_3seed.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_3_coedit_B_hcpOFF_3seed.json",
       "source": "experiments/results/v3_3_coedit_B_hcpOFF_3seed.json",
       "source_aliases": [],
       "sha256": "973e04b5fc7c99f32c9ed9bc62a8fe567304fac23ac4f728391897de77909f9c",
@@ -748,7 +748,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_3_hcp_coedit_OFF_s42.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_3_hcp_coedit_OFF_s42.json",
       "source": "experiments/results/v3_3_hcp_coedit_OFF_s42.json",
       "source_aliases": [],
       "sha256": "9b27c0ce241333857eb1a35dc143d5aaa3888c62441a50ac573b808cabdf30f0",
@@ -756,7 +756,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_3_hcp_coedit_ON_s42.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_3_hcp_coedit_ON_s42.json",
       "source": "experiments/results/v3_3_hcp_coedit_ON_s42.json",
       "source_aliases": [],
       "sha256": "518ccee7829fb355f7d4dd4dce498d5682c83ece7bb7fbf30fb0ddf5f6bb5eb7",
@@ -764,7 +764,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_3_lfg_HARD_coedit_s42.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_3_lfg_HARD_coedit_s42.json",
       "source": "experiments/results/v3_3_lfg_HARD_coedit_s42.json",
       "source_aliases": [],
       "sha256": "ac44dbd352b97740bcead1091e9671959bc62f28036bf01cfbf5422c418cd79f",
@@ -772,7 +772,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_3_lfg_NONE_coedit_s42.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_3_lfg_NONE_coedit_s42.json",
       "source": "experiments/results/v3_3_lfg_NONE_coedit_s42.json",
       "source_aliases": [],
       "sha256": "6aefc69dfdddac17c9e8509898154832d5b2cb98c2eef7ab66ac3ce081a91047",
@@ -780,7 +780,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_3_lfg_SOFT_coedit_s42.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_3_lfg_SOFT_coedit_s42.json",
       "source": "experiments/results/v3_3_lfg_SOFT_coedit_s42.json",
       "source_aliases": [],
       "sha256": "fa7e5ad11dc2d7771e3ad21b2be3c24564b09666ba0f42f5ec15654d13609b28",
@@ -788,7 +788,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_3_runner_coedit_OFF_s42.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_3_runner_coedit_OFF_s42.json",
       "source": "experiments/results/v3_3_runner_coedit_OFF_s42.json",
       "source_aliases": [],
       "sha256": "2bf12718dccf26ecf42f27bd3739b15f804768326102454b2bf9c01426431d25",
@@ -796,7 +796,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_3_runner_coedit_ON_s42.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_3_runner_coedit_ON_s42.json",
       "source": "experiments/results/v3_3_runner_coedit_ON_s42.json",
       "source_aliases": [],
       "sha256": "4c8bf01232933a793c132a3c1b09b3230903c15c8e73991c00dd9d60fb59ae79",
@@ -804,7 +804,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_3_so6_coedit_Bref_s42.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_3_so6_coedit_Bref_s42.json",
       "source": "experiments/results/v3_3_so6_coedit_Bref_s42.json",
       "source_aliases": [],
       "sha256": "9717f8c1ea21e4b68a7365ae3c96b8164430c921f2e84c1bc561aa4ad16096b3",
@@ -812,7 +812,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_3_sweep_dryrun.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_3_sweep_dryrun.json",
       "source": "experiments/results/v3_3_sweep_dryrun.json",
       "source_aliases": [],
       "sha256": "aa597f9d98ea4131986e3b642e82417d9911005914c2c9155c795bdf2078fbf9",
@@ -820,7 +820,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_3_sweep_let_0.5.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_3_sweep_let_0.5.json",
       "source": "experiments/results/v3_3_sweep_let_0.5.json",
       "source_aliases": [],
       "sha256": "8f6df99a34ac2d148da9b0e0c7662696f08b01699b84b1538e0f12bb3e676d67",
@@ -828,7 +828,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_3_sweep_let_10.0.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_3_sweep_let_10.0.json",
       "source": "experiments/results/v3_3_sweep_let_10.0.json",
       "source_aliases": [],
       "sha256": "d1d6b2ea776d2b5b8b9a002c04b68db4f9ddce85b18604281b38be21748492c0",
@@ -836,7 +836,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_3_sweep_let_2.0.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_3_sweep_let_2.0.json",
       "source": "experiments/results/v3_3_sweep_let_2.0.json",
       "source_aliases": [],
       "sha256": "9533de903a440461b282265a588f403243b98acca5fa94f0f15f26700084fa16",
@@ -844,7 +844,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_3_tier1_coedit.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_3_tier1_coedit.json",
       "source": "experiments/results/v3_3_tier1_coedit.json",
       "source_aliases": [],
       "sha256": "e1ce76fa65dd2df7c7aceec42d936b7ec06341ff6c52eb89ea045cb13cddca5e",
@@ -852,7 +852,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_3_tier1_coedit_canonical.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_3_tier1_coedit_canonical.json",
       "source": "experiments/results/v3_3_tier1_coedit_canonical.json",
       "source_aliases": [],
       "sha256": "a29ef3064282bf393167c23711befef800621b81a7dd272aef6b8cbeb2ff5021",
@@ -860,7 +860,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_3_tier1_smoke.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_3_tier1_smoke.json",
       "source": "experiments/results/v3_3_tier1_smoke.json",
       "source_aliases": [],
       "sha256": "0c3405fb611e454fedc8980b21e96b59af7e89aa1c6192b515c1c3db86417d8a",
@@ -868,7 +868,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_3_tier1b_coedit.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_3_tier1b_coedit.json",
       "source": "experiments/results/v3_3_tier1b_coedit.json",
       "source_aliases": [],
       "sha256": "0c2cc1d898ce38ffab977d4295b2e9914a5fd51fce1a1c6313eab8fa7bf45743",
@@ -876,7 +876,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_3_tier1c_coedit.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_3_tier1c_coedit.json",
       "source": "experiments/results/v3_3_tier1c_coedit.json",
       "source_aliases": [],
       "sha256": "b1bc1f68dbe7dd05af6baa8af2a45dbbc92a9ef2fe0ae00d7f8a832357433787",
@@ -884,7 +884,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_3_tier1d_coedit.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_3_tier1d_coedit.json",
       "source": "experiments/results/v3_3_tier1d_coedit.json",
       "source_aliases": [],
       "sha256": "2f1f99ec95547d7dcd5f57a7640ba4f81ffba1f1e01cf80f6f3a1f41bae6998d",
@@ -892,7 +892,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_3seed.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_3seed.json",
       "source": "experiments/results/v3_3seed.json",
       "source_aliases": [],
       "sha256": "0fb898344098bb8da5c3de1f6fea286aef70e2c14f4c67b7880b058b8ef2b8d5",
@@ -900,7 +900,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_ablation.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_ablation.json",
       "source": "experiments/results/v3_ablation.json",
       "source_aliases": [],
       "sha256": "f6ce1f14eb3bda36c798ca79d413bab4f1820e4a0b49f46b283e4a7843b3e50c",
@@ -908,7 +908,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_audit_wiki_fixed.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_audit_wiki_fixed.json",
       "source": "experiments/results/v3_audit_wiki_fixed.json",
       "source_aliases": [],
       "sha256": "ab5aab9b1bd4057c545829bae1cc0a598bc0e871074fa46be53510a84cce9475",
@@ -916,7 +916,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_benchmark.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_benchmark.json",
       "source": "experiments/results/v3_benchmark.json",
       "source_aliases": [],
       "sha256": "4829b5ac36047a31cb0702d609c0d84d51685828607c47e2dfbabab7a085adaf",
@@ -924,7 +924,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_final_fixed_cross.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_final_fixed_cross.json",
       "source": "experiments/results/v3_final_fixed_cross.json",
       "source_aliases": [],
       "sha256": "0f773746cb5e848e6ffaaa5eb5b19db5b35c2309cff714791d907a6526a2b784",
@@ -932,7 +932,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_lean.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_lean.json",
       "source": "experiments/results/v3_lean.json",
       "source_aliases": [],
       "sha256": "6ecd06f10ca179197749b8fd92a8acb6cb99e6da0554b2c9247a46611d88e8fc",
@@ -940,7 +940,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_lean_coedit.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_lean_coedit.json",
       "source": "experiments/results/v3_lean_coedit.json",
       "source_aliases": [],
       "sha256": "2e4e19bce62d60ccc8edb6cf74466120026643a3cd40a1b9cdb0475b5ec3ac0c",
@@ -948,7 +948,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_lean_mooc.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_lean_mooc.json",
       "source": "experiments/results/v3_lean_mooc.json",
       "source_aliases": [],
       "sha256": "80ee2f91622c93000bd2dfa066ecc0943616526a3fcc90c94ae53d5d57f4cc65",
@@ -956,7 +956,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_lean_tune.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_lean_tune.json",
       "source": "experiments/results/v3_lean_tune.json",
       "source_aliases": [],
       "sha256": "575c90616008599cb70b5bddc30cc8acb11780734ef416244090b05936699ee9",
@@ -964,7 +964,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_multi_debug.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_multi_debug.json",
       "source": "experiments/results/v3_multi_debug.json",
       "source_aliases": [],
       "sha256": "ad14a53c9f3016184bebff9a5ee84e69428a5af46d64cbf1c08d224da5051601",
@@ -972,7 +972,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_multi_smoke.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_multi_smoke.json",
       "source": "experiments/results/v3_multi_smoke.json",
       "source_aliases": [],
       "sha256": "a13fbc4347047f7512b99508590684021e6fe49709a0830ee847002a677f8d28",
@@ -980,7 +980,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_slow_test.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_slow_test.json",
       "source": "experiments/results/v3_slow_test.json",
       "source_aliases": [],
       "sha256": "c4e2e01358e2378803815cf8a44db0da415da2038b1f2c0cdb7655a663a75870",
@@ -988,7 +988,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_smoke.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_smoke.json",
       "source": "experiments/results/v3_smoke.json",
       "source_aliases": [],
       "sha256": "13780de9e8d55315acf450c9ea5ac88adb350dcff54f6938540924ec3bcd9e93",
@@ -996,7 +996,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_smoke2.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_smoke2.json",
       "source": "experiments/results/v3_smoke2.json",
       "source_aliases": [],
       "sha256": "3476ec046428b93178b8dd244b7ee8d3b7c2b1cce275490e29be8257797cf905",
@@ -1004,7 +1004,7 @@
       "status": "RECOVERED_HISTORICAL_NOT_ADMITTED"
     },
     {
-      "path": "payload/experiments/results/v3_speedtest.json",
+      "path": "results/recovered/artifacts/mixed-experiments/v3_speedtest.json",
       "source": "experiments/results/v3_speedtest.json",
       "source_aliases": [],
       "sha256": "187741bf5a4e9945da637bd9f392a99428531fb328222eb959b9976458e64ba0",
@@ -1159,7 +1159,7 @@
   ],
   "aggregate_checks": [
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/backbone_removed/backbone_removed_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/backbone_removed/backbone_removed_coedit_3seed.json",
       "selector": "$.arms[0].ind_ap",
       "count": 3,
       "recorded_n": 3,
@@ -1172,7 +1172,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/backbone_removed/backbone_removed_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/backbone_removed/backbone_removed_coedit_3seed.json",
       "selector": "$.arms[0].trans_ap",
       "count": 3,
       "recorded_n": 3,
@@ -1185,7 +1185,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/backbone_removed/backbone_removed_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/backbone_removed/backbone_removed_coedit_3seed.json",
       "selector": "$.arms[0].ind_auc",
       "count": 3,
       "recorded_n": 3,
@@ -1198,7 +1198,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/backbone_removed/backbone_removed_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/backbone_removed/backbone_removed_coedit_3seed.json",
       "selector": "$.arms[0].trans_auc",
       "count": 3,
       "recorded_n": 3,
@@ -1211,7 +1211,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/backbone_removed/backbone_removed_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/backbone_removed/backbone_removed_coedit_3seed.json",
       "selector": "$.arms[1].ind_ap",
       "count": 3,
       "recorded_n": 3,
@@ -1224,7 +1224,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/backbone_removed/backbone_removed_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/backbone_removed/backbone_removed_coedit_3seed.json",
       "selector": "$.arms[1].trans_ap",
       "count": 3,
       "recorded_n": 3,
@@ -1237,7 +1237,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/backbone_removed/backbone_removed_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/backbone_removed/backbone_removed_coedit_3seed.json",
       "selector": "$.arms[1].ind_auc",
       "count": 3,
       "recorded_n": 3,
@@ -1250,7 +1250,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/backbone_removed/backbone_removed_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/backbone_removed/backbone_removed_coedit_3seed.json",
       "selector": "$.arms[1].trans_auc",
       "count": 3,
       "recorded_n": 3,
@@ -1263,7 +1263,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/backbone_removed/backbone_removed_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/backbone_removed/backbone_removed_wikipedia_3seed.json",
       "selector": "$.arms[0].ind_ap",
       "count": 3,
       "recorded_n": 3,
@@ -1276,7 +1276,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/backbone_removed/backbone_removed_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/backbone_removed/backbone_removed_wikipedia_3seed.json",
       "selector": "$.arms[0].trans_ap",
       "count": 3,
       "recorded_n": 3,
@@ -1289,7 +1289,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/backbone_removed/backbone_removed_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/backbone_removed/backbone_removed_wikipedia_3seed.json",
       "selector": "$.arms[0].ind_auc",
       "count": 3,
       "recorded_n": 3,
@@ -1302,7 +1302,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/backbone_removed/backbone_removed_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/backbone_removed/backbone_removed_wikipedia_3seed.json",
       "selector": "$.arms[0].trans_auc",
       "count": 3,
       "recorded_n": 3,
@@ -1315,7 +1315,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/backbone_removed/backbone_removed_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/backbone_removed/backbone_removed_wikipedia_3seed.json",
       "selector": "$.arms[1].ind_ap",
       "count": 3,
       "recorded_n": 3,
@@ -1328,7 +1328,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/backbone_removed/backbone_removed_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/backbone_removed/backbone_removed_wikipedia_3seed.json",
       "selector": "$.arms[1].trans_ap",
       "count": 3,
       "recorded_n": 3,
@@ -1341,7 +1341,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/backbone_removed/backbone_removed_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/backbone_removed/backbone_removed_wikipedia_3seed.json",
       "selector": "$.arms[1].ind_auc",
       "count": 3,
       "recorded_n": 3,
@@ -1354,7 +1354,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/backbone_removed/backbone_removed_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/backbone_removed/backbone_removed_wikipedia_3seed.json",
       "selector": "$.arms[1].trans_auc",
       "count": 3,
       "recorded_n": 3,
@@ -1367,7 +1367,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/baselines_coedit_TGAT_5seed.json",
+      "path": "results/recovered/legacy_import/baselines_coedit_TGAT_5seed.json",
       "selector": "$.summary.ind_ap",
       "count": 5,
       "recorded_n": 5,
@@ -1380,7 +1380,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/baselines_coedit_TGAT_5seed.json",
+      "path": "results/recovered/legacy_import/baselines_coedit_TGAT_5seed.json",
       "selector": "$.summary.trans_ap",
       "count": 5,
       "recorded_n": 5,
@@ -1393,7 +1393,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed.json",
       "selector": "$.arms[0].by_strategy.random",
       "count": 3,
       "recorded_n": 3,
@@ -1406,7 +1406,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed.json",
       "selector": "$.arms[0].by_strategy.historical",
       "count": 3,
       "recorded_n": 3,
@@ -1419,7 +1419,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed.json",
       "selector": "$.arms[0].by_strategy.inductive",
       "count": 3,
       "recorded_n": 3,
@@ -1432,7 +1432,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed.json",
       "selector": "$.arms[1].by_strategy.random",
       "count": 3,
       "recorded_n": 3,
@@ -1445,7 +1445,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed.json",
       "selector": "$.arms[1].by_strategy.historical",
       "count": 3,
       "recorded_n": 3,
@@ -1458,7 +1458,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed.json",
       "selector": "$.arms[1].by_strategy.inductive",
       "count": 3,
       "recorded_n": 3,
@@ -1471,7 +1471,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed_v2.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed_v2.json",
       "selector": "$.arms[0].by_strategy.random",
       "count": 3,
       "recorded_n": 3,
@@ -1484,7 +1484,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed_v2.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed_v2.json",
       "selector": "$.arms[0].by_strategy.historical",
       "count": 3,
       "recorded_n": 3,
@@ -1497,7 +1497,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed_v2.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed_v2.json",
       "selector": "$.arms[0].by_strategy.inductive",
       "count": 3,
       "recorded_n": 3,
@@ -1510,7 +1510,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed_v2.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed_v2.json",
       "selector": "$.arms[1].by_strategy.random",
       "count": 3,
       "recorded_n": 3,
@@ -1523,7 +1523,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed_v2.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed_v2.json",
       "selector": "$.arms[1].by_strategy.historical",
       "count": 3,
       "recorded_n": 3,
@@ -1536,7 +1536,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed_v2.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed_v2.json",
       "selector": "$.arms[1].by_strategy.inductive",
       "count": 3,
       "recorded_n": 3,
@@ -1549,7 +1549,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed.json",
       "selector": "$.arms[0].by_strategy.random",
       "count": 3,
       "recorded_n": 3,
@@ -1562,7 +1562,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed.json",
       "selector": "$.arms[0].by_strategy.historical",
       "count": 3,
       "recorded_n": 3,
@@ -1575,7 +1575,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed.json",
       "selector": "$.arms[0].by_strategy.inductive",
       "count": 3,
       "recorded_n": 3,
@@ -1588,7 +1588,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed.json",
       "selector": "$.arms[1].by_strategy.random",
       "count": 3,
       "recorded_n": 3,
@@ -1601,7 +1601,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed.json",
       "selector": "$.arms[1].by_strategy.historical",
       "count": 3,
       "recorded_n": 3,
@@ -1614,7 +1614,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed.json",
       "selector": "$.arms[1].by_strategy.inductive",
       "count": 3,
       "recorded_n": 3,
@@ -1627,7 +1627,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed_v2.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed_v2.json",
       "selector": "$.arms[0].by_strategy.random",
       "count": 3,
       "recorded_n": 3,
@@ -1640,7 +1640,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed_v2.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed_v2.json",
       "selector": "$.arms[0].by_strategy.historical",
       "count": 3,
       "recorded_n": 3,
@@ -1653,7 +1653,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed_v2.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed_v2.json",
       "selector": "$.arms[0].by_strategy.inductive",
       "count": 3,
       "recorded_n": 3,
@@ -1666,7 +1666,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed_v2.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed_v2.json",
       "selector": "$.arms[1].by_strategy.random",
       "count": 3,
       "recorded_n": 3,
@@ -1679,7 +1679,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed_v2.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed_v2.json",
       "selector": "$.arms[1].by_strategy.historical",
       "count": 3,
       "recorded_n": 3,
@@ -1692,7 +1692,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed_v2.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed_v2.json",
       "selector": "$.arms[1].by_strategy.inductive",
       "count": 3,
       "recorded_n": 3,
@@ -1705,7 +1705,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/identhead/identhead_K1_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/identhead/identhead_K1_coedit_3seed.json",
       "selector": "$.arms[0].ind_ap",
       "count": 3,
       "recorded_n": 3,
@@ -1718,7 +1718,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/identhead/identhead_K1_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/identhead/identhead_K1_coedit_3seed.json",
       "selector": "$.arms[0].trans_ap",
       "count": 3,
       "recorded_n": 3,
@@ -1731,7 +1731,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/identhead/identhead_K1_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/identhead/identhead_K1_coedit_3seed.json",
       "selector": "$.arms[0].ind_auc",
       "count": 3,
       "recorded_n": 3,
@@ -1744,7 +1744,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/identhead/identhead_K1_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/identhead/identhead_K1_coedit_3seed.json",
       "selector": "$.arms[0].trans_auc",
       "count": 3,
       "recorded_n": 3,
@@ -1757,7 +1757,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/identhead/identhead_K1_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/identhead/identhead_K1_coedit_3seed.json",
       "selector": "$.arms[1].ind_ap",
       "count": 3,
       "recorded_n": 3,
@@ -1770,7 +1770,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/identhead/identhead_K1_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/identhead/identhead_K1_coedit_3seed.json",
       "selector": "$.arms[1].trans_ap",
       "count": 3,
       "recorded_n": 3,
@@ -1783,7 +1783,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/identhead/identhead_K1_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/identhead/identhead_K1_coedit_3seed.json",
       "selector": "$.arms[1].ind_auc",
       "count": 3,
       "recorded_n": 3,
@@ -1796,7 +1796,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/identhead/identhead_K1_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/identhead/identhead_K1_coedit_3seed.json",
       "selector": "$.arms[1].trans_auc",
       "count": 3,
       "recorded_n": 3,
@@ -1809,7 +1809,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/identhead/identhead_K1_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/identhead/identhead_K1_wikipedia_3seed.json",
       "selector": "$.arms[0].ind_ap",
       "count": 3,
       "recorded_n": 3,
@@ -1822,7 +1822,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/identhead/identhead_K1_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/identhead/identhead_K1_wikipedia_3seed.json",
       "selector": "$.arms[0].trans_ap",
       "count": 3,
       "recorded_n": 3,
@@ -1835,7 +1835,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/identhead/identhead_K1_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/identhead/identhead_K1_wikipedia_3seed.json",
       "selector": "$.arms[0].ind_auc",
       "count": 3,
       "recorded_n": 3,
@@ -1848,7 +1848,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/identhead/identhead_K1_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/identhead/identhead_K1_wikipedia_3seed.json",
       "selector": "$.arms[0].trans_auc",
       "count": 3,
       "recorded_n": 3,
@@ -1861,7 +1861,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/identhead/identhead_K1_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/identhead/identhead_K1_wikipedia_3seed.json",
       "selector": "$.arms[1].ind_ap",
       "count": 3,
       "recorded_n": 3,
@@ -1874,7 +1874,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/identhead/identhead_K1_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/identhead/identhead_K1_wikipedia_3seed.json",
       "selector": "$.arms[1].trans_ap",
       "count": 3,
       "recorded_n": 3,
@@ -1887,7 +1887,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/identhead/identhead_K1_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/identhead/identhead_K1_wikipedia_3seed.json",
       "selector": "$.arms[1].ind_auc",
       "count": 3,
       "recorded_n": 3,
@@ -1900,7 +1900,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/identhead/identhead_K1_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/identhead/identhead_K1_wikipedia_3seed.json",
       "selector": "$.arms[1].trans_auc",
       "count": 3,
       "recorded_n": 3,
@@ -1913,7 +1913,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_B_5seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_B_5seed.json",
       "selector": "$.summary.ind_ap",
       "count": 5,
       "recorded_n": 5,
@@ -1926,7 +1926,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_B_5seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_B_5seed.json",
       "selector": "$.summary.trans_ap",
       "count": 5,
       "recorded_n": 5,
@@ -1939,7 +1939,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_C_5seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_C_5seed.json",
       "selector": "$.summary.ind_ap",
       "count": 5,
       "recorded_n": 5,
@@ -1952,7 +1952,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_C_5seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_C_5seed.json",
       "selector": "$.summary.trans_ap",
       "count": 5,
       "recorded_n": 5,
@@ -1965,7 +1965,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
       "selector": "$.arms[0].ind_ap",
       "count": 3,
       "recorded_n": 3,
@@ -1978,7 +1978,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
       "selector": "$.arms[0].trans_ap",
       "count": 3,
       "recorded_n": 3,
@@ -1991,7 +1991,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
       "selector": "$.arms[0].ind_auc",
       "count": 3,
       "recorded_n": 3,
@@ -2004,7 +2004,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
       "selector": "$.arms[1].ind_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2017,7 +2017,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
       "selector": "$.arms[1].trans_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2030,7 +2030,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
       "selector": "$.arms[1].ind_auc",
       "count": 3,
       "recorded_n": 3,
@@ -2043,7 +2043,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
       "selector": "$.arms[2].ind_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2056,7 +2056,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
       "selector": "$.arms[2].trans_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2069,7 +2069,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
       "selector": "$.arms[2].ind_auc",
       "count": 3,
       "recorded_n": 3,
@@ -2082,7 +2082,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
       "selector": "$.arms[3].ind_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2095,7 +2095,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
       "selector": "$.arms[3].trans_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2108,7 +2108,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
       "selector": "$.arms[3].ind_auc",
       "count": 3,
       "recorded_n": 3,
@@ -2121,7 +2121,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
       "selector": "$.arms[4].ind_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2134,7 +2134,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
       "selector": "$.arms[4].trans_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2147,7 +2147,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
       "selector": "$.arms[4].ind_auc",
       "count": 3,
       "recorded_n": 3,
@@ -2160,7 +2160,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
       "selector": "$.arms[5].ind_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2173,7 +2173,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
       "selector": "$.arms[5].trans_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2186,7 +2186,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
       "selector": "$.arms[5].ind_auc",
       "count": 3,
       "recorded_n": 3,
@@ -2199,7 +2199,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_frozen_probe_control_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_frozen_probe_control_3seed.json",
       "selector": "$.arms.arm1_decoupling.coedit.ind_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2212,7 +2212,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_frozen_probe_control_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_frozen_probe_control_3seed.json",
       "selector": "$.arms.arm1_decoupling.coedit.trans_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2225,7 +2225,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_frozen_probe_control_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_frozen_probe_control_3seed.json",
       "selector": "$.arms.arm1_decoupling.wikipedia.ind_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2238,7 +2238,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_frozen_probe_control_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_frozen_probe_control_3seed.json",
       "selector": "$.arms.arm1_decoupling.wikipedia.trans_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2251,7 +2251,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_frozen_probe_control_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_frozen_probe_control_3seed.json",
       "selector": "$.arms.arm2_ftp.coedit.ind_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2264,7 +2264,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_frozen_probe_control_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_frozen_probe_control_3seed.json",
       "selector": "$.arms.arm2_ftp.coedit.trans_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2277,7 +2277,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_frozen_probe_control_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_frozen_probe_control_3seed.json",
       "selector": "$.arms.arm2_ftp.wikipedia.ind_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2290,7 +2290,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_frozen_probe_control_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_frozen_probe_control_3seed.json",
       "selector": "$.arms.arm2_ftp.wikipedia.trans_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2303,7 +2303,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_mooc_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_mooc_3seed.json",
       "selector": "$.meta.delta_ind_B_minus_K1",
       "count": 3,
       "recorded_n": null,
@@ -2316,7 +2316,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_mooc_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_mooc_3seed.json",
       "selector": "$.arms[0].ind_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2329,7 +2329,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_mooc_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_mooc_3seed.json",
       "selector": "$.arms[0].trans_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2342,7 +2342,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_mooc_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_mooc_3seed.json",
       "selector": "$.arms[0].ind_auc",
       "count": 3,
       "recorded_n": 3,
@@ -2355,7 +2355,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_mooc_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_mooc_3seed.json",
       "selector": "$.arms[1].ind_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2368,7 +2368,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_mooc_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_mooc_3seed.json",
       "selector": "$.arms[1].trans_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2381,7 +2381,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_mooc_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_mooc_3seed.json",
       "selector": "$.arms[1].ind_auc",
       "count": 3,
       "recorded_n": 3,
@@ -2394,7 +2394,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_mooc_3seed_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_mooc_3seed_PREIDFIX.json",
       "selector": "$.meta.delta_ind_B_minus_K1",
       "count": 3,
       "recorded_n": null,
@@ -2407,7 +2407,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_mooc_3seed_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_mooc_3seed_PREIDFIX.json",
       "selector": "$.arms[0].ind_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2420,7 +2420,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_mooc_3seed_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_mooc_3seed_PREIDFIX.json",
       "selector": "$.arms[0].trans_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2433,7 +2433,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_mooc_3seed_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_mooc_3seed_PREIDFIX.json",
       "selector": "$.arms[0].ind_auc",
       "count": 3,
       "recorded_n": 3,
@@ -2446,7 +2446,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_mooc_3seed_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_mooc_3seed_PREIDFIX.json",
       "selector": "$.arms[1].ind_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2459,7 +2459,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_mooc_3seed_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_mooc_3seed_PREIDFIX.json",
       "selector": "$.arms[1].trans_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2472,7 +2472,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_mooc_3seed_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_mooc_3seed_PREIDFIX.json",
       "selector": "$.arms[1].ind_auc",
       "count": 3,
       "recorded_n": 3,
@@ -2485,7 +2485,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_wikipedia_3seed.json",
       "selector": "$.meta.delta_ind_B_minus_K1",
       "count": 3,
       "recorded_n": null,
@@ -2498,7 +2498,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_wikipedia_3seed.json",
       "selector": "$.arms[0].ind_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2511,7 +2511,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_wikipedia_3seed.json",
       "selector": "$.arms[0].trans_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2524,7 +2524,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_wikipedia_3seed.json",
       "selector": "$.arms[0].ind_auc",
       "count": 3,
       "recorded_n": 3,
@@ -2537,7 +2537,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_wikipedia_3seed.json",
       "selector": "$.arms[1].ind_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2550,7 +2550,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_wikipedia_3seed.json",
       "selector": "$.arms[1].trans_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2563,7 +2563,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_wikipedia_3seed.json",
       "selector": "$.arms[1].ind_auc",
       "count": 3,
       "recorded_n": 3,
@@ -2576,7 +2576,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_wikipedia_3seed_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_wikipedia_3seed_PREIDFIX.json",
       "selector": "$.meta.delta_ind_B_minus_K1",
       "count": 3,
       "recorded_n": null,
@@ -2589,7 +2589,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_wikipedia_3seed_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_wikipedia_3seed_PREIDFIX.json",
       "selector": "$.arms[0].ind_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2602,7 +2602,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_wikipedia_3seed_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_wikipedia_3seed_PREIDFIX.json",
       "selector": "$.arms[0].trans_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2615,7 +2615,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_wikipedia_3seed_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_wikipedia_3seed_PREIDFIX.json",
       "selector": "$.arms[0].ind_auc",
       "count": 3,
       "recorded_n": 3,
@@ -2628,7 +2628,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_wikipedia_3seed_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_wikipedia_3seed_PREIDFIX.json",
       "selector": "$.arms[1].ind_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2641,7 +2641,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_wikipedia_3seed_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_wikipedia_3seed_PREIDFIX.json",
       "selector": "$.arms[1].trans_ap",
       "count": 3,
       "recorded_n": 3,
@@ -2654,7 +2654,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_wikipedia_3seed_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_wikipedia_3seed_PREIDFIX.json",
       "selector": "$.arms[1].ind_auc",
       "count": 3,
       "recorded_n": 3,
@@ -2667,7 +2667,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/experiments/results/cf_trained_theta_3seed.json",
+      "path": "results/recovered/artifacts/mixed-experiments/cf_trained_theta_3seed.json",
       "selector": "$.summary.p_edge_trained_DEATH",
       "count": 3,
       "recorded_n": null,
@@ -2680,7 +2680,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/experiments/results/cf_trained_theta_3seed.json",
+      "path": "results/recovered/artifacts/mixed-experiments/cf_trained_theta_3seed.json",
       "selector": "$.summary.p_edge_trained_IDLE",
       "count": 3,
       "recorded_n": null,
@@ -2693,7 +2693,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/experiments/results/cf_trained_theta_3seed.json",
+      "path": "results/recovered/artifacts/mixed-experiments/cf_trained_theta_3seed.json",
       "selector": "$.summary.p_edge_trained_DECAY",
       "count": 3,
       "recorded_n": null,
@@ -2706,7 +2706,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/experiments/results/cf_trained_theta_3seed.json",
+      "path": "results/recovered/artifacts/mixed-experiments/cf_trained_theta_3seed.json",
       "selector": "$.summary.p_edge_trained_REINFORCE",
       "count": 3,
       "recorded_n": null,
@@ -2719,7 +2719,7 @@
       "pass_count": true
     },
     {
-      "path": "payload/experiments/results/cf_trained_theta_3seed.json",
+      "path": "results/recovered/artifacts/mixed-experiments/cf_trained_theta_3seed.json",
       "selector": "$.summary.p_edge_trained_BIRTH",
       "count": 3,
       "recorded_n": null,
@@ -2740,49 +2740,49 @@
   ],
   "source_context": [
     {
-      "path": "context/experiments/LAB/v3_3/_backbone_removed_3seed.py",
+      "path": "evidence/source-archives/legacy-v33/_backbone_removed_3seed.py",
       "sha256": "d7a12cbc28c805ea156fbdfa6dfafabb715fe412ebfb9e90fc73c85efa0d8c1a",
       "source": "experiments/LAB/v3_3/_backbone_removed_3seed.py",
       "status": "UNBOUND_LEGACY_SCRIPT_NOT_EXECUTED"
     },
     {
-      "path": "context/experiments/LAB/v3_3/_hardneg_B_vs_K1_3seed.py",
+      "path": "evidence/source-archives/legacy-v33/_hardneg_B_vs_K1_3seed.py",
       "sha256": "03922804c3ce097cf3ddfc50b904e2da0527f4c5edd30f2ba4d5f71e0dad878c",
       "source": "experiments/LAB/v3_3/_hardneg_B_vs_K1_3seed.py",
       "status": "UNBOUND_LEGACY_SCRIPT_NOT_EXECUTED"
     },
     {
-      "path": "context/experiments/LAB/v3_3/_identhead_K1_3seed.py",
+      "path": "evidence/source-archives/legacy-v33/_identhead_K1_3seed.py",
       "sha256": "2da6edba2832de2bc93cc237bf89508a88f3dc7a51fa76f6e09755b1186f48e7",
       "source": "experiments/LAB/v3_3/_identhead_K1_3seed.py",
       "status": "UNBOUND_LEGACY_SCRIPT_NOT_EXECUTED"
     },
     {
-      "path": "context/experiments/LAB/v3_3/_knob_ablation_3seed.py",
+      "path": "evidence/source-archives/legacy-v33/_knob_ablation_3seed.py",
       "sha256": "cd41ed1b7dab4e687e83296cfdfcef78c08b90108aec72bda662e16c21f20406",
       "source": "experiments/LAB/v3_3/_knob_ablation_3seed.py",
       "status": "UNBOUND_LEGACY_SCRIPT_NOT_EXECUTED"
     },
     {
-      "path": "context/experiments/LAB/v3_3/_knob_ablation_stddata_3seed.py",
+      "path": "evidence/source-archives/legacy-v33/_knob_ablation_stddata_3seed.py",
       "sha256": "777486a7ce2a8895d646654931139d9bc1810720f3dd33596999dd3ecddfc0fa",
       "source": "experiments/LAB/v3_3/_knob_ablation_stddata_3seed.py",
       "status": "UNBOUND_LEGACY_SCRIPT_NOT_EXECUTED"
     },
     {
-      "path": "context/experiments/LAB/v3_3/_probe_detach_gradflow.py",
+      "path": "evidence/source-archives/legacy-v33/_probe_detach_gradflow.py",
       "sha256": "d92d6d0eac8babbdc427408936a922ed1f58df525ac9115209430c1d05b57c0a",
       "source": "experiments/LAB/v3_3/_probe_detach_gradflow.py",
       "status": "UNBOUND_LEGACY_SCRIPT_NOT_EXECUTED"
     },
     {
-      "path": "context/experiments/LAB/v3_3/_promote_5seed_coedit.py",
+      "path": "evidence/source-archives/legacy-v33/_promote_5seed_coedit.py",
       "sha256": "dbe803a46a1406bae5bc9f67f34b4fbcbf0e94ec5b57941985cb5dd9054805c5",
       "source": "experiments/LAB/v3_3/_promote_5seed_coedit.py",
       "status": "UNBOUND_LEGACY_SCRIPT_NOT_EXECUTED"
     },
     {
-      "path": "context/experiments/LAB/v3_3/_verify_causal_batch.py",
+      "path": "evidence/source-archives/legacy-v33/_verify_causal_batch.py",
       "sha256": "80ae5cadd4ac7db5cb64135b0590ff3225125ecca57f30b3fea62eff7611742e",
       "source": "experiments/LAB/v3_3/_verify_causal_batch.py",
       "status": "UNBOUND_LEGACY_SCRIPT_NOT_EXECUTED"
@@ -2790,267 +2790,267 @@
   ],
   "original_manifest_checks": [
     {
-      "path": "results/historical/legacy_import/a100_ab/v3_3_p0_ab.json",
+      "path": "results/recovered/legacy_import/a100_ab/v3_3_p0_ab.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/a100_ab/v3_3_p0_ab_wiki.json",
+      "path": "results/recovered/legacy_import/a100_ab/v3_3_p0_ab_wiki.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/backbone_removed/backbone_removed_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/backbone_removed/backbone_removed_coedit_3seed.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/backbone_removed/backbone_removed_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/backbone_removed/backbone_removed_wikipedia_3seed.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/baselines/_eb_mooc_s42.json",
+      "path": "results/recovered/legacy_import/baselines/_eb_mooc_s42.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/baselines/baselines_coedit_Bprotocol.json",
+      "path": "results/recovered/legacy_import/baselines/baselines_coedit_Bprotocol.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/baselines/baselines_coedit_TGAT_newseeds.json",
+      "path": "results/recovered/legacy_import/baselines/baselines_coedit_TGAT_newseeds.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/baselines/baselines_extra_coedit_Bprotocol.json",
+      "path": "results/recovered/legacy_import/baselines/baselines_extra_coedit_Bprotocol.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/baselines/baselines_extra_mooc_Bprotocol.json",
+      "path": "results/recovered/legacy_import/baselines/baselines_extra_mooc_Bprotocol.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/baselines/baselines_extra_mooc_Bprotocol_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/baselines/baselines_extra_mooc_Bprotocol_PREIDFIX.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/baselines/baselines_extra_wikipedia_Bprotocol.json",
+      "path": "results/recovered/legacy_import/baselines/baselines_extra_wikipedia_Bprotocol.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/baselines/baselines_extra_wikipedia_Bprotocol_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/baselines/baselines_extra_wikipedia_Bprotocol_PREIDFIX.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/baselines/baselines_mooc.json",
+      "path": "results/recovered/legacy_import/baselines/baselines_mooc.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/baselines/baselines_mooc_Bprotocol.json",
+      "path": "results/recovered/legacy_import/baselines/baselines_mooc_Bprotocol.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/baselines/baselines_mooc_Bprotocol_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/baselines/baselines_mooc_Bprotocol_PREIDFIX.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/baselines/baselines_wiki_coedit.json",
+      "path": "results/recovered/legacy_import/baselines/baselines_wiki_coedit.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/baselines/baselines_wikipedia_Bprotocol.json",
+      "path": "results/recovered/legacy_import/baselines/baselines_wikipedia_Bprotocol.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/baselines/baselines_wikipedia_Bprotocol_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/baselines/baselines_wikipedia_Bprotocol_PREIDFIX.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/baselines_coedit_TGAT_5seed.json",
+      "path": "results/recovered/legacy_import/baselines_coedit_TGAT_5seed.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/decoupling_invariants_verify.json",
+      "path": "results/recovered/legacy_import/decoupling_invariants_verify.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/execution_reconciliation.json",
+      "path": "results/recovered/legacy_import/execution_reconciliation.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed_v2.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed_v2.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed_v2.json",
+      "path": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed_v2.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/identhead/identhead_K1_coedit_3seed.json",
+      "path": "results/recovered/legacy_import/identhead/identhead_K1_coedit_3seed.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/identhead/identhead_K1_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/identhead/identhead_K1_wikipedia_3seed.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/reconcile/reconcile_dyglib_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/reconcile/reconcile_dyglib_wikipedia_3seed.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/v3_3_coedit_ARM_A_canonical_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_ARM_A_canonical_3seed.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/v3_3_coedit_ARM_B_publishable_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_ARM_B_publishable_3seed.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/v3_3_coedit_ARM_C_correct_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_ARM_C_correct_3seed.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/v3_3_coedit_B_5seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_B_5seed.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/v3_3_coedit_C_5seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_C_5seed.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/v3_3_coedit_detach_probe_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_detach_probe_3seed.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/v3_3_coedit_detach_probe_OFF_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_detach_probe_OFF_3seed.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/v3_3_coedit_detach_probe_ON_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_detach_probe_ON_3seed.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/v3_3_frozen_probe_ARM1_decoupling.json",
+      "path": "results/recovered/legacy_import/v3_3_frozen_probe_ARM1_decoupling.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/v3_3_frozen_probe_ARM1_decoupling_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/v3_3_frozen_probe_ARM1_decoupling_PREIDFIX.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/v3_3_frozen_probe_ARM2_ftp.json",
+      "path": "results/recovered/legacy_import/v3_3_frozen_probe_ARM2_ftp.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/v3_3_frozen_probe_ARM2_ftp_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/v3_3_frozen_probe_ARM2_ftp_PREIDFIX.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/v3_3_frozen_probe_ARM2_ftp_wikipedia_idfix.json",
+      "path": "results/recovered/legacy_import/v3_3_frozen_probe_ARM2_ftp_wikipedia_idfix.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/v3_3_frozen_probe_control_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_frozen_probe_control_3seed.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/v3_3_frozen_probe_control_3seed_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/v3_3_frozen_probe_control_3seed_PREIDFIX.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/v3_3_knob_ablation_mooc_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_mooc_3seed.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/v3_3_knob_ablation_mooc_3seed_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_mooc_3seed_PREIDFIX.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/v3_3_knob_ablation_wikipedia_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_wikipedia_3seed.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/v3_3_knob_ablation_wikipedia_3seed_PREIDFIX.json",
+      "path": "results/recovered/legacy_import/v3_3_knob_ablation_wikipedia_3seed_PREIDFIX.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/v3_3_mooc_ARM_A_canonical_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_mooc_ARM_A_canonical_3seed.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/v3_3_mooc_ARM_B_publishable_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_mooc_ARM_B_publishable_3seed.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/v3_3_mooc_ARM_B_publishable_3seed_rerun.json",
+      "path": "results/recovered/legacy_import/v3_3_mooc_ARM_B_publishable_3seed_rerun.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/v3_3_wikipedia_ARM_A_canonical_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_wikipedia_ARM_A_canonical_3seed.json",
       "exists": true,
       "matches": true
     },
     {
-      "path": "results/historical/legacy_import/v3_3_wikipedia_ARM_B_publishable_3seed.json",
+      "path": "results/recovered/legacy_import/v3_3_wikipedia_ARM_B_publishable_3seed.json",
       "exists": true,
       "matches": true
     }
@@ -3098,5 +3098,129 @@
       "source": "hardneg/hardneg_B_vs_K1_wikipedia_3seed_v2.json",
       "status": "ARITHMETIC_RECOVERED_PROTOCOL_NOT_ADMITTED"
     }
-  ]
+  ],
+  "path_basis": "repository-root",
+  "relocation_map": {
+    "payload/link-prediction/results/historical/legacy_import/a100_ab/v3_3_p0_ab.json": "results/recovered/legacy_import/a100_ab/v3_3_p0_ab.json",
+    "payload/link-prediction/results/historical/legacy_import/a100_ab/v3_3_p0_ab_wiki.json": "results/recovered/legacy_import/a100_ab/v3_3_p0_ab_wiki.json",
+    "payload/link-prediction/results/historical/legacy_import/backbone_removed/backbone_removed_coedit_3seed.json": "results/recovered/legacy_import/backbone_removed/backbone_removed_coedit_3seed.json",
+    "payload/link-prediction/results/historical/legacy_import/backbone_removed/backbone_removed_wikipedia_3seed.json": "results/recovered/legacy_import/backbone_removed/backbone_removed_wikipedia_3seed.json",
+    "payload/link-prediction/results/historical/legacy_import/baselines/_eb_mooc_s42.json": "results/recovered/legacy_import/baselines/_eb_mooc_s42.json",
+    "payload/link-prediction/results/historical/legacy_import/baselines/baselines_coedit_Bprotocol.json": "results/recovered/legacy_import/baselines/baselines_coedit_Bprotocol.json",
+    "payload/link-prediction/results/historical/legacy_import/baselines/baselines_coedit_TGAT_newseeds.json": "results/recovered/legacy_import/baselines/baselines_coedit_TGAT_newseeds.json",
+    "payload/link-prediction/results/historical/legacy_import/baselines/baselines_extra_coedit_Bprotocol.json": "results/recovered/legacy_import/baselines/baselines_extra_coedit_Bprotocol.json",
+    "payload/link-prediction/results/historical/legacy_import/baselines/baselines_extra_mooc_Bprotocol.json": "results/recovered/legacy_import/baselines/baselines_extra_mooc_Bprotocol.json",
+    "payload/link-prediction/results/historical/legacy_import/baselines/baselines_extra_mooc_Bprotocol_PREIDFIX.json": "results/recovered/legacy_import/baselines/baselines_extra_mooc_Bprotocol_PREIDFIX.json",
+    "payload/link-prediction/results/historical/legacy_import/baselines/baselines_extra_wikipedia_Bprotocol.json": "results/recovered/legacy_import/baselines/baselines_extra_wikipedia_Bprotocol.json",
+    "payload/link-prediction/results/historical/legacy_import/baselines/baselines_extra_wikipedia_Bprotocol_PREIDFIX.json": "results/recovered/legacy_import/baselines/baselines_extra_wikipedia_Bprotocol_PREIDFIX.json",
+    "payload/link-prediction/results/historical/legacy_import/baselines/baselines_mooc.json": "results/recovered/legacy_import/baselines/baselines_mooc.json",
+    "payload/link-prediction/results/historical/legacy_import/baselines/baselines_mooc_Bprotocol.json": "results/recovered/legacy_import/baselines/baselines_mooc_Bprotocol.json",
+    "payload/link-prediction/results/historical/legacy_import/baselines/baselines_mooc_Bprotocol_PREIDFIX.json": "results/recovered/legacy_import/baselines/baselines_mooc_Bprotocol_PREIDFIX.json",
+    "payload/link-prediction/results/historical/legacy_import/baselines/baselines_wiki_coedit.json": "results/recovered/legacy_import/baselines/baselines_wiki_coedit.json",
+    "payload/link-prediction/results/historical/legacy_import/baselines/baselines_wikipedia_Bprotocol.json": "results/recovered/legacy_import/baselines/baselines_wikipedia_Bprotocol.json",
+    "payload/link-prediction/results/historical/legacy_import/baselines/baselines_wikipedia_Bprotocol_PREIDFIX.json": "results/recovered/legacy_import/baselines/baselines_wikipedia_Bprotocol_PREIDFIX.json",
+    "payload/link-prediction/results/historical/legacy_import/baselines_coedit_TGAT_5seed.json": "results/recovered/legacy_import/baselines_coedit_TGAT_5seed.json",
+    "payload/link-prediction/results/historical/legacy_import/decoupling_invariants_verify.json": "results/recovered/legacy_import/decoupling_invariants_verify.json",
+    "payload/link-prediction/results/historical/legacy_import/execution_reconciliation.json": "results/recovered/legacy_import/execution_reconciliation.json",
+    "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed.json": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed.json",
+    "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed_v2.json": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed_v2.json",
+    "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed.json": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed.json",
+    "payload/link-prediction/results/historical/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed_v2.json": "results/recovered/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed_v2.json",
+    "payload/link-prediction/results/historical/legacy_import/identhead/identhead_K1_coedit_3seed.json": "results/recovered/legacy_import/identhead/identhead_K1_coedit_3seed.json",
+    "payload/link-prediction/results/historical/legacy_import/identhead/identhead_K1_wikipedia_3seed.json": "results/recovered/legacy_import/identhead/identhead_K1_wikipedia_3seed.json",
+    "payload/link-prediction/results/historical/legacy_import/reconcile/reconcile_dyglib_wikipedia_3seed.json": "results/recovered/legacy_import/reconcile/reconcile_dyglib_wikipedia_3seed.json",
+    "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_ARM_A_canonical_3seed.json": "results/recovered/legacy_import/v3_3_coedit_ARM_A_canonical_3seed.json",
+    "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_ARM_B_publishable_3seed.json": "results/recovered/legacy_import/v3_3_coedit_ARM_B_publishable_3seed.json",
+    "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_ARM_C_correct_3seed.json": "results/recovered/legacy_import/v3_3_coedit_ARM_C_correct_3seed.json",
+    "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_B_5seed.json": "results/recovered/legacy_import/v3_3_coedit_B_5seed.json",
+    "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_C_5seed.json": "results/recovered/legacy_import/v3_3_coedit_C_5seed.json",
+    "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_detach_probe_3seed.json": "results/recovered/legacy_import/v3_3_coedit_detach_probe_3seed.json",
+    "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_detach_probe_OFF_3seed.json": "results/recovered/legacy_import/v3_3_coedit_detach_probe_OFF_3seed.json",
+    "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_detach_probe_ON_3seed.json": "results/recovered/legacy_import/v3_3_coedit_detach_probe_ON_3seed.json",
+    "payload/link-prediction/results/historical/legacy_import/v3_3_coedit_knob_ablation_3seed.json": "results/recovered/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
+    "payload/link-prediction/results/historical/legacy_import/v3_3_frozen_probe_ARM1_decoupling.json": "results/recovered/legacy_import/v3_3_frozen_probe_ARM1_decoupling.json",
+    "payload/link-prediction/results/historical/legacy_import/v3_3_frozen_probe_ARM2_ftp.json": "results/recovered/legacy_import/v3_3_frozen_probe_ARM2_ftp.json",
+    "payload/link-prediction/results/historical/legacy_import/v3_3_frozen_probe_ARM2_ftp_wikipedia_idfix.json": "results/recovered/legacy_import/v3_3_frozen_probe_ARM2_ftp_wikipedia_idfix.json",
+    "payload/link-prediction/results/historical/legacy_import/v3_3_frozen_probe_control_3seed.json": "results/recovered/legacy_import/v3_3_frozen_probe_control_3seed.json",
+    "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_mooc_3seed.json": "results/recovered/legacy_import/v3_3_knob_ablation_mooc_3seed.json",
+    "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_mooc_3seed_PREIDFIX.json": "results/recovered/legacy_import/v3_3_knob_ablation_mooc_3seed_PREIDFIX.json",
+    "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_wikipedia_3seed.json": "results/recovered/legacy_import/v3_3_knob_ablation_wikipedia_3seed.json",
+    "payload/link-prediction/results/historical/legacy_import/v3_3_knob_ablation_wikipedia_3seed_PREIDFIX.json": "results/recovered/legacy_import/v3_3_knob_ablation_wikipedia_3seed_PREIDFIX.json",
+    "payload/link-prediction/results/historical/legacy_import/v3_3_mooc_ARM_A_canonical_3seed.json": "results/recovered/legacy_import/v3_3_mooc_ARM_A_canonical_3seed.json",
+    "payload/link-prediction/results/historical/legacy_import/v3_3_mooc_ARM_B_publishable_3seed.json": "results/recovered/legacy_import/v3_3_mooc_ARM_B_publishable_3seed.json",
+    "payload/link-prediction/results/historical/legacy_import/v3_3_mooc_ARM_B_publishable_3seed_rerun.json": "results/recovered/legacy_import/v3_3_mooc_ARM_B_publishable_3seed_rerun.json",
+    "payload/link-prediction/results/historical/legacy_import/v3_3_wikipedia_ARM_A_canonical_3seed.json": "results/recovered/legacy_import/v3_3_wikipedia_ARM_A_canonical_3seed.json",
+    "payload/link-prediction/results/historical/legacy_import/v3_3_wikipedia_ARM_B_publishable_3seed.json": "results/recovered/legacy_import/v3_3_wikipedia_ARM_B_publishable_3seed.json",
+    "payload/experiments/results/cf_trained_theta_3seed.json": "results/recovered/artifacts/mixed-experiments/cf_trained_theta_3seed.json",
+    "payload/experiments/results/fsm_v3_smoke/smoke_coedit_fixed_v2.json": "results/recovered/artifacts/mixed-experiments/fsm_v3_smoke/smoke_coedit_fixed_v2.json",
+    "payload/experiments/results/fsm_v3_smoke/smoke_coedit_fixed_v3.json": "results/recovered/artifacts/mixed-experiments/fsm_v3_smoke/smoke_coedit_fixed_v3.json",
+    "payload/experiments/results/fsm_v3_smoke/smoke_coedit_v2.json": "results/recovered/artifacts/mixed-experiments/fsm_v3_smoke/smoke_coedit_v2.json",
+    "payload/experiments/results/fsm_v3_smoke/smoke_coedit_v3.json": "results/recovered/artifacts/mixed-experiments/fsm_v3_smoke/smoke_coedit_v3.json",
+    "payload/experiments/results/fsm_v3_smoke/sweep_let_coedit_v3_let0p1.json": "results/recovered/artifacts/mixed-experiments/fsm_v3_smoke/sweep_let_coedit_v3_let0p1.json",
+    "payload/experiments/results/fsm_v3_smoke/sweep_let_coedit_v3_let0p5.json": "results/recovered/artifacts/mixed-experiments/fsm_v3_smoke/sweep_let_coedit_v3_let0p5.json",
+    "payload/experiments/results/fsm_v3_smoke/sweep_let_coedit_v3_let2p0.json": "results/recovered/artifacts/mixed-experiments/fsm_v3_smoke/sweep_let_coedit_v3_let2p0.json",
+    "payload/experiments/results/regime_baselines.json": "results/recovered/artifacts/mixed-experiments/regime_baselines.json",
+    "payload/experiments/results/regime_baselines_v2.json": "results/recovered/artifacts/mixed-experiments/regime_baselines_v2.json",
+    "payload/experiments/results/synth_robustness/exp1_coedit_v1.json": "results/recovered/artifacts/mixed-experiments/synth_robustness/exp1_coedit_v1.json",
+    "payload/experiments/results/synth_robustness/exp1_coedit_v2.json": "results/recovered/artifacts/mixed-experiments/synth_robustness/exp1_coedit_v2.json",
+    "payload/experiments/results/synth_robustness/exp1_synth_v1.json": "results/recovered/artifacts/mixed-experiments/synth_robustness/exp1_synth_v1.json",
+    "payload/experiments/results/synth_robustness/exp1_synth_v2.json": "results/recovered/artifacts/mixed-experiments/synth_robustness/exp1_synth_v2.json",
+    "payload/experiments/results/synth_robustness/exp2_baselines_a10.json": "results/recovered/artifacts/mixed-experiments/synth_robustness/exp2_baselines_a10.json",
+    "payload/experiments/results/synth_robustness/exp2_baselines_a15.json": "results/recovered/artifacts/mixed-experiments/synth_robustness/exp2_baselines_a15.json",
+    "payload/experiments/results/synth_robustness/exp2_baselines_clean.json": "results/recovered/artifacts/mixed-experiments/synth_robustness/exp2_baselines_clean.json",
+    "payload/experiments/results/synth_robustness/exp2_srgnn_canonical_a10.json": "results/recovered/artifacts/mixed-experiments/synth_robustness/exp2_srgnn_canonical_a10.json",
+    "payload/experiments/results/synth_robustness/exp2_srgnn_canonical_a15.json": "results/recovered/artifacts/mixed-experiments/synth_robustness/exp2_srgnn_canonical_a15.json",
+    "payload/experiments/results/synth_robustness/exp2_srgnn_canonical_clean.json": "results/recovered/artifacts/mixed-experiments/synth_robustness/exp2_srgnn_canonical_clean.json",
+    "payload/experiments/results/synth_robustness/exp2_srgnn_causal_a10.json": "results/recovered/artifacts/mixed-experiments/synth_robustness/exp2_srgnn_causal_a10.json",
+    "payload/experiments/results/synth_robustness/exp2_srgnn_causal_a15.json": "results/recovered/artifacts/mixed-experiments/synth_robustness/exp2_srgnn_causal_a15.json",
+    "payload/experiments/results/synth_robustness/exp2_srgnn_causal_clean.json": "results/recovered/artifacts/mixed-experiments/synth_robustness/exp2_srgnn_causal_clean.json",
+    "payload/experiments/results/v3_3_3arm_coedit_A_canonical_s42.json": "results/recovered/artifacts/mixed-experiments/v3_3_3arm_coedit_A_canonical_s42.json",
+    "payload/experiments/results/v3_3_3arm_coedit_B_decoupled_s42.json": "results/recovered/artifacts/mixed-experiments/v3_3_3arm_coedit_B_decoupled_s42.json",
+    "payload/experiments/results/v3_3_3arm_coedit_C_correct_s42.json": "results/recovered/artifacts/mixed-experiments/v3_3_3arm_coedit_C_correct_s42.json",
+    "payload/experiments/results/v3_3_causal_ab_coedit_cbOFF.json": "results/recovered/artifacts/mixed-experiments/v3_3_causal_ab_coedit_cbOFF.json",
+    "payload/experiments/results/v3_3_causal_ab_coedit_cbON.json": "results/recovered/artifacts/mixed-experiments/v3_3_causal_ab_coedit_cbON.json",
+    "payload/experiments/results/v3_3_coedit_B_causalOFF_3seed.json": "results/recovered/artifacts/mixed-experiments/v3_3_coedit_B_causalOFF_3seed.json",
+    "payload/experiments/results/v3_3_coedit_B_hcpOFF_3seed.json": "results/recovered/artifacts/mixed-experiments/v3_3_coedit_B_hcpOFF_3seed.json",
+    "payload/experiments/results/v3_3_hcp_coedit_OFF_s42.json": "results/recovered/artifacts/mixed-experiments/v3_3_hcp_coedit_OFF_s42.json",
+    "payload/experiments/results/v3_3_hcp_coedit_ON_s42.json": "results/recovered/artifacts/mixed-experiments/v3_3_hcp_coedit_ON_s42.json",
+    "payload/experiments/results/v3_3_lfg_HARD_coedit_s42.json": "results/recovered/artifacts/mixed-experiments/v3_3_lfg_HARD_coedit_s42.json",
+    "payload/experiments/results/v3_3_lfg_NONE_coedit_s42.json": "results/recovered/artifacts/mixed-experiments/v3_3_lfg_NONE_coedit_s42.json",
+    "payload/experiments/results/v3_3_lfg_SOFT_coedit_s42.json": "results/recovered/artifacts/mixed-experiments/v3_3_lfg_SOFT_coedit_s42.json",
+    "payload/experiments/results/v3_3_runner_coedit_OFF_s42.json": "results/recovered/artifacts/mixed-experiments/v3_3_runner_coedit_OFF_s42.json",
+    "payload/experiments/results/v3_3_runner_coedit_ON_s42.json": "results/recovered/artifacts/mixed-experiments/v3_3_runner_coedit_ON_s42.json",
+    "payload/experiments/results/v3_3_so6_coedit_Bref_s42.json": "results/recovered/artifacts/mixed-experiments/v3_3_so6_coedit_Bref_s42.json",
+    "payload/experiments/results/v3_3_sweep_dryrun.json": "results/recovered/artifacts/mixed-experiments/v3_3_sweep_dryrun.json",
+    "payload/experiments/results/v3_3_sweep_let_0.5.json": "results/recovered/artifacts/mixed-experiments/v3_3_sweep_let_0.5.json",
+    "payload/experiments/results/v3_3_sweep_let_10.0.json": "results/recovered/artifacts/mixed-experiments/v3_3_sweep_let_10.0.json",
+    "payload/experiments/results/v3_3_sweep_let_2.0.json": "results/recovered/artifacts/mixed-experiments/v3_3_sweep_let_2.0.json",
+    "payload/experiments/results/v3_3_tier1_coedit.json": "results/recovered/artifacts/mixed-experiments/v3_3_tier1_coedit.json",
+    "payload/experiments/results/v3_3_tier1_coedit_canonical.json": "results/recovered/artifacts/mixed-experiments/v3_3_tier1_coedit_canonical.json",
+    "payload/experiments/results/v3_3_tier1_smoke.json": "results/recovered/artifacts/mixed-experiments/v3_3_tier1_smoke.json",
+    "payload/experiments/results/v3_3_tier1b_coedit.json": "results/recovered/artifacts/mixed-experiments/v3_3_tier1b_coedit.json",
+    "payload/experiments/results/v3_3_tier1c_coedit.json": "results/recovered/artifacts/mixed-experiments/v3_3_tier1c_coedit.json",
+    "payload/experiments/results/v3_3_tier1d_coedit.json": "results/recovered/artifacts/mixed-experiments/v3_3_tier1d_coedit.json",
+    "payload/experiments/results/v3_3seed.json": "results/recovered/artifacts/mixed-experiments/v3_3seed.json",
+    "payload/experiments/results/v3_ablation.json": "results/recovered/artifacts/mixed-experiments/v3_ablation.json",
+    "payload/experiments/results/v3_audit_wiki_fixed.json": "results/recovered/artifacts/mixed-experiments/v3_audit_wiki_fixed.json",
+    "payload/experiments/results/v3_benchmark.json": "results/recovered/artifacts/mixed-experiments/v3_benchmark.json",
+    "payload/experiments/results/v3_final_fixed_cross.json": "results/recovered/artifacts/mixed-experiments/v3_final_fixed_cross.json",
+    "payload/experiments/results/v3_lean.json": "results/recovered/artifacts/mixed-experiments/v3_lean.json",
+    "payload/experiments/results/v3_lean_coedit.json": "results/recovered/artifacts/mixed-experiments/v3_lean_coedit.json",
+    "payload/experiments/results/v3_lean_mooc.json": "results/recovered/artifacts/mixed-experiments/v3_lean_mooc.json",
+    "payload/experiments/results/v3_lean_tune.json": "results/recovered/artifacts/mixed-experiments/v3_lean_tune.json",
+    "payload/experiments/results/v3_multi_debug.json": "results/recovered/artifacts/mixed-experiments/v3_multi_debug.json",
+    "payload/experiments/results/v3_multi_smoke.json": "results/recovered/artifacts/mixed-experiments/v3_multi_smoke.json",
+    "payload/experiments/results/v3_slow_test.json": "results/recovered/artifacts/mixed-experiments/v3_slow_test.json",
+    "payload/experiments/results/v3_smoke.json": "results/recovered/artifacts/mixed-experiments/v3_smoke.json",
+    "payload/experiments/results/v3_smoke2.json": "results/recovered/artifacts/mixed-experiments/v3_smoke2.json",
+    "payload/experiments/results/v3_speedtest.json": "results/recovered/artifacts/mixed-experiments/v3_speedtest.json",
+    "context/experiments/LAB/v3_3/_backbone_removed_3seed.py": "evidence/source-archives/legacy-v33/_backbone_removed_3seed.py",
+    "context/experiments/LAB/v3_3/_hardneg_B_vs_K1_3seed.py": "evidence/source-archives/legacy-v33/_hardneg_B_vs_K1_3seed.py",
+    "context/experiments/LAB/v3_3/_identhead_K1_3seed.py": "evidence/source-archives/legacy-v33/_identhead_K1_3seed.py",
+    "context/experiments/LAB/v3_3/_knob_ablation_3seed.py": "evidence/source-archives/legacy-v33/_knob_ablation_3seed.py",
+    "context/experiments/LAB/v3_3/_knob_ablation_stddata_3seed.py": "evidence/source-archives/legacy-v33/_knob_ablation_stddata_3seed.py",
+    "context/experiments/LAB/v3_3/_probe_detach_gradflow.py": "evidence/source-archives/legacy-v33/_probe_detach_gradflow.py",
+    "context/experiments/LAB/v3_3/_promote_5seed_coedit.py": "evidence/source-archives/legacy-v33/_promote_5seed_coedit.py",
+    "context/experiments/LAB/v3_3/_verify_causal_batch.py": "evidence/source-archives/legacy-v33/_verify_causal_batch.py"
+  }
 }

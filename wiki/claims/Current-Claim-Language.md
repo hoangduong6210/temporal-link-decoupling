@@ -1,7 +1,7 @@
 ---
 title: Current Claim Registry
 status: canonical claim registry
-last_updated: 2026-08-21
+last_updated: 2026-10-02
 paper_source: false
 ---
 
@@ -123,3 +123,7 @@ None registered. Absence of an admitted claim is not evidence of rejection.
 Do not call a legacy JSON current evidence, mix `PREIDFIX` and ID-fixed cells,
 state a seed count not present in the artifact, promote quarantined manuscript
 language, or describe the proxy implementations as external baselines.
+
+## Relationship to recovered historical results
+
+The restored records are indexed in [Historical Claim Ledger](Historical-Claim-Ledger.md). Recovery does not alter the admitted statement, denominator or selectors above. A future historical-result admission requires its own provenance review; the current shared-readout contrast must not be replaced by an earlier head-replacement contrast.
