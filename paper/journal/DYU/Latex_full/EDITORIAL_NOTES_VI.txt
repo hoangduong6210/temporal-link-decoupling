@@ -25,5 +25,5 @@ https://jo.dyu.edu.tw/setjournal/document/jour04-1.pdf
 TRẠNG THÁI
 Bản thảo làm việc, chưa gửi tòa soạn, chưa phải immutable paper snapshot.
 numeric-sources.json là source map, CHƯA thay thế registry từng occurrence của publication gate.
-Cần xác nhận chính xác tên khoa bằng tiếng Trung, địa chỉ đầy đủ và số điện thoại liên hệ theo biểu mẫu.
+Đã bổ sung địa chỉ liên hệ của hai trường dưới từng đơn vị ở cả trang Anh và Trung. Cần xác nhận chính xác tên khoa bằng tiếng Trung và số điện thoại liên hệ theo biểu mẫu.
 Không tự điền chữ ký, cam kết tác giả, ngày nhận/duyệt hoặc thông tin xuất bản.

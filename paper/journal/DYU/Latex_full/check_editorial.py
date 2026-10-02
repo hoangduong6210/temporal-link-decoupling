@@ -39,7 +39,7 @@ report = dict(source_sha256=hashlib.sha256(s.encode()).hexdigest(),
     editorial_policy="Prioritize method, results and interpretation; cite only sources serving the argument. Do not fabricate evidence or certify non-AI authorship.",
     manual_checks_remaining=[
         "Recheck visual pagination and table widths after future source or font changes; current export review is recorded in verification.json.",
-        "Complete author postal addresses, Chinese affiliations and contact telephone.",
+        "Confirm author affiliation wording, Chinese departments and contact telephone. Institutional mailing addresses have been added from official sources.",
         "Recheck the required Word submission files after future source changes; current exports are synchronized.",
         "Formal evidence-snapshot admission; historical original execution bindings remain incomplete."
     ])

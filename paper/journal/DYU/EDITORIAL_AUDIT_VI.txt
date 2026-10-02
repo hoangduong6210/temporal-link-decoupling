@@ -23,5 +23,5 @@ https://jo.dyu.edu.tw/setjournal/contribute.htm
 https://jo.dyu.edu.tw/setjournal/document/jour04-1.pdf
 Hướng dẫn nêu 10.000 từ tiếng Anh hoặc tương đương 12 trang in, có cơ chế phí trang vượt sau chấp nhận; không phải cấm tuyệt đối bản dài hơn 12 trang.
 Abstract song ngữ riêng trang, tối đa 500; A4, giãn dòng 1.5, references dùng trong bài và xếp alphabet.
-Còn cần hoàn thiện địa chỉ/tên khoa tiếng Trung/số điện thoại trước khi nộp. Phân trang cần kiểm tra lại nếu thay font hoặc phần mềm.
+Đã bổ sung địa chỉ đơn vị dưới department theo template; còn cần xác nhận tên khoa tiếng Trung/số điện thoại trước khi nộp. Phân trang cần kiểm tra lại nếu thay font hoặc phần mềm.
 Historical execution bindings và formal paper snapshot admission còn thiếu. Không xem native compile hoặc source checks là chứng nhận sẵn sàng nộp.

@@ -4,13 +4,13 @@
   "word_pages": 13,
   "legacy_doc_pages": 13,
   "references": 40,
-  "source_sha256": "78ebd488b5995795b5e365568ccf66afd5163936460dd7e0a3a51f189844c299",
-  "pdf_sha256": "955c3307833e2aaddf0d4a4ac3a4738b639d3cd4f2e5a72f22fa0e8fea54ae30",
-  "docx_sha256": "f42dd9cf0c2d824794e34fb3df0264f529b49c0a0d56f82f178976453708b6ff",
-  "doc_sha256": "fb72207a13571553479a88f9f9a3146196acf27ece35686aa8f43e89aab88277",
+  "source_sha256": "167ad19e60e4c32e4e5cc8403395cb400a8a1d862b3737b3c9d068112f5e321f",
+  "pdf_sha256": "c7d155906c89939f6b8cdc5c7215801ed4ccd3afab6b74826240306847cdb7ba",
+  "docx_sha256": "6064c0fa46c86c73654245f1f68a798b69c795b261fa72bba7f7653651c69625",
+  "doc_sha256": "4ce68b374a8f158d6127ed9bcffb422871ae6c4e7ee7cb0d977dbcf6e0d21927",
   "native_editor_compilation": "success",
   "delivered_export": "Tectonic 0.15.0; Times New Roman and Songti TC",
-  "visual_review": "PDF and DOCX pages reviewed after export; legacy DOC rendered separately and reviewed. No clipped content or detached table captions found. Pagination can vary by font and renderer.",
+  "visual_review": "English and Chinese title pages inspected after adding institutional addresses. All body pages are unchanged from the reviewed preceding exports: PDF content streams match; DOCX/DOC body-page renders are pixel-identical. PDF 12 pages; DOCX and DOC 13 pages.",
   "overfull_box_warnings": 0,
   "missing_character_warnings": 0,
   "all_references_cited": true,
@@ -25,9 +25,22 @@
     "Overleaf main.tex matches compiled source byte-for-byte"
   ],
   "validation_limits": [
-    "Author postal addresses, Chinese affiliations and contact telephone remain to be completed.",
+    "Author affiliation wording, Chinese departments and contact telephone remain to be confirmed.",
     "Historical original execution bindings and formal paper-snapshot admission remain incomplete.",
     "No new training, plagiarism scan or AI-authorship certification."
   ],
-  "editorial_change": "Restore eight relevant sources with method and evaluation discussion; preserve all experimental tables and template typography."
+  "editorial_change": "Restore eight relevant sources with method and evaluation discussion; preserve all experimental tables and template typography.",
+  "affiliation_addresses": {
+    "checked_on": "2026-10-02",
+    "template": "Department and Address are separate centered 9-point lines; English lines italic.",
+    "Da-Yeh University": {
+      "address": "No. 168, University Rd., Dacun, Changhua 515006, Taiwan",
+      "source": "https://sis.dyu.edu.tw/"
+    },
+    "Kent State University": {
+      "address": "P.O. Box 5190, Kent, OH 44242-0001, United States",
+      "source": "https://www.kent.edu/cs/contact-information",
+      "kind": "U.S. Mail"
+    }
+  }
 }

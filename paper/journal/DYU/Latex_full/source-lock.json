@@ -1,5 +1,5 @@
 {
-  "source_commit": "7f80c1f72c63ad9ab59880304020c443ed07c044",
+  "source_commit": "84589600a99170c13a77690498fcc72cc55c3602",
   "inputs": {
     "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
     "protocols/link_prediction_v1.toml": "6186c279806cf86d2a4c704997e4d179e341e0a095cc85c107cae890cb6b34c3",
@@ -24,6 +24,6 @@
     "results/recovered/legacy_import/v3_3_frozen_probe_ARM2_ftp.json": "5da4bbaa599f3ab244f8ce813c78c15ed81a396f335777dffd2d394118cf4645",
     "results/recovered/legacy_import/v3_3_frozen_probe_ARM2_ftp_wikipedia_idfix.json": "7bf1256bb2ae8793d86aa927bb0256873c84e3508c9ed0749196564b2715873e"
   },
-  "source_sha256": "78ebd488b5995795b5e365568ccf66afd5163936460dd7e0a3a51f189844c299",
+  "source_sha256": "167ad19e60e4c32e4e5cc8403395cb400a8a1d862b3737b3c9d068112f5e321f",
   "references": 40
 }
