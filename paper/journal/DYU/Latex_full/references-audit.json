@@ -1,5 +1,5 @@
 {
-  "count": 72,
+  "count": 32,
   "checked_on": "2026-10-02",
   "scope": "Citation relevance and primary-source bibliographic identity; no AI-authorship or plagiarism certification",
   "references": [
@@ -21,7 +21,7 @@
       "primary_url": "https://arxiv.org/abs/1711.05101",
       "publication_url": "https://arxiv.org/abs/1711.05101",
       "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 2
+      "citation_occurrences": 1
     },
     {
       "key": "alain",
@@ -35,60 +35,6 @@
       "primary_url": "https://arxiv.org/abs/1612.00410",
       "bibliography": "Alemi, A. A., I. Fischer, J. V. Dillon and K. Murphy (2017) Deep variational information bottleneck. International Conference on Learning Representations. arXiv:1612.00410.",
       "verification": "Retained reference from prior source audit; URL retained for review.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "attention",
-      "title": "Attention Is All You Need",
-      "authors": [
-        "Ashish Vaswani",
-        "Noam Shazeer",
-        "Niki Parmar",
-        "Jakob Uszkoreit",
-        "Llion Jones",
-        "Aidan N. Gomez",
-        "Lukasz Kaiser",
-        "Illia Polosukhin"
-      ],
-      "cited_version_year": "2017",
-      "primary_url": "https://arxiv.org/abs/1706.03762",
-      "publication_url": "https://arxiv.org/abs/1706.03762",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "barlow",
-      "title": "Barlow Twins: Self-Supervised Learning via Redundancy Reduction",
-      "authors": [
-        "Jure Zbontar",
-        "Li Jing",
-        "Ishan Misra",
-        "Yann LeCun",
-        "Stéphane Deny"
-      ],
-      "cited_version_year": "2021",
-      "primary_url": "https://arxiv.org/abs/2103.03230",
-      "publication_url": "https://arxiv.org/abs/2103.03230",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "bgrl",
-      "title": "Large-Scale Representation Learning on Graphs via Bootstrapping",
-      "authors": [
-        "Shantanu Thakoor",
-        "Corentin Tallec",
-        "Mohammad Gheshlaghi Azar",
-        "Mehdi Azabou",
-        "Eva L. Dyer",
-        "Rémi Munos",
-        "Petar Veličković",
-        "Michal Valko"
-      ],
-      "cited_version_year": "2021",
-      "primary_url": "https://arxiv.org/abs/2102.06514",
-      "publication_url": "https://arxiv.org/abs/2102.06514",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
       "citation_occurrences": 1
     },
     {
@@ -117,21 +63,6 @@
       "citation_occurrences": 1
     },
     {
-      "key": "calibration",
-      "title": "On Calibration of Modern Neural Networks",
-      "authors": [
-        "Chuan Guo",
-        "Geoff Pleiss",
-        "Yu Sun",
-        "Kilian Q. Weinberger"
-      ],
-      "cited_version_year": "2017",
-      "primary_url": "https://arxiv.org/abs/1706.04599",
-      "publication_url": "https://arxiv.org/abs/1706.04599",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
       "key": "cawn",
       "primary_url": "https://arxiv.org/abs/2101.05974",
       "bibliography": "Wang, Y., Y.-Y. Chang, Y. Liu, J. Leskovec and P. Li (2021) Inductive representation learning in temporal networks via causal anonymous walks. International Conference on Learning Representations. arXiv:2101.05974.",
@@ -139,278 +70,17 @@
       "citation_occurrences": 1
     },
     {
-      "key": "cpc",
-      "title": "Representation Learning with Contrastive Predictive Coding",
-      "authors": [
-        "Aaron van den Oord",
-        "Yazhe Li",
-        "Oriol Vinyals"
-      ],
-      "cited_version_year": "2018",
-      "primary_url": "https://arxiv.org/abs/1807.03748",
-      "publication_url": "https://arxiv.org/abs/1807.03748",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "deepwalk",
-      "title": "DeepWalk: Online Learning of Social Representations",
-      "authors": [
-        "Bryan Perozzi",
-        "Rami Al-Rfou",
-        "Steven Skiena"
-      ],
-      "cited_version_year": "2014",
-      "primary_url": "https://arxiv.org/abs/1403.6652",
-      "publication_url": "https://arxiv.org/abs/1403.6652",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "dgi",
-      "title": "Deep Graph Infomax",
-      "authors": [
-        "Petar Veličković",
-        "William Fedus",
-        "William L. Hamilton",
-        "Pietro Liò",
-        "Yoshua Bengio",
-        "R Devon Hjelm"
-      ],
-      "cited_version_year": "2018",
-      "primary_url": "https://arxiv.org/abs/1809.10341",
-      "publication_url": "https://arxiv.org/abs/1809.10341",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "dino",
-      "primary_url": "https://arxiv.org/abs/2104.14294",
-      "bibliography": "Caron, M., H. Touvron, I. Misra, H. J\\'egou, J. Mairal, P. Bojanowski and A. Joulin (2021) Emerging properties in self-supervised vision transformers. IEEE/CVF International Conference on Computer Vision, 9650--9660.",
-      "verification": "Retained reference from prior source audit; URL retained for review.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "dropout",
-      "title": "Improving neural networks by preventing co-adaptation of feature detectors",
-      "authors": [
-        "Geoffrey E. Hinton",
-        "Nitish Srivastava",
-        "Alex Krizhevsky",
-        "Ilya Sutskever",
-        "Ruslan R. Salakhutdinov"
-      ],
-      "cited_version_year": "2012",
-      "primary_url": "https://arxiv.org/abs/1207.0580",
-      "publication_url": "https://arxiv.org/abs/1207.0580",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
       "key": "dygformer",
       "primary_url": "https://arxiv.org/abs/2303.13047",
       "bibliography": "Yu, L., L. Sun, B. Du and W. Lv (2023) Towards better dynamic graph learning: New architecture and unified library. Advances in Neural Information Processing Systems, 36. arXiv:2303.13047.",
       "verification": "Retained reference from prior source audit; URL retained for review.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "dynedge",
-      "title": "Dynamic Node Embeddings from Edge Streams",
-      "authors": [
-        "John Boaz Lee",
-        "Giang Nguyen",
-        "Ryan A. Rossi",
-        "Nesreen K. Ahmed",
-        "Eunyee Koh",
-        "Sungchul Kim"
-      ],
-      "cited_version_year": "2019",
-      "primary_url": "https://arxiv.org/abs/1904.06449",
-      "publication_url": "https://arxiv.org/abs/1904.06449",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "dyngem",
-      "title": "DynGEM: Deep Embedding Method for Dynamic Graphs",
-      "authors": [
-        "Palash Goyal",
-        "Nitin Kamra",
-        "Xinran He",
-        "Yan Liu"
-      ],
-      "cited_version_year": "2018",
-      "primary_url": "https://arxiv.org/abs/1805.11273",
-      "publication_url": "https://arxiv.org/abs/1805.11273",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "dyngraph",
-      "title": "dyngraph2vec: Capturing Network Dynamics using Dynamic Graph Representation Learning",
-      "authors": [
-        "Palash Goyal",
-        "Sujit Rokka Chhetri",
-        "Arquimedes Canedo"
-      ],
-      "cited_version_year": "2020",
-      "primary_url": "https://arxiv.org/abs/1809.02657",
-      "publication_url": "https://doi.org/10.1016/j.knosys.2019.06.024",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "dynnode",
-      "title": "dynnode2vec: Scalable Dynamic Network Embedding",
-      "authors": [
-        "Sedigheh Mahdavi",
-        "Shima Khoshraftar",
-        "Aijun An"
-      ],
-      "cited_version_year": "2018",
-      "primary_url": "https://arxiv.org/abs/1812.02356",
-      "publication_url": "https://arxiv.org/abs/1812.02356",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
+      "citation_occurrences": 2
     },
     {
       "key": "dyrep",
       "primary_url": "https://openreview.net/forum?id=HyePrhR5KX",
       "bibliography": "Trivedi, R., M. Farajtabar, P. Biswal and H. Zha (2019) DyRep: Learning representations over dynamic graphs. International Conference on Learning Representations.",
       "verification": "Retained reference from prior source audit; URL retained for review.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "dysat",
-      "title": "Dynamic Graph Representation Learning via Self-Attention Networks",
-      "authors": [
-        "Aravind Sankar",
-        "Yanhong Wu",
-        "Liang Gou",
-        "Wei Zhang",
-        "Hao Yang"
-      ],
-      "cited_version_year": "2018",
-      "primary_url": "https://arxiv.org/abs/1812.09430",
-      "publication_url": "https://arxiv.org/abs/1812.09430",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "evolvegcn",
-      "title": "EvolveGCN: Evolving Graph Convolutional Networks for Dynamic Graphs",
-      "authors": [
-        "Aldo Pareja",
-        "Giacomo Domeniconi",
-        "Jie Chen",
-        "Tengfei Ma",
-        "Toyotaro Suzumura",
-        "Hiroki Kanezashi",
-        "Tim Kaler",
-        "Tao B. Schardl",
-        "Charles E. Leiserson"
-      ],
-      "cited_version_year": "2019",
-      "primary_url": "https://arxiv.org/abs/1902.10191",
-      "publication_url": "https://arxiv.org/abs/1902.10191",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "gat",
-      "title": "Graph Attention Networks",
-      "authors": [
-        "Petar Veličković",
-        "Guillem Cucurull",
-        "Arantxa Casanova",
-        "Adriana Romero",
-        "Pietro Liò",
-        "Yoshua Bengio"
-      ],
-      "cited_version_year": "2017",
-      "primary_url": "https://arxiv.org/abs/1710.10903",
-      "publication_url": "https://arxiv.org/abs/1710.10903",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "gcn",
-      "title": "Semi-Supervised Classification with Graph Convolutional Networks",
-      "authors": [
-        "Thomas N. Kipf",
-        "Max Welling"
-      ],
-      "cited_version_year": "2016",
-      "primary_url": "https://arxiv.org/abs/1609.02907",
-      "publication_url": "https://arxiv.org/abs/1609.02907",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "gin",
-      "title": "How Powerful are Graph Neural Networks?",
-      "authors": [
-        "Keyulu Xu",
-        "Weihua Hu",
-        "Jure Leskovec",
-        "Stefanie Jegelka"
-      ],
-      "cited_version_year": "2018",
-      "primary_url": "https://arxiv.org/abs/1810.00826",
-      "publication_url": "https://arxiv.org/abs/1810.00826",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "grace",
-      "title": "Deep Graph Contrastive Representation Learning",
-      "authors": [
-        "Yanqiao Zhu",
-        "Yichen Xu",
-        "Feng Yu",
-        "Qiang Liu",
-        "Shu Wu",
-        "Liang Wang"
-      ],
-      "cited_version_year": "2020",
-      "primary_url": "https://arxiv.org/abs/2006.04131",
-      "publication_url": "https://arxiv.org/abs/2006.04131",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "graphcl",
-      "title": "Graph Contrastive Learning with Augmentations",
-      "authors": [
-        "Yuning You",
-        "Tianlong Chen",
-        "Yongduo Sui",
-        "Ting Chen",
-        "Zhangyang Wang",
-        "Yang Shen"
-      ],
-      "cited_version_year": "2020",
-      "primary_url": "https://arxiv.org/abs/2010.13902",
-      "publication_url": "https://arxiv.org/abs/2010.13902",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "graphmae",
-      "title": "GraphMAE: Self-Supervised Masked Graph Autoencoders",
-      "authors": [
-        "Zhenyu Hou",
-        "Xiao Liu",
-        "Yukuo Cen",
-        "Yuxiao Dong",
-        "Hongxia Yang",
-        "Chunjie Wang",
-        "Jie Tang"
-      ],
-      "cited_version_year": "2022",
-      "primary_url": "https://arxiv.org/abs/2205.10803",
-      "publication_url": "https://doi.org/10.1145/3534678.3539321",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
       "citation_occurrences": 1
     },
     {
@@ -493,21 +163,6 @@
       "citation_occurrences": 2
     },
     {
-      "key": "knowevolve",
-      "title": "Know-Evolve: Deep Temporal Reasoning for Dynamic Knowledge Graphs",
-      "authors": [
-        "Rakshit Trivedi",
-        "Hanjun Dai",
-        "Yichen Wang",
-        "Le Song"
-      ],
-      "cited_version_year": "2017",
-      "primary_url": "https://arxiv.org/abs/1705.05742",
-      "publication_url": "https://arxiv.org/abs/1705.05742",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
       "key": "kumar",
       "primary_url": "https://arxiv.org/abs/2202.10054",
       "bibliography": "Kumar, A., A. Raghunathan, R. Jones, T. Ma and P. Liang (2022) Fine-tuning can distort pretrained features and underperform out-of-distribution. International Conference on Learning Representations. arXiv:2202.10054.",
@@ -528,71 +183,6 @@
       "citation_occurrences": 1
     },
     {
-      "key": "line",
-      "title": "LINE: Large-scale Information Network Embedding",
-      "authors": [
-        "Jian Tang",
-        "Meng Qu",
-        "Mingzhe Wang",
-        "Ming Zhang",
-        "Jun Yan",
-        "Qiaozhu Mei"
-      ],
-      "cited_version_year": "2015",
-      "primary_url": "https://arxiv.org/abs/1503.03578",
-      "publication_url": "https://arxiv.org/abs/1503.03578",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "mibounds",
-      "title": "On Variational Bounds of Mutual Information",
-      "authors": [
-        "Ben Poole",
-        "Sherjil Ozair",
-        "Aaron van den Oord",
-        "Alexander A. Alemi",
-        "George Tucker"
-      ],
-      "cited_version_year": "2019",
-      "primary_url": "https://arxiv.org/abs/1905.06922",
-      "publication_url": "https://arxiv.org/abs/1905.06922",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "moco",
-      "title": "Momentum Contrast for Unsupervised Visual Representation Learning",
-      "authors": [
-        "Kaiming He",
-        "Haoqi Fan",
-        "Yuxin Wu",
-        "Saining Xie",
-        "Ross Girshick"
-      ],
-      "cited_version_year": "2020",
-      "primary_url": "https://arxiv.org/abs/1911.05722",
-      "publication_url": "https://doi.org/10.1109/cvpr42600.2020.00975",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "mpnn",
-      "title": "Neural Message Passing for Quantum Chemistry",
-      "authors": [
-        "Justin Gilmer",
-        "Samuel S. Schoenholz",
-        "Patrick F. Riley",
-        "Oriol Vinyals",
-        "George E. Dahl"
-      ],
-      "cited_version_year": "2017",
-      "primary_url": "https://arxiv.org/abs/1704.01212",
-      "publication_url": "https://arxiv.org/abs/1704.01212",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
       "key": "nat",
       "primary_url": "https://proceedings.mlr.press/v198/luo22a.html",
       "bibliography": "Luo, Y. and P. Li (2022) Neighborhood-aware scalable temporal network representation learning. Proceedings of the First Learning on Graphs Conference, PMLR, 198, 1:1--1:18.",
@@ -600,70 +190,10 @@
       "citation_occurrences": 1
     },
     {
-      "key": "node2vec",
-      "title": "node2vec: Scalable Feature Learning for Networks",
-      "authors": [
-        "Aditya Grover",
-        "Jure Leskovec"
-      ],
-      "cited_version_year": "2016",
-      "primary_url": "https://arxiv.org/abs/1607.00653",
-      "publication_url": "https://arxiv.org/abs/1607.00653",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "ogb",
-      "title": "Open Graph Benchmark: Datasets for Machine Learning on Graphs",
-      "authors": [
-        "Weihua Hu",
-        "Matthias Fey",
-        "Marinka Zitnik",
-        "Yuxiao Dong",
-        "Hongyu Ren",
-        "Bowen Liu",
-        "Michele Catasta",
-        "Jure Leskovec"
-      ],
-      "cited_version_year": "2020",
-      "primary_url": "https://arxiv.org/abs/2005.00687",
-      "publication_url": "https://arxiv.org/abs/2005.00687",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "pitfalls",
-      "title": "Pitfalls of Graph Neural Network Evaluation",
-      "authors": [
-        "Oleksandr Shchur",
-        "Maximilian Mumme",
-        "Aleksandar Bojchevski",
-        "Stephan Günnemann"
-      ],
-      "cited_version_year": "2018",
-      "primary_url": "https://arxiv.org/abs/1811.05868",
-      "publication_url": "https://arxiv.org/abs/1811.05868",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
       "key": "poursafaei",
       "primary_url": "https://arxiv.org/abs/2207.10128",
       "bibliography": "Poursafaei, F., S. Huang, K. Pelrine and R. Rabbany (2022) Towards better evaluation for dynamic link prediction. Advances in Neural Information Processing Systems, 35. arXiv:2207.10128.",
       "verification": "Retained reference from prior source audit; URL retained for review.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "pyg",
-      "title": "Fast Graph Representation Learning with PyTorch Geometric",
-      "authors": [
-        "Matthias Fey",
-        "Jan Eric Lenssen"
-      ],
-      "cited_version_year": "2019",
-      "primary_url": "https://arxiv.org/abs/1903.02428",
-      "publication_url": "https://arxiv.org/abs/1903.02428",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
       "citation_occurrences": 1
     },
     {
@@ -695,20 +225,6 @@
       "cited_version_year": "2019",
       "primary_url": "https://arxiv.org/abs/1912.01703",
       "publication_url": "https://arxiv.org/abs/1912.01703",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "recs",
-      "title": "Are We Really Making Much Progress? A Worrying Analysis of Recent Neural Recommendation Approaches",
-      "authors": [
-        "Maurizio Ferrari Dacrema",
-        "Paolo Cremonesi",
-        "Dietmar Jannach"
-      ],
-      "cited_version_year": "2019",
-      "primary_url": "https://arxiv.org/abs/1907.06902",
-      "publication_url": "https://doi.org/10.1145/3298689.3347058",
       "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
       "citation_occurrences": 1
     },
@@ -764,45 +280,10 @@
       "citation_occurrences": 2
     },
     {
-      "key": "simclr",
-      "title": "A Simple Framework for Contrastive Learning of Visual Representations",
-      "authors": [
-        "Ting Chen",
-        "Simon Kornblith",
-        "Mohammad Norouzi",
-        "Geoffrey Hinton"
-      ],
-      "cited_version_year": "2020",
-      "primary_url": "https://arxiv.org/abs/2002.05709",
-      "publication_url": "https://arxiv.org/abs/2002.05709",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
       "key": "simsiam",
       "primary_url": "https://arxiv.org/abs/2011.10566",
       "bibliography": "Chen, X. and K. He (2021) Exploring simple Siamese representation learning. IEEE/CVF Conference on Computer Vision and Pattern Recognition, 15750--15758.",
       "verification": "Retained reference from prior source audit; URL retained for review.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "supcon",
-      "title": "Supervised Contrastive Learning",
-      "authors": [
-        "Prannay Khosla",
-        "Piotr Teterwak",
-        "Chen Wang",
-        "Aaron Sarna",
-        "Yonglong Tian",
-        "Phillip Isola",
-        "Aaron Maschinot",
-        "Ce Liu",
-        "Dilip Krishnan"
-      ],
-      "cited_version_year": "2020",
-      "primary_url": "https://arxiv.org/abs/2004.11362",
-      "publication_url": "https://arxiv.org/abs/2004.11362",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
       "citation_occurrences": 1
     },
     {
@@ -824,13 +305,6 @@
       "citation_occurrences": 1
     },
     {
-      "key": "tcl",
-      "primary_url": "https://arxiv.org/abs/2105.07944",
-      "bibliography": "Wang, L., X. Chang, S. Li, Y. Chu, H. Li, W. Zhang, X. He, L. Song, J. Zhou and H. Yang (2021) TCL: Transformer-based dynamic graph modelling via contrastive learning. arXiv:2105.07944.",
-      "verification": "Retained reference from prior source audit; URL retained for review.",
-      "citation_occurrences": 1
-    },
-    {
       "key": "tgat",
       "primary_url": "https://arxiv.org/abs/2002.07962",
       "bibliography": "Xu, D., C. Ruan, E. Korpeoglu, S. Kumar and K. Achan (2020) Inductive representation learning on temporal graphs. International Conference on Learning Representations. arXiv:2002.07962.",
@@ -845,29 +319,6 @@
       "citation_occurrences": 1
     },
     {
-      "key": "tgb2",
-      "title": "TGB 2.0: A Benchmark for Learning on Temporal Knowledge Graphs and Heterogeneous Graphs",
-      "authors": [
-        "Julia Gastinger",
-        "Shenyang Huang",
-        "Mikhail Galkin",
-        "Erfan Loghmani",
-        "Ali Parviz",
-        "Farimah Poursafaei",
-        "Jacob Danovitch",
-        "Emanuele Rossi",
-        "Ioannis Koutis",
-        "Heiner Stuckenschmidt",
-        "Reihaneh Rabbany",
-        "Guillaume Rabusseau"
-      ],
-      "cited_version_year": "2024",
-      "primary_url": "https://arxiv.org/abs/2406.09639",
-      "publication_url": "https://arxiv.org/abs/2406.09639",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
       "key": "tgn",
       "primary_url": "https://arxiv.org/abs/2006.10637",
       "bibliography": "Rossi, E., B. Chamberlain, F. Frasca, D. Eynard, F. Monti and M. Bronstein (2020) Temporal graph networks for deep learning on dynamic graphs. ICML Workshop on Graph Representation Learning and Beyond. arXiv:2006.10637.",
@@ -878,64 +329,6 @@
       "key": "tishby",
       "primary_url": "https://arxiv.org/abs/physics/0004057",
       "bibliography": "Tishby, N., F. C. Pereira and W. Bialek (1999) The information bottleneck method. Proceedings of the Allerton Conference on Communication, Control and Computing. Preprint: arXiv:physics/0004057.",
-      "verification": "Retained reference from prior source audit; URL retained for review.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "underspec",
-      "title": "Underspecification Presents Challenges for Credibility in Modern Machine Learning",
-      "authors": [
-        "Alexander D'Amour",
-        "Katherine Heller",
-        "Dan Moldovan",
-        "Ben Adlam",
-        "Babak Alipanahi",
-        "Alex Beutel",
-        "Christina Chen",
-        "Jonathan Deaton",
-        "Jacob Eisenstein",
-        "Matthew D. Hoffman",
-        "Farhad Hormozdiari",
-        "Neil Houlsby",
-        "Shaobo Hou",
-        "Ghassen Jerfel",
-        "Alan Karthikesalingam",
-        "Mario Lucic",
-        "Yian Ma",
-        "Cory McLean",
-        "Diana Mincu",
-        "Akinori Mitani",
-        "Andrea Montanari",
-        "Zachary Nado",
-        "Vivek Natarajan",
-        "Christopher Nielson",
-        "Thomas F. Osborne",
-        "Rajiv Raman",
-        "Kim Ramasamy",
-        "Rory Sayres",
-        "Jessica Schrouff",
-        "Martin Seneviratne",
-        "Shannon Sequeira",
-        "Harini Suresh",
-        "Victor Veitch",
-        "Max Vladymyrov",
-        "Xuezhi Wang",
-        "Kellie Webster",
-        "Steve Yadlowsky",
-        "Taedong Yun",
-        "Xiaohua Zhai",
-        "D. Sculley"
-      ],
-      "cited_version_year": "2020",
-      "primary_url": "https://arxiv.org/abs/2011.03395",
-      "publication_url": "https://arxiv.org/abs/2011.03395",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "vae",
-      "primary_url": "https://arxiv.org/abs/1312.6114",
-      "bibliography": "Kingma, D. P. and M. Welling (2014) Auto-encoding variational Bayes. International Conference on Learning Representations. arXiv:1312.6114.",
       "verification": "Retained reference from prior source audit; URL retained for review.",
       "citation_occurrences": 1
     },
@@ -968,72 +361,57 @@
       "citation_occurrences": 1
     },
     {
-      "key": "vgae",
-      "title": "Variational Graph Auto-Encoders",
-      "authors": [
-        "Thomas N. Kipf",
-        "Max Welling"
-      ],
-      "cited_version_year": "2016",
-      "primary_url": "https://arxiv.org/abs/1611.07308",
-      "publication_url": "https://arxiv.org/abs/1611.07308",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
-      "key": "vicreg",
-      "title": "VICReg: Variance-Invariance-Covariance Regularization for Self-Supervised Learning",
-      "authors": [
-        "Adrien Bardes",
-        "Jean Ponce",
-        "Yann LeCun"
-      ],
-      "cited_version_year": "2021",
-      "primary_url": "https://arxiv.org/abs/2105.04906",
-      "publication_url": "https://arxiv.org/abs/2105.04906",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
-    },
-    {
       "key": "welford",
       "primary_url": "https://doi.org/10.1080/00401706.1962.10490022",
       "bibliography": "Welford, B. P. (1962) Note on a method for calculating corrected sums of squares and products. Technometrics, 4(3), 419--420.",
       "verification": "Retained reference from prior source audit; URL retained for review.",
       "citation_occurrences": 1
-    },
-    {
-      "key": "wilds",
-      "title": "WILDS: A Benchmark of in-the-Wild Distribution Shifts",
-      "authors": [
-        "Pang Wei Koh",
-        "Shiori Sagawa",
-        "Henrik Marklund",
-        "Sang Michael Xie",
-        "Marvin Zhang",
-        "Akshay Balsubramani",
-        "Weihua Hu",
-        "Michihiro Yasunaga",
-        "Richard Lanas Phillips",
-        "Irena Gao",
-        "Tony Lee",
-        "Etienne David",
-        "Ian Stavness",
-        "Wei Guo",
-        "Berton A. Earnshaw",
-        "Imran S. Haque",
-        "Sara Beery",
-        "Jure Leskovec",
-        "Anshul Kundaje",
-        "Emma Pierson",
-        "Sergey Levine",
-        "Chelsea Finn",
-        "Percy Liang"
-      ],
-      "cited_version_year": "2020",
-      "primary_url": "https://arxiv.org/abs/2012.07421",
-      "publication_url": "https://arxiv.org/abs/2012.07421",
-      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 1
     }
-  ]
+  ],
+  "editorial_selection": {
+    "rule": "Retain sources used to define the method, interpret an experiment or specify evaluation; no reference-count quota.",
+    "removed_keys": [
+      "vicreg",
+      "dino",
+      "simclr",
+      "underspec",
+      "recs",
+      "pyg",
+      "tgb2",
+      "mpnn",
+      "dyngem",
+      "dyngraph",
+      "node2vec",
+      "calibration",
+      "moco",
+      "dropout",
+      "graphmae",
+      "ogb",
+      "supcon",
+      "vae",
+      "gcn",
+      "vgae",
+      "wilds",
+      "dynedge",
+      "dynnode",
+      "evolvegcn",
+      "deepwalk",
+      "mibounds",
+      "dysat",
+      "pitfalls",
+      "line",
+      "bgrl",
+      "knowevolve",
+      "cpc",
+      "attention",
+      "gat",
+      "dgi",
+      "tcl",
+      "gin",
+      "graphcl",
+      "barlow",
+      "grace"
+    ],
+    "source_identity_verification": "Retained from earlier source audit; this revision checks relevance and citation coverage, not a new full bibliographic audit."
+  }
 }

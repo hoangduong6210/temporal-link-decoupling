@@ -40,3 +40,7 @@ The native editor compiles the expanded source successfully. Existing PDF, Word 
 The manuscript package includes a standalone Overleaf archive and editable Word plus legacy Word exports under the lowercase journal path. The bibliography checker checks bibliography entries against in-text citations, and the reference-audit inventory records source identity and in-text usage. The editorial audit records concrete prose revisions and claim boundaries; it makes no AI-authorship or detector-evasion certification. Word and PDF rendering are checked separately because pagination and equation rendering differ.
 
 [Complete journal package](../../paper/journal/DYU/)
+
+## Content-first editorial rule
+
+The author supersedes the previous reference-count target: retain sources needed for the method, experimental interpretation and evaluation protocol, and use the recovered space for research content. The related-work survey is shortened, repeated scope disclaimers are consolidated, and all experimental tables are retained. The source checker now validates citation coverage rather than an exact bibliography count. The editorial checker records source-level journal checks and outstanding manual checks. No authorship-detector score or claim of human-only writing is made.

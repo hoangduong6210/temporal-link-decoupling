@@ -1,0 +1,32 @@
+{
+  "source_sha256": "f0fab77943d9167cf0364221faaaee8594bef1c0a112bc65ab1113801a215372",
+  "status": "PASS",
+  "checks": {
+    "cited_references_only_no_count_quota": true,
+    "alphabetic_reference_order": true,
+    "abstracts_within_500_words_or_Han_characters": true,
+    "separate_bilingual_abstract_pages": true,
+    "a4_geometry_preserved": true,
+    "body_9pt_1p5_line_spacing_preserved": true,
+    "two_column_body": true,
+    "heading_depth_at_most_three": true,
+    "labels_unique_and_references_resolved": true,
+    "no_manuscript_placeholders": true,
+    "no_authorship_detector_claim": true,
+    "historical_results_separate": true
+  },
+  "reference_count": 32,
+  "english_abstract_words": 259,
+  "chinese_abstract_Han_characters": 384,
+  "requirements_sources": [
+    "https://jo.dyu.edu.tw/setjournal/contribute.htm",
+    "https://jo.dyu.edu.tw/setjournal/document/jour04-1.pdf"
+  ],
+  "editorial_policy": "Prioritize method, results and interpretation; cite only sources serving the argument. Do not fabricate evidence or certify non-AI authorship.",
+  "manual_checks_remaining": [
+    "Final visual pagination and table widths; native compilation alone does not verify these.",
+    "Complete author postal addresses, Chinese affiliations and contact telephone.",
+    "Regenerate and review the required Word submission files after source approval.",
+    "Formal evidence-snapshot admission; historical original execution bindings remain incomplete."
+  ]
+}

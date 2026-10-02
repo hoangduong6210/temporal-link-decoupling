@@ -28,11 +28,12 @@
   "overfull_box_review": "One 11.4433 pt vertical-box warning at multicols closure; final rendered reference page inspected, no visible clipping or overlap.",
   "standalone_archive_compilation": "Standalone main.tex compiled locally and with the native editor; ZIP source checked byte-for-byte against the compiled source.",
   "current_source_review": {
-    "source_sha256": "bfdc352a2c6f34a231e9033a6cdb0d218c3d0317b91967a6bf01012ce60cb607",
-    "change": "Retrospective preset, knob, candidate-pool, backbone and probe analyses; five new tables, 37 reconstructed AP cells from 13 recovered files.",
+    "source_sha256": "f0fab77943d9167cf0364221faaaee8594bef1c0a112bc65ab1113801a215372",
+    "change": "Reduce the bibliography from 72 to 32 relevant sources, focus related work, remove repetitive prose and shorten historical-table captions; retain all experimental values.",
+    "references": 32,
     "native_editor_compilation": "success",
-    "export_status": "Existing PDF, DOCX, DOC and ZIP retain the preceding title revision; not regenerated for this source-only edit.",
-    "validation": "Current frozen matrix, historical per-seed aggregates, recovered integrity and canonical provenance checked; no new training."
+    "source_level_editorial_checks": "PASS; see editorial-checks.json",
+    "export_status": "PDF, DOCX, DOC and ZIP still represent the earlier title revision; prior page counts and rendering checks refer to those exports, not this edited source."
   },
   "ci_baseline": {
     "commit": "3fea70042f2a967187ebd605836a80bc056890b0",

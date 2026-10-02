@@ -49,7 +49,7 @@ p.write_text(text)
 cites = set(k for m in re.findall(r"\\cite\{([^}]+)\}", text) for k in m.split(","))
 refs = re.findall(r"\\bibitem\{([^}]+)\}", text)
 assert cites == set(refs) and len(refs) == len(set(refs)), "Missing or uncited references"
-assert len(refs) == 72
+assert refs, "The manuscript must cite its sources; no fixed reference-count quota applies"
 (HERE / "numeric-sources.json").write_text(json.dumps(dict(status="DRAFT_SOURCE_MAP_NOT_SNAPSHOT_REGISTRY", table_values=provenance, other_sources={"training_table":"protocols/link_prediction_v1.toml", "corpus_construction":"resources/source_registry.json", "attempt_counts":"results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix-attempts.json", "equations":"symbolic definitions and source implementation; equation labels are structural"}, limitations=["This is not the complete per-occurrence numeric registry required for an admitted snapshot."]), indent=2) + "\n")
 inputs = [MATRIX, ROOT/"protocols/link_prediction_v1.toml", ROOT/"resources/source_registry.json",
           ROOT/"src/temporal_link_decoupling/modeling/v33/sr_gnn_v3.py",

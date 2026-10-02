@@ -1,5 +1,5 @@
 {
-  "source_commit": "552581fd941f2c3692abc34b4894b111bf410eea",
+  "source_commit": "a39694f7ca32fa0ece63ba2744becc5777498f63",
   "inputs": {
     "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
     "protocols/link_prediction_v1.toml": "6186c279806cf86d2a4c704997e4d179e341e0a095cc85c107cae890cb6b34c3",
@@ -9,7 +9,7 @@
     "src/temporal_link_decoupling/training.py": "852eaea7d42a3313fe34e968ae6515d84966cb39b704980870576f451b87a4f2",
     "experiments/dataset_builders/build_coedit.py": "2747e719fa9000b1b4970622604ab6e7a8d91096d514b19b294335df6f71b3eb",
     "paper/journal/DYU/Latex_full/historical-numeric-sources.json": "9c12009574245865230dcb74b1477975d8eac112c22b6a627833ccd4ec557554",
-    "paper/journal/DYU/Latex_full/prepare_historical.py": "b8d0ef770862e88b915f48b626a42ab7bbb44fe54eba94f4953ddc064cc9bd91",
+    "paper/journal/DYU/Latex_full/prepare_historical.py": "a95b3eccc88033cfdb8032bd402e8d1e85d83da01f660854687f55d426742ec7",
     "results/recovered/legacy_import/v3_3_coedit_B_5seed.json": "1e2e87071dd9df5e640efa901d30d9d9603bf90926d2c764b04505102c3a0571",
     "results/recovered/legacy_import/v3_3_coedit_C_5seed.json": "cdff372c70d56b454f828803dada6f21900b6bd33c9efd990122afe321507da6",
     "results/recovered/legacy_import/baselines_coedit_TGAT_5seed.json": "824f63f17a188adf5a658afcc29c4a98c2df285679cbfae3bc0e960cb661cfcd",
@@ -24,6 +24,6 @@
     "results/recovered/legacy_import/v3_3_frozen_probe_ARM2_ftp.json": "5da4bbaa599f3ab244f8ce813c78c15ed81a396f335777dffd2d394118cf4645",
     "results/recovered/legacy_import/v3_3_frozen_probe_ARM2_ftp_wikipedia_idfix.json": "7bf1256bb2ae8793d86aa927bb0256873c84e3508c9ed0749196564b2715873e"
   },
-  "source_sha256": "bfdc352a2c6f34a231e9033a6cdb0d218c3d0317b91967a6bf01012ce60cb607",
-  "references": 72
+  "source_sha256": "f0fab77943d9167cf0364221faaaee8594bef1c0a112bc65ab1113801a215372",
+  "references": 32
 }

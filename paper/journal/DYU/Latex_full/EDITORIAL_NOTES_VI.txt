@@ -7,7 +7,7 @@ Có thể biên dịch main.tex trực tiếp bằng XeLaTeX khi đưa lên Over
 Không đổi PDF bằng tay; sửa main.tex rồi build lại.
 
 PHÁT TRIỂN TỪ CONFERENCE
-- Giữ chủ đề gradient decoupling, mở rộng related work và giữ các nguồn nền tảng, mở rộng thành 72 tài liệu được trích dẫn thực sự trong bài.
+- Giữ chủ đề gradient decoupling, rút gọn related work còn 32 nguồn có vai trò trực tiếp; không áp chỉ tiêu số lượng references.
 - Mở rộng định nghĩa mô hình, công thức online moments/intensity/rate, chain rule, objective và sơ đồ.
 - Phân biệt shared-readout detach hiện tại với đổi main predictor/design preset trong thí nghiệm cũ.
 - Viết rõ freeze-then-probe, batch snapshot, sequential pair accumulators, filtered test history và negative sampling.

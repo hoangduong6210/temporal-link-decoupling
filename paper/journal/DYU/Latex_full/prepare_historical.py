@@ -34,14 +34,14 @@ for name,label in [("v3_3_coedit_B_5seed.json","B preset"),("v3_3_coedit_C_5seed
     d=read(name)["summary"]; records=[dict(seed=int(k),**v) for k,v in d["per_seed"].items()]
     rows.append([label,cell(name,records,"$.summary.per_seed",expected=d),
         cell(name,records,"$.summary.per_seed","trans_ap",expected=d)])
-blocks["PRESETS"]=table("presets","Historical CoEdit presets and local proxy; five seeds. AP: mean and sample SD.",["Configuration","Inductive AP","Transductive AP"],rows)
+blocks["PRESETS"]=table("presets","CoEdit preset comparison.",["Configuration","Inductive AP","Transductive AP"],rows)
 rows=[]
 labels={"B":"B","K1_e2e":"K1: predictor","K2_lfg_hard":"K2: hard gate","K3_floor0":"K3: zero floor","K2K3_gate":"K2 + K3","C_correct":"C: K1 + K2 + K3"}
 for dataset in ["coedit","wikipedia","mooc"]:
     name="v3_3_coedit_knob_ablation_3seed.json" if dataset=="coedit" else f"v3_3_knob_ablation_{dataset}_3seed.json"
     for i,a in enumerate(read(name)["arms"]):
         rows.append([{"coedit":"CoEdit","wikipedia":"Wikipedia","mooc":"MOOC"}[dataset] if i==0 else "",labels[a["arm"]],cell(name,a["per_seed"],f"$.arms[{i}].per_seed",expected=a)])
-blocks["KNOBS"]=table("knobs","Historical configuration ablations; three seeds per row. Inductive AP, mean and sample SD.",["Corpus","Configuration","AP"],rows)
+blocks["KNOBS"]=table("knobs","Predictor and gate ablations.",["Corpus","Configuration","AP"],rows)
 rows=[]
 for dataset,title in [("coedit","CoEdit"),("wikipedia","Wikipedia")]:
     name=f"hardneg/hardneg_B_vs_K1_{dataset}_3seed_v2.json"
@@ -51,13 +51,13 @@ for dataset,title in [("coedit","CoEdit"),("wikipedia","Wikipedia")]:
         for i,a in enumerate(d["arms"]):
             row.append(cell(name,a["per_seed"],f"$.arms[{i}].per_seed",field))
         rows.append(row)
-blocks["NEGATIVES"]=table("negatives","Historical candidate-pool sensitivity. Inductive AP, mean and sample SD over three seeds; each trained model is evaluated under all pools.",["Corpus","Pool","B","K1"],rows)
+blocks["NEGATIVES"]=table("negatives","Candidate-pool sensitivity.",["Corpus","Pool","B","K1"],rows)
 rows=[]
 for dataset,title in [("coedit","CoEdit"),("wikipedia","Wikipedia")]:
     name=f"backbone_removed/backbone_removed_{dataset}_3seed.json"
     for i,a in enumerate(read(name)["arms"]):
         rows.append([title if i==0 else "", "Full B" if i==0 else "Pair statistics",cell(name,a["per_seed"],f"$.arms[{i}].per_seed",digits=6,expected=a)])
-blocks["BACKBONE"]=table("backbone","Backbone removal with a trainable readout retained; three seeds. Six decimals preserve the small nonzero Wikipedia SD.",["Corpus","Representation","Inductive AP"],rows)
+blocks["BACKBONE"]=table("backbone","Learned-backbone contribution.",["Corpus","Representation","Inductive AP"],rows)
 rows=[]
 for dataset,title in [("coedit","CoEdit"),("wikipedia","Wikipedia")]:
     for arm,label in [("ARM1_decoupling","Decoupled"),("ARM2_ftp","Freeze then probe")]:
@@ -66,7 +66,7 @@ for dataset,title in [("coedit","CoEdit"),("wikipedia","Wikipedia")]:
         rows.append([title if arm.startswith("ARM1") else "",label,cell(name,records,f'$.runs[dataset={dataset}]')])
 name="v3_3_frozen_probe_ARM2_ftp_wikipedia_idfix.json"
 rows.append(["Wikipedia","Probe, ID-corrected",cell(name,read(name)["runs"],"$.runs")])
-blocks["PROBES"]=table("probes","Historical probe procedures; three seeds per row. The ID-corrected record is a separate version, not a paired continuation.",["Corpus","Procedure","Inductive AP"],rows)
+blocks["PROBES"]=table("probes","Freeze-then-probe comparison.",["Corpus","Procedure","Inductive AP"],rows)
 p=HERE/"main.tex"; text=p.read_text()
 for key,block in blocks.items():
     text,n=re.subn(r"(?<=% BEGIN HISTORICAL "+key+r"\n).*?(?=\n% END HISTORICAL "+key+r")",lambda _:block,text,flags=re.S)

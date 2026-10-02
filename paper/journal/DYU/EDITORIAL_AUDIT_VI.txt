@@ -1,28 +1,27 @@
-AUDIT BIÊN TẬP VÀ NGUỒN DẪN — JOURNAL DYU
-Ngày: 2026-10-02
+AUDIT BIÊN TẬP — DYU, 2026-10-02
 
-PHẠM VI “NON AI”
-Đã rà soát để câu văn rõ, tự nhiên, có chủ thể và nội dung cụ thể; giảm đoạn chuyển ý công thức, lời tuyên bố đóng góp chung chung và các đoạn lặp về giới hạn kết luận. Đây là đánh giá biên tập có AI hỗ trợ, không phải chứng nhận tác giả là con người, kiểm tra đạo văn hoặc cam kết vượt công cụ phát hiện AI. Không thêm lỗi ngữ pháp, trải nghiệm hư cấu hay trích dẫn giả để làm sai lệch nhận diện. Tác giả cần tự đọc, xác nhận trách nhiệm nội dung và khai báo hỗ trợ nếu tòa soạn yêu cầu.
+HARD RULES CHO BẢN THẢO
+Ưu tiên phương pháp, kết quả và diễn giải; không áp quota references.
+Chỉ giữ nguồn phục vụ nhận định còn trong bài, đánh số và xếp alphabet.
+Không bịa dữ liệu, nguồn dẫn, cơ chế nhân quả hoặc baseline chưa chạy.
+Không gộp historical predictor changes với same-readout detach; ghi đúng proxy và phiên bản dữ liệu.
+Mean/SD phải truy về từng seed. Giữ typography template, không thu nhỏ để ép trang.
+Viết cụ thể, bỏ lặp và liệt kê kiến thức nền không phục vụ câu hỏi nghiên cứu.
 
-CÁC CHỈNH SỬA THỰC TẾ
-- Mở rộng related work thành các nhóm có quan hệ với câu hỏi nghiên cứu: biểu diễn cấu trúc và readout; mô hình thời gian; mục tiêu biểu diễn và gradient; đánh giá và chuyển miền; đặc trưng lịch sử và triển khai.
-- Danh mục đúng 72 nguồn độc lập theo citation key, tất cả xuất hiện trong trích dẫn nội dung. Các bài chỉ dùng làm nền tảng hoặc đề xuất mở rộng không được mô tả là baseline đã chạy.
-- Đối chiếu tiêu đề, tác giả và abstract của 49 nguồn bổ sung trên arXiv; một nguồn bổ sung từ JMLR. Loại bỏ hai gợi ý DOI của Crossref vì trùng tiêu đề nhưng khác bài/tác giả. Giữ nguyên nhận diện phiên bản arXiv khi chưa xác minh đầy đủ phiên bản xuất bản.
-- Bỏ 12 đoạn lặp hoặc giải thích quy trình không cần thiết; thay đoạn liệt kê đóng góp bằng câu hỏi nghiên cứu và phạm vi so sánh cụ thể.
-- Giữ các giới hạn có ý nghĩa: CoEdit chia sẻ nguồn Wikipedia, timestamp midpoint có thông tin hồi cứu, negative pool không ràng buộc loại nút đích, memory kết hợp batch snapshot và cập nhật tuần tự.
-- Phân biệt stop-gradient của đường scoring với toàn bộ loss có trọng số; không biến probe thành chứng minh “irreversible damage”.
-- Không thêm số liệu thí nghiệm. Bảng hiện tại vẫn lấy từ frozen A003; phép tính mean/SD và số seed được kiểm tra lại bằng prepare.py.
-- Sửa caption bị tách khỏi sơ đồ trong LaTeX. Bản Word tái tạo bảng, sơ đồ chỉnh sửa được và 12 công thức Office Math; không để nguyên mã LaTeX hay placeholder.
+ĐÃ SỬA
+Giảm 72 xuống 32 nguồn; giữ metadata từ lần kiểm tra nguồn trước.
+Rút Related Work và các đoạn lặp, giữ nguyên mọi bảng kết quả.
+Rút ngắn caption; quy ước thống kê nằm trong đoạn dẫn.
+Bỏ quota 72 trong prepare.py; thêm check_editorial.py và editorial-checks.json.
+LaTeX biên dịch thành công; PDF/Word/ZIP cũ chưa phản ánh bản sửa này.
 
-NHỮNG ĐIỂM CHƯA ĐƯỢC CHỨNG NHẬN
-- Không có đánh giá bằng Turnitin/iThenticate hoặc kiểm định tác giả tự động. Không đưa ra “AI score”.
-- Nhiều mục trích dẫn là phiên bản arXiv đã kiểm tra, không được gán nhầm thành bài peer-reviewed; tên hội nghị/tạp chí chỉ dùng ở các mục có căn cứ.
-- Literature audit xác minh danh tính nguồn và mức phù hợp của nội dung trích dẫn; không phải tái lập các thí nghiệm của 72 tài liệu.
-- Historical evidence chưa có đủ chuỗi source/data/environment cho mọi claim. Không trộn vào bảng confirmatory.
-- Chưa hoàn tất formal paper snapshot admission. Cần tác giả duyệt thông tin liên hệ, tên khoa/địa chỉ và tài liệu nộp tòa soạn.
-- Public-history gate còn lỗi đường dẫn máy cũ trong JSON đã push ở đợt phục hồi trước. Việc xuất Journal không xóa hay chứng nhận sạch lịch sử đó.
+NON AI
+Đây là bản sửa có AI hỗ trợ. Biên tập văn phong không chứng nhận tác giả là con người hoặc bảo đảm vượt detector. Không tạo lỗi cố ý, trải nghiệm giả, trích dẫn giả hay AI score. Chưa chạy kiểm tra đạo văn. Tác giả cần đọc và xác nhận trách nhiệm nội dung.
 
-ĐỊNH DẠNG
-Theo mẫu được cung cấp: A4, lề trên 3.5 cm, các lề khác 2 cm, thân bài Times New Roman 9 pt và hai cột; abstract tiếng Anh riêng đầu bài, tiếng Trung riêng cuối bài; references đánh số alphabet. Thống kê trang và hash bản cuối ghi trong Latex_full/verification.json. Word có thể phân trang khác LaTeX do công thức Office Math và engine dàn trang.
-Nguồn hướng dẫn: https://jo.dyu.edu.tw/setjournal/contribute.htm
-Nguồn quy cách: https://jo.dyu.edu.tw/setjournal/document/jour04-1.pdf
+ĐỐI CHIẾU JOURNAL
+https://jo.dyu.edu.tw/setjournal/contribute.htm
+https://jo.dyu.edu.tw/setjournal/document/jour04-1.pdf
+Hướng dẫn nêu 10.000 từ tiếng Anh hoặc tương đương 12 trang in, có cơ chế phí trang vượt sau chấp nhận; không phải cấm tuyệt đối bản dài hơn 12 trang.
+Abstract song ngữ riêng trang, tối đa 500; A4, giãn dòng 1.5, references dùng trong bài và xếp alphabet.
+Còn cần kiểm tra trực quan phân trang/chiều rộng bảng, hoàn thiện địa chỉ/tên khoa tiếng Trung/số điện thoại và xuất lại Word theo hướng dẫn nộp.
+Historical execution bindings và formal paper snapshot admission còn thiếu. Không xem native compile hoặc source checks là chứng nhận sẵn sàng nộp.
