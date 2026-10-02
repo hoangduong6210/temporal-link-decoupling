@@ -1,0 +1,52 @@
+HỒ SƠ BẢN THẢO JOURNAL DA-YEH
+Ngày chuẩn bị: 2026-10-02
+
+Bản thảo
+A Controlled Comparison of Gradient Decoupling for Inductive Temporal Link Prediction
+Tệp: DYU_Journal_Manuscript.docx
+Trạng thái: bản thảo đầy đủ để tác giả duyệt; chưa gửi tạp chí; chưa kích hoạt paper snapshot.
+Bài tiếng Anh, có tiêu đề, tóm tắt và từ khóa tiếng Trung phồn thể ở trang cuối. Bản render đã kiểm tra có 9 trang.
+
+Nơi làm việc
+Đã dùng thư mục có sẵn “Link Prediction”, nơi chứa Template/稿件格式.doc. Đường dẫn “Link Predict” trong tin nhắn không tồn tại. Repo được clone thành thư mục con temporal-link-decoupling. Wiki chuẩn nằm trong wiki/ của repo, không cần GitHub Wiki riêng.
+
+Nguồn khoa học
+Nguồn wiki/code ban đầu: commit 0603f993127f116cfc03608a36825bd327bfc8ec.
+Kết quả: LP-REL-2026-A003-001.
+Claim: LP-C-DECOUPLING-001.
+Evidence: LP-E-SCIENTIFIC-MATRIX-001.
+Job: LP-JOB-SLURM-A003-FINAL-RECONCILE-R2.
+Đã kiểm checksum các tệp trong manifest của release và tính lại 9 dòng mean/sample SD từ 27 lượt chạy được chọn. Không chạy lại huấn luyện.
+
+Khác biệt so với conference
+Người dùng xác nhận Link_Predict.pdf chưa được chấp nhận hoặc xuất bản. Bản journal dùng conference để tham khảo đề tài và thông tin tác giả; không sao chép các số liệu lịch sử đã bị loại khỏi phạm vi công bố hiện tại.
+Tiêu đề và kết luận được giới hạn lại. Bỏ kết luận “irreversible”, các kết quả hard-negative lịch sử, so sánh với baseline giản lược và tuyên bố SOTA.
+Hai nhánh coupled/decoupled hiện tại dùng cùng readout, khác detach_scorepath. Freeze-then-probe có head và giai đoạn huấn luyện khác; không được diễn giải như một kiểm chứng nhân quả thuần túy.
+Bài nêu rõ CoEdit có chung nguồn Wikipedia, hạn chế của pool negative, đặc trưng sự kiện và replay các cạnh inductive.
+
+Thông tin tác giả cần hoàn thiện trước khi gửi
+- Kiểm tra thứ tự tác giả Duong Viet Hoang, Duong Viet Huy, Lun-Min Shih và người liên hệ.
+- Xác nhận tên khoa chính thức và bản dịch tiếng Trung. Hiện giữ tên khoa tiếng Anh từ conference; bản dịch tiếng Trung là bản dịch để duyệt.
+- Bổ sung địa chỉ bưu chính đầy đủ, mã bưu chính và số điện thoại người liên hệ. Không tự điền số điện thoại hoặc địa chỉ cá nhân.
+- Xác nhận tất cả đồng tác giả đồng ý bản cuối và bài không đang được xét ở nơi khác. Việc chưa xuất bản không tự xác nhận rằng bài không đang được xét.
+- Xác nhận nội dung cần ghi về tài trợ, đóng góp tác giả và xung đột lợi ích nếu tạp chí hoặc tác giả yêu cầu. Chưa tự tạo tuyên bố thay tác giả.
+- Điền và ký 投稿資料表 theo thông tin thật. Mẫu nằm ở thư mục Da Yeh Journal cấp trên.
+
+Đối chiếu tạp chí
+Nguồn chính thức:
+https://jo.dyu.edu.tw/setjournal/contribute.htm
+https://jo.dyu.edu.tw/setjournal/document/jour04-1.pdf
+https://jo.dyu.edu.tw/setjournal/index.htm
+
+Hướng dẫn đang công bố cho phép bài nghiên cứu tiếng Anh; yêu cầu tóm tắt và từ khóa Anh–Trung. Bài tiếng Anh giới hạn 10000 từ hoặc khoảng 12 trang in; abstract không quá 500 từ/chữ theo ngôn ngữ. Bản thảo sử dụng A4 và giãn dòng 1.5; tài liệu tham khảo đánh số, sắp xếp theo họ tác giả.
+Trang hướng dẫn nêu địa chỉ nộp bản Word là setjo@mail.dyu.edu.tw và yêu cầu gửi kèm biểu mẫu theo cách thức được chỉ dẫn. Lịch thường niên trên trang là hạn 11/10 và 10/4; cần đối chiếu thông báo kỳ cụ thể trước khi gửi.
+Nguồn template minh họa đặt song ngữ ở đầu; hướng dẫn bằng văn bản yêu cầu phần ngôn ngữ còn lại ở trang cuối. Bản này theo hướng dẫn bằng văn bản, giữ kích thước, font và bố cục thân bài của template.
+
+Cửa kiểm tra phát hành của repo
+Canonical audit: PASS, nhưng release readiness vẫn BLOCKED với PAPER_NOT_EVIDENCE_ADMITTED. Đây là trạng thái phát hành khoa học của repo, không phải lỗi dàn trang.
+Bản thảo có numeric-provenance riêng kiểm từng số, nhưng các số protocol truy nguồn vào TOML. Cửa kiểm tra snapshot chuẩn chỉ chấp nhận JSON scalar thuộc scientific job. Cần chuẩn hóa bằng chứng protocol và đăng ký paper-build job, results lock, immutable snapshot, rồi chạy --require-release trước khi coi đây là bản evidence-admitted.
+Không sửa checksum hoặc nội dung frozen release để vượt qua cửa kiểm tra.
+
+Bước tiếp theo
+Duyệt nội dung khoa học và thông tin tác giả; hoàn tất snapshot chuẩn; chuẩn bị thư nộp và biểu mẫu đã ký. Chưa gửi email, chưa nộp bài hoặc ký thay bất kỳ tác giả nào.
+

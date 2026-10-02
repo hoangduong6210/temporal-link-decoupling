@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "scope": "Author-draft validation only; not canonical paper snapshot admission",
+  "frozen_release_files_verified": 17,
+  "selected_runs": 27,
+  "aggregate_rows_recomputed": 9,
+  "registered_numeric_occurrences": 111,
+  "empirical_occurrences": 19,
+  "source_sha256": "b846112b609af3f2308fb7033b4d11e7b80a012216b627d37b3bd1bf793edde3",
+  "docx_sha256": "d700d75e404c74b8803006b5d10c8385438fe7fd0eac8ad7d5b1f3457c1074ac",
+  "limitations": [
+    "Protocol selectors include TOML and must be reconciled with the canonical JSON-only snapshot gate before admission.",
+    "No independent training rerun or external-baseline parity evaluation is claimed."
+  ]
+}
