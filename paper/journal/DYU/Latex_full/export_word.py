@@ -60,6 +60,11 @@ for sec in d.sections:
  for foot in (sec.footer,sec.first_page_footer,sec.even_page_footer):
   for x in list(foot._element):foot._element.remove(x)
   pp=foot.add_paragraph();pp.alignment=WD_ALIGN_PARAGRAPH.CENTER;rr=pp.add_run();rr.font.name='Times New Roman';rr.font.size=Pt(8);fld=OxmlElement('w:fldSimple');fld.set(qn('w:instr'),'PAGE');rr._r.addnext(fld)
+# Remove inherited conversion defaults that override the article typography.
+for n in d.styles.element.xpath('./w:docDefaults/w:rPrDefault/w:rPr/w:sz | ./w:docDefaults/w:rPrDefault/w:rPr/w:szCs'):
+ n.set(qn('w:val'),'18')
+for n in d.styles.element.xpath('.//w:suppressAutoHyphens'):
+ n.set(qn('w:val'),'false')
 base=d.styles['Normal'];base.font.name='Times New Roman';base.font.size=Pt(9)
 base.paragraph_format.line_spacing=Pt(13.5);base.paragraph_format.space_after=Pt(0);base.paragraph_format.space_before=Pt(0)
 for st in d.styles:
@@ -96,12 +101,12 @@ for pp in list(d.paragraphs):
  if t.startswith('EQUATIONNUMBER'):
   num=t[len('EQUATIONNUMBER'):].replace('AND',', ')
   if prev is not None:
-   prev.add_run('  ('+num+')');prev.alignment=WD_ALIGN_PARAGRAPH.CENTER;prev.paragraph_format.space_before=Pt(5);prev.paragraph_format.space_after=Pt(5);prev.paragraph_format.line_spacing=1.0;prev.paragraph_format.keep_together=True
+   prev.add_run('  ('+num+')');prev.alignment=WD_ALIGN_PARAGRAPH.CENTER;prev.paragraph_format.space_before=Pt(3);prev.paragraph_format.space_after=Pt(3);prev.paragraph_format.line_spacing=1.0;prev.paragraph_format.keep_together=True
   pp._p.getparent().remove(pp._p);continue
  if t.startswith('TABLEPLACEHOLDER'):
   idx=int(t[len('TABLEPLACEHOLDER'):]);block=table_sources[idx]
   caption=re.search(r'\\captionof\{table\}\{([^}]+)\}',block)[1]
-  pp.text='Table '+str(idx+1)+'. '+caption;pp.alignment=WD_ALIGN_PARAGRAPH.CENTER;pf.keep_with_next=True;pf.first_line_indent=Pt(0);pf.space_before=Pt(6);pf.space_after=Pt(5)
+  pp.text='Table '+str(idx+1)+'. '+caption;pp.alignment=WD_ALIGN_PARAGRAPH.CENTER;pf.keep_with_next=True;pf.first_line_indent=Pt(0);pf.space_before=Pt(3);pf.space_after=Pt(3)
   for rr in pp.runs:rr.bold=True
   raw=re.search(r'\\begin\{tabular\}[^\n]+\n(.*?)\\end\{tabular\}',block,re.S)[1]
   raw=re.sub(r'\\(?:toprule|midrule|bottomrule)','',raw)
@@ -116,17 +121,10 @@ for pp in list(d.paragraphs):
   pp._p.addnext(tab._tbl);prev=pp;continue
  if t=='FIGUREPLACEHOLDER':
   pp.clear();pp.alignment=WD_ALIGN_PARAGRAPH.CENTER
-  # An editable table makes the four stages readable in Word as well as legacy DOC.
-  tab=d.add_table(rows=4,cols=1);tab.autofit=False;tab.columns[0].width=Cm(6.7)
-  vals=['Retained event history and candidate attributes\nNode memory and pair-history context ↓','Temporal backbone Fθ\nCandidate representation h ↓','Shared scored boundary\nConnected h or detached sg(h) ↓','Registered hierarchical readout Gψ\nPositive and negative link scores']
-  for cell,val in zip(tab.column_cells(0),vals):
-   cell.text=val;cp=cell.paragraphs[0];cp.alignment=WD_ALIGN_PARAGRAPH.CENTER;cp.paragraph_format.space_before=Pt(5);cp.paragraph_format.space_after=Pt(5)
-   for rr in cp.runs:rr.font.name='Times New Roman';rr.font.size=Pt(8)
-   tcpr=cell._tc.get_or_add_tcPr();b=OxmlElement('w:tcBorders')
-   for side in ['top','left','bottom','right']:
-    e=OxmlElement('w:'+side);e.set(qn('w:val'),'single');e.set(qn('w:sz'),'4');e.set(qn('w:color'),'444444');b.append(e)
-   tcpr.append(b)
-  pp._p.addnext(tab._tbl);prev=pp;continue
+  pf.first_line_indent=Pt(0);pf.keep_with_next=True;pf.space_before=Pt(3);pf.space_after=Pt(0)
+  pic=pp.add_run().add_picture(str(P/'Word/figures/scored-feature-path.png'),width=Cm(7.25))
+  pic._inline.docPr.set('descr','Retained event history and candidate attributes pass through the temporal backbone, connected or detached scored boundary, and shared hierarchical readout.')
+  prev=pp;continue
  if part in [0,1]:
   pf.first_line_indent=Pt(0);pp.alignment=WD_ALIGN_PARAGRAPH.CENTER
   if t.startswith('Gradient Decoupling') or t.startswith('歸納式時序連結預測中的梯度解耦'):
@@ -153,15 +151,15 @@ for pp in list(d.paragraphs):
  else:
   pp.alignment=WD_ALIGN_PARAGRAPH.JUSTIFY;pf.first_line_indent=Pt(13.5)
   if pp.style.name.startswith('Heading 1'):
-   pf.first_line_indent=Pt(0);pf.space_before=Pt(12);pf.space_after=Pt(6);pp.alignment=WD_ALIGN_PARAGRAPH.CENTER
+   pf.first_line_indent=Pt(0);pf.space_before=Pt(0);pf.space_after=Pt(0);pp.alignment=WD_ALIGN_PARAGRAPH.CENTER
    if t=='References Cited':in_refs=True
    else:section_count+=1;sub=0;pp.text=roman[section_count-1]+'. '+t
    for rr in pp.runs:rr.font.size=Pt(11);rr.bold=True
   elif pp.style.name.startswith('Heading 2'):
-   sub+=1;pp.text=str(sub)+'. '+t;pp.alignment=WD_ALIGN_PARAGRAPH.LEFT;pf.first_line_indent=Pt(0);pf.space_before=Pt(8);pf.space_after=Pt(3)
+   sub+=1;pp.text=str(sub)+'. '+t;pp.alignment=WD_ALIGN_PARAGRAPH.LEFT;pf.first_line_indent=Pt(0);pf.space_before=Pt(0);pf.space_after=Pt(0)
    for rr in pp.runs:rr.font.size=Pt(9);rr.bold=True
   elif t.startswith('REFNUMBER'):
-   pp.text=re.sub(r'^REFNUMBER(\d+) ',r'\1. ',t);pp.style=d.styles['Normal'];pp.alignment=WD_ALIGN_PARAGRAPH.LEFT;pf.left_indent=Cm(.5);pf.first_line_indent=Cm(-.5);pf.space_after=Pt(3);pf.line_spacing=Pt(13.5)
+   pp.text=re.sub(r'^REFNUMBER(\d+) ',r'\1. ',t);pp.style=d.styles['Normal'];pp.alignment=WD_ALIGN_PARAGRAPH.LEFT;pf.left_indent=Cm(.5);pf.first_line_indent=Cm(-.5);pf.space_after=Pt(0);pf.line_spacing=Pt(13.5)
    for rr in pp.runs:rr.font.size=Pt(9)
   elif t.startswith(('Figure 1.','Table 1.','Table 2.')):
    pp.alignment=WD_ALIGN_PARAGRAPH.CENTER;pf.first_line_indent=Pt(0);pf.keep_with_next=t.startswith('Table');pf.space_before=Pt(5);pf.space_after=Pt(5)
@@ -178,20 +176,28 @@ for tab in d.tables:
  tab._tbl.tblPr.append(borders)
  if len(tab.columns)==2:widths=[3.45,3.8]
  elif len(tab.columns)==3:widths=[2.1,2.6,2.6] if tab.cell(0,0).text=='Configuration' else [1.7,2.5,3.1]
- elif len(tab.columns)==4:widths=[1.65,1.65,2.3,2.3]
+ elif len(tab.columns)==4:widths=[1.75,1.65,2.15,2.15]
  else:widths=[6.7]
  for col,width in zip(tab.columns,widths):col.width=Cm(width)
  for ri,row in enumerate(tab.rows):
   for cell,width in zip(row.cells,widths):
    cell.width=Cm(width)
    for pp in cell.paragraphs:
-    pp.paragraph_format.keep_with_next=ri<len(tab.rows)-1;pp.paragraph_format.line_spacing=1.2;pp.paragraph_format.space_after=Pt(2);pp.paragraph_format.space_before=Pt(2)
+    pp.paragraph_format.keep_with_next=(ri<len(tab.rows)-1 if len(tab.rows)<12 else ri==0);pp.paragraph_format.line_spacing=1.2;pp.paragraph_format.space_after=Pt(0);pp.paragraph_format.space_before=Pt(0)
     for rr in pp.runs:rr.font.name='Times New Roman';rr.font.size=Pt(8)
   trpr=row._tr.get_or_add_trPr();n=OxmlElement('w:cantSplit');trpr.append(n)
+  if ri==0:trpr.append(OxmlElement('w:tblHeader'))
 for mr in d._element.xpath('.//m:r'):
  wr=mr.find(qn('w:rPr'))
  if wr is None:wr=OxmlElement('w:rPr');mr.insert(1 if mr.find(qn('m:rPr')) is not None else 0,wr)
  sz=OxmlElement('w:sz');sz.set(qn('w:val'),'18');wr.append(sz)
+# Word/LibreOffice use the paragraph mark as the base size for Office Math.
+for pp in d.paragraphs:
+ if pp._p.xpath('.//m:oMath'):
+  rp=OxmlElement('w:rPr')
+  for tag in ('sz','szCs'):
+   n=OxmlElement('w:'+tag);n.set(qn('w:val'),'18');rp.append(n)
+  pp._p.get_or_add_pPr().append(rp)
 settings=d.settings.element;hy=OxmlElement('w:autoHyphenation');hy.set(qn('w:val'),'true');settings.append(hy)
 n=OxmlElement('w:updateFields');n.set(qn('w:val'),'true');settings.append(n)
 (P/'Word').mkdir(exist_ok=True)

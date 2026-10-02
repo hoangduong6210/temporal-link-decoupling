@@ -13,7 +13,7 @@ Sau lần rút từ 72 xuống 32 nguồn, bổ sung chọn lọc 8 nguồn cho 
 Rút Related Work và các đoạn lặp, giữ nguyên mọi bảng kết quả.
 Rút ngắn caption; quy ước thống kê nằm trong đoạn dẫn.
 Bỏ quota 72 trong prepare.py; thêm check_editorial.py và editorial-checks.json.
-LaTeX biên dịch thành công; PDF 12 trang, DOCX/DOC 13 trang, Overleaf ZIP đã đồng bộ. Giữ nguyên 46 cặp AP/SD; đã kiểm tra bảng và phân trang.
+LaTeX biên dịch thành công; PDF 12 trang, DOCX/DOC 12 trang, Overleaf ZIP đã đồng bộ. Giữ nguyên 46 cặp AP/SD; đã kiểm tra bảng và phân trang.
 
 NON AI
 Đây là bản sửa có AI hỗ trợ. Biên tập văn phong không chứng nhận tác giả là con người hoặc bảo đảm vượt detector. Không tạo lỗi cố ý, trải nghiệm giả, trích dẫn giả hay AI score. Chưa chạy kiểm tra đạo văn. Tác giả cần đọc và xác nhận trách nhiệm nội dung.
@@ -25,3 +25,5 @@ Hướng dẫn nêu 10.000 từ tiếng Anh hoặc tương đương 12 trang in,
 Abstract song ngữ riêng trang, tối đa 500; A4, giãn dòng 1.5, references dùng trong bài và xếp alphabet.
 Đã bổ sung địa chỉ đơn vị dưới department theo template; còn cần xác nhận tên khoa tiếng Trung/số điện thoại trước khi nộp. Phân trang cần kiểm tra lại nếu thay font hoặc phần mềm.
 Historical execution bindings và formal paper snapshot admission còn thiếu. Không xem native compile hoặc source checks là chứng nhận sẵn sàng nộp.
+
+Rà soát Word: dựng lại Figure 1 bằng hình 600 dpi với mũi tên và chỉ số toán; giữ caption cùng hình. Bảng dài được tiếp cột và lặp hàng tiêu đề, bảng ngắn giữ nguyên khối. Bỏ khoảng cách đoạn thừa; không giảm cỡ chữ thân bài hoặc cắt nội dung. DOCX và DOC đều render 12 trang.

@@ -18,7 +18,7 @@ This is an editable journal draft, not a submitted article or admitted immutable
 
 Upload DYU_Overleaf.zip and choose XeLaTeX with main.tex as the main document. All article content, bibliography and the vector diagram are embedded. Citation coverage is checked by prepare.py without a reference-count quota; no BibTeX download is required. Running prepare.py requires the full research repository, but compiling main.tex does not.
 
-To regenerate Word, install python-docx and provide an existing Pandoc executable via PANDOC or PATH, then run python export_word.py. The complete repository includes ../Word/template.docx. The export uses editable native Office Math and reconstructed tables. Use LibreOffice's MS Word 97 export filter for the legacy .doc, then visually inspect that export. Word conversion dependencies are separate from LaTeX/Overleaf compilation.
+To regenerate Word, install python-docx and Pillow and provide an existing Pandoc executable via PANDOC or PATH, then run python render_word_figure.py followed by python export_word.py. Set FIGURE_FONT to a Times New Roman .ttf path on systems other than macOS. The complete repository includes ../Word/template.docx. The export uses editable native Office Math and reconstructed tables. Figure 1 is embedded at 600 dpi, with an editable SVG companion under ../Word/figures/. The Word export retains 9-point body type, removes added heading/reference padding and repeats the header when the long settings table continues to the next column. Use LibreOffice's MS Word 97 export filter for the legacy .doc, then visually inspect that export. Word conversion dependencies are separate from LaTeX/Overleaf compilation.
 
 ## Editorial constraints
 

@@ -1,21 +1,20 @@
 {
   "status": "WORKING_DRAFT_NOT_ADMITTED_SNAPSHOT",
   "pages": 12,
-  "word_pages": 13,
-  "legacy_doc_pages": 13,
+  "word_pages": 12,
+  "legacy_doc_pages": 12,
   "references": 40,
   "source_sha256": "3560d1c7692016c1a7a4eb580718edcd734f8dcdbe2e1cdd24dcc39da4116c1a",
   "pdf_sha256": "9a7bfecd7d461607ed3bd8ded7c532b366f6349aad543ca3550fca4dc16a80b5",
-  "docx_sha256": "3a95039121d3c81cdff740ad57fe0ae4632ae4b63875d267a723837ef1fbe667",
-  "doc_sha256": "a06eaea30dd57f61fda25204b8d22a0a13021b4daefad9c5410d52beb464bf61",
+  "docx_sha256": "846ef1ed11c93e580d2bbc314196d868b174ef9cd3fc2e7c1f6be12621c84d2c",
+  "doc_sha256": "40bc158dbb16593534404418bd1068bacb10b2b76f33d1ae6e6a2561281a299d",
   "native_editor_compilation": "success",
   "delivered_export": "Tectonic 0.15.0; Times New Roman and Songti TC",
-  "visual_review": "Re-rendered PDF, DOCX and DOC after removing the internal name. Page overview inspected; PDF 12 pages and Word 13 pages. Text extraction confirms the excluded name is absent from all three exports.",
+  "visual_review": "Word DOCX and legacy DOC rendered to 12 pages with LibreOffice. Figure 1 restored as a 600 dpi diagram with arrows, mathematical subscripts and attached caption. Table widths and pagination inspected. All manuscript paragraphs and seven numerical tables match the preceding DOCX; 12 native Office Math display equations retained. LaTeX source and its 12-page PDF unchanged.",
   "overfull_box_warnings": 0,
   "missing_character_warnings": 0,
   "all_references_cited": true,
   "word_display_equations": 12,
-  "word_tables_including_diagram": 8,
   "ai_authorship_certification": false,
   "validation": [
     "All 46 displayed AP/SD pairs unchanged from the preceding source",
@@ -47,11 +46,20 @@
   "excluded_model_name_absent_in_exports": true,
   "word_chinese_abstract_format": {
     "alignment": "left, matching template Normal paragraph",
-    "font": "MingLiU (\u7d30\u660e\u9ad4), 9 pt; Latin Times New Roman",
+    "font": "MingLiU (細明體), 9 pt; Latin Times New Roman",
     "line_spacing": 1.5,
     "left_right_indent_cm": 2,
     "first_line_indent_pt": 18,
     "east_asian_language": "zh-TW",
     "validation": "Paragraph properties checked; affected page rendered; other pages pixel-identical to preceding exports. Font substitution depends on the viewing system."
+  },
+  "word_tables": 7,
+  "word_figures": 1,
+  "word_figure": {
+    "source": "Word/figures/scored-feature-path.svg",
+    "embedded": "Word/figures/scored-feature-path.png",
+    "dpi": 600,
+    "width_cm": 7.25,
+    "caption_page": 5
   }
 }
