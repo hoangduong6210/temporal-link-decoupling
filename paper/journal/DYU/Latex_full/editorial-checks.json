@@ -1,11 +1,12 @@
 {
-  "source_sha256": "167ad19e60e4c32e4e5cc8403395cb400a8a1d862b3737b3c9d068112f5e321f",
+  "source_sha256": "f9d5b8f8e4242c1ce06e5e721229b5d5ce560452f0541f453341d5783c0e6d47",
   "status": "PASS",
   "checks": {
     "cited_references_only_no_count_quota": true,
     "alphabetic_reference_order": true,
     "abstracts_within_500_words_or_Han_characters": true,
     "separate_bilingual_abstract_pages": true,
+    "bilingual_front_matter_order": true,
     "a4_geometry_preserved": true,
     "body_9pt_1p5_line_spacing_preserved": true,
     "two_column_body": true,

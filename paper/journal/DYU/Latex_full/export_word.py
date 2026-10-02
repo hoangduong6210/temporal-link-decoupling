@@ -71,7 +71,7 @@ for name,size in [('Title',18),('Heading 1',11),('Heading 2',9)]:
  st=d.styles[name];st.font.size=Pt(size);st.font.bold=True;st.paragraph_format.keep_with_next=True
  st.paragraph_format.space_before=Pt(10 if name=='Heading 1' else 6);st.paragraph_format.space_after=Pt(4)
  st.paragraph_format.alignment=WD_ALIGN_PARAGRAPH.CENTER if name!='Heading 2' else WD_ALIGN_PARAGRAPH.LEFT
-# Sectionbreak paragraphs carry previous-section properties. Final section is Chinese abstract.
+# Bilingual front matter precedes the two-column article body.
 sect_template=copy.deepcopy(d.sections[-1]._sectPr)
 def section_props(cols):
  q=copy.deepcopy(sect_template)
@@ -92,7 +92,7 @@ for pp in list(d.paragraphs):
   run.font.name='Times New Roman';run.font.size=Pt(9);run.font.color.rgb=__import__('docx').shared.RGBColor(0,0,0)
   run._r.get_or_add_rPr().get_or_add_rFonts().set(qn('w:eastAsia'),'Songti TC')
  if t=='SECTIONBREAK':
-  pp.clear();pp._p.get_or_add_pPr().append(section_props(1 if part==0 else 2));part+=1;abstract=False;prev=pp;continue
+  pp.clear();pp._p.get_or_add_pPr().append(section_props(1));part+=1;abstract=False;prev=pp;continue
  if t.startswith('EQUATIONNUMBER'):
   num=t[len('EQUATIONNUMBER'):].replace('AND',', ')
   if prev is not None:
@@ -127,7 +127,7 @@ for pp in list(d.paragraphs):
     e=OxmlElement('w:'+side);e.set(qn('w:val'),'single');e.set(qn('w:sz'),'4');e.set(qn('w:color'),'444444');b.append(e)
    tcpr.append(b)
   pp._p.addnext(tab._tbl);prev=pp;continue
- if part in [0,2]:
+ if part in [0,1]:
   pf.first_line_indent=Pt(0);pp.alignment=WD_ALIGN_PARAGRAPH.CENTER
   if t.startswith('Gradient Decoupling') or t.startswith('歸納式時序連結預測中的梯度解耦'):
    pp.style=d.styles['Title'];pf.line_spacing=1.25;pf.space_after=Pt(12)
@@ -160,7 +160,7 @@ for pp in list(d.paragraphs):
    pp.alignment=WD_ALIGN_PARAGRAPH.CENTER;pf.first_line_indent=Pt(0)
  prev=pp
 last=d._element.body.sectPr
-new=section_props(1);last.getparent().replace(last,new)
+new=section_props(2);last.getparent().replace(last,new)
 for tab in d.tables:
  tab.autofit=False
  borders=OxmlElement('w:tblBorders')

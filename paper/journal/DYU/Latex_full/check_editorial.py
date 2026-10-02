@@ -22,6 +22,7 @@ checks = {
     "alphabetic_reference_order": authors==sorted(authors),
     "abstracts_within_500_words_or_Han_characters": en_words<=500 and zh_chars<=500,
     "separate_bilingual_abstract_pages": s.count(r"\clearpage")==2 and r"\textbf{Key words:}" in s and r"\textbf{關鍵詞：}" in s,
+    "bilingual_front_matter_order": s.index(r"\textbf{Key words:}") < s.index("歸納式時序連結預測中的梯度解耦") < s.index(r"\textbf{關鍵詞：}") < s.index(r"\section{Introduction}"),
     "a4_geometry_preserved": r"\documentclass[a4paper,10pt]{article}" in s and "top=3.5cm,bottom=2cm,left=2cm,right=2cm" in s,
     "body_9pt_1p5_line_spacing_preserved": r"\fontsize{9}{13.5}" in s,
     "two_column_body": r"\begin{multicols}{2}" in s,

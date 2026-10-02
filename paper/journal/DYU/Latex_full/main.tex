@@ -46,6 +46,25 @@ Inductive temporal link prediction requires a model to score interactions involv
 \vspace{10pt}\noindent\textbf{Key words:} temporal graphs, inductive link prediction, gradient decoupling, recurrent memory, reproducible evaluation
 \end{list}
 \clearpage
+\begin{center}
+{\fontsize{18}{25}\selectfont\bfseries 歸納式時序連結預測中的梯度解耦：\\具狀態表徵的受控研究\par}
+\vspace{12pt}
+{\fontsize{10}{15}\selectfont Duong Viet Hoang\textsuperscript{a,*}, Duong Viet Huy\textsuperscript{b}, Lun-Min Shih\textsuperscript{a}\par}
+\vspace{6pt}
+\textsuperscript{a}大葉大學\\
+515006 臺灣彰化縣大村鄉學府路168號\\
+\textsuperscript{b}肯特州立大學\\
+P.O. Box 5190, Kent, OH 44242-0001, United States\\
+*通訊作者：Hoangduong4316@icloud.com
+\end{center}
+\vspace{18pt}
+\begin{center}\fontsize{11}{16.5}\selectfont\bfseries 摘要\end{center}
+\begin{list}{}{\setlength{\leftmargin}{2cm}\setlength{\rightmargin}{2cm}}\item[]
+歸納式時序連結預測需要處理先前觀測中未出現的節點。本研究以結合事件編碼、循環節點記憶、確定性節點對歷史訊號與階層讀出器的 SR-GNN，探討評分路徑的梯度是否應更新時序表徵。我們明確區分梯度邊界、參數學習與事件狀態演化，並在相同已註冊讀出器下比較耦合及解耦訓練；另以先訓練再凍結並重新訓練預測頭的方法作為不同訓練流程的對照。研究採用 CoEdit、Wikipedia 與 MOOC 的時間切分及固定隨機負樣本協定。具校驗碼的封存結果顯示，解耦組在各語料上的平均歸納式平均精確率均高於耦合組。此結果支持協定內的觀察比較，而非端到端學習普遍有害的結論。CoEdit 與 Wikipedia 共享來源，且其事件建構包含事後資訊；候選取樣未限制目的端節點類型，記憶更新亦混合批次與循序語意。此外，回溯實驗涵蓋設計設定、預測器與閘門消融、較難候選池、骨幹移除及凍結探測，顯示預測器選擇與學習表徵在已記錄設定中的作用；各組依設定及資料版本分別呈現，不與目前結果合併。本研究提供可重現的梯度路由及時序評估說明，並界定效能比較的適用範圍。
+
+\vspace{10pt}\noindent\textbf{關鍵詞：}時序圖，歸納式連結預測，梯度解耦，循環記憶，可重現評估
+\end{list}
+\clearpage
 \begin{multicols}{2}
 \section{Introduction}
 Temporal graphs describe relationships through ordered interactions rather than a single static adjacency matrix. An edit on a collaborative platform or an action in an online course supplies information about both the participating entities and their recent activity. Predicting an interaction therefore involves a representation of evolving history, a candidate-scoring rule, and a decision about which historical information is available at the prediction time. These components jointly define the learning problem. A change to event ordering or candidate construction can alter the meaning of a reported score even when the neural architecture is unchanged.
@@ -511,23 +530,4 @@ The fuller specification distinguishes scored derivatives, auxiliary optimizatio
 \end{thebibliography}
 \endgroup
 \end{multicols}
-\clearpage
-\begin{center}
-{\fontsize{18}{25}\selectfont\bfseries 歸納式時序連結預測中的梯度解耦：\\具狀態表徵的受控研究\par}
-\vspace{12pt}
-{\fontsize{10}{15}\selectfont Duong Viet Hoang\textsuperscript{a,*}, Duong Viet Huy\textsuperscript{b}, Lun-Min Shih\textsuperscript{a}\par}
-\vspace{6pt}
-\textsuperscript{a}大葉大學\\
-515006 臺灣彰化縣大村鄉學府路168號\\
-\textsuperscript{b}肯特州立大學\\
-P.O. Box 5190, Kent, OH 44242-0001, United States\\
-*通訊作者：Hoangduong4316@icloud.com
-\end{center}
-\vspace{18pt}
-\begin{center}\fontsize{11}{16.5}\selectfont\bfseries 摘要\end{center}
-\begin{list}{}{\setlength{\leftmargin}{2cm}\setlength{\rightmargin}{2cm}}\item[]
-歸納式時序連結預測需要處理先前觀測中未出現的節點。本研究以結合事件編碼、循環節點記憶、確定性節點對歷史訊號與階層讀出器的 SR-GNN，探討評分路徑的梯度是否應更新時序表徵。我們明確區分梯度邊界、參數學習與事件狀態演化，並在相同已註冊讀出器下比較耦合及解耦訓練；另以先訓練再凍結並重新訓練預測頭的方法作為不同訓練流程的對照。研究採用 CoEdit、Wikipedia 與 MOOC 的時間切分及固定隨機負樣本協定。具校驗碼的封存結果顯示，解耦組在各語料上的平均歸納式平均精確率均高於耦合組。此結果支持協定內的觀察比較，而非端到端學習普遍有害的結論。CoEdit 與 Wikipedia 共享來源，且其事件建構包含事後資訊；候選取樣未限制目的端節點類型，記憶更新亦混合批次與循序語意。此外，回溯實驗涵蓋設計設定、預測器與閘門消融、較難候選池、骨幹移除及凍結探測，顯示預測器選擇與學習表徵在已記錄設定中的作用；各組依設定及資料版本分別呈現，不與目前結果合併。本研究提供可重現的梯度路由及時序評估說明，並界定效能比較的適用範圍。
-
-\vspace{10pt}\noindent\textbf{關鍵詞：}時序圖，歸納式連結預測，梯度解耦，循環記憶，可重現評估
-\end{list}
 \end{document}

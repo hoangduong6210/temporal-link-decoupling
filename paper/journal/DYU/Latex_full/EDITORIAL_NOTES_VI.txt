@@ -17,7 +17,7 @@ PHÁT TRIỂN TỪ CONFERENCE
 
 YÊU CẦU JOURNAL
 Theo template được cung cấp: A4, lề trên 3.5 cm, các lề còn lại 2 cm, Times New Roman 9 pt, giãn dòng 1.5, thân bài hai cột.
-Abstract tiếng Anh riêng trang đầu; bản tiếng Trung riêng trang cuối. References đánh số và xếp alphabet.
+Abstract và keywords tiếng Anh đứng trước tiêu đề, thông tin tác giả, abstract và keywords tiếng Trung; cả hai phần đứng trước Introduction, ở hai trang liên tiếp. References đánh số và xếp alphabet.
 Ưu tiên LaTeX/PDF theo yêu cầu tác giả. Trang hướng dẫn chính thức vẫn nêu bản Word cho nộp điện tử; đã bổ sung bản .doc và .docx theo yêu cầu tác giả; cần tác giả duyệt trước khi nộp.
 https://jo.dyu.edu.tw/setjournal/contribute.htm
 https://jo.dyu.edu.tw/setjournal/document/jour04-1.pdf
