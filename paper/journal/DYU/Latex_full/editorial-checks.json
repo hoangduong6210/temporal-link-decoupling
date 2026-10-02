@@ -1,5 +1,5 @@
 {
-  "source_sha256": "f0fab77943d9167cf0364221faaaee8594bef1c0a112bc65ab1113801a215372",
+  "source_sha256": "78ebd488b5995795b5e365568ccf66afd5163936460dd7e0a3a51f189844c299",
   "status": "PASS",
   "checks": {
     "cited_references_only_no_count_quota": true,
@@ -15,7 +15,7 @@
     "no_authorship_detector_claim": true,
     "historical_results_separate": true
   },
-  "reference_count": 32,
+  "reference_count": 40,
   "english_abstract_words": 259,
   "chinese_abstract_Han_characters": 384,
   "requirements_sources": [
@@ -24,9 +24,9 @@
   ],
   "editorial_policy": "Prioritize method, results and interpretation; cite only sources serving the argument. Do not fabricate evidence or certify non-AI authorship.",
   "manual_checks_remaining": [
-    "Final visual pagination and table widths; native compilation alone does not verify these.",
+    "Recheck visual pagination and table widths after future source or font changes; current export review is recorded in verification.json.",
     "Complete author postal addresses, Chinese affiliations and contact telephone.",
-    "Regenerate and review the required Word submission files after source approval.",
+    "Recheck the required Word submission files after future source changes; current exports are synchronized.",
     "Formal evidence-snapshot admission; historical original execution bindings remain incomplete."
   ]
 }

@@ -76,6 +76,8 @@ Poursafaei et al. demonstrate the importance of negative-candidate sampling and 
 
 Model selection and run-to-run variability also affect reported comparisons \cite{selection,variance}. We report sample deviations over the retained seeds, rather than treating them as uncertainty over new graph populations. Leakage analysis requires checking which inputs would be available in the claimed prediction setting \cite{leakage}. This matters for CoEdit's retrospective construction. Likewise, a favorable inductive score alone cannot demonstrate that identity-related shortcuts have been removed \cite{shortcut}; that explanation would require direct feature measurements and interventions.
 
+Evaluation studies in graph learning and recommendation show that model rankings depend on the training protocol and the strength of tuned comparators \cite{pitfalls,recs}. This is relevant to the historical TGAT proxy: reproducing its saved score establishes the arithmetic of that local experiment, but not parity with the published architecture. A benchmark claim would additionally require the intended model, a comparable tuning budget and a common evaluator.
+
 \section{Problem and Model Specification}
 \subsection{Events, candidates and information}
 Let an event stream contain tuples $e_i=(u_i,v_i,t_i,x_i)$ in nondecreasing timestamp order. The vector $x_i$ contains attributes supplied by the data pipeline. Let $\mathcal H_i$ denote the history retained by the particular training or evaluation pass immediately before scoring event $i$. It need not equal the full raw stream prefix: filtering an evaluation stream before execution changes the observations that enter its state. The model assigns a score to a candidate pair conditioned on this retained history and on the supplied attributes.
@@ -170,6 +172,8 @@ L=\frac{1}{|\mathcal B|}\sum_{j\in\mathcal B}w_j\ell(z_j,y_j)
 \label{eq:loss}
 \end{equation}
 The auxiliary collection includes the active violation, transition, edge-state and entropy-related terms selected by the resolved profile. Disabled terms contribute nothing. The code, protocol and resolved configuration specify their actual inclusion and weights. Equation~\eqref{eq:loss} is a dependency summary rather than a substitute for that operational specification.
+
+Variational autoencoding uses a KL term within a specified latent-variable objective \cite{vae}. Connecting such regularization to information retained by an encoder requires identifying the distributions and approximation being optimized. Poole et al. analyze bias--variance tradeoffs among variational mutual-information bounds \cite{mibounds}. Here, the recorded objective does not provide an empirical estimate of identity information. A lower auxiliary loss would therefore not, by itself, establish that identity cues were removed or explain the observed AP difference. We use the objective to specify which parameters can receive gradients and leave the proposed statistical mechanism open.
 
 \subsection{State updates and batching}
 Scoring and store mutation must be ordered consistently for positive and negative candidates. A positive candidate reads pre-update pair history; a negative candidate reads its own available pair history without inserting a fictional observation. Actual observations subsequently update the stores. If positives instead received their post-event counts while negatives saw only pre-event counts, the model could exploit an evaluation artifact rather than historical predictive information.
@@ -294,6 +298,7 @@ The five-seed CoEdit experiment in Table~\ref{tab:presets} recovers the earlier 
 
 % BEGIN HISTORICAL PRESETS
 \begin{center}
+\begin{minipage}{\linewidth}\centering
 \captionof{table}{CoEdit preset comparison.}\label{tab:presets}
 \small\setlength{\tabcolsep}{3pt}
 \begin{tabular}{@{}lll@{}}
@@ -304,6 +309,7 @@ C preset & $0.7593\pm0.0140$ & $0.9600\pm0.0044$\\
 TGAT proxy & $0.8466\pm0.0133$ & $0.8645\pm0.0083$\\
 \bottomrule
 \end{tabular}
+\end{minipage}
 \end{center}
 % END HISTORICAL PRESETS
 
@@ -313,6 +319,7 @@ Table~\ref{tab:knobs} separates the preset changes. Relative to B, K1 enables th
 
 % BEGIN HISTORICAL KNOBS
 \begin{center}
+\begin{minipage}{\linewidth}\centering
 \captionof{table}{Predictor and gate ablations.}\label{tab:knobs}
 \small\setlength{\tabcolsep}{3pt}
 \begin{tabular}{@{}lll@{}}
@@ -330,6 +337,7 @@ MOOC & B & $0.9935\pm0.0008$\\
  & K1: predictor & $0.9844\pm0.0017$\\
 \bottomrule
 \end{tabular}
+\end{minipage}
 \end{center}
 % END HISTORICAL KNOBS
 
@@ -342,6 +350,7 @@ The sampler labels require a precise interpretation. In the accompanying impleme
 
 % BEGIN HISTORICAL NEGATIVES
 \begin{center}
+\begin{minipage}{\linewidth}\centering
 \captionof{table}{Candidate-pool sensitivity.}\label{tab:negatives}
 \small\setlength{\tabcolsep}{3pt}
 \begin{tabular}{@{}llll@{}}
@@ -355,6 +364,7 @@ Wikipedia & Random & $0.9968\pm0.0005$ & $0.9011\pm0.0106$\\
  & Inductive & $0.9682\pm0.0035$ & $0.5423\pm0.0032$\\
 \bottomrule
 \end{tabular}
+\end{minipage}
 \end{center}
 % END HISTORICAL NEGATIVES
 
@@ -367,6 +377,7 @@ The backbone-removal experiment asks whether deterministic pair histories alone 
 
 % BEGIN HISTORICAL BACKBONE
 \begin{center}
+\begin{minipage}{\linewidth}\centering
 \captionof{table}{Learned-backbone contribution.}\label{tab:backbone}
 \small\setlength{\tabcolsep}{3pt}
 \begin{tabular}{@{}lll@{}}
@@ -378,6 +389,7 @@ Wikipedia & Full B & $0.996296\pm0.000872$\\
  & Pair statistics & $0.896506\pm0.000004$\\
 \bottomrule
 \end{tabular}
+\end{minipage}
 \end{center}
 % END HISTORICAL BACKBONE
 
@@ -388,6 +400,7 @@ The recovered probe records compare a decoupled training trajectory with a freez
 
 % BEGIN HISTORICAL PROBES
 \begin{center}
+\begin{minipage}{\linewidth}\centering
 \captionof{table}{Freeze-then-probe comparison.}\label{tab:probes}
 \small\setlength{\tabcolsep}{3pt}
 \begin{tabular}{@{}lll@{}}
@@ -400,6 +413,7 @@ Wikipedia & Decoupled & $0.9961\pm0.0014$\\
 Wikipedia & Probe, ID-corrected & $0.9513\pm0.0030$\\
 \bottomrule
 \end{tabular}
+\end{minipage}
 \end{center}
 % END HISTORICAL PROBES
 
@@ -425,6 +439,13 @@ The practical implication is to test a gradient-routing boundary when adapting t
 For recommendation-like tasks, valid endpoint types and plausible alternatives are especially important. An evaluator drawing candidates across all node roles can reward discrimination that the deployed system never needs to perform. Replacing it with a destination-valid pool changes the task difficulty and may change the relative effect of routing. Such an evaluation should be reported as an extension with its own data and protocol identity.
 
 For prospective forecasting, the temporal availability of event attributes is equally important. In a constructed corpus, an attribute can be attached to a timestamp even though it is known only after another event occurs. Preventing post-score memory writes does not correct that input-level availability issue. Deployment claims therefore require both a causally ordered state procedure and a causally available input construction.
+
+\subsection{Interpreting scores beyond the sampled task}
+AP evaluates the ordering of positive and sampled-negative scores. Probability calibration asks a different question: whether a predicted probability agrees with the frequency of the event \cite{calibration}. A model may preserve its ranking while its numerical probabilities change. Consequently, the high AP in the current matrix does not justify applying a probability threshold to an operational stream without checking the event prevalence and candidate-generation policy. That check would require a deployment-specific sample and a separate calibration analysis.
+
+Benchmark design also determines what transfer is being tested. OGB emphasizes standardized graph datasets and evaluators \cite{ogb}; TGB 2.0 extends temporal evaluation to multi-relational and heterogeneous settings \cite{tgb2}. These settings would test whether the observed routing behavior survives changes in endpoint roles, edge types and historical support. They cannot be represented by adding the present corpora to a larger pooled mean. Each setting needs a valid candidate population and an architecture-specific definition of the detached boundary.
+
+Finally, comparable held-out scores can conceal different behavior under deployment conditions, a problem examined as underspecification \cite{underspec}. For a stateful model, useful stress tests would vary the retained history, repeated-interaction frequency and time gaps while preserving valid temporal inputs. Such tests could distinguish sensitivity to event memory from sensitivity to pair-history statistics. They would complement the current endpoint comparison rather than turn its small set of training seeds into evidence about all future graph populations.
 
 \subsection{Limitations and next experiments}
 The study has a limited seed budget and a restricted set of corpora and model profiles. The reported uncertainty concerns selected seed variation rather than sampling of independent environments. CoEdit's shared origin with Wikipedia and its construction order further constrain external validity. These limits remain even when all recorded hashes and aggregate computations agree.
@@ -453,23 +474,31 @@ The fuller specification distinguishes scored derivatives, auxiliary optimizatio
 \bibitem{simsiam} Chen, X. and K. He (2021) Exploring simple Siamese representation learning. IEEE/CVF Conference on Computer Vision and Pattern Recognition, 15750--15758.
 \bibitem{gru} Cho, K., B. van Merrienboer, C. Gulcehre, D. Bahdanau, F. Bougares, H. Schwenk, et al. (2014) Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation. Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing (EMNLP), 1724-1734. \href{https://doi.org/10.3115/v1/d14-1179}{doi:10.3115/v1/d14-1179}.
 \bibitem{graphmixer} Cong, W., S. Zhang, J. Kang, B. Yuan, H. Wu, X. Zhou, H. Tong and M. Mahdavi (2023) Do we really need complicated model architectures for temporal networks? International Conference on Learning Representations. arXiv:2302.11636.
+\bibitem{underspec} D'Amour, A., K. Heller, D. Moldovan, B. Adlam, B. Alipanahi, A. Beutel, et al. (2020) Underspecification Presents Challenges for Credibility in Modern Machine Learning. \href{https://arxiv.org/abs/2011.03395}{arXiv:2011.03395}.
 \bibitem{repo} Duong, V. H. and L.-M. Shih (2026) Temporal link decoupling: source, protocol and scientific evidence. Research repository. \url{https://github.com/hoangduong6210/temporal-link-decoupling}.
+\bibitem{recs} Ferrari Dacrema, M., P. Cremonesi and D. Jannach (2019) Are We Really Making Much Progress? A Worrying Analysis of Recent Neural Recommendation Approaches. Proceedings of the 13th ACM Conference on Recommender Systems. \href{https://doi.org/10.1145/3298689.3347058}{doi:10.1145/3298689.3347058}.
+\bibitem{tgb2} Gastinger, J., S. Huang, M. Galkin, E. Loghmani, A. Parviz, F. Poursafaei, et al. (2024) TGB 2.0: A Benchmark for Learning on Temporal Knowledge Graphs and Heterogeneous Graphs. \href{https://arxiv.org/abs/2406.09639}{arXiv:2406.09639}.
 \bibitem{shortcut} Geirhos, R., J. Jacobsen, C. Michaelis, R. Zemel, W. Brendel, M. Bethge, et al. (2020) Shortcut Learning in Deep Neural Networks. \href{https://arxiv.org/abs/2004.07780}{arXiv:2004.07780}.
 \bibitem{byol} Grill, J., F. Strub, F. Altché, C. Tallec, P. H. Richemond, E. Buchatskaya, et al. (2020) Bootstrap your own latent: A new approach to self-supervised Learning. \href{https://arxiv.org/abs/2006.07733}{arXiv:2006.07733}.
+\bibitem{calibration} Guo, C., G. Pleiss, Y. Sun and K. Q. Weinberger (2017) On Calibration of Modern Neural Networks. \href{https://arxiv.org/abs/1706.04599}{arXiv:1706.04599}.
 \bibitem{graphsage} Hamilton, W. L., R. Ying and J. Leskovec (2017) Inductive Representation Learning on Large Graphs. \href{https://arxiv.org/abs/1706.02216}{arXiv:1706.02216}.
 \bibitem{hawkes} Hawkes, A. G. (1971) Spectra of some self-exciting and mutually exciting point processes. Biometrika, 58(1), 83--90.
 \bibitem{holme} Holme, P. and J. Saramäki (2012) Temporal Networks. Physics Reports, 519(3), 97--125. \href{https://doi.org/10.1016/j.physrep.2012.03.001}{doi:10.1016/j.physrep.2012.03.001}.
+\bibitem{ogb} Hu, W., M. Fey, M. Zitnik, Y. Dong, H. Ren, B. Liu, et al. (2020) Open Graph Benchmark: Datasets for Machine Learning on Graphs. \href{https://arxiv.org/abs/2005.00687}{arXiv:2005.00687}.
 \bibitem{tgb} Huang, S., F. Poursafaei, J. Danovitch, M. Fey, W. Hu, E. Rossi, J. Leskovec, M. Bronstein, G. Rabusseau and R. Rabbany (2023) Temporal graph benchmark for machine learning on temporal graphs. Advances in Neural Information Processing Systems, 36. arXiv:2307.01026.
 \bibitem{leakage} Kapoor, S. and A. Narayanan (2022) Leakage and the Reproducibility Crisis in ML-based Science. \href{https://arxiv.org/abs/2207.07048}{arXiv:2207.07048}.
 \bibitem{survey} Kazemi, S. M., R. Goel, K. Jain, I. Kobyzev, A. Sethi, P. Forsyth, et al. (2019) Representation Learning for Dynamic Graphs: A Survey. \href{https://arxiv.org/abs/1905.11485}{arXiv:1905.11485}.
 \bibitem{adam} Kingma, D. P. and J. Ba (2015) Adam: A method for stochastic optimization. International Conference on Learning Representations. arXiv:1412.6980.
+\bibitem{vae} Kingma, D. P. and M. Welling (2014) Auto-encoding variational Bayes. International Conference on Learning Representations. arXiv:1312.6114.
 \bibitem{kumar} Kumar, A., A. Raghunathan, R. Jones, T. Ma and P. Liang (2022) Fine-tuning can distort pretrained features and underperform out-of-distribution. International Conference on Learning Representations. arXiv:2202.10054.
 \bibitem{jodie} Kumar, S., X. Zhang and J. Leskovec (2019) Predicting dynamic embedding trajectory in temporal interaction networks. ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 1269--1278.
 \bibitem{adamw} Loshchilov, I. and F. Hutter (2017) Decoupled Weight Decay Regularization. \href{https://arxiv.org/abs/1711.05101}{arXiv:1711.05101}.
 \bibitem{nat} Luo, Y. and P. Li (2022) Neighborhood-aware scalable temporal network representation learning. Proceedings of the First Learning on Graphs Conference, PMLR, 198, 1:1--1:18.
 \bibitem{pytorch} Paszke, A., S. Gross, F. Massa, A. Lerer, J. Bradbury, G. Chanan, et al. (2019) PyTorch: An Imperative Style, High-Performance Deep Learning Library. \href{https://arxiv.org/abs/1912.01703}{arXiv:1912.01703}.
+\bibitem{mibounds} Poole, B., S. Ozair, A. van den Oord, A. A. Alemi and G. Tucker (2019) On Variational Bounds of Mutual Information. \href{https://arxiv.org/abs/1905.06922}{arXiv:1905.06922}.
 \bibitem{poursafaei} Poursafaei, F., S. Huang, K. Pelrine and R. Rabbany (2022) Towards better evaluation for dynamic link prediction. Advances in Neural Information Processing Systems, 35. arXiv:2207.10128.
 \bibitem{tgn} Rossi, E., B. Chamberlain, F. Frasca, D. Eynard, F. Monti and M. Bronstein (2020) Temporal graph networks for deep learning on dynamic graphs. ICML Workshop on Graph Representation Learning and Beyond. arXiv:2006.10637.
+\bibitem{pitfalls} Shchur, O., M. Mumme, A. Bojchevski and S. Günnemann (2018) Pitfalls of Graph Neural Network Evaluation. \href{https://arxiv.org/abs/1811.05868}{arXiv:1811.05868}.
 \bibitem{tishby} Tishby, N., F. C. Pereira and W. Bialek (1999) The information bottleneck method. Proceedings of the Allerton Conference on Communication, Control and Computing. Preprint: arXiv:physics/0004057.
 \bibitem{dyrep} Trivedi, R., M. Farajtabar, P. Biswal and H. Zha (2019) DyRep: Learning representations over dynamic graphs. International Conference on Learning Representations.
 \bibitem{cawn} Wang, Y., Y.-Y. Chang, Y. Liu, J. Leskovec and P. Li (2021) Inductive representation learning in temporal networks via causal anonymous walks. International Conference on Learning Representations. arXiv:2101.05974.

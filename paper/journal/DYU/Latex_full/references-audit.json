@@ -1,5 +1,5 @@
 {
-  "count": 32,
+  "count": 40,
   "checked_on": "2026-10-02",
   "scope": "Citation relevance and primary-source bibliographic identity; no AI-authorship or plagiarism certification",
   "references": [
@@ -59,6 +59,21 @@
       "cited_version_year": "2020",
       "primary_url": "https://arxiv.org/abs/2006.07733",
       "publication_url": "https://arxiv.org/abs/2006.07733",
+      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
+      "citation_occurrences": 1
+    },
+    {
+      "key": "calibration",
+      "title": "On Calibration of Modern Neural Networks",
+      "authors": [
+        "Chuan Guo",
+        "Geoff Pleiss",
+        "Yu Sun",
+        "Kilian Q. Weinberger"
+      ],
+      "cited_version_year": "2017",
+      "primary_url": "https://arxiv.org/abs/1706.04599",
+      "publication_url": "https://arxiv.org/abs/1706.04599",
       "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
       "citation_occurrences": 1
     },
@@ -183,10 +198,60 @@
       "citation_occurrences": 1
     },
     {
+      "key": "mibounds",
+      "title": "On Variational Bounds of Mutual Information",
+      "authors": [
+        "Ben Poole",
+        "Sherjil Ozair",
+        "Aaron van den Oord",
+        "Alexander A. Alemi",
+        "George Tucker"
+      ],
+      "cited_version_year": "2019",
+      "primary_url": "https://arxiv.org/abs/1905.06922",
+      "publication_url": "https://arxiv.org/abs/1905.06922",
+      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
+      "citation_occurrences": 1
+    },
+    {
       "key": "nat",
       "primary_url": "https://proceedings.mlr.press/v198/luo22a.html",
       "bibliography": "Luo, Y. and P. Li (2022) Neighborhood-aware scalable temporal network representation learning. Proceedings of the First Learning on Graphs Conference, PMLR, 198, 1:1--1:18.",
       "verification": "Retained reference from prior source audit; URL retained for review.",
+      "citation_occurrences": 1
+    },
+    {
+      "key": "ogb",
+      "title": "Open Graph Benchmark: Datasets for Machine Learning on Graphs",
+      "authors": [
+        "Weihua Hu",
+        "Matthias Fey",
+        "Marinka Zitnik",
+        "Yuxiao Dong",
+        "Hongyu Ren",
+        "Bowen Liu",
+        "Michele Catasta",
+        "Jure Leskovec"
+      ],
+      "cited_version_year": "2020",
+      "primary_url": "https://arxiv.org/abs/2005.00687",
+      "publication_url": "https://arxiv.org/abs/2005.00687",
+      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
+      "citation_occurrences": 1
+    },
+    {
+      "key": "pitfalls",
+      "title": "Pitfalls of Graph Neural Network Evaluation",
+      "authors": [
+        "Oleksandr Shchur",
+        "Maximilian Mumme",
+        "Aleksandar Bojchevski",
+        "Stephan Günnemann"
+      ],
+      "cited_version_year": "2018",
+      "primary_url": "https://arxiv.org/abs/1811.05868",
+      "publication_url": "https://arxiv.org/abs/1811.05868",
+      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
       "citation_occurrences": 1
     },
     {
@@ -225,6 +290,20 @@
       "cited_version_year": "2019",
       "primary_url": "https://arxiv.org/abs/1912.01703",
       "publication_url": "https://arxiv.org/abs/1912.01703",
+      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
+      "citation_occurrences": 1
+    },
+    {
+      "key": "recs",
+      "title": "Are We Really Making Much Progress? A Worrying Analysis of Recent Neural Recommendation Approaches",
+      "authors": [
+        "Maurizio Ferrari Dacrema",
+        "Paolo Cremonesi",
+        "Dietmar Jannach"
+      ],
+      "cited_version_year": "2019",
+      "primary_url": "https://arxiv.org/abs/1907.06902",
+      "publication_url": "https://doi.org/10.1145/3298689.3347058",
       "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
       "citation_occurrences": 1
     },
@@ -319,6 +398,29 @@
       "citation_occurrences": 1
     },
     {
+      "key": "tgb2",
+      "title": "TGB 2.0: A Benchmark for Learning on Temporal Knowledge Graphs and Heterogeneous Graphs",
+      "authors": [
+        "Julia Gastinger",
+        "Shenyang Huang",
+        "Mikhail Galkin",
+        "Erfan Loghmani",
+        "Ali Parviz",
+        "Farimah Poursafaei",
+        "Jacob Danovitch",
+        "Emanuele Rossi",
+        "Ioannis Koutis",
+        "Heiner Stuckenschmidt",
+        "Reihaneh Rabbany",
+        "Guillaume Rabusseau"
+      ],
+      "cited_version_year": "2024",
+      "primary_url": "https://arxiv.org/abs/2406.09639",
+      "publication_url": "https://arxiv.org/abs/2406.09639",
+      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
+      "citation_occurrences": 1
+    },
+    {
       "key": "tgn",
       "primary_url": "https://arxiv.org/abs/2006.10637",
       "bibliography": "Rossi, E., B. Chamberlain, F. Frasca, D. Eynard, F. Monti and M. Bronstein (2020) Temporal graph networks for deep learning on dynamic graphs. ICML Workshop on Graph Representation Learning and Beyond. arXiv:2006.10637.",
@@ -329,6 +431,64 @@
       "key": "tishby",
       "primary_url": "https://arxiv.org/abs/physics/0004057",
       "bibliography": "Tishby, N., F. C. Pereira and W. Bialek (1999) The information bottleneck method. Proceedings of the Allerton Conference on Communication, Control and Computing. Preprint: arXiv:physics/0004057.",
+      "verification": "Retained reference from prior source audit; URL retained for review.",
+      "citation_occurrences": 1
+    },
+    {
+      "key": "underspec",
+      "title": "Underspecification Presents Challenges for Credibility in Modern Machine Learning",
+      "authors": [
+        "Alexander D'Amour",
+        "Katherine Heller",
+        "Dan Moldovan",
+        "Ben Adlam",
+        "Babak Alipanahi",
+        "Alex Beutel",
+        "Christina Chen",
+        "Jonathan Deaton",
+        "Jacob Eisenstein",
+        "Matthew D. Hoffman",
+        "Farhad Hormozdiari",
+        "Neil Houlsby",
+        "Shaobo Hou",
+        "Ghassen Jerfel",
+        "Alan Karthikesalingam",
+        "Mario Lucic",
+        "Yian Ma",
+        "Cory McLean",
+        "Diana Mincu",
+        "Akinori Mitani",
+        "Andrea Montanari",
+        "Zachary Nado",
+        "Vivek Natarajan",
+        "Christopher Nielson",
+        "Thomas F. Osborne",
+        "Rajiv Raman",
+        "Kim Ramasamy",
+        "Rory Sayres",
+        "Jessica Schrouff",
+        "Martin Seneviratne",
+        "Shannon Sequeira",
+        "Harini Suresh",
+        "Victor Veitch",
+        "Max Vladymyrov",
+        "Xuezhi Wang",
+        "Kellie Webster",
+        "Steve Yadlowsky",
+        "Taedong Yun",
+        "Xiaohua Zhai",
+        "D. Sculley"
+      ],
+      "cited_version_year": "2020",
+      "primary_url": "https://arxiv.org/abs/2011.03395",
+      "publication_url": "https://arxiv.org/abs/2011.03395",
+      "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
+      "citation_occurrences": 1
+    },
+    {
+      "key": "vae",
+      "primary_url": "https://arxiv.org/abs/1312.6114",
+      "bibliography": "Kingma, D. P. and M. Welling (2014) Auto-encoding variational Bayes. International Conference on Learning Representations. arXiv:1312.6114.",
       "verification": "Retained reference from prior source audit; URL retained for review.",
       "citation_occurrences": 1
     },
@@ -369,49 +529,17 @@
     }
   ],
   "editorial_selection": {
-    "rule": "Retain sources used to define the method, interpret an experiment or specify evaluation; no reference-count quota.",
-    "removed_keys": [
-      "vicreg",
-      "dino",
-      "simclr",
-      "underspec",
-      "recs",
-      "pyg",
+    "rule": "No quota; restored eight directly relevant sources after measuring the export length.",
+    "added_keys": [
       "tgb2",
-      "mpnn",
-      "dyngem",
-      "dyngraph",
-      "node2vec",
-      "calibration",
-      "moco",
-      "dropout",
-      "graphmae",
-      "ogb",
-      "supcon",
-      "vae",
-      "gcn",
-      "vgae",
-      "wilds",
-      "dynedge",
-      "dynnode",
-      "evolvegcn",
-      "deepwalk",
-      "mibounds",
-      "dysat",
       "pitfalls",
-      "line",
-      "bgrl",
-      "knowevolve",
-      "cpc",
-      "attention",
-      "gat",
-      "dgi",
-      "tcl",
-      "gin",
-      "graphcl",
-      "barlow",
-      "grace"
+      "underspec",
+      "mibounds",
+      "calibration",
+      "ogb",
+      "vae",
+      "recs"
     ],
-    "source_identity_verification": "Retained from earlier source audit; this revision checks relevance and citation coverage, not a new full bibliographic audit."
+    "verification": "Restored source identities and abstracts checked against primary arXiv records on 2026-10-02."
   }
 }

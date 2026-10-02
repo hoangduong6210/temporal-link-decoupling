@@ -22,4 +22,4 @@ To regenerate Word, install python-docx and provide an existing Pandoc executabl
 
 ## Editorial constraints
 
-Prioritize method, experimental results and interpretation over literature volume. Every reference must support text that remains in the article. The current selection contains 32 sources. Run check_editorial.py for source-level citation, abstract, heading and layout checks. The journal guidance and remaining manual checks are recorded in editorial-checks.json. These checks do not certify non-AI authorship or replace visual review. Preserve the template font size and spacing when shortening the article.
+Prioritize method, experimental results and interpretation over literature volume. Every reference must support text that remains in the article. The current selection contains 40 sources. Run check_editorial.py for source-level citation, abstract, heading and layout checks. The journal guidance and remaining manual checks are recorded in editorial-checks.json. These checks do not certify non-AI authorship or replace visual review. Preserve the template font size and spacing when shortening the article.

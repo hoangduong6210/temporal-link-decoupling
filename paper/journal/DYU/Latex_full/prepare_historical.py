@@ -23,11 +23,11 @@ def cell(name, records, selector, field="ind_ap", digits=4, expected=None):
         values=values, mean=mean, sample_sd=sd, decimals=digits))
     return "$"+f"{mean:.{digits}f}\\pm{sd:.{digits}f}"+"$"
 def table(label, caption, header, rows):
-    return (r"\begin{center}"+"\n"+r"\captionof{table}{"+caption+"}"+r"\label{tab:"+label+"}\n"+
+    return (r"\begin{center}"+"\n"+r"\begin{minipage}{\linewidth}\centering"+"\n"+r"\captionof{table}{"+caption+"}"+r"\label{tab:"+label+"}\n"+
         r"\small\setlength{\tabcolsep}{3pt}"+"\n"+r"\begin{tabular}{@{}"+("l"*len(header))+r"@{}}"+"\n"+
         r"\toprule"+"\n"+" & ".join(header)+r"\\ \midrule"+"\n"+
         "\n".join(" & ".join(row)+r"\\" for row in rows)+"\n"+
-        r"\bottomrule"+"\n"+r"\end{tabular}"+"\n"+r"\end{center}")
+        r"\bottomrule"+"\n"+r"\end{tabular}"+"\n"+r"\end{minipage}"+"\n"+r"\end{center}")
 blocks = {}
 rows=[]
 for name,label in [("v3_3_coedit_B_5seed.json","B preset"),("v3_3_coedit_C_5seed.json","C preset"),("baselines_coedit_TGAT_5seed.json","TGAT proxy")]:
@@ -77,4 +77,3 @@ p.write_text(text)
     method="Means and sample SD reconstructed from recovered per-seed observations; no training rerun.",
     source_root="results/recovered/legacy_import",source_hashes=sources,cells=cells),indent=2,allow_nan=False)+"\n")
 print(f"PASS: {len(blocks)} historical tables, {len(cells)} AP cells, {len(sources)} source files; per-seed reconstruction.")
-

@@ -9,4 +9,4 @@ The canonical editable manuscript is Latex_full/main.tex. It contains the comple
 - Word/template.docx: retained conversion of the supplied instructional template, used by the Word exporter.
 - EDITORIAL_AUDIT_VI.txt: editorial, citation and evidence review, with limitations.
 
-The editable LaTeX now includes retrospective experimental tables that are not yet in the existing PDF, Word and Overleaf ZIP exports. Those exports retain the preceding title revision and must be regenerated before submission. Pagination may differ between renderers and fonts. These files are working submission materials; no submission or formal evidence-snapshot admission is implied.
+The PDF, Word and Overleaf archive are synchronized with the current editable LaTeX, including the retrospective experimental tables. The delivered PDF has 12 pages; both Word exports have 13 pages. Pagination may differ between renderers and fonts. These files remain working submission materials; no submission or formal evidence-snapshot admission is implied.

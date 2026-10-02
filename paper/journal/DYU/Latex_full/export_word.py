@@ -21,6 +21,8 @@ text=text.replace(r'\sigma',r'\sigma').replace(r'\sg',r'\operatorname{sg}').repl
 text=re.sub(r'\\begin\{tikzpicture\}.*?\\end\{tikzpicture\}', '\n\nFIGUREPLACEHOLDER\n\n',text,flags=re.S)
 text=text.replace(r'\begin{minipage}{\linewidth}\centering','').replace(r'\end{minipage}','')
 table_sources=re.findall(r'\\begin\{center\}\s*\\captionof\{table\}.*?\\end\{center\}',text,re.S)
+table_numbers={key:i+1 for i,block in enumerate(table_sources) for key in re.findall(r'\\label\{([^}]+)\}',block)}
+text=re.sub(r'\\ref\{([^}]+)\}',lambda m:str(table_numbers[m[1]]),text)
 for i,block in enumerate(table_sources):text=text.replace(block,'\n\nTABLEPLACEHOLDER'+str(i)+'\n\n')
 text=text.replace(r'\captionof{figure}{Scored feature path in the primary comparison.}',r'\textbf{Figure 1. Scored feature path in the primary comparison.}')
 text=text.replace(r'\captionof{table}{Registered experimental settings.}',r'\textbf{Table 1. Registered experimental settings.}').replace(r'\captionof{table}{Inductive AP: mean and sample SD.}',r'\textbf{Table 2. Inductive AP: mean and sample SD.}')
@@ -166,7 +168,8 @@ for tab in d.tables:
   edge=OxmlElement('w:'+side);edge.set(qn('w:val'),'single');edge.set(qn('w:sz'),'4');edge.set(qn('w:color'),'AAAAAA');borders.append(edge)
  tab._tbl.tblPr.append(borders)
  if len(tab.columns)==2:widths=[3.45,3.8]
- elif len(tab.columns)==3:widths=[1.7,2.5,3.1]
+ elif len(tab.columns)==3:widths=[2.1,2.6,2.6] if tab.cell(0,0).text=='Configuration' else [1.7,2.5,3.1]
+ elif len(tab.columns)==4:widths=[1.65,1.65,2.3,2.3]
  else:widths=[6.7]
  for col,width in zip(tab.columns,widths):col.width=Cm(width)
  for ri,row in enumerate(tab.rows):

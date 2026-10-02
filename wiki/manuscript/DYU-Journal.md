@@ -33,7 +33,7 @@ The editable journal now includes the recovered preset comparison, predictor and
 
 The historical tables remain retrospective observations with incomplete original execution bindings. They are not added to the admitted current-release matrix. The manuscript distinguishes predictor-changing configurations from the current shared-readout derivative intervention, labels the TGAT implementation as a proxy, explains the actual destination-pool sampler and its bounded rejection, and keeps the ID-corrected probe separate. Neither recovery nor arithmetic reconstruction constitutes new training or evidence admission.
 
-The native editor compiles the expanded source successfully. Existing PDF, Word and archive exports still represent the preceding title revision; they require regeneration from this expanded source before submission.
+The native editor compiles the expanded source successfully. PDF, Word and Overleaf exports are now synchronized with the source. The bibliography selectively restores sources on calibration, evaluation design, information objectives and reproducibility. The verification record reports pagination and artifact hashes; all experimental values are preserved.
 
 ## Expanded literature and submission files
 
