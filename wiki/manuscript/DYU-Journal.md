@@ -47,4 +47,4 @@ The author supersedes the previous reference-count target: retain sources needed
 
 ## Model attribution
 
-The manuscript introduces the stateful temporal-link model as developed in the present study. SR-GNN is an internal implementation name, not an independently published baseline. The research repository is cited as the accompanying software and experimental record. Established components remain attributed to their sources; the article describes the integrated model and controlled gradient-routing comparison without claiming novelty for every component.
+The manuscript introduces the stateful temporal-link model as developed in the present study. The internal implementation name is omitted from the manuscript; the model is described directly through its architecture and training procedure. The research repository is cited as the accompanying software and experimental record. Established components remain attributed to their sources; the article describes the integrated model and controlled gradient-routing comparison without claiming novelty for every component.

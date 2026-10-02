@@ -1,7 +1,8 @@
 {
-  "source_sha256": "ed61702c39e769569dadc240345059a35d06730369c3eaf640ed7ef03e08b978",
+  "source_sha256": "3560d1c7692016c1a7a4eb580718edcd734f8dcdbe2e1cdd24dcc39da4116c1a",
   "status": "PASS",
   "checks": {
+    "excluded_model_name_absent": true,
     "cited_references_only_no_count_quota": true,
     "alphabetic_reference_order": true,
     "abstracts_within_500_words_or_Han_characters": true,

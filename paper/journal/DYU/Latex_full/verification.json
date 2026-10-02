@@ -4,13 +4,13 @@
   "word_pages": 13,
   "legacy_doc_pages": 13,
   "references": 40,
-  "source_sha256": "ed61702c39e769569dadc240345059a35d06730369c3eaf640ed7ef03e08b978",
-  "pdf_sha256": "0df10d3e4e5c3743878a9eb57b228e69412084026f36d8bf3d1531ff1355a386",
-  "docx_sha256": "98ecff197d49a338c2d252c3dfcad55e5764d9f4dea79134b974fdff9528964d",
-  "doc_sha256": "e5a9b68de76a83addda8a6f1f9a6e2053b863c776026b011ef4482f7c5156b35",
+  "source_sha256": "3560d1c7692016c1a7a4eb580718edcd734f8dcdbe2e1cdd24dcc39da4116c1a",
+  "pdf_sha256": "9a7bfecd7d461607ed3bd8ded7c532b366f6349aad543ca3550fca4dc16a80b5",
+  "docx_sha256": "a2db121568a5fdbacff928d62ee12e86e1ddab8f09e781e01153c7c4efae1951",
+  "doc_sha256": "c01ba050e4adad028a6651fa0a5a15992edb4636e3cebb13d6c227758cb5e1af",
   "native_editor_compilation": "success",
   "delivered_export": "Tectonic 0.15.0; Times New Roman and Songti TC",
-  "visual_review": "Re-rendered PDF and both Word formats after model-attribution revision. Reviewed page overview and table placement. Kept the primary-result caption with its table. PDF 12 pages; Word 13 pages.",
+  "visual_review": "Re-rendered PDF, DOCX and DOC after removing the internal name. Page overview inspected; PDF 12 pages and Word 13 pages. Text extraction confirms the excluded name is absent from all three exports.",
   "overfull_box_warnings": 0,
   "missing_character_warnings": 0,
   "all_references_cited": true,
@@ -29,7 +29,7 @@
     "Historical original execution bindings and formal paper-snapshot admission remain incomplete.",
     "No new training, plagiarism scan or AI-authorship certification."
   ],
-  "editorial_change": "Introduce the stateful model as developed in this study. SR-GNN appears only as the internal code name; the repository is a software artifact, not a published external model. Attribute established ingredients and bound the contribution.",
+  "editorial_change": "Remove the internal implementation name entirely from the manuscript; describe the model developed in this study directly.",
   "affiliation_addresses": {
     "checked_on": "2026-10-02",
     "template": "Department and Address are separate centered 9-point lines; English lines italic.",
@@ -43,5 +43,6 @@
       "kind": "U.S. Mail"
     }
   },
-  "front_matter_order": "English title/affiliations/abstract/keywords; Chinese title/affiliations/abstract/keywords; Introduction. English and Chinese occupy consecutive front-matter pages."
+  "front_matter_order": "English title/affiliations/abstract/keywords; Chinese title/affiliations/abstract/keywords; Introduction. English and Chinese occupy consecutive front-matter pages.",
+  "excluded_model_name_absent_in_exports": true
 }

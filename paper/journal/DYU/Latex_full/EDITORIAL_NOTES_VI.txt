@@ -29,4 +29,4 @@ numeric-sources.json là source map, CHƯA thay thế registry từng occurrence
 Không tự điền chữ ký, cam kết tác giả, ngày nhận/duyệt hoặc thông tin xuất bản.
 
 ĐỊNH VỊ MÔ HÌNH
-Mô hình được xây dựng và đặc tả trong nghiên cứu này. SR-GNN chỉ là tên nội bộ của implementation, không phải mô hình đã công bố dùng làm baseline. Không gán tính mới cho riêng từng thành phần kế thừa.
+Mô hình được xây dựng và đặc tả trong nghiên cứu này. Không đưa tên nội bộ của implementation vào nội dung paper. Không gán tính mới cho riêng từng thành phần kế thừa.

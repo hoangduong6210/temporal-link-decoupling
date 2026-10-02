@@ -18,6 +18,7 @@ zh_chars = len(re.findall(r"[\u4e00-\u9fff]",abstracts[1]))
 labels = re.findall(r"\\label\{([^}]+)\}",s)
 refs = re.findall(r"\\(?:eqref|ref)\{([^}]+)\}",s)
 checks = {
+    "excluded_model_name_absent": not re.search(r"SR[-\s]?GNN", s, re.I),
     "cited_references_only_no_count_quota": set(citations)==set(keys) and len(keys)==len(set(keys)) and bool(keys),
     "alphabetic_reference_order": authors==sorted(authors),
     "abstracts_within_500_words_or_Han_characters": en_words<=500 and zh_chars<=500,
