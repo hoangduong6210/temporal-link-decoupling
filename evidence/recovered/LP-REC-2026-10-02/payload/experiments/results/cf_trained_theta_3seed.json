@@ -1,0 +1,202 @@
+{
+  "seeds": [
+    42,
+    1,
+    7
+  ],
+  "states_ladder_order": [
+    "DEATH",
+    "IDLE",
+    "DECAY",
+    "REINFORCE",
+    "BIRTH"
+  ],
+  "w_s_init_spec": [
+    0.1,
+    1.0,
+    1.0,
+    0.3,
+    0.0
+  ],
+  "per_seed": {
+    "42": {
+      "npz": "faithfulness_coedit_v3_hier_hv2_cb_hcp_let0.5_s42.npz",
+      "theta_json": "faithfulness_coedit_v3_hier_hv2_cb_hcp_let0.5_s42_theta.json",
+      "w_s_trained": [
+        0.060025282204151154,
+        1.0766725540161133,
+        1.269901156425476,
+        0.310074120759964,
+        7.823246414773166e-05
+      ],
+      "best_val_ap": 0.9983583398536799,
+      "p_edge_trained": {
+        "DEATH": 7.823246414773166e-05,
+        "IDLE": 0.060025282204151154,
+        "DECAY": 0.310074120759964,
+        "REINFORCE": 1.269901156425476,
+        "BIRTH": 1.0766725540161133
+      },
+      "p_edge_init": {
+        "DEATH": 0.0,
+        "IDLE": 0.10000000000000002,
+        "DECAY": 0.29999999999999993,
+        "REINFORCE": 1.0,
+        "BIRTH": 1.0
+      },
+      "ladder_holds_trained": false,
+      "ladder_detail_trained": {
+        "DEATH<IDLE": true,
+        "IDLE<DECAY": true,
+        "DECAY<REINFORCE": true,
+        "DECAY<BIRTH": true,
+        "REINFORCE\u2248BIRTH": false,
+        "|REINF-BIRTH|": 0.1932286024093628
+      },
+      "ladder_holds_init": true
+    },
+    "1": {
+      "npz": "faithfulness_coedit_v3_hier_hv2_cb_hcp_let0.5_s1.npz",
+      "theta_json": "faithfulness_coedit_v3_hier_hv2_cb_hcp_let0.5_s1_theta.json",
+      "w_s_trained": [
+        0.03587665036320686,
+        0.9956400394439697,
+        1.351502776145935,
+        0.4181928038597107,
+        0.00015582668129354715
+      ],
+      "best_val_ap": 0.9976806342823468,
+      "p_edge_trained": {
+        "DEATH": 0.00015582668129354715,
+        "IDLE": 0.03587665036320686,
+        "DECAY": 0.4181928038597107,
+        "REINFORCE": 1.351502776145935,
+        "BIRTH": 0.9956400394439697
+      },
+      "p_edge_init": {
+        "DEATH": 0.0,
+        "IDLE": 0.10000000000000002,
+        "DECAY": 0.29999999999999993,
+        "REINFORCE": 1.0,
+        "BIRTH": 1.0
+      },
+      "ladder_holds_trained": false,
+      "ladder_detail_trained": {
+        "DEATH<IDLE": true,
+        "IDLE<DECAY": true,
+        "DECAY<REINFORCE": true,
+        "DECAY<BIRTH": true,
+        "REINFORCE\u2248BIRTH": false,
+        "|REINF-BIRTH|": 0.35586273670196533
+      },
+      "ladder_holds_init": true
+    },
+    "7": {
+      "npz": "faithfulness_coedit_v3_hier_hv2_cb_hcp_let0.5_s7.npz",
+      "theta_json": "faithfulness_coedit_v3_hier_hv2_cb_hcp_let0.5_s7_theta.json",
+      "w_s_trained": [
+        0.03464813902974129,
+        0.9956192970275879,
+        1.4205580949783325,
+        0.415199339389801,
+        0.00015955744311213493
+      ],
+      "best_val_ap": 0.9984275221421066,
+      "p_edge_trained": {
+        "DEATH": 0.00015955744311213493,
+        "IDLE": 0.03464813902974129,
+        "DECAY": 0.415199339389801,
+        "REINFORCE": 1.4205580949783325,
+        "BIRTH": 0.9956192970275879
+      },
+      "p_edge_init": {
+        "DEATH": 0.0,
+        "IDLE": 0.10000000000000002,
+        "DECAY": 0.29999999999999993,
+        "REINFORCE": 1.0,
+        "BIRTH": 1.0
+      },
+      "ladder_holds_trained": false,
+      "ladder_detail_trained": {
+        "DEATH<IDLE": true,
+        "IDLE<DECAY": true,
+        "DECAY<REINFORCE": true,
+        "DECAY<BIRTH": true,
+        "REINFORCE\u2248BIRTH": false,
+        "|REINF-BIRTH|": 0.42493879795074463
+      },
+      "ladder_holds_init": true
+    }
+  },
+  "summary": {
+    "p_edge_trained_DEATH": {
+      "mean": 0.0001312055295178046,
+      "std": 4.591392911702583e-05,
+      "per_seed": [
+        7.823246414773166e-05,
+        0.00015582668129354715,
+        0.00015955744311213493
+      ]
+    },
+    "p_edge_trained_IDLE": {
+      "mean": 0.04351669053236643,
+      "std": 0.014310049240425525,
+      "per_seed": [
+        0.060025282204151154,
+        0.03587665036320686,
+        0.03464813902974129
+      ]
+    },
+    "p_edge_trained_DECAY": {
+      "mean": 0.3811554213364919,
+      "std": 0.06157640518998477,
+      "per_seed": [
+        0.310074120759964,
+        0.4181928038597107,
+        0.415199339389801
+      ]
+    },
+    "p_edge_trained_REINFORCE": {
+      "mean": 1.3473206758499146,
+      "std": 0.07541548750551356,
+      "per_seed": [
+        1.269901156425476,
+        1.351502776145935,
+        1.4205580949783325
+      ]
+    },
+    "p_edge_trained_BIRTH": {
+      "mean": 1.0226439634958904,
+      "std": 0.04679013307058878,
+      "per_seed": [
+        1.0766725540161133,
+        0.9956400394439697,
+        0.9956192970275879
+      ]
+    },
+    "ladder_holds_trained_count": "0/3",
+    "w_s_trained_mean": {
+      "mean": [
+        0.04351669053236643,
+        1.0226439634958904,
+        1.3473206758499146,
+        0.3811554213364919,
+        0.0001312055295178046
+      ],
+      "std": [
+        0.014310049240425525,
+        0.04679013307058878,
+        0.07541548750551356,
+        0.06157640518998477,
+        4.591392911702583e-05
+      ],
+      "order": [
+        "IDLE",
+        "BIRTH",
+        "REINFORCE",
+        "DECAY",
+        "DEATH"
+      ]
+    }
+  }
+}

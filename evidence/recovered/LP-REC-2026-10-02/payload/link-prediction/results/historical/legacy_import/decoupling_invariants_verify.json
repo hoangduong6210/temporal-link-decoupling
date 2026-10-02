@@ -1,0 +1,16 @@
+{
+  "subsample_edges": 1500,
+  "num_nodes": 8227,
+  "feat_dim": 172,
+  "n_backbone_tensors": 44,
+  "n_head_tensors": 43,
+  "max_backbone_grad_under_pred_loss": 0.0,
+  "nonzero_backbone_tensors": [],
+  "n_cal_only_tensors": 12,
+  "max_cal_grad_under_scored_logit": 0.0,
+  "nonzero_cal_tensors": [],
+  "n_pos_scored": 225,
+  "max_abs_delta_pos_score_flat_vs_hier": 0.0,
+  "max_abs_delta_neg_score_flat_vs_hier": 0.0,
+  "all_pass": true
+}

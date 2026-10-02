@@ -1,0 +1,175 @@
+{
+  "meta": {
+    "task": "config-B knob-isolation ablation on STANDARD data (reviewer #2: mechanism not a CoEdit artifact)",
+    "dataset": "wikipedia",
+    "seeds": [
+      42,
+      1,
+      7
+    ],
+    "epochs": 20,
+    "hidden": 128,
+    "batch": 500,
+    "lr": 0.001,
+    "include_K2K3": false,
+    "protocol": "B-protocol: chrono 70/15/15, fair inductive neg, PRE-update leak-free, sklearn AP",
+    "B_fixed_stack": {
+      "dataset": "wikipedia",
+      "epochs": 20,
+      "hidden": 128,
+      "batch_size": 500,
+      "lr": 0.001,
+      "fsm_arch": "v3",
+      "fsm_decode": "hier",
+      "decol_hier_v2": true,
+      "causal_batch": true,
+      "hier_causal_policy": true,
+      "lambda_edge_trans": 0.5,
+      "p0_fix": false,
+      "edge_h_detach_scorepath": true
+    },
+    "mechanism_claim": "Delta_ind = ind_ap(B) - ind_ap(K1_e2e) should be >>0 if the enable_main_predictor=False inductive gain holds on standard data (CoEdit 3-seed Delta_ind ~ +0.211).",
+    "delta_ind_B_minus_K1": {
+      "seeds": [
+        1,
+        7,
+        42
+      ],
+      "per_seed": [
+        0.0573,
+        0.0473,
+        0.0429
+      ],
+      "mean": 0.04916043691557422,
+      "std": 0.007349197535903797,
+      "B_ind_ap_mean": 0.9981446617604165,
+      "K1_ind_ap_mean": 0.9489842248448422
+    },
+    "total_time_s": 11996.193289518356
+  },
+  "arms": [
+    {
+      "arm": "B",
+      "knob_flipped": "(baseline detached, enable_main_predictor=False)",
+      "overrides": {
+        "design": "correct_decoupled"
+      },
+      "ind_ap_mean": 0.9981446617604165,
+      "ind_ap_std": 0.00019791842316592702,
+      "n_seeds": 3,
+      "trans_ap_mean": 0.999427055693496,
+      "trans_ap_std": 0.00023635318605482014,
+      "ind_auc_mean": 0.9983159624143775,
+      "ind_auc_std": 0.00017338067885028908,
+      "per_seed": [
+        {
+          "seed": 42,
+          "ind_ap": 0.9979217246302352,
+          "trans_ap": 0.9991623478085958,
+          "ind_auc": 0.9981203188996187,
+          "trans_auc": 0.9992154714354538,
+          "time_s": 2009.60972738266,
+          "edge_state_dist": [
+            0.0,
+            0.519559383392334,
+            0.20779994130134583,
+            0.23364096879959106,
+            0.03899970278143883
+          ]
+        },
+        {
+          "seed": 1,
+          "ind_ap": 0.9982996731689879,
+          "trans_ap": 0.9995018759039968,
+          "ind_auc": 0.9984505750829743,
+          "trans_auc": 0.9995243485626741,
+          "time_s": 1979.7199018001556,
+          "edge_state_dist": [
+            0.013694551773369312,
+            0.519559383392334,
+            0.3244417905807495,
+            0.09377790987491608,
+            0.0485263466835022
+          ]
+        },
+        {
+          "seed": 7,
+          "ind_ap": 0.9982125874820262,
+          "trans_ap": 0.9996169433678954,
+          "ind_auc": 0.9983769932605395,
+          "trans_auc": 0.9996366315911598,
+          "time_s": 1976.8267436027527,
+          "edge_state_dist": [
+            0.003274784190580249,
+            0.5197380185127258,
+            0.2145281285047531,
+            0.241262286901474,
+            0.02119678445160389
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "K1_e2e",
+      "knob_flipped": "enable_main_predictor: False->True",
+      "overrides": {
+        "design": "correct_decoupled",
+        "p0_fix": true
+      },
+      "ind_ap_mean": 0.9489842248448422,
+      "ind_ap_std": 0.00717835804272615,
+      "n_seeds": 3,
+      "trans_ap_mean": 0.9460140535282644,
+      "trans_ap_std": 0.016325131953527167,
+      "ind_auc_mean": 0.9693147249708707,
+      "ind_auc_std": 0.0004026492862858317,
+      "per_seed": [
+        {
+          "seed": 42,
+          "ind_ap": 0.9550037093252671,
+          "trans_ap": 0.937761681140824,
+          "ind_auc": 0.9693799624629262,
+          "trans_auc": 0.959065645081596,
+          "time_s": 2003.2592179775238,
+          "edge_state_dist": [
+            0.0,
+            0.519559383392334,
+            0.20684728026390076,
+            0.21762429177761078,
+            0.05596903711557388
+          ]
+        },
+        {
+          "seed": 1,
+          "ind_ap": 0.9410395885701024,
+          "trans_ap": 0.9354625799703644,
+          "ind_auc": 0.9688834403246592,
+          "trans_auc": 0.9652975615139378,
+          "time_s": 2012.3179054260254,
+          "edge_state_dist": [
+            0.0,
+            0.519559383392334,
+            0.20327478647232056,
+            0.2202441245317459,
+            0.05692170187830925
+          ]
+        },
+        {
+          "seed": 7,
+          "ind_ap": 0.9509093766391572,
+          "trans_ap": 0.9648178994736049,
+          "ind_auc": 0.9696807721250265,
+          "trans_auc": 0.9798919983819888,
+          "time_s": 2014.4522354602814,
+          "edge_state_dist": [
+            0.0,
+            0.519559383392334,
+            0.2734147012233734,
+            0.1387913078069687,
+            0.06823459267616272
+          ]
+        }
+      ]
+    }
+  ]
+}

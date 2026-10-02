@@ -1,0 +1,66 @@
+{
+  "runs": [
+    {
+      "dataset": "coedit",
+      "seed": 42,
+      "epochs": 1,
+      "postcp": null,
+      "peredge_npz": null,
+      "p0_fix": "off",
+      "lfg": "on",
+      "echo": "off",
+      "fix_existence_init": false,
+      "entropy_reg_weight": 0.0,
+      "design": "canonical",
+      "fsm_arch": "v3",
+      "trans_ap": 0.9863496858040185,
+      "trans_auc": 0.989547732638889,
+      "ind_ap": 0.9044973652906688,
+      "ind_auc": 0.9168398781774779,
+      "best_val_ap": 0.9880919824645389,
+      "train_time_s": 15.230125427246094,
+      "final_info": {
+        "n_edges": 13445,
+        "edge_state_dist": [
+          0.0007437709136866033,
+          0.00044626256567426026,
+          0.9985868334770203,
+          0.00022313128283713013,
+          0.0
+        ],
+        "ever_alive_mean": 0.7946848273277283,
+        "hawkes_lam_mean": 1.1136287450790405,
+        "heterogeneity": {
+          "pair_state_var": 0.009114952757954597,
+          "argmax_entropy": 0.012088898569345474,
+          "n_pairs": 13445
+        }
+      },
+      "het_traj": [
+        {
+          "epoch": 1,
+          "first": 8.898739179130644e-05,
+          "last": 0.012402716092765331,
+          "max": 0.01979791186749935,
+          "n_batches": 112
+        }
+      ]
+    }
+  ],
+  "summary": [
+    {
+      "dataset": "coedit",
+      "p0_fix": "off",
+      "trans_ap_mean": 0.9863496858040185,
+      "trans_ap_std": 0.0,
+      "trans_auc_mean": 0.989547732638889,
+      "trans_auc_std": 0.0,
+      "ind_ap_mean": 0.9044973652906688,
+      "ind_ap_std": 0.0,
+      "ind_auc_mean": 0.9168398781774779,
+      "ind_auc_std": 0.0,
+      "time_mean": 15.230125427246094,
+      "n_seeds": 1
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "meta": {
+    "task": "config-B knob-isolation ablation on STANDARD data (reviewer #2: mechanism not a CoEdit artifact)",
+    "dataset": "mooc",
+    "seeds": [
+      42,
+      1,
+      7
+    ],
+    "epochs": 20,
+    "hidden": 128,
+    "batch": 500,
+    "lr": 0.001,
+    "include_K2K3": false,
+    "protocol": "B-protocol: chrono 70/15/15, fair inductive neg, PRE-update leak-free, sklearn AP",
+    "B_fixed_stack": {
+      "dataset": "mooc",
+      "epochs": 20,
+      "hidden": 128,
+      "batch_size": 500,
+      "lr": 0.001,
+      "fsm_arch": "v3",
+      "fsm_decode": "hier",
+      "decol_hier_v2": true,
+      "causal_batch": true,
+      "hier_causal_policy": true,
+      "lambda_edge_trans": 0.5,
+      "p0_fix": false,
+      "edge_h_detach_scorepath": true
+    },
+    "mechanism_claim": "Delta_ind = ind_ap(B) - ind_ap(K1_e2e) should be >>0 if the enable_main_predictor=False inductive gain holds on standard data (CoEdit 3-seed Delta_ind ~ +0.211).",
+    "delta_ind_B_minus_K1": {
+      "seeds": [
+        1,
+        7,
+        42
+      ],
+      "per_seed": [
+        0.0131,
+        0.0077,
+        0.0047
+      ],
+      "mean": 0.008481991898620497,
+      "std": 0.004281519254771614,
+      "B_ind_ap_mean": 0.9978340523880539,
+      "K1_ind_ap_mean": 0.9893520604894332
+    },
+    "total_time_s": 32422.673931360245
+  },
+  "arms": [
+    {
+      "arm": "B",
+      "knob_flipped": "(baseline detached, enable_main_predictor=False)",
+      "overrides": {
+        "design": "correct_decoupled"
+      },
+      "ind_ap_mean": 0.9978340523880539,
+      "ind_ap_std": 0.001643868663859753,
+      "n_seeds": 3,
+      "trans_ap_mean": 0.9988251053969001,
+      "trans_ap_std": 0.00025398099843549607,
+      "ind_auc_mean": 0.9986547782874489,
+      "ind_auc_std": 0.0009299648400418963,
+      "per_seed": [
+        {
+          "seed": 42,
+          "ind_ap": 0.998703162113865,
+          "trans_ap": 0.9985836979096823,
+          "ind_auc": 0.9992076599828266,
+          "trans_auc": 0.9992033763186283,
+          "time_s": 5382.135976076126,
+          "edge_state_dist": [
+            0.00016536915791220963,
+            0.47847655415534973,
+            0.3457932770252228,
+            0.05778379738330841,
+            0.11778099834918976
+          ]
+        },
+        {
+          "seed": 1,
+          "ind_ap": 0.9988609318881613,
+          "trans_ap": 0.9990900248345325,
+          "ind_auc": 0.9991755676304209,
+          "trans_auc": 0.999465776468695,
+          "time_s": 5336.463260412216,
+          "edge_state_dist": [
+            0.00033709866693243384,
+            0.47228795289993286,
+            0.27565765380859375,
+            0.17566657066345215,
+            0.07605072855949402
+          ]
+        },
+        {
+          "seed": 7,
+          "ind_ap": 0.9959380631621352,
+          "trans_ap": 0.9988015934464853,
+          "ind_auc": 0.997581107249099,
+          "trans_auc": 0.9992873546585016,
+          "time_s": 5339.387944936752,
+          "edge_state_dist": [
+            0.00015264845569618046,
+            0.47238969802856445,
+            0.29651325941085815,
+            0.15866534411907196,
+            0.07227904349565506
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "K1_e2e",
+      "knob_flipped": "enable_main_predictor: False->True",
+      "overrides": {
+        "design": "correct_decoupled",
+        "p0_fix": true
+      },
+      "ind_ap_mean": 0.9893520604894332,
+      "ind_ap_std": 0.004256544978558442,
+      "n_seeds": 3,
+      "trans_ap_mean": 0.9882606812277722,
+      "trans_ap_std": 0.0007745416845429793,
+      "ind_auc_mean": 0.9941044671461562,
+      "ind_auc_std": 0.0016642016998546522,
+      "per_seed": [
+        {
+          "seed": 42,
+          "ind_ap": 0.9940522257748425,
+          "trans_ap": 0.9875197241657925,
+          "ind_auc": 0.9958490436045557,
+          "trans_auc": 0.9937115479152442,
+          "time_s": 5452.411308050156,
+          "edge_state_dist": [
+            0.0001780898601282388,
+            0.47228795289993286,
+            0.30496615171432495,
+            0.06617310643196106,
+            0.15639470517635345
+          ]
+        },
+        {
+          "seed": 1,
+          "ind_ap": 0.9857571847426883,
+          "trans_ap": 0.9881973950814062,
+          "ind_auc": 0.9925343916761747,
+          "trans_auc": 0.9942809534057798,
+          "time_s": 5456.611373662949,
+          "edge_state_dist": [
+            0.0003243779647164047,
+            0.47228795289993286,
+            0.3600277304649353,
+            0.0598127506673336,
+            0.10754719376564026
+          ]
+        },
+        {
+          "seed": 7,
+          "ind_ap": 0.9882467709507692,
+          "trans_ap": 0.9890649244361177,
+          "ind_auc": 0.9939299661577381,
+          "trans_auc": 0.994404814244801,
+          "time_s": 5455.627716302872,
+          "edge_state_dist": [
+            0.0002607744245324284,
+            0.47228795289993286,
+            0.3723159432411194,
+            0.05591385439038277,
+            0.09922149032354355
+          ]
+        }
+      ]
+    }
+  ]
+}

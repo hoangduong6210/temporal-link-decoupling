@@ -1,0 +1,1050 @@
+{
+  "schema_version": 1,
+  "record_type": "quarantined_legacy_execution_reconciliation",
+  "status": "PARTIAL",
+  "eligibility": false,
+  "observed_at": "2026-08-20",
+  "scope": "Historical link-prediction scheduler attempts and retained result bindings discovered during split-migration audit.",
+  "binding_level_definitions": {
+    "VERIFIED": "Retained scheduler stdout names the result artifact and the retained bytes match the recorded SHA-256.",
+    "INFERRED": "Scheduler accounting and artifact chronology or preserved naming support the association, but an exact retained stdout-to-result binding is unavailable or incomplete.",
+    "MISSING": "No retained result binding is available for this attempt."
+  },
+  "global_limitations": [
+    "No attempt records an exact source commit.",
+    "No attempt binds a raw-data digest, immutable environment digest, and complete dependency lock.",
+    "Scheduler accounting was observed read-only and is not itself a frozen evidence release.",
+    "Retained sbatch and log hashes identify legacy workspace copies only; they are not source snapshots.",
+    "All attempts and artifacts remain quarantined and are ineligible for scientific or paper evidence."
+  ],
+  "attempts": [
+    {
+      "job_id": "5471271",
+      "state": "FAILED",
+      "exit_code": "2:0",
+      "elapsed": "00:33:41",
+      "task": "Early CoEdit hierarchical-causal-policy comparison",
+      "retry_of": null,
+      "supersedes": [],
+      "binding_level": "MISSING",
+      "results": [],
+      "sbatch": {
+        "retained": true,
+        "sha256": "4be7b6459bb2826f812a6fefc32582e9cc0ee86d9b055bb7fbab199640f2338f"
+      },
+      "logs": {
+        "stdout_sha256": "1de8c2b4c762a190a172515644cb933c2154b899eca23e819bdb3dec7d190d31",
+        "stderr_sha256": "2978378e258fa778001a4d5777f0bf79920c944c1da26547c6d3e60ee3490c64"
+      },
+      "eligibility": false,
+      "reasons": [
+        "The scheduler attempt failed.",
+        "Its emitted result files were not retained in this legacy import.",
+        "Source, data, and environment identities are incomplete."
+      ]
+    },
+    {
+      "job_id": "5482974",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "01:02:31",
+      "task": "CoEdit canonical and decoupled three-seed arms",
+      "retry_of": null,
+      "supersedes": [],
+      "binding_level": "VERIFIED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/v3_3_coedit_ARM_A_canonical_3seed.json",
+          "sha256": "6690b14c160fcd2e8a7831666148f6750f8fb7ba6bc39e740b7b3d83223510a2"
+        },
+        {
+          "path": "results/historical/legacy_import/v3_3_coedit_ARM_B_publishable_3seed.json",
+          "sha256": "de55fdfa8128c55d91926cc9e0378a9a17baa5f295a5335d56d435807b8e8593"
+        }
+      ],
+      "sbatch": {
+        "retained": true,
+        "sha256": "94414952778f81565d88c1565eccc8cf73699bc0df4c1dd3e5a956971fcc553b"
+      },
+      "logs": {
+        "stdout_sha256": "ddfe8a7be7c73dbd04c8094ba66ee0e8e636fbfa66db3437d5b21b3ffb46780d",
+        "stderr_sha256": "c0fcfc65d1185aa4c8959c1c0f32a5178b53f02c7d58dc1891f9437b8f917e74"
+      },
+      "eligibility": false,
+      "reasons": [
+        "The output binding is verified only for quarantined legacy bytes.",
+        "No source commit, job-recorded data digest, or frozen environment is available."
+      ]
+    },
+    {
+      "job_id": "5484958",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "00:08:33",
+      "task": "CoEdit B-protocol main baselines",
+      "retry_of": null,
+      "supersedes": [],
+      "binding_level": "VERIFIED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/baselines/baselines_coedit_Bprotocol.json",
+          "sha256": "0f76b24dfb163088af685706d3f1ea48d0c29a984e1b93e7ff4f4fed4d301c07"
+        }
+      ],
+      "sbatch": {
+        "retained": true,
+        "sha256": "9dcf42a3c28b23b58500adb06e1549ea57896b0300a8e8c336b39e09810a44ea"
+      },
+      "logs": {
+        "stdout_sha256": "91cf34e1710b10858ecbb1345929c0298d3d91feec90bdacff1e9412334c73c9",
+        "stderr_sha256": "81444472d2c338ac21dbd82f4676e79ab2cfa6654bc61f4dc454922338998452"
+      },
+      "eligibility": false,
+      "reasons": [
+        "The output binding is verified only for quarantined legacy bytes.",
+        "Comparator parity and complete execution provenance are unresolved."
+      ]
+    },
+    {
+      "job_id": "5486094",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "02:08:55",
+      "task": "Wikipedia canonical and decoupled three-seed arms before ID fix",
+      "retry_of": null,
+      "supersedes": [],
+      "binding_level": "VERIFIED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/v3_3_wikipedia_ARM_A_canonical_3seed.json",
+          "sha256": "d33ae9a0b9a0f01fd25564570dc385a8c06afe3ee881e4db1bdc94052059e17b"
+        },
+        {
+          "path": "results/historical/legacy_import/v3_3_wikipedia_ARM_B_publishable_3seed.json",
+          "sha256": "869d2464c2ba1bb0d41d40d5a73dca8bb5522a748ebde8e283ea1cdfac132234"
+        }
+      ],
+      "sbatch": {
+        "retained": true,
+        "sha256": "b38da75ec12652f50eb168ebbd34444294c4877200ff10eaaac2de5734539fba"
+      },
+      "logs": {
+        "stdout_sha256": "17624d2f9f111630a3f44527a81f3763396a33dbacaa18fd3a3f23ddbe442d2e",
+        "stderr_sha256": "288f4c38675f26ef9cee3d4a1fd3c8e2ef9cd69978308bc684c46c450f0bda3b"
+      },
+      "eligibility": false,
+      "reasons": [
+        "The Wikipedia execution predates the disjoint-ID migration.",
+        "No source commit, job-recorded data digest, or frozen environment is available."
+      ]
+    },
+    {
+      "job_id": "5486095",
+      "state": "TIMEOUT",
+      "exit_code": "0:0",
+      "elapsed": "05:00:06",
+      "task": "MOOC canonical and decoupled three-seed arms before ID fix, first attempt",
+      "retry_of": null,
+      "supersedes": [],
+      "binding_level": "INFERRED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/v3_3_mooc_ARM_A_canonical_3seed.json",
+          "sha256": "c67a6f8754475e827a072733eea073c17820f40d903933c022229675b3f0e71d"
+        },
+        {
+          "path": "results/historical/legacy_import/v3_3_mooc_ARM_B_publishable_3seed.json",
+          "sha256": "f534fe73f029305d1166313bda45187be2894db5cc72ca38ea7fb968d85c4280"
+        }
+      ],
+      "sbatch": {
+        "retained": true,
+        "sha256": "48e8b25b3d5f911c3942df54625c66a2cc2253a312d96a595976a85d83c1f211"
+      },
+      "logs": {
+        "stdout_sha256": "a44823c96864ce36a3db60ae4699ff2ee496ae576f1843232f37f7111fb3fffa",
+        "stderr_sha256": "98eab4d295a14a2d7e3dd2e0cbf0dea546cf4fe4af9d7e47bdd11c87e4409ffd"
+      },
+      "eligibility": false,
+      "reasons": [
+        "The attempt timed out and the retained decoupled result contains only two seeds.",
+        "Only the canonical output is named as saved in retained stdout; the partial decoupled binding is inferred.",
+        "The MOOC execution predates the disjoint-ID migration."
+      ]
+    },
+    {
+      "job_id": "5486096",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "00:16:42",
+      "task": "Wikipedia B-protocol main baselines before ID fix",
+      "retry_of": null,
+      "supersedes": [],
+      "binding_level": "VERIFIED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/baselines/baselines_wikipedia_Bprotocol_PREIDFIX.json",
+          "sha256": "0f289474949bd9793550d3288de039dad3089a616aa42494557e34931d21847f"
+        }
+      ],
+      "sbatch": {
+        "retained": true,
+        "sha256": "f468edb8c1ea5496573584997b930586dde8721debefc59a76dd9fb4ae8a604f"
+      },
+      "logs": {
+        "stdout_sha256": "cf9ca7218e3ba4cdcb9ad26d8298321cb6e84b66b15f1cc7d59915146fa129a2",
+        "stderr_sha256": "60729e5cfa809a84d2573509e0417727bd2ce17d5999ecc450274e4f28697901"
+      },
+      "eligibility": false,
+      "reasons": [
+        "The retained artifact is the PREIDFIX preservation copy of the logged output.",
+        "No source commit or frozen environment is available."
+      ]
+    },
+    {
+      "job_id": "5486097",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "00:44:59",
+      "task": "MOOC B-protocol main baselines before ID fix",
+      "retry_of": null,
+      "supersedes": [],
+      "binding_level": "VERIFIED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/baselines/baselines_mooc_Bprotocol_PREIDFIX.json",
+          "sha256": "8b5fce2bd5c3a2a33e114d5a419f1ac3384c0eab0e5888b04ac2e0be8e30aee3"
+        }
+      ],
+      "sbatch": {
+        "retained": true,
+        "sha256": "662913b6ede48c3150c7ac735e6e53821f6ffac6f7c7d9ebf387cae371498e19"
+      },
+      "logs": {
+        "stdout_sha256": "9b7a171b551801d92dfc9617f627d7d1f2dfc8443921cdb682eae5171244a454",
+        "stderr_sha256": "ae4d6580e112f736ba9d1fcdb44649420482c0512f692a36179932cf8bb7a3e9"
+      },
+      "eligibility": false,
+      "reasons": [
+        "The retained artifact is the PREIDFIX preservation copy of the logged output.",
+        "No source commit or frozen environment is available."
+      ]
+    },
+    {
+      "job_id": "5487018",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "04:23:00",
+      "task": "MOOC decoupled three-seed arm before ID fix, timeout retry",
+      "retry_of": "5486095",
+      "supersedes": [
+        "5486095"
+      ],
+      "binding_level": "VERIFIED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/v3_3_mooc_ARM_B_publishable_3seed_rerun.json",
+          "sha256": "f262aecaae8777420176d57ceb45a9dfabd2d7a9730169ecb50a9943d0572c51"
+        }
+      ],
+      "sbatch": {
+        "retained": true,
+        "sha256": "0d799c7c2a64132ca5654b55b436d08a864f149e0a7a12622abc0e2679c28734"
+      },
+      "logs": {
+        "stdout_sha256": "cc7a41ca1a7c804eae30732bf3ce00be28f3ee9513453a9fbc46759879d9487d",
+        "stderr_sha256": "acf811ef39096cd256d6aff076caad692bd788c1eb64fcb21d9a869cae0aadf8"
+      },
+      "eligibility": false,
+      "reasons": [
+        "This retry supersedes only the incomplete decoupled arm from the timed-out attempt.",
+        "The MOOC execution predates the disjoint-ID migration.",
+        "No source commit or frozen environment is available."
+      ]
+    },
+    {
+      "job_id": "5503786",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "01:04:55",
+      "task": "CoEdit coupled and causal-batch-off controls",
+      "retry_of": null,
+      "supersedes": [],
+      "binding_level": "VERIFIED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/v3_3_coedit_ARM_C_correct_3seed.json",
+          "sha256": "44f0f747cdc17e7b0ed7e373d96ad951b47c4e8bd9123d3a28f780ba29ad823f"
+        }
+      ],
+      "sbatch": {
+        "retained": true,
+        "sha256": "3ccbca22805909d6d00e2aa5cd711e18f57b7b843958a141625256a33654fde8"
+      },
+      "logs": {
+        "stdout_sha256": "0979a03557bf712b56a5cd4ce2bc35f8e23fd25490b06736fd5bf2891d8d9469",
+        "stderr_sha256": "f7355edf0c60de1a298e7f57cea08754f0200660cb116e9b97fdbb4073b952b5"
+      },
+      "eligibility": false,
+      "reasons": [
+        "Only the coupled-arm artifact is retained in this import; the causal-batch-off output is absent.",
+        "No source commit, data digest, or frozen environment is available."
+      ]
+    },
+    {
+      "job_id": "5511229",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "00:48:47",
+      "task": "CoEdit hierarchical-causal-policy-off three-seed control",
+      "retry_of": null,
+      "supersedes": [],
+      "binding_level": "MISSING",
+      "results": [],
+      "sbatch": {
+        "retained": true,
+        "sha256": "e5edc2110acaf675028f9e2efb9a1f47f0bcdd0ee6d16498602e5f47f898b48d"
+      },
+      "logs": {
+        "stdout_sha256": "b5b09b92b1c26b58ad70ac24b8cf8f7f2fa2661409917d501612030f2f68fae7",
+        "stderr_sha256": "6dfeddc6b4f20f38985316a918ef72be6b2746f04670cee88a0664df05b852ab"
+      },
+      "eligibility": false,
+      "reasons": [
+        "The logged result was not retained in this legacy import.",
+        "No source commit, data digest, or frozen environment is available."
+      ]
+    },
+    {
+      "job_id": "5511659",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "03:29:50",
+      "task": "Extra baselines across CoEdit, Wikipedia, and MOOC",
+      "retry_of": null,
+      "supersedes": [],
+      "binding_level": "VERIFIED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/baselines/baselines_extra_coedit_Bprotocol.json",
+          "sha256": "c514a72ad9e2e4c638050ae1edaa6238f9babcbba571610784ef3522c6e767d9"
+        },
+        {
+          "path": "results/historical/legacy_import/baselines/baselines_extra_wikipedia_Bprotocol_PREIDFIX.json",
+          "sha256": "addc075564e2474fef5c971236f158de87a511f20d80b13028a3d6266acde85c"
+        },
+        {
+          "path": "results/historical/legacy_import/baselines/baselines_extra_mooc_Bprotocol_PREIDFIX.json",
+          "sha256": "557df2d2dda0987ad964769c0fc25ddc6ae13ddedf808990beab679a33c843e2"
+        }
+      ],
+      "sbatch": {
+        "retained": true,
+        "sha256": "841f34b79911f3ecb1660cb6a9eb5185e088ffdcdaeed8dc4e41934a06b888de"
+      },
+      "logs": {
+        "stdout_sha256": "9ece5ee5e1891f2178c52f7a55e8cc1d31175911ef7224da9eb63c269f46cdf5",
+        "stderr_sha256": "a7d691892a6a4900f551ab334363abf90de47150df273df0fc86d6ba5d0b5c8a"
+      },
+      "eligibility": false,
+      "reasons": [
+        "Wikipedia and MOOC outputs predate the disjoint-ID migration and are retained as PREIDFIX copies.",
+        "No source commit or frozen environment is available."
+      ]
+    },
+    {
+      "job_id": "5516013",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "02:28:06",
+      "task": "CoEdit score-path detach and trained-theta controls",
+      "retry_of": null,
+      "supersedes": [],
+      "binding_level": "VERIFIED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/v3_3_coedit_detach_probe_ON_3seed.json",
+          "sha256": "a96ff3983de16e18fb5ec78eb8b2f0b0b490b5e4c13c327c0c7c2504005f12a2"
+        },
+        {
+          "path": "results/historical/legacy_import/v3_3_coedit_detach_probe_OFF_3seed.json",
+          "sha256": "fad6cb07149043bec5b938d85c623b75db753d0d88c9769d8b4d17d35fb20186"
+        },
+        {
+          "path": "results/historical/legacy_import/v3_3_coedit_detach_probe_3seed.json",
+          "sha256": "8897c0f6b2cfbcb1166d833fdd5ad3742c047f2677818c0658104c6d67856c02"
+        }
+      ],
+      "sbatch": {
+        "retained": true,
+        "sha256": "1d3fda85d8d43cb8cef55a2d63a64d6479a407318c0ff26196a84dbabd524f26"
+      },
+      "logs": {
+        "stdout_sha256": "689905b8b85ee50677a54b7b8055f5cf4a55674c75b05362947e3c7e6d9395c0",
+        "stderr_sha256": "f5355ad5adf65f2401d58eecc7c755e5cd11ec97a96936b51a0e566c7bea6f5e"
+      },
+      "eligibility": false,
+      "reasons": [
+        "Only the detach-control outputs are retained in this import.",
+        "No source commit, data digest, or frozen environment is available."
+      ]
+    },
+    {
+      "job_id": "5516854",
+      "state": "CANCELLED",
+      "exit_code": "0:0",
+      "elapsed": "00:01:09",
+      "task": "CoEdit knob ablation, cancelled first attempt",
+      "retry_of": null,
+      "supersedes": [],
+      "binding_level": "MISSING",
+      "results": [],
+      "sbatch": {
+        "retained": true,
+        "sha256": "23941c589c821026463be2d84ae347a63efbf6499ba250800c852b3320a344b9"
+      },
+      "logs": {
+        "stdout_sha256": "4c643a654a9a5a9b3bddae10889b7245a8d2c9567d1d019efc99a274aa4894c8",
+        "stderr_sha256": "6b84ae8fe8012bd50a88f18ac85460121b14c02387a56bd0ea3fce5e375fba17"
+      },
+      "eligibility": false,
+      "reasons": [
+        "The scheduler attempt was cancelled before producing a retained result.",
+        "This failed attempt must remain visible in the denominator."
+      ]
+    },
+    {
+      "job_id": "5516863",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "04:59:52",
+      "task": "CoEdit single-variable knob ablation, retry",
+      "retry_of": "5516854",
+      "supersedes": [
+        "5516854"
+      ],
+      "binding_level": "VERIFIED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/v3_3_coedit_knob_ablation_3seed.json",
+          "sha256": "773e7bdba378fe931b0bd1d2f8fd4892694180563109c7f3fdd113ba3df53805"
+        }
+      ],
+      "sbatch": {
+        "retained": true,
+        "sha256": "23941c589c821026463be2d84ae347a63efbf6499ba250800c852b3320a344b9"
+      },
+      "logs": {
+        "stdout_sha256": "d1e6e53cbff3e703500b3592d883073ead5da458123119c229daf3ffb96ec4f1",
+        "stderr_sha256": "cd2a0add031c27af916620c22d763d0a5a8357ac462ca197bf2c64bbe998ff9e"
+      },
+      "eligibility": false,
+      "reasons": [
+        "The successful retry supersedes the cancelled attempt but does not erase it.",
+        "No source commit, data digest, or frozen environment is available."
+      ]
+    },
+    {
+      "job_id": "5517768",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "03:24:07",
+      "task": "Wikipedia decoupled-versus-coupled knob ablation before ID fix",
+      "retry_of": null,
+      "supersedes": [],
+      "binding_level": "VERIFIED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/v3_3_knob_ablation_wikipedia_3seed_PREIDFIX.json",
+          "sha256": "9446b54199ebe9230737072ae6dcc7d379595b1d93b0d33184b943594483f6a9"
+        }
+      ],
+      "sbatch": {
+        "retained": true,
+        "sha256": "0840cd5a64305afb10dea2dc6fc17a3d652de6366a422fad645228f50f431eaa"
+      },
+      "logs": {
+        "stdout_sha256": "f4fbc9fd29587bf9bb73dfa162323a68d5e7ec474ba0ae9223d6a588850a0d8a",
+        "stderr_sha256": "08aa1498de791a5136aabba402642e2b3bea240c9198edff79b0117a8159699a"
+      },
+      "eligibility": false,
+      "reasons": [
+        "The retained artifact is the PREIDFIX preservation copy of the logged output.",
+        "It is superseded scientifically by a later ID-fixed execution but remains historical."
+      ]
+    },
+    {
+      "job_id": "5517769",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "09:00:46",
+      "task": "MOOC decoupled-versus-coupled knob ablation before ID fix",
+      "retry_of": null,
+      "supersedes": [],
+      "binding_level": "VERIFIED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/v3_3_knob_ablation_mooc_3seed_PREIDFIX.json",
+          "sha256": "19b93940914edb6fcac31cb83dda7bd95be0ca88813e09bd6e2b2243f8d80761"
+        }
+      ],
+      "sbatch": {
+        "retained": true,
+        "sha256": "61a35ec7519b92d03831b5ad9c64c8ddc6d3260945f65ac056d8f42156f85db2"
+      },
+      "logs": {
+        "stdout_sha256": "760fe62fa992451063c51e169d13e00d1cd03a0271e98bd8b49e672456c76119",
+        "stderr_sha256": "f59d59061b69d44d20df97c9665a91a19978a22f0287567bf4b61359bbf89891"
+      },
+      "eligibility": false,
+      "reasons": [
+        "The retained artifact is the PREIDFIX preservation copy of the logged output.",
+        "It is superseded scientifically by a later ID-fixed execution but remains historical."
+      ]
+    },
+    {
+      "job_id": "5517770",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "01:08:03",
+      "task": "CoEdit five-seed promotion and TGAT seed completion",
+      "retry_of": null,
+      "supersedes": [],
+      "binding_level": "VERIFIED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/baselines/baselines_coedit_TGAT_newseeds.json",
+          "sha256": "9ef847086dbd0a71a5b770c1073a64ad9156784fbd4e872f6277f404c3c15e40"
+        },
+        {
+          "path": "results/historical/legacy_import/v3_3_coedit_B_5seed.json",
+          "sha256": "1e2e87071dd9df5e640efa901d30d9d9603bf90926d2c764b04505102c3a0571"
+        },
+        {
+          "path": "results/historical/legacy_import/v3_3_coedit_C_5seed.json",
+          "sha256": "cdff372c70d56b454f828803dada6f21900b6bd33c9efd990122afe321507da6"
+        },
+        {
+          "path": "results/historical/legacy_import/baselines_coedit_TGAT_5seed.json",
+          "sha256": "824f63f17a188adf5a658afcc29c4a98c2df285679cbfae3bc0e960cb661cfcd"
+        }
+      ],
+      "sbatch": {
+        "retained": true,
+        "sha256": "503d1b808f340af9d4e77090b9967352bebddc052fbeec0140c6f91443998766"
+      },
+      "logs": {
+        "stdout_sha256": "7730057dd81475bfa2b1c2f84d562a235243b4047b717593813d76422dfbba49",
+        "stderr_sha256": "9640aeec0ddfa42889d6b06de83f69d537a5820d23c89a52313c3658a0cb6410"
+      },
+      "eligibility": false,
+      "reasons": [
+        "The output binding is verified only for quarantined legacy bytes.",
+        "The aggregate reuses prior seed records and lacks a frozen source and environment closure."
+      ]
+    },
+    {
+      "job_id": "5517829",
+      "state": "FAILED",
+      "exit_code": "1:0",
+      "elapsed": "00:00:02",
+      "task": "Freeze-then-probe control, failed first attempt",
+      "retry_of": null,
+      "supersedes": [],
+      "binding_level": "MISSING",
+      "results": [],
+      "sbatch": {
+        "retained": false,
+        "sha256": null
+      },
+      "logs": {
+        "stdout_sha256": null,
+        "stderr_sha256": null
+      },
+      "eligibility": false,
+      "reasons": [
+        "The scheduler attempt failed after two seconds.",
+        "No exact attempt-specific script snapshot, log, or result binding is retained.",
+        "This failed attempt must remain visible in the denominator."
+      ]
+    },
+    {
+      "job_id": "5521447",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "06:41:27",
+      "task": "CoEdit and Wikipedia freeze-then-probe control before ID fix, retry",
+      "retry_of": "5517829",
+      "supersedes": [
+        "5517829"
+      ],
+      "binding_level": "INFERRED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/v3_3_frozen_probe_ARM1_decoupling.json",
+          "sha256": "d7b26d438fce7bee5d953ae5011fea5df921b0198ee123ae14ea2a63f2f86bba"
+        },
+        {
+          "path": "results/historical/legacy_import/v3_3_frozen_probe_ARM2_ftp.json",
+          "sha256": "5da4bbaa599f3ab244f8ce813c78c15ed81a396f335777dffd2d394118cf4645"
+        },
+        {
+          "path": "results/historical/legacy_import/v3_3_frozen_probe_control_3seed.json",
+          "sha256": "62856f88c13ab86024b6a45f3a0ece7b18bf56cb91821448a742f6a1ac9ce171"
+        }
+      ],
+      "sbatch": {
+        "retained": true,
+        "sha256": "85e646011195585f39e718e230cec2ed72af850122f2b2ea92a2faca1d911ca5"
+      },
+      "logs": {
+        "stdout_sha256": null,
+        "stderr_sha256": null
+      },
+      "eligibility": false,
+      "reasons": [
+        "Scheduler completion and the retained driver support the association, but the job stdout is missing.",
+        "Wikipedia values predate the disjoint-ID migration.",
+        "The retained driver is not an immutable scheduler script snapshot."
+      ]
+    },
+    {
+      "job_id": "5525806",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "05:41:19",
+      "task": "Wikipedia long-budget baseline reconciliation before ID fix",
+      "retry_of": null,
+      "supersedes": [],
+      "binding_level": "VERIFIED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/reconcile/reconcile_dyglib_wikipedia_3seed.json",
+          "sha256": "0b75869391c2c27ee08b9d0048e3d4374603bd66ba76ac28d1f31aa3e225e3bd"
+        }
+      ],
+      "sbatch": {
+        "retained": true,
+        "sha256": "66b5ba49ce380a74421d825faab3c08407873a45db0c9d9420a7d66b41f0925b"
+      },
+      "logs": {
+        "stdout_sha256": "a8a59e1cb979d345bad44d972b68b142df1d00ef01e1de8132b7d321d5859bb9",
+        "stderr_sha256": "bed1cf971d6caf07e2dfa8466ef197d1f1c01c472c1db5410cfdba4b2098e476"
+      },
+      "eligibility": false,
+      "reasons": [
+        "The Wikipedia execution predates the disjoint-ID migration.",
+        "Official-library comparator parity is not established by this simplified-harness run.",
+        "No source commit or frozen environment is available."
+      ]
+    },
+    {
+      "job_id": "5531127",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "03:35:02",
+      "task": "Wikipedia hard-negative comparison version 1 before ID fix",
+      "retry_of": null,
+      "supersedes": [],
+      "binding_level": "INFERRED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed.json",
+          "sha256": "595f70b1ba7ca7c3f21610161acb3beb294fc1372737c2c524ea84885f256281"
+        }
+      ],
+      "sbatch": {
+        "retained": false,
+        "sha256": null
+      },
+      "logs": {
+        "stdout_sha256": null,
+        "stderr_sha256": null
+      },
+      "eligibility": false,
+      "reasons": [
+        "The exact script and logs are missing; the result association is inferred from scheduler and artifact naming.",
+        "The negative-pool construction was superseded by version 2.",
+        "The Wikipedia execution predates the disjoint-ID migration."
+      ]
+    },
+    {
+      "job_id": "5531128",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "01:50:58",
+      "task": "CoEdit hard-negative comparison version 1",
+      "retry_of": null,
+      "supersedes": [],
+      "binding_level": "INFERRED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed.json",
+          "sha256": "d65a871d5a6e369ff8b74c9b1a8bf023f1877b29f8c97eb700a36c89f1bd8d57"
+        }
+      ],
+      "sbatch": {
+        "retained": false,
+        "sha256": null
+      },
+      "logs": {
+        "stdout_sha256": null,
+        "stderr_sha256": null
+      },
+      "eligibility": false,
+      "reasons": [
+        "The exact script and logs are missing; the result association is inferred from scheduler and artifact naming.",
+        "The negative-pool construction was superseded by version 2.",
+        "No source commit, data digest, or frozen environment is available."
+      ]
+    },
+    {
+      "job_id": "5535164",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "03:33:37",
+      "task": "Wikipedia hard-negative comparison version 2 before ID fix",
+      "retry_of": "5531127",
+      "supersedes": [
+        "5531127"
+      ],
+      "binding_level": "INFERRED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/hardneg/hardneg_B_vs_K1_wikipedia_3seed_v2.json",
+          "sha256": "3c71af4bb22cb5f47568a9c7740c05b4bce402fdbd1a0cb4731e2cdc8302f39d"
+        }
+      ],
+      "sbatch": {
+        "retained": false,
+        "sha256": null
+      },
+      "logs": {
+        "stdout_sha256": null,
+        "stderr_sha256": null
+      },
+      "eligibility": false,
+      "reasons": [
+        "The exact script and logs are missing; the result association is inferred.",
+        "This version supersedes the degenerate version-1 inductive pool but does not erase that attempt.",
+        "The Wikipedia execution predates the disjoint-ID migration."
+      ]
+    },
+    {
+      "job_id": "5535165",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "01:51:30",
+      "task": "CoEdit hard-negative comparison version 2",
+      "retry_of": "5531128",
+      "supersedes": [
+        "5531128"
+      ],
+      "binding_level": "INFERRED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/hardneg/hardneg_B_vs_K1_coedit_3seed_v2.json",
+          "sha256": "4b83f4f6e04d6b2a564d08d74e5173cce9f23243cf2fe8267bc72eab4273ca2d"
+        }
+      ],
+      "sbatch": {
+        "retained": false,
+        "sha256": null
+      },
+      "logs": {
+        "stdout_sha256": null,
+        "stderr_sha256": null
+      },
+      "eligibility": false,
+      "reasons": [
+        "The exact script and logs are missing; the result association is inferred.",
+        "This version supersedes the degenerate version-1 inductive pool but does not erase that attempt.",
+        "No source commit, data digest, or frozen environment is available."
+      ]
+    },
+    {
+      "job_id": "5536076",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "01:39:57",
+      "task": "CoEdit identical-head stop-gradient control",
+      "retry_of": null,
+      "supersedes": [],
+      "binding_level": "INFERRED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/identhead/identhead_K1_coedit_3seed.json",
+          "sha256": "af635afad8b27edd6b9a0bcd7ae72f7d6d43a7994d30ef638a19a9494c0253d4"
+        }
+      ],
+      "sbatch": {
+        "retained": false,
+        "sha256": null
+      },
+      "logs": {
+        "stdout_sha256": null,
+        "stderr_sha256": null
+      },
+      "eligibility": false,
+      "reasons": [
+        "The exact script and logs are missing; the result association is inferred.",
+        "No source commit, data digest, or frozen environment is available."
+      ]
+    },
+    {
+      "job_id": "5536077",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "03:21:21",
+      "task": "Wikipedia identical-head stop-gradient control before ID fix",
+      "retry_of": null,
+      "supersedes": [],
+      "binding_level": "INFERRED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/identhead/identhead_K1_wikipedia_3seed.json",
+          "sha256": "31907a963b10e226d8ab63d65dee740208665250013c8d09432173ad7b906e90"
+        }
+      ],
+      "sbatch": {
+        "retained": false,
+        "sha256": null
+      },
+      "logs": {
+        "stdout_sha256": null,
+        "stderr_sha256": null
+      },
+      "eligibility": false,
+      "reasons": [
+        "The exact script and logs are missing; the result association is inferred.",
+        "The Wikipedia execution predates the disjoint-ID migration.",
+        "No source commit or frozen environment is available."
+      ]
+    },
+    {
+      "job_id": "5536225",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "01:36:17",
+      "task": "CoEdit backbone-removed control",
+      "retry_of": null,
+      "supersedes": [],
+      "binding_level": "INFERRED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/backbone_removed/backbone_removed_coedit_3seed.json",
+          "sha256": "8d76ea29bae8e9782df607ddfdbabc292e1d99d4366b879c58cbb1e6d0294244"
+        }
+      ],
+      "sbatch": {
+        "retained": false,
+        "sha256": null
+      },
+      "logs": {
+        "stdout_sha256": null,
+        "stderr_sha256": null
+      },
+      "eligibility": false,
+      "reasons": [
+        "The exact script and logs are missing; the result association is inferred.",
+        "No source commit, data digest, or frozen environment is available."
+      ]
+    },
+    {
+      "job_id": "5536226",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "03:16:50",
+      "task": "Wikipedia backbone-removed control before ID fix",
+      "retry_of": null,
+      "supersedes": [],
+      "binding_level": "INFERRED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/backbone_removed/backbone_removed_wikipedia_3seed.json",
+          "sha256": "f63c1225979b5fbb13ce9ffb72c49c80992f8505c415b9120668e8de7701e4e8"
+        }
+      ],
+      "sbatch": {
+        "retained": false,
+        "sha256": null
+      },
+      "logs": {
+        "stdout_sha256": null,
+        "stderr_sha256": null
+      },
+      "eligibility": false,
+      "reasons": [
+        "The exact script and logs are missing; the result association is inferred.",
+        "The Wikipedia execution predates the disjoint-ID migration.",
+        "No source commit or frozen environment is available."
+      ]
+    },
+    {
+      "job_id": "6339821",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "03:20:46",
+      "task": "Wikipedia ID-fixed decoupled-versus-coupled knob ablation",
+      "retry_of": null,
+      "supersedes": [
+        "5517768"
+      ],
+      "binding_level": "INFERRED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/v3_3_knob_ablation_wikipedia_3seed.json",
+          "sha256": "d5110576b8c18ca554f6881a4c1f0b5eb27f03eba4081833d07f3478f99cf2e0"
+        }
+      ],
+      "sbatch": {
+        "retained": false,
+        "sha256": null
+      },
+      "logs": {
+        "stdout_sha256": null,
+        "stderr_sha256": null
+      },
+      "eligibility": false,
+      "reasons": [
+        "Scheduler completion and artifact timing support the association, but the exact script and logs are missing.",
+        "The artifact does not embed a scheduler job ID or source commit.",
+        "This is an unfrozen local ID-fixed result, not current evidence."
+      ]
+    },
+    {
+      "job_id": "6339822",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "08:59:43",
+      "task": "MOOC ID-fixed decoupled-versus-coupled knob ablation",
+      "retry_of": null,
+      "supersedes": [
+        "5517769"
+      ],
+      "binding_level": "INFERRED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/v3_3_knob_ablation_mooc_3seed.json",
+          "sha256": "9507e55d4b4d582b1d5e7a0693d719259d9056f18208d8d82f33fc7d0f5e9cf8"
+        }
+      ],
+      "sbatch": {
+        "retained": false,
+        "sha256": null
+      },
+      "logs": {
+        "stdout_sha256": null,
+        "stderr_sha256": null
+      },
+      "eligibility": false,
+      "reasons": [
+        "Scheduler completion and artifact timing support the association, but the exact script and logs are missing.",
+        "The artifact does not embed a scheduler job ID or source commit.",
+        "This is an unfrozen local ID-fixed result, not current evidence."
+      ]
+    },
+    {
+      "job_id": "6388229",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "01:06:32",
+      "task": "Wikipedia ID-fixed main and extra baselines",
+      "retry_of": null,
+      "supersedes": [
+        "5486096"
+      ],
+      "binding_level": "INFERRED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/baselines/baselines_wikipedia_Bprotocol.json",
+          "sha256": "01fb01163486baf00c3136690b30ad88340105ef077a2b40d895eb6e25f502f4"
+        },
+        {
+          "path": "results/historical/legacy_import/baselines/baselines_extra_wikipedia_Bprotocol.json",
+          "sha256": "8600e5ae5f6e01d12b2b1ad8fcf5937471b981dfa297b77de613d5dd88ac1d52"
+        }
+      ],
+      "sbatch": {
+        "retained": false,
+        "sha256": null
+      },
+      "logs": {
+        "stdout_sha256": null,
+        "stderr_sha256": null
+      },
+      "eligibility": false,
+      "reasons": [
+        "Scheduler completion and artifact timing support the association, but the exact script and logs are missing.",
+        "The artifacts do not embed a scheduler job ID or source commit.",
+        "Comparator parity and frozen environment closure remain unresolved."
+      ]
+    },
+    {
+      "job_id": "6388230",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "02:53:59",
+      "task": "MOOC ID-fixed main and extra baselines",
+      "retry_of": null,
+      "supersedes": [
+        "5486097"
+      ],
+      "binding_level": "INFERRED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/baselines/baselines_mooc_Bprotocol.json",
+          "sha256": "7d69ba1cdf3446599b69806ce3a8d0e2db6a36896e9214eabd6793d07c92bf5d"
+        },
+        {
+          "path": "results/historical/legacy_import/baselines/baselines_extra_mooc_Bprotocol.json",
+          "sha256": "b12f315ffe9c8b08a129424b1d88a55475deb7d9e424dcbf1ff89f25a4578001"
+        }
+      ],
+      "sbatch": {
+        "retained": false,
+        "sha256": null
+      },
+      "logs": {
+        "stdout_sha256": null,
+        "stderr_sha256": null
+      },
+      "eligibility": false,
+      "reasons": [
+        "Scheduler completion and artifact timing support the association, but the exact script and logs are missing.",
+        "The artifacts do not embed a scheduler job ID or source commit.",
+        "Comparator parity and frozen environment closure remain unresolved."
+      ]
+    },
+    {
+      "job_id": "6420688",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "03:13:12",
+      "task": "Wikipedia ID-fixed freeze-then-probe ARM2",
+      "retry_of": null,
+      "supersedes": [],
+      "binding_level": "VERIFIED",
+      "results": [
+        {
+          "path": "results/historical/legacy_import/v3_3_frozen_probe_ARM2_ftp_wikipedia_idfix.json",
+          "sha256": "7bf1256bb2ae8793d86aa927bb0256873c84e3508c9ed0749196564b2715873e"
+        }
+      ],
+      "sbatch": {
+        "retained": true,
+        "sha256": "20dc746bc33ed7f04f9e728ae42ef41fabd5cffdc2652136beacaf1567863ab0"
+      },
+      "logs": {
+        "stdout_sha256": "57878d53d0c158ad31e73e2833015c769e7716cf3d8f9a7890603a267964dded",
+        "stderr_sha256": "0d50baa8c6476f41ea2025ab37f334b611b6548e4f91dfd5b406c580a44b0014"
+      },
+      "eligibility": false,
+      "reasons": [
+        "The retained script and stdout bind the ID-fixed result and preflight structural identity.",
+        "No exact source commit, data-file digest in the job record, or frozen environment digest is available.",
+        "The result remains a quarantined legacy import rather than frozen evidence."
+      ]
+    }
+  ]
+}

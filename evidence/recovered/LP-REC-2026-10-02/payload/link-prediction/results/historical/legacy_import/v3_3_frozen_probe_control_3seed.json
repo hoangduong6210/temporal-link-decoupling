@@ -1,0 +1,144 @@
+{
+  "experiment": "freeze-then-probe control vs decoupling-by-construction (reviewer #1)",
+  "threshold_pp": 1.0,
+  "arms": {
+    "arm1_decoupling": {
+      "coedit": {
+        "ind_ap": {
+          "mean": 0.9882937141216303,
+          "std": 0.00284651825345418,
+          "n": 3,
+          "seeds": [
+            42,
+            1,
+            7
+          ],
+          "per_seed": [
+            0.9855380337534088,
+            0.9881199952677417,
+            0.9912231133437401
+          ]
+        },
+        "trans_ap": {
+          "mean": 0.9984811803949576,
+          "std": 0.000458021570174457,
+          "n": 3,
+          "per_seed": [
+            0.9980369741821404,
+            0.9984546987288722,
+            0.9989518682738605
+          ]
+        }
+      },
+      "wikipedia": {
+        "ind_ap": {
+          "mean": 0.9961174804364449,
+          "std": 0.0013825080983984033,
+          "n": 3,
+          "seeds": [
+            42,
+            1,
+            7
+          ],
+          "per_seed": [
+            0.9948600129700175,
+            0.9958945039370712,
+            0.9975979244022464
+          ]
+        },
+        "trans_ap": {
+          "mean": 0.9993198061193381,
+          "std": 0.0002962398210988192,
+          "n": 3,
+          "per_seed": [
+            0.9989819090044221,
+            0.9994426332457338,
+            0.9995348761078584
+          ]
+        }
+      }
+    },
+    "arm2_ftp": {
+      "coedit": {
+        "ind_ap": {
+          "mean": 0.7684407930028412,
+          "std": 0.0063842799267293604,
+          "n": 3,
+          "seeds": [
+            42,
+            1,
+            7
+          ],
+          "per_seed": [
+            0.775811346741349,
+            0.7648789396875235,
+            0.7646320925796511
+          ]
+        },
+        "trans_ap": {
+          "mean": 0.9604170957688763,
+          "std": 0.0009053382521974324,
+          "n": 3,
+          "per_seed": [
+            0.9597048731208572,
+            0.9614359223602733,
+            0.9601104918254986
+          ]
+        }
+      },
+      "wikipedia": {
+        "ind_ap": {
+          "mean": 0.9027071412548988,
+          "std": 0.01772384952080979,
+          "n": 3,
+          "seeds": [
+            42,
+            1,
+            7
+          ],
+          "per_seed": [
+            0.8822428879035396,
+            0.9127257429558207,
+            0.9131527929053362
+          ]
+        },
+        "trans_ap": {
+          "mean": 0.938162729057762,
+          "std": 0.0015854071409649403,
+          "n": 3,
+          "per_seed": [
+            0.9376537854822563,
+            0.9368942930576512,
+            0.9399401086333787
+          ]
+        }
+      }
+    }
+  },
+  "verdict_per_dataset": {
+    "coedit": {
+      "delta_ind_pp": 21.985,
+      "se_of_mean_diff_pp": 0.404,
+      "arm1_ind_mean": 0.9882937141216303,
+      "arm1_ind_std": 0.00284651825345418,
+      "arm2_ind_mean": 0.7684407930028412,
+      "arm2_ind_std": 0.0063842799267293604,
+      "label": "DECOUPLING-DISTINCT"
+    },
+    "wikipedia": {
+      "delta_ind_pp": 9.341,
+      "se_of_mean_diff_pp": 1.026,
+      "arm1_ind_mean": 0.9961174804364449,
+      "arm1_ind_std": 0.0013825080983984033,
+      "arm2_ind_mean": 0.9027071412548988,
+      "arm2_ind_std": 0.01772384952080979,
+      "label": "DECOUPLING-DISTINCT"
+    }
+  },
+  "overall_verdict": "DECOUPLING-DISTINCT (novelty measured: decoupling-by-construction > freeze-then-probe on all datasets)",
+  "sources": {
+    "arm1": "LAB/v3_3/results/v3_3_frozen_probe_ARM1_decoupling.json",
+    "arm2": "LAB/v3_3/results/v3_3_frozen_probe_ARM2_ftp.json",
+    "arm3": null
+  }
+}

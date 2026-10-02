@@ -1,0 +1,110 @@
+{
+  "runs": [
+    {
+      "dataset": "synthetic_lifecycle",
+      "seed": 42,
+      "epochs": 20,
+      "p0_fix": "off",
+      "lfg": "on",
+      "echo": "off",
+      "fix_existence_init": false,
+      "entropy_reg_weight": 0.0,
+      "design": "correct_decoupled",
+      "fsm_arch": "v2",
+      "trans_ap": 0.9779889503277084,
+      "trans_auc": 0.9833981250000001,
+      "ind_ap": 0.9381170983852406,
+      "ind_auc": 0.9588919989292014,
+      "best_val_ap": 0.9745714468349165,
+      "train_time_s": 87.12024235725403,
+      "final_info": {
+        "n_edges": 921,
+        "edge_state_dist": [
+          0.005428881850093603,
+          0.0,
+          0.9478827118873596,
+          0.044516827911138535,
+          0.0021715527400374413
+        ],
+        "ever_alive_mean": 0.8385903239250183,
+        "hawkes_lam_mean": 1.5998278856277466
+      }
+    },
+    {
+      "dataset": "synthetic_lifecycle",
+      "seed": 123,
+      "epochs": 20,
+      "p0_fix": "off",
+      "lfg": "on",
+      "echo": "off",
+      "fix_existence_init": false,
+      "entropy_reg_weight": 0.0,
+      "design": "correct_decoupled",
+      "fsm_arch": "v2",
+      "trans_ap": 0.9751597946982652,
+      "trans_auc": 0.98294190625,
+      "ind_ap": 0.9296397914365828,
+      "ind_auc": 0.955860654446964,
+      "best_val_ap": 0.9651720551320304,
+      "train_time_s": 87.1285548210144,
+      "final_info": {
+        "n_edges": 921,
+        "edge_state_dist": [
+          0.0032573288772255182,
+          0.0,
+          0.9674267172813416,
+          0.02931596152484417,
+          0.0
+        ],
+        "ever_alive_mean": 0.8023489713668823,
+        "hawkes_lam_mean": 1.6008284091949463
+      }
+    },
+    {
+      "dataset": "synthetic_lifecycle",
+      "seed": 456,
+      "epochs": 20,
+      "p0_fix": "off",
+      "lfg": "on",
+      "echo": "off",
+      "fix_existence_init": false,
+      "entropy_reg_weight": 0.0,
+      "design": "correct_decoupled",
+      "fsm_arch": "v2",
+      "trans_ap": 0.9633135911907504,
+      "trans_auc": 0.9746281171875001,
+      "ind_ap": 0.924156808480169,
+      "ind_auc": 0.9548708545918368,
+      "best_val_ap": 0.9632319372698945,
+      "train_time_s": 86.9844298362732,
+      "final_info": {
+        "n_edges": 921,
+        "edge_state_dist": [
+          0.0010857763700187206,
+          0.0,
+          0.9587404727935791,
+          0.038002170622348785,
+          0.0021715527400374413
+        ],
+        "ever_alive_mean": 0.860726535320282,
+        "hawkes_lam_mean": 1.599994421005249
+      }
+    }
+  ],
+  "summary": [
+    {
+      "dataset": "synthetic_lifecycle",
+      "p0_fix": "off",
+      "trans_ap_mean": 0.9721541120722413,
+      "trans_ap_std": 0.0063569981115806536,
+      "trans_auc_mean": 0.9803227161458334,
+      "trans_auc_std": 0.004030994654685208,
+      "ind_ap_mean": 0.9306378994339974,
+      "ind_ap_std": 0.0057427977060713915,
+      "ind_auc_mean": 0.9565411693226674,
+      "ind_auc_std": 0.0017106968984442162,
+      "time_mean": 87.07774233818054,
+      "n_seeds": 3
+    }
+  ]
+}

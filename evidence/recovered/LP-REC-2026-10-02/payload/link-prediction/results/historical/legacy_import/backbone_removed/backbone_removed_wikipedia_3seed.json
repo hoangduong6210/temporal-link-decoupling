@@ -1,0 +1,180 @@
+{
+  "meta": {
+    "task": "DETERMINISTIC-ONLY BACKBONE (reviewer Q4/caveat-2): remove the learnable CSN event encoder + DRGC coupled-GRU node-memory, keep config-B's detached scoring head reading only deterministic point-process channels. Toggle ONLY determ_only_backbone.",
+    "dataset": "wikipedia",
+    "seeds": [
+      42,
+      1,
+      7
+    ],
+    "epochs": 20,
+    "hidden": 128,
+    "batch": 500,
+    "lr": 0.001,
+    "protocol": "B-protocol: chrono 70/15/15, fair inductive neg, PRE-update leak-free, sklearn AP",
+    "B_fixed_stack": {
+      "dataset": "wikipedia",
+      "epochs": 20,
+      "hidden": 128,
+      "batch_size": 500,
+      "lr": 0.001,
+      "design": "correct_decoupled",
+      "fsm_arch": "v3",
+      "fsm_decode": "hier",
+      "decol_hier_v2": true,
+      "causal_batch": true,
+      "hier_causal_policy": true,
+      "lambda_edge_trans": 0.5,
+      "p0_fix": false,
+      "edge_h_detach_scorepath": true
+    },
+    "determ_only_mechanism": "CSN bypassed (feat_g=feat, sal=0); DRGC bypassed (node mem unchanged, edge_h to FSM head zeroed for pos+neg); csn/ectg/drgc frozen at init (requires_grad=False) \u21d2 zero trainable backbone params, kl=0. Scored head reads only pair_phi (Hawkes/Welford/recurrence/staleness/ever_alive).",
+    "honest_caveat": "the detached FSM head (config B's head) keeps trainable params and is fed a constant zero edge_h (no backbone info/grad) rather than deleted; so DETERM-ONLY is parameter-free in the CSN/DRGC backbone only, not globally. n_backbone_params_frozen is recorded per run.",
+    "total_time_s": 11793.455837488174
+  },
+  "arms": [
+    {
+      "arm": "FULL-B",
+      "desc": "learnable CSN+DRGC + deterministic stats + detached head (config B)",
+      "overrides": {
+        "determ_only_backbone": false
+      },
+      "ind_ap_mean": 0.9962955470148797,
+      "ind_ap_std": 0.0008724524897834584,
+      "n_seeds": 3,
+      "trans_ap_mean": 0.9991876784893009,
+      "trans_ap_std": 0.00034820786195133947,
+      "ind_auc_mean": 0.9967952346537036,
+      "ind_auc_std": 0.0006153545487895965,
+      "trans_auc_mean": 0.9992682472159506,
+      "trans_auc_std": 0.0002997086368253903,
+      "per_seed": [
+        {
+          "seed": 42,
+          "ind_ap": 0.9953364973086323,
+          "trans_ap": 0.9991375282545304,
+          "ind_auc": 0.9961432761194491,
+          "trans_auc": 0.9992396867957235,
+          "time_s": 2011.7213172912598,
+          "determ_only_backbone": false,
+          "n_backbone_params_frozen": 0,
+          "edge_state_dist": [
+            0.0,
+            0.5196548700332642,
+            0.2849951982498169,
+            0.09803451597690582,
+            0.09731543809175491
+          ]
+        },
+        {
+          "seed": 1,
+          "ind_ap": 0.9965079743340586,
+          "trans_ap": 0.998867264922951,
+          "ind_auc": 0.996876522742147,
+          "trans_auc": 0.99898384114619,
+          "time_s": 1997.2282955646515,
+          "determ_only_backbone": false,
+          "n_backbone_params_frozen": 0,
+          "edge_state_dist": [
+            0.03996884077787399,
+            0.5198346376419067,
+            0.16910354793071747,
+            0.24119126796722412,
+            0.02990172617137432
+          ]
+        },
+        {
+          "seed": 7,
+          "ind_ap": 0.9970421694019482,
+          "trans_ap": 0.9995582422904213,
+          "ind_auc": 0.9973659050995145,
+          "trans_auc": 0.9995812137059383,
+          "time_s": 1996.440766096115,
+          "determ_only_backbone": false,
+          "n_backbone_params_frozen": 0,
+          "edge_state_dist": [
+            0.003835091134533286,
+            0.5197147727012634,
+            0.21536433696746826,
+            0.2387344241142273,
+            0.02235138975083828
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "DETERM-ONLY",
+      "desc": "learnable CSN+DRGC removed/frozen; detached head reads only deterministic point-process channels (pair_phi)",
+      "overrides": {
+        "determ_only_backbone": true
+      },
+      "ind_ap_mean": 0.8965059015100737,
+      "ind_ap_std": 4.093058782765539e-06,
+      "n_seeds": 3,
+      "trans_ap_mean": 0.9609108378536583,
+      "trans_ap_std": 3.805182240422505e-05,
+      "ind_auc_mean": 0.8661986537549909,
+      "ind_auc_std": 1.3346497626049085e-05,
+      "trans_auc_mean": 0.9456514141399098,
+      "trans_auc_std": 4.048805632347445e-05,
+      "per_seed": [
+        {
+          "seed": 42,
+          "ind_ap": 0.8965105450992471,
+          "trans_ap": 0.960874400028043,
+          "ind_auc": 0.8662136885432358,
+          "trans_auc": 0.9456115776528382,
+          "time_s": 1928.2953701019287,
+          "determ_only_backbone": true,
+          "n_backbone_params_frozen": 56,
+          "edge_state_dist": [
+            0.08640939742326736,
+            0.5196548700332642,
+            0.324664443731308,
+            0.06927133351564407,
+            0.0
+          ]
+        },
+        {
+          "seed": 1,
+          "ind_ap": 0.8965043419096167,
+          "trans_ap": 0.9609503206992303,
+          "ind_auc": 0.8661940681445763,
+          "trans_auc": 0.9456925237361207,
+          "time_s": 1929.1696112155914,
+          "determ_only_backbone": true,
+          "n_backbone_params_frozen": 56,
+          "edge_state_dist": [
+            0.032178811728954315,
+            0.5196548700332642,
+            0.21350671350955963,
+            0.23465964198112488,
+            0.0
+          ]
+        },
+        {
+          "seed": 7,
+          "ind_ap": 0.8965028175213575,
+          "trans_ap": 0.9609077928337014,
+          "ind_auc": 0.866188204577161,
+          "trans_auc": 0.9456501410307708,
+          "time_s": 1930.5626339912415,
+          "determ_only_backbone": true,
+          "n_backbone_params_frozen": 56,
+          "edge_state_dist": [
+            0.02996164932847023,
+            0.5196548700332642,
+            0.2156040221452713,
+            0.2347794771194458,
+            0.0
+          ]
+        }
+      ]
+    }
+  ],
+  "delta_fullB_minus_determonly": {
+    "ind_ap": 0.09978964550480596,
+    "trans_ap": 0.03827684063564263,
+    "interpretation": "ind_ap \u2248 0 \u21d2 hand-crafted point-process features carry most of it, learnable backbone adds little (supports reviewer's alternative reading). ind_ap \u226b 0 \u21d2 the KL-trained learnable backbone is doing real work."
+  }
+}

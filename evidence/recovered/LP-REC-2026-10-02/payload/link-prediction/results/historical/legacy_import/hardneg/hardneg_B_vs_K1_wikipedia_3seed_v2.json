@@ -1,0 +1,214 @@
+{
+  "meta": {
+    "task": "P1(b): decoupling robustness under hard negatives (B vs K1, the single enable_main_predictor flag, same contrast as Table 3)",
+    "ref": "Poursafaei et al. 2022 NeurIPS \u2014 historical + inductive NS",
+    "dataset": "wikipedia",
+    "seeds": [
+      42,
+      1,
+      7
+    ],
+    "epochs": 20,
+    "hidden": 128,
+    "batch": 500,
+    "lr": 0.001,
+    "protocol": "B-protocol chrono 70/15/15, PRE-update leak-free, sklearn AP; inductive eval re-run per strategy on the SAME trained model; fixed hardneg_eval_seed -> B and K1 share identical neg sets (paired)",
+    "B_fixed_stack": {
+      "epochs": 20,
+      "hidden": 128,
+      "batch_size": 500,
+      "lr": 0.001,
+      "fsm_arch": "v3",
+      "fsm_decode": "hier",
+      "decol_hier_v2": true,
+      "causal_batch": true,
+      "hier_causal_policy": true,
+      "lambda_edge_trans": 0.5,
+      "edge_h_detach_scorepath": true,
+      "hardneg_eval": true
+    },
+    "strategies": [
+      "random",
+      "historical",
+      "inductive"
+    ],
+    "delta_B_minus_K1_by_strategy": {
+      "random": {
+        "B": 0.996847068259381,
+        "K1": 0.9010920966619484,
+        "delta_B_minus_K1": 0.09575497159743251
+      },
+      "historical": {
+        "B": 0.9744498564348453,
+        "K1": 0.5584894681698418,
+        "delta_B_minus_K1": 0.4159603882650035
+      },
+      "inductive": {
+        "B": 0.9682397593761225,
+        "K1": 0.5423417662776147,
+        "delta_B_minus_K1": 0.42589799309850784
+      }
+    },
+    "total_time_s": 12796.359054803848
+  },
+  "arms": [
+    {
+      "arm": "B",
+      "overrides": {
+        "design": "correct_decoupled",
+        "p0_fix": false
+      },
+      "indpool_from_train": true,
+      "n_indneg_pool_by_seed": {
+        "42": 9302,
+        "1": 9302,
+        "7": 9302
+      },
+      "n_indneg_pool_min": 9302,
+      "indneg_pool_small_flag": false,
+      "per_seed": [
+        {
+          "seed": 42,
+          "time_s": 2131.6523942947388,
+          "n_indneg_pool": 9302,
+          "trans_ap": 0.9993495374866188,
+          "trans_auc": 0.9994395428258989,
+          "ind_ap": 0.9963306847020809,
+          "ind_auc": 0.9967622583514866,
+          "ind_ap_histneg": 0.9690310864801855,
+          "ind_auc_histneg": 0.9706206706387575,
+          "ind_ap_indneg": 0.9668956106377846,
+          "ind_auc_indneg": 0.9678763707404379
+        },
+        {
+          "seed": 1,
+          "time_s": 2110.270522594452,
+          "n_indneg_pool": 9302,
+          "trans_ap": 0.9992678142223431,
+          "trans_auc": 0.9993189732369654,
+          "ind_ap": 0.996995838353055,
+          "ind_auc": 0.9973238076924291,
+          "ind_ap_histneg": 0.9776229408315752,
+          "ind_auc_histneg": 0.978276535160882,
+          "ind_ap_indneg": 0.9655650584881531,
+          "ind_auc_indneg": 0.9668867809781663
+        },
+        {
+          "seed": 7,
+          "time_s": 2105.344325065613,
+          "n_indneg_pool": 9302,
+          "trans_ap": 0.9994973251553639,
+          "trans_auc": 0.9995252832314905,
+          "ind_ap": 0.9972146817230071,
+          "ind_auc": 0.9975386548164471,
+          "ind_ap_histneg": 0.9766955419927752,
+          "ind_auc_histneg": 0.9781052889227739,
+          "ind_ap_indneg": 0.9722586090024299,
+          "ind_auc_indneg": 0.9741201679506125
+        }
+      ],
+      "by_strategy": {
+        "random": {
+          "ind_ap_mean": 0.996847068259381,
+          "ind_ap_std": 0.00046039340658881315,
+          "n_seeds": 3,
+          "ind_auc_mean": 0.9972082402867876,
+          "ind_auc_std": 0.00040089242526622374
+        },
+        "historical": {
+          "ind_ap_mean": 0.9744498564348453,
+          "ind_ap_std": 0.004715646086984737,
+          "n_seeds": 3,
+          "ind_auc_mean": 0.9756674982408043,
+          "ind_auc_std": 0.0043715195243878464
+        },
+        "inductive": {
+          "ind_ap_mean": 0.9682397593761225,
+          "ind_ap_std": 0.0035434385129243175,
+          "n_seeds": 3,
+          "ind_auc_mean": 0.9696277732230723,
+          "ind_auc_std": 0.003921865597572421
+        }
+      }
+    },
+    {
+      "arm": "K1_e2e",
+      "overrides": {
+        "design": "correct_decoupled",
+        "p0_fix": true
+      },
+      "indpool_from_train": true,
+      "n_indneg_pool_by_seed": {
+        "42": 9302,
+        "1": 9302,
+        "7": 9302
+      },
+      "n_indneg_pool_min": 9302,
+      "indneg_pool_small_flag": false,
+      "per_seed": [
+        {
+          "seed": 42,
+          "time_s": 2149.232148885727,
+          "n_indneg_pool": 9302,
+          "trans_ap": 0.944119698053486,
+          "trans_auc": 0.9701006704270989,
+          "ind_ap": 0.9064178067565182,
+          "ind_auc": 0.9482967915310841,
+          "ind_ap_histneg": 0.5680306581992534,
+          "ind_auc_histneg": 0.6202005009290746,
+          "ind_ap_indneg": 0.5432030611043858,
+          "ind_auc_indneg": 0.5799737221971057
+        },
+        {
+          "seed": 1,
+          "time_s": 2149.602957725525,
+          "n_indneg_pool": 9302,
+          "trans_ap": 0.940518696849103,
+          "trans_auc": 0.9686001989910806,
+          "ind_ap": 0.9079323372990844,
+          "ind_auc": 0.9494218447354411,
+          "ind_ap_histneg": 0.5658697833875694,
+          "ind_auc_histneg": 0.6123432454184112,
+          "ind_ap_indneg": 0.5450242318815283,
+          "ind_auc_indneg": 0.5736271622092779
+        },
+        {
+          "seed": 7,
+          "time_s": 2150.204254388809,
+          "n_indneg_pool": 9302,
+          "trans_ap": 0.9567986795874831,
+          "trans_auc": 0.9765617052822683,
+          "ind_ap": 0.8889261459302428,
+          "ind_auc": 0.9361100432235128,
+          "ind_ap_histneg": 0.5415679629227025,
+          "ind_auc_histneg": 0.5402235462524964,
+          "ind_ap_indneg": 0.53879800584693,
+          "ind_auc_indneg": 0.5378848849410207
+        }
+      ],
+      "by_strategy": {
+        "random": {
+          "ind_ap_mean": 0.9010920966619484,
+          "ind_ap_std": 0.010563201152861234,
+          "n_seeds": 3,
+          "ind_auc_mean": 0.9446095598300127,
+          "ind_auc_std": 0.0073822607029475915
+        },
+        "historical": {
+          "ind_ap_mean": 0.5584894681698418,
+          "ind_ap_std": 0.014694228454044942,
+          "n_seeds": 3,
+          "ind_auc_mean": 0.5909224308666606,
+          "ind_auc_std": 0.044081932714891574
+        },
+        "inductive": {
+          "ind_ap_mean": 0.5423417662776147,
+          "ind_ap_std": 0.00320122542824527,
+          "n_seeds": 3,
+          "ind_auc_mean": 0.5638285897824681,
+          "ind_auc_std": 0.02269089182017491
+        }
+      }
+    }
+  ]
+}

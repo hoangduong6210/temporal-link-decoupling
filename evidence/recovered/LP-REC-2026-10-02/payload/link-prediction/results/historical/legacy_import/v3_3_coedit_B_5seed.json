@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "protocol": "B-protocol chrono 70/15/15, fair ind neg, leak-free, sklearn AP; std=ddof=1; CI=t.975 half-width",
+    "full_seeds": [
+      42,
+      1,
+      7,
+      2,
+      3
+    ],
+    "epochs": 20,
+    "arm": "B (correct_decoupled, detached head)",
+    "config": {
+      "dataset": "coedit",
+      "epochs": 20,
+      "hidden": 128,
+      "batch_size": 500,
+      "lr": 0.001,
+      "fsm_arch": "v3",
+      "fsm_decode": "hier",
+      "decol_hier_v2": true,
+      "causal_batch": true,
+      "hier_causal_policy": true,
+      "lambda_edge_trans": 0.5,
+      "p0_fix": false,
+      "edge_h_detach_scorepath": true,
+      "design": "correct_decoupled"
+    }
+  },
+  "summary": {
+    "seeds": [
+      42,
+      1,
+      7,
+      2,
+      3
+    ],
+    "n_seeds": 5,
+    "ind_ap_mean": 0.9876059953435057,
+    "ind_ap_std": 0.002992211776879692,
+    "ind_ap_ci95_halfwidth": 0.0037147260173662606,
+    "trans_ap_mean": 0.9984738975480454,
+    "trans_ap_std": 0.0003445307644339917,
+    "trans_ap_ci95_halfwidth": 0.00042772286517789944,
+    "per_seed": {
+      "42": {
+        "ind_ap": 0.9849932129090269,
+        "trans_ap": 0.9980663689831775,
+        "ind_auc": 0.9855967408443455,
+        "trans_auc": 0.998426329861111,
+        "time_s": 943.5241851806641,
+        "source": "existing_3seed"
+      },
+      "1": {
+        "ind_ap": 0.9886690094669152,
+        "trans_ap": 0.9985026659489952,
+        "ind_auc": 0.9887368323896523,
+        "trans_auc": 0.9986441770833332,
+        "time_s": 940.1936836242676,
+        "source": "existing_3seed"
+      },
+      "7": {
+        "ind_ap": 0.9919637446293716,
+        "trans_ap": 0.9989362968895854,
+        "ind_auc": 0.9921338349284878,
+        "trans_auc": 0.9989983263888889,
+        "time_s": 940.0558037757874,
+        "source": "existing_3seed"
+      },
+      "2": {
+        "ind_ap": 0.9877711346752152,
+        "trans_ap": 0.998219254403893,
+        "ind_auc": 0.9875650864597687,
+        "trans_auc": 0.9985021666666667,
+        "time_s": 993.6505739688873,
+        "source": "new"
+      },
+      "3": {
+        "ind_ap": 0.9846328750369997,
+        "trans_ap": 0.9986449015145752,
+        "ind_auc": 0.9854758890700827,
+        "trans_auc": 0.9987152916666666,
+        "time_s": 990.6668705940247,
+        "source": "new"
+      }
+    }
+  }
+}

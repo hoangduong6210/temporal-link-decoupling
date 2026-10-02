@@ -1,0 +1,49 @@
+{
+  "runs": [
+    {
+      "dataset": "coedit",
+      "seed": 42,
+      "epochs": 1,
+      "p0_fix": "off",
+      "lfg": "on",
+      "echo": "off",
+      "fix_existence_init": false,
+      "entropy_reg_weight": 0.0,
+      "design": "correct",
+      "trans_ap": 0.9592012584406112,
+      "trans_auc": 0.9774470590277777,
+      "ind_ap": 0.7842235680640841,
+      "ind_auc": 0.8360687476258123,
+      "best_val_ap": 0.9491103993641238,
+      "train_time_s": 56.67178153991699,
+      "final_info": {
+        "n_edges": 13445,
+        "edge_state_dist": [
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ever_alive_mean": 0.5545249581336975,
+        "hawkes_lam_mean": 1.1129043102264404
+      }
+    }
+  ],
+  "summary": [
+    {
+      "dataset": "coedit",
+      "p0_fix": "off",
+      "trans_ap_mean": 0.9592012584406112,
+      "trans_ap_std": 0.0,
+      "trans_auc_mean": 0.9774470590277777,
+      "trans_auc_std": 0.0,
+      "ind_ap_mean": 0.7842235680640841,
+      "ind_ap_std": 0.0,
+      "ind_auc_mean": 0.8360687476258123,
+      "ind_auc_std": 0.0,
+      "time_mean": 56.67178153991699,
+      "n_seeds": 1
+    }
+  ]
+}

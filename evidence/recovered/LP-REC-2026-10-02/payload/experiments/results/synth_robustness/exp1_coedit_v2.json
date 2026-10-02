@@ -1,0 +1,110 @@
+{
+  "runs": [
+    {
+      "dataset": "coedit",
+      "seed": 42,
+      "epochs": 20,
+      "p0_fix": "off",
+      "lfg": "on",
+      "echo": "off",
+      "fix_existence_init": false,
+      "entropy_reg_weight": 0.0,
+      "design": "correct_decoupled",
+      "fsm_arch": "v2",
+      "trans_ap": 0.9859387956940356,
+      "trans_auc": 0.9904995173611112,
+      "ind_ap": 0.8922700542230211,
+      "ind_auc": 0.9145832584082771,
+      "best_val_ap": 0.973992466063241,
+      "train_time_s": 143.07277011871338,
+      "final_info": {
+        "n_edges": 13445,
+        "edge_state_dist": [
+          0.011156563647091389,
+          0.018519895151257515,
+          0.9700260162353516,
+          0.00022313128283713013,
+          7.437709427904338e-05
+        ],
+        "ever_alive_mean": 0.7286653518676758,
+        "hawkes_lam_mean": 1.1130378246307373
+      }
+    },
+    {
+      "dataset": "coedit",
+      "seed": 123,
+      "epochs": 20,
+      "p0_fix": "off",
+      "lfg": "on",
+      "echo": "off",
+      "fix_existence_init": false,
+      "entropy_reg_weight": 0.0,
+      "design": "correct_decoupled",
+      "fsm_arch": "v2",
+      "trans_ap": 0.9819487743803601,
+      "trans_auc": 0.9891026840277778,
+      "ind_ap": 0.8769699313592969,
+      "ind_auc": 0.9004201047901835,
+      "best_val_ap": 0.9686138286665873,
+      "train_time_s": 143.0291657447815,
+      "final_info": {
+        "n_edges": 13445,
+        "edge_state_dist": [
+          0.000595016754232347,
+          0.017999256029725075,
+          0.9807363152503967,
+          7.437709427904338e-05,
+          0.000595016754232347
+        ],
+        "ever_alive_mean": 0.7831765413284302,
+        "hawkes_lam_mean": 1.1135387420654297
+      }
+    },
+    {
+      "dataset": "coedit",
+      "seed": 456,
+      "epochs": 20,
+      "p0_fix": "off",
+      "lfg": "on",
+      "echo": "off",
+      "fix_existence_init": false,
+      "entropy_reg_weight": 0.0,
+      "design": "correct_decoupled",
+      "fsm_arch": "v2",
+      "trans_ap": 0.9895893853802389,
+      "trans_auc": 0.9927727951388889,
+      "ind_ap": 0.9198177745732476,
+      "ind_auc": 0.9371665600857743,
+      "best_val_ap": 0.9775505711799054,
+      "train_time_s": 142.99387121200562,
+      "final_info": {
+        "n_edges": 13445,
+        "edge_state_dist": [
+          0.0015619188779965043,
+          7.437709427904338e-05,
+          0.9974711537361145,
+          0.0,
+          0.0008925251313485205
+        ],
+        "ever_alive_mean": 0.8114429116249084,
+        "hawkes_lam_mean": 1.1132639646530151
+      }
+    }
+  ],
+  "summary": [
+    {
+      "dataset": "coedit",
+      "p0_fix": "off",
+      "trans_ap_mean": 0.9858256518182116,
+      "trans_ap_std": 0.003120292215519196,
+      "trans_auc_mean": 0.9907916655092593,
+      "trans_auc_std": 0.0015124906164612863,
+      "ind_ap_mean": 0.8963525867185219,
+      "ind_ap_std": 0.01772916092589534,
+      "ind_auc_mean": 0.9173899744280782,
+      "ind_auc_std": 0.01513238767918155,
+      "time_mean": 143.0319356918335,
+      "n_seeds": 3
+    }
+  ]
+}

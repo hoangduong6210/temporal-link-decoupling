@@ -1,0 +1,168 @@
+{
+  "meta": {
+    "task": "IDENTICAL-HEAD K1 detach probe (reviewer \u00a78.2.i): same 2-layer MLP scoring head, identical init per seed; toggle ONLY the backbone\u2192head .detach() (main_predictor_detach).",
+    "dataset": "coedit",
+    "seeds": [
+      42,
+      1,
+      7
+    ],
+    "epochs": 20,
+    "hidden": 128,
+    "batch": 500,
+    "lr": 0.001,
+    "protocol": "B-protocol: chrono 70/15/15, fair inductive neg, PRE-update leak-free, sklearn AP",
+    "B_fixed_stack": {
+      "dataset": "coedit",
+      "epochs": 20,
+      "hidden": 128,
+      "batch_size": 500,
+      "lr": 0.001,
+      "design": "correct_decoupled",
+      "fsm_arch": "v3",
+      "fsm_decode": "hier",
+      "decol_hier_v2": true,
+      "causal_batch": true,
+      "hier_causal_policy": true,
+      "lambda_edge_trans": 0.5,
+      "p0_fix": true,
+      "edge_h_detach_scorepath": true
+    },
+    "head_held_identical": "both arms enable_main_predictor=True \u21d2 same self.main_predictor (Linear(2H,H)->ReLU->Linear(H,1)); run_one reseeds per seed before build and the toggle adds no module \u21d2 bit-identical head init per seed (CPU-verified torch.equal over head params).",
+    "single_bit": "main_predictor_detach: True=DETACHED-MLP (zero backbone link grad), False=COUPLED-MLP (link grad flows). CPU grad probe (aux losses zeroed): COUPLED 20 DRGC params w/ link grad, DETACHED 0.",
+    "total_time_s": 5978.954747438431
+  },
+  "arms": [
+    {
+      "arm": "DETACHED-MLP",
+      "desc": "main_predictor(edge_h.detach()) \u2014 zero backbone link grad",
+      "overrides": {
+        "main_predictor_detach": true
+      },
+      "ind_ap_mean": 0.9356795257675898,
+      "ind_ap_std": 0.003212810565818481,
+      "n_seeds": 3,
+      "trans_ap_mean": 0.9927077009555676,
+      "trans_ap_std": 0.0010972090395388915,
+      "ind_auc_mean": 0.9483255935750265,
+      "ind_auc_std": 0.003082180103268281,
+      "trans_auc_mean": 0.9948414340277778,
+      "trans_auc_std": 0.0003950906481579682,
+      "per_seed": [
+        {
+          "seed": 42,
+          "ind_ap": 0.9393708051419554,
+          "trans_ap": 0.9923423426130573,
+          "ind_auc": 0.9518809045627112,
+          "trans_auc": 0.9947349722222223,
+          "time_s": 993.8086109161377,
+          "edge_state_dist": [
+            0.00037188545684330165,
+            0.40379324555397034,
+            0.2534027397632599,
+            0.32235032320022583,
+            0.020081814378499985
+          ]
+        },
+        {
+          "seed": 1,
+          "ind_ap": 0.9335129590371045,
+          "trans_ap": 0.9918397838020553,
+          "ind_auc": 0.9466881415926219,
+          "trans_auc": 0.9945104826388889,
+          "time_s": 986.0788371562958,
+          "edge_state_dist": [
+            0.0002975083771161735,
+            0.40386760234832764,
+            0.25109705328941345,
+            0.3258460462093353,
+            0.01889178156852722
+          ]
+        },
+        {
+          "seed": 7,
+          "ind_ap": 0.9341548131237098,
+          "trans_ap": 0.9939409764515899,
+          "ind_auc": 0.9464077345697466,
+          "trans_auc": 0.9952788472222223,
+          "time_s": 986.331556558609,
+          "edge_state_dist": [
+            0.0002975083771161735,
+            0.40379324555397034,
+            0.2496839016675949,
+            0.32658982276916504,
+            0.019635552540421486
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "COUPLED-MLP",
+      "desc": "main_predictor(edge_h) \u2014 link grad flows to backbone (== K1)",
+      "overrides": {
+        "main_predictor_detach": false
+      },
+      "ind_ap_mean": 0.7969268542370559,
+      "ind_ap_std": 0.03669913524307402,
+      "n_seeds": 3,
+      "trans_ap_mean": 0.9601577336993161,
+      "trans_ap_std": 0.007481763871299161,
+      "ind_auc_mean": 0.8556077389060341,
+      "ind_auc_std": 0.031313149088073665,
+      "trans_auc_mean": 0.9774540682870372,
+      "trans_auc_std": 0.003436500327993,
+      "per_seed": [
+        {
+          "seed": 42,
+          "ind_ap": 0.7975833828680057,
+          "trans_ap": 0.9546448293390762,
+          "ind_auc": 0.8657975641114974,
+          "trans_auc": 0.9748665104166667,
+          "time_s": 1004.135871887207,
+          "edge_state_dist": [
+            0.0,
+            0.40379324555397034,
+            0.20156191289424896,
+            0.34555596113204956,
+            0.04908888041973114
+          ]
+        },
+        {
+          "seed": 1,
+          "ind_ap": 0.7599038593024992,
+          "trans_ap": 0.957153742774777,
+          "ind_auc": 0.8204688767872435,
+          "trans_auc": 0.9761424791666669,
+          "time_s": 1004.2203981876373,
+          "edge_state_dist": [
+            0.0,
+            0.40379324555397034,
+            0.23019710183143616,
+            0.3425808846950531,
+            0.02342878468334675
+          ]
+        },
+        {
+          "seed": 7,
+          "ind_ap": 0.8332933205406632,
+          "trans_ap": 0.9686746289840951,
+          "ind_auc": 0.8805567758193616,
+          "trans_auc": 0.9813532152777779,
+          "time_s": 1004.3262009620667,
+          "edge_state_dist": [
+            0.00014875418855808675,
+            0.40379324555397034,
+            0.2427668273448944,
+            0.34027519822120667,
+            0.01301599107682705
+          ]
+        }
+      ]
+    }
+  ],
+  "delta_detached_minus_coupled": {
+    "ind_ap": 0.13875267153053394,
+    "trans_ap": 0.03254996725625148,
+    "interpretation": "ind_ap > 0 (same direction + similar magnitude as the existing B-K1 gap) \u21d2 inductive damage is the GRADIENT FLOW (detach), NOT the head architecture."
+  }
+}

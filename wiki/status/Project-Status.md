@@ -50,3 +50,13 @@ written from the canonical wiki and admitted through the numeric-evidence gate.
 Any venue-specific revision must be derived from the wiki, then create a source
 commit, paper-build job, numeric registry, and immutable snapshot. Existing
 frozen scientific evidence must never be overwritten.
+
+## Recovered historical material
+
+The owner-provided SR-GNN download has been reconciled into
+[the recovery bundle](../../evidence/recovered/LP-REC-2026-10-02/README.md).
+Its audit records exact byte identities, arithmetic checks, preserved discrepancies,
+and corpus comparisons. Historical evidence remains non-admitted; recovery does
+not supersede the active scientific release. Next work is claim-specific
+provenance reconciliation for the journal, using the recovered records instead
+of assuming the historical result files are lost.

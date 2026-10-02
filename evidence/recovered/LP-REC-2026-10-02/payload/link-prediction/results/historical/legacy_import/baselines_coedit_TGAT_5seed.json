@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "protocol": "B-protocol chrono 70/15/15, fair ind neg, leak-free, sklearn AP; std=ddof=1; CI=t.975 half-width",
+    "full_seeds": [
+      42,
+      1,
+      7,
+      2,
+      3
+    ],
+    "epochs": 20,
+    "model": "tgat (best baseline)"
+  },
+  "summary": {
+    "seeds": [
+      42,
+      1,
+      7,
+      2,
+      3
+    ],
+    "n_seeds": 5,
+    "ind_ap_mean": 0.8465879593826011,
+    "ind_ap_std": 0.013265323198347662,
+    "ind_ap_ci95_halfwidth": 0.016468433683213716,
+    "trans_ap_mean": 0.8644789956057682,
+    "trans_ap_std": 0.008319766760281275,
+    "trans_ap_ci95_halfwidth": 0.010328698751083915,
+    "per_seed": {
+      "42": {
+        "ind_ap": 0.8537744651986938,
+        "trans_ap": 0.8688387857079543,
+        "ind_auc": 0.8411659635886706,
+        "trans_auc": 0.8493548819444444,
+        "source": "existing_3seed"
+      },
+      "1": {
+        "ind_ap": 0.8516344884881488,
+        "trans_ap": 0.8631679378656081,
+        "ind_auc": 0.8439348248945242,
+        "trans_auc": 0.8420731736111111,
+        "source": "existing_3seed"
+      },
+      "7": {
+        "ind_ap": 0.8535509397370753,
+        "trans_ap": 0.8748659441270207,
+        "ind_auc": 0.8442663858288246,
+        "trans_auc": 0.8608381180555555,
+        "source": "existing_3seed"
+      },
+      "2": {
+        "ind_ap": 0.8229536545171515,
+        "trans_ap": 0.8523759915794746,
+        "ind_auc": 0.8129011358732179,
+        "trans_auc": 0.8345898784722221,
+        "source": "new"
+      },
+      "3": {
+        "ind_ap": 0.8510262489719362,
+        "trans_ap": 0.8631463187487829,
+        "ind_auc": 0.8446106781691614,
+        "trans_auc": 0.8451970104166666,
+        "source": "new"
+      }
+    }
+  }
+}

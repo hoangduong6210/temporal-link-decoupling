@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "protocol": "B-protocol chrono 70/15/15, fair ind neg, leak-free, sklearn AP; std=ddof=1; CI=t.975 half-width",
+    "full_seeds": [
+      42,
+      1,
+      7,
+      2,
+      3
+    ],
+    "epochs": 20,
+    "arm": "C (correct, end-to-end)",
+    "config": {
+      "dataset": "coedit",
+      "epochs": 20,
+      "hidden": 128,
+      "batch_size": 500,
+      "lr": 0.001,
+      "fsm_arch": "v3",
+      "fsm_decode": "hier",
+      "decol_hier_v2": true,
+      "causal_batch": true,
+      "hier_causal_policy": true,
+      "lambda_edge_trans": 0.5,
+      "p0_fix": false,
+      "edge_h_detach_scorepath": true,
+      "design": "correct"
+    }
+  },
+  "summary": {
+    "seeds": [
+      42,
+      1,
+      7,
+      2,
+      3
+    ],
+    "n_seeds": 5,
+    "ind_ap_mean": 0.7593039522471792,
+    "ind_ap_std": 0.014007620786452537,
+    "ind_ap_ci95_halfwidth": 0.017389970114714857,
+    "trans_ap_mean": 0.9599723118202519,
+    "trans_ap_std": 0.004428554789844861,
+    "trans_ap_ci95_halfwidth": 0.005497895511367783,
+    "per_seed": {
+      "42": {
+        "ind_ap": 0.7792173276867447,
+        "trans_ap": 0.9648344934766968,
+        "ind_auc": 0.8334654472801081,
+        "trans_auc": 0.9813371006944445,
+        "time_s": 960.4430303573608,
+        "source": "existing_3seed"
+      },
+      "1": {
+        "ind_ap": 0.7639268342903518,
+        "trans_ap": 0.9590123401752163,
+        "ind_auc": 0.828379557878482,
+        "trans_auc": 0.9770613645833333,
+        "time_s": 959.2139229774475,
+        "source": "existing_3seed"
+      },
+      "7": {
+        "ind_ap": 0.7585123666602821,
+        "trans_ap": 0.9589514268050257,
+        "ind_auc": 0.8083082240738702,
+        "trans_auc": 0.9772699548611112,
+        "time_s": 953.1421039104462,
+        "source": "existing_3seed"
+      },
+      "2": {
+        "ind_ap": 0.7539281103977742,
+        "trans_ap": 0.9535974416347011,
+        "ind_auc": 0.8189629182784919,
+        "trans_auc": 0.9757541145833333,
+        "time_s": 1009.8265469074249,
+        "source": "new"
+      },
+      "3": {
+        "ind_ap": 0.7409351222007431,
+        "trans_ap": 0.9634658570096192,
+        "ind_auc": 0.8007208153325887,
+        "trans_auc": 0.9792610034722221,
+        "time_s": 1011.0032031536102,
+        "source": "new"
+      }
+    }
+  }
+}
