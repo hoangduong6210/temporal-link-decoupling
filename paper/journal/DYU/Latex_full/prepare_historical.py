@@ -30,13 +30,13 @@ def table(label, caption, header, rows):
         r"\bottomrule"+"\n"+r"\end{tabular}"+"\n"+r"\end{minipage}"+"\n"+r"\end{center}")
 blocks = {}
 rows=[]
-for name,label in [("v3_3_coedit_B_5seed.json","B preset"),("v3_3_coedit_C_5seed.json","C preset"),("baselines_coedit_TGAT_5seed.json","TGAT proxy")]:
+for name,label in [("v3_3_coedit_B_5seed.json","State head"),("v3_3_coedit_C_5seed.json","MLP + hard gate"),("baselines_coedit_TGAT_5seed.json","TGAT proxy")]:
     d=read(name)["summary"]; records=[dict(seed=int(k),**v) for k,v in d["per_seed"].items()]
     rows.append([label,cell(name,records,"$.summary.per_seed",expected=d),
         cell(name,records,"$.summary.per_seed","trans_ap",expected=d)])
-blocks["PRESETS"]=table("presets","CoEdit preset comparison.",["Configuration","Inductive AP","Transductive AP"],rows)
+blocks["PRESETS"]=table("presets","CoEdit scoring-configuration comparison.",["Configuration","Inductive AP","Transductive AP"],rows)
 rows=[]
-labels={"B":"B","K1_e2e":"K1: predictor","K2_lfg_hard":"K2: hard gate","K3_floor0":"K3: zero floor","K2K3_gate":"K2 + K3","C_correct":"C: K1 + K2 + K3"}
+labels={"B":"State head","K1_e2e":"MLP predictor","K2_lfg_hard":"Hard gate","K3_floor0":"Zero floor","K2K3_gate":"Hard + zero","C_correct":"MLP + hard + zero"}
 for dataset in ["coedit","wikipedia","mooc"]:
     name="v3_3_coedit_knob_ablation_3seed.json" if dataset=="coedit" else f"v3_3_knob_ablation_{dataset}_3seed.json"
     for i,a in enumerate(read(name)["arms"]):
@@ -51,12 +51,12 @@ for dataset,title in [("coedit","CoEdit"),("wikipedia","Wikipedia")]:
         for i,a in enumerate(d["arms"]):
             row.append(cell(name,a["per_seed"],f"$.arms[{i}].per_seed",field))
         rows.append(row)
-blocks["NEGATIVES"]=table("negatives","Candidate-pool sensitivity.",["Corpus","Pool","B","K1"],rows)
+blocks["NEGATIVES"]=table("negatives","Candidate-pool sensitivity.",["Corpus","Pool","State head","MLP"],rows)
 rows=[]
 for dataset,title in [("coedit","CoEdit"),("wikipedia","Wikipedia")]:
     name=f"backbone_removed/backbone_removed_{dataset}_3seed.json"
     for i,a in enumerate(read(name)["arms"]):
-        rows.append([title if i==0 else "", "Full B" if i==0 else "Pair statistics",cell(name,a["per_seed"],f"$.arms[{i}].per_seed",digits=6,expected=a)])
+        rows.append([title if i==0 else "", "Full model" if i==0 else "Pair statistics",cell(name,a["per_seed"],f"$.arms[{i}].per_seed",digits=6,expected=a)])
 blocks["BACKBONE"]=table("backbone","Learned-backbone contribution.",["Corpus","Representation","Inductive AP"],rows)
 rows=[]
 for dataset,title in [("coedit","CoEdit"),("wikipedia","Wikipedia")]:

@@ -1,5 +1,5 @@
 {
-  "source_sha256": "3560d1c7692016c1a7a4eb580718edcd734f8dcdbe2e1cdd24dcc39da4116c1a",
+  "source_sha256": "e445dec79d4288457c632833da60404d4aaaef9f126698b70b4eb90c787d539d",
   "status": "PASS",
   "checks": {
     "excluded_model_name_absent": true,
@@ -9,17 +9,18 @@
     "separate_bilingual_abstract_pages": true,
     "bilingual_front_matter_order": true,
     "a4_geometry_preserved": true,
-    "body_9pt_1p5_line_spacing_preserved": true,
+    "latex_9pt_15p5_baseline": true,
     "two_column_body": true,
     "heading_depth_at_most_three": true,
     "labels_unique_and_references_resolved": true,
     "no_manuscript_placeholders": true,
     "no_authorship_detector_claim": true,
+    "no_internal_experiment_labels": true,
     "historical_results_separate": true
   },
   "reference_count": 40,
-  "english_abstract_words": 263,
-  "chinese_abstract_Han_characters": 396,
+  "english_abstract_words": 203,
+  "chinese_abstract_Han_characters": 365,
   "requirements_sources": [
     "https://jo.dyu.edu.tw/setjournal/contribute.htm",
     "https://jo.dyu.edu.tw/setjournal/document/jour04-1.pdf"
@@ -27,7 +28,7 @@
   "editorial_policy": "Prioritize method, results and interpretation; cite only sources serving the argument. Do not fabricate evidence or certify non-AI authorship.",
   "manual_checks_remaining": [
     "Recheck visual pagination and table widths after future source or font changes; current export review is recorded in verification.json.",
-    "Confirm author affiliation wording, Chinese departments and contact telephone. Institutional mailing addresses have been added from official sources.",
+    "Author to confirm the final affiliation associations and supply only the corresponding author contact telephone for submission forms; no phone number is invented.",
     "Recheck the required Word submission files after future source changes; current exports are synchronized.",
     "Formal evidence-snapshot admission; historical original execution bindings remain incomplete."
   ]

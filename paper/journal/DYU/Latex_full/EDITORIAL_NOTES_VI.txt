@@ -1,32 +1,11 @@
-BẢN JOURNAL DYU — GHI CHÚ BIÊN TẬP
+HƯỚNG DẪN NGUỒN JOURNAL DYU
 
-Tệp chính: main.tex (độc lập, bibliography và sơ đồ nằm trong tệp).
-Xuất PDF: ./build.sh ; hoặc TECTONIC=/đường/dẫn/tectonic ./build.sh.
-prepare.py xác minh checksum matrix, tính lại mean/SD từ seed, sinh bảng và khóa nguồn.
-Có thể biên dịch main.tex trực tiếp bằng XeLaTeX khi đưa lên Overleaf.
-Không đổi PDF bằng tay; sửa main.tex rồi build lại.
+Sửa main.tex rồi chạy prepare.py, check_editorial.py và build.sh. Có thể compile trực tiếp bằng XeLaTeX trên Overleaf. Bảng kết quả được kiểm tra từ per-seed records; bảng corpus/split được đối chiếu dữ liệu bằng prepare_statistics.py. Không sửa số liệu hoặc PDF bằng tay.
 
-PHÁT TRIỂN TỪ CONFERENCE
-- Giữ chủ đề gradient decoupling, rút gọn related work gồm 40 nguồn có vai trò trực tiếp; không áp chỉ tiêu số lượng references.
-- Mở rộng định nghĩa mô hình, công thức online moments/intensity/rate, chain rule, objective và sơ đồ.
-- Phân biệt shared-readout detach hiện tại với đổi main predictor/design preset trong thí nghiệm cũ.
-- Viết rõ freeze-then-probe, batch snapshot, sequential pair accumulators, filtered test history và negative sampling.
-- Bổ sung giới hạn CoEdit midpoint/feature availability, nguồn chung Wikipedia và endpoint-role validity.
-- Bảng chính lấy từ frozen A003. Không sao chép các con số lịch sử vào bảng hiện tại.
-- Evidence lịch sử đã phục hồi giúp đối chiếu, nhưng chưa có đủ source/environment/data binding để tự động công nhận toàn bộ claim.
+Đây là bài phát triển từ bản conference chưa nộp/công bố, được soạn như một nghiên cứu gốc. Phần mô hình và objective đã được đối chiếu implementation; không dùng tên implementation như một mô hình đã công bố. Giữ tách biệt các thí nghiệm thay predictor, gate, candidate pool và frozen probe với so sánh cùng readout.
 
-YÊU CẦU JOURNAL
-Theo template được cung cấp: A4, lề trên 3.5 cm, các lề còn lại 2 cm, Times New Roman 9 pt, giãn dòng 1.5, thân bài hai cột.
-Abstract và keywords tiếng Anh đứng trước tiêu đề, thông tin tác giả, abstract và keywords tiếng Trung; cả hai phần đứng trước Introduction, ở hai trang liên tiếp. References đánh số và xếp alphabet.
-Ưu tiên LaTeX/PDF theo yêu cầu tác giả. Trang hướng dẫn chính thức vẫn nêu bản Word cho nộp điện tử; đã bổ sung bản .doc và .docx theo yêu cầu tác giả; cần tác giả duyệt trước khi nộp.
-https://jo.dyu.edu.tw/setjournal/contribute.htm
-https://jo.dyu.edu.tw/setjournal/document/jour04-1.pdf
+Các source map và source-lock hỗ trợ truy vết nhưng chưa thay thế registry cho immutable paper snapshot. Các hạn chế metadata lịch sử được nêu trong bài và audit; không xoá chúng để tạo ấn tượng thí nghiệm đã được xác nhận đầy đủ.
 
-TRẠNG THÁI
-Bản thảo làm việc, chưa gửi tòa soạn, chưa phải immutable paper snapshot.
-numeric-sources.json là source map, CHƯA thay thế registry từng occurrence của publication gate.
-Đã bổ sung địa chỉ liên hệ của hai trường dưới từng đơn vị ở cả trang Anh và Trung. Cần xác nhận chính xác tên khoa bằng tiếng Trung và số điện thoại liên hệ theo biểu mẫu.
-Không tự điền chữ ký, cam kết tác giả, ngày nhận/duyệt hoặc thông tin xuất bản.
+Bản xuất 2026-10-03: PDF 10 trang; DOCX và DOC render 10 trang khi có đúng font. Xem verification.json và ../EDITORIAL_AUDIT_VI.txt để biết kiểm tra chi tiết. Word cần Times New Roman, MingLiU và math fonts; renderer thiếu font có thể cho kết quả khác. Không đóng gói font có bản quyền.
 
-ĐỊNH VỊ MÔ HÌNH
-Mô hình được xây dựng và đặc tả trong nghiên cứu này. Không đưa tên nội bộ của implementation vào nội dung paper. Không gán tính mới cho riêng từng thành phần kế thừa.
+Điện thoại liên hệ chỉ cần của tác giả liên hệ, chưa được cung cấp. Không tự điền số điện thoại, chữ ký, cam kết hoặc thông tin nhận/duyệt bài. Các tác giả cần đọc chốt thông tin đơn vị và nội dung trước khi gửi.

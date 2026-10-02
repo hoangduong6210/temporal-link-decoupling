@@ -1,7 +1,7 @@
 ---
 title: DYU Journal Development
 status: compiled editable draft
-last_updated: 2026-10-02
+last_updated: 2026-10-03
 paper_source: false
 ---
 
@@ -48,3 +48,13 @@ The author supersedes the previous reference-count target: retain sources needed
 ## Model attribution
 
 The manuscript introduces the stateful temporal-link model as developed in the present study. The internal implementation name is omitted from the manuscript; the model is described directly through its architecture and training procedure. The research repository is cited as the accompanying software and experimental record. Established components remain attributed to their sources; the article describes the integrated model and controlled gradient-routing comparison without claiming novelty for every component.
+
+## Model and submission-format revision — 2026-10-03
+
+The model section now specifies the state-transition existence score actually used for AP and distinguishes it from auxiliary hierarchical state calibration. Compliance is evaluated without gradients; the shared detach boundary also changes backbone gradients from auxiliary terms that reuse the state distribution. Feature dimensions, recurrence constants and the full objective are described explicitly. The article retains the limitations of event-conditioned scoring, asymmetric endpoint updates, candidate pools and batch-local state ordering.
+
+A new corpus table is reconstructed from checksum-verified data by `Latex_full/prepare_statistics.py`. Internal experiment-management wording and configuration codes are replaced by descriptive method names. All reported AP/SD pairs remain unchanged, and all references support citations in the text. The manuscript inventory is recorded in [the export verification record](../../paper/journal/DYU/Latex_full/verification.json). This revision performs no new training and does not change evidence-admission status.
+
+The exports follow the supplied template's geometry, body size, Word line spacing, author emphasis, italic English affiliation/address lines, bold captions and equation placement. English and Chinese front matter occupy consecutive pages before the Introduction, as requested by the author. The LaTeX PDF and both Word exports were checked with Times New Roman, MingLiU and installed math fonts. Every page was visually checked; final pagination in Microsoft Word itself remains unverified. The source, PDF, DOCX, DOC and Overleaf archive are synchronized. Pagination, detailed checks and artifact hashes are in `Latex_full/verification.json`.
+
+Only the corresponding author's telephone is needed for the submission forms; no number has been supplied or invented. Author/affiliation associations remain for final author review. No journal submission, plagiarism clearance, human-only authorship certification or immutable snapshot admission is claimed.

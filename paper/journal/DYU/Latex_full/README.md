@@ -1,25 +1,21 @@
 # DYU journal source package
 
-Primary source: main.tex. Primary output: DYU_Journal_Manuscript.pdf.
+Primary source: `main.tex`. Primary output: `DYU_Journal_Manuscript.pdf`.
 
-The source is a standalone XeLaTeX document: the bibliography and vector diagram are embedded, so it can be compiled directly in an editor or on Overleaf. In the complete repository, run ./build.sh to verify frozen results and regenerate the result table before PDF export. Set TECTONIC to an existing executable if it is not on PATH. The script also supports XeLaTeX.
+The standalone XeLaTeX document embeds its bibliography and vector diagram. Upload `DYU_Overleaf.zip`, select XeLaTeX and compile `main.tex`; no external image, bibliography download or research dataset is required. The canonical repository path is `paper/journal/DYU/Latex_full/`.
 
-prepare.py checks the frozen matrix digest, reconstructs each current result row from selected seeds, runs prepare_historical.py for the retrospective tables, checks citation coverage and writes numeric-sources.json and source-lock.json. historical-numeric-sources.json records the retrospective per-seed inputs, selectors, hashes and aggregates. These maps are draft source inventories, not the full per-occurrence registry of an admitted immutable paper snapshot.
+## Verification and regeneration
 
-The local export uses Times New Roman and Songti TC. If these system fonts are unavailable, the source falls back to the TeX-distributed Termes and Fandol Song fonts. A fallback build can have different pagination. verification.json records the delivered export.
+In the complete repository, run `python prepare.py` and `python check_editorial.py`, then `./build.sh`. Set `TECTONIC` to an existing executable if it is not on PATH; the build script also supports XeLaTeX. Python 3 and NumPy are needed for the dataset check. `prepare.py` verifies the frozen matrix, reconstructs primary means and sample deviations, runs `prepare_historical.py` for the additional tables, checks citation coverage and writes source maps. `prepare_statistics.py` verifies corpus checksums and reconstructs every corpus/split count in Table 1. The numerical inventories are source maps, not a substitute for a complete immutable paper-snapshot registry.
 
-The current draft develops the internal conference manuscript's methodology and literature while using the admitted current shared-readout comparison. Recovered historical configurations remain separate from current results. See EDITORIAL_NOTES_VI.txt for the development record, journal-format requirements and unresolved submission items.
+The delivered PDF uses Times New Roman and MingLiU. On macOS, the source can use the existing MingLiU font installed with Microsoft Word. Otherwise it tries Songti TC and finally the TeX-distributed Termes/Fandol fallback. Overleaf may therefore paginate differently. The archive does not redistribute proprietary fonts. `verification.json` records the delivered export and its limits.
 
-The canonical path is paper/journal/DYU/Latex_full/. Existing conference and frozen evidence files are unchanged.
+## Word exports
 
-This is an editable journal draft, not a submitted article or admitted immutable snapshot.
+Provide an existing Pandoc executable through `PANDOC` or PATH and install python-docx and Pillow. Run `python render_word_figure.py`, then `python export_word.py`. On systems other than macOS, set `FIGURE_FONT` to a Times New Roman TTF. The exporter uses `../Word/template.docx`, native Office Math and editable tables. Figure 1 is embedded at 600 dpi; the editable SVG is retained in `../Word/figures/`.
 
-## Overleaf and Word
-
-Upload DYU_Overleaf.zip and choose XeLaTeX with main.tex as the main document. All article content, bibliography and the vector diagram are embedded. Citation coverage is checked by prepare.py without a reference-count quota; no BibTeX download is required. Running prepare.py requires the full research repository, but compiling main.tex does not.
-
-To regenerate Word, install python-docx and Pillow and provide an existing Pandoc executable via PANDOC or PATH, then run python render_word_figure.py followed by python export_word.py. Set FIGURE_FONT to a Times New Roman .ttf path on systems other than macOS. The complete repository includes ../Word/template.docx. The export uses editable native Office Math and reconstructed tables. Figure 1 is embedded at 600 dpi, with an editable SVG companion under ../Word/figures/. The Word export retains 9-point body type, removes added heading/reference padding and repeats the header when the long settings table continues to the next column. Use LibreOffice's MS Word 97 export filter for the legacy .doc, then visually inspect that export. Word conversion dependencies are separate from LaTeX/Overleaf compilation.
+Word uses 9-point body text and true 1.5-line spacing (`w:line=360`, `w:lineRule=auto`), including references. Authors are 10-point bold; English affiliation/address lines are italic; captions are 9-point bold. Equations are left aligned with right-aligned numbers and a blank-line equivalent above and below. Chinese text specifies MingLiU. Use LibreOffice's MS Word 97 filter for the legacy DOC and inspect that export separately. A headless renderer must be configured to see the installed CJK and math fonts; absent fonts caused missing Chinese glyphs and a different page count during QA. With those fonts available, both Word exports rendered to 10 pages. Native Microsoft Word pagination may differ.
 
 ## Editorial constraints
 
-Prioritize method, experimental results and interpretation over literature volume. Every reference must support text that remains in the article. The current selection contains 40 sources. Run check_editorial.py for source-level citation, abstract, heading and layout checks. The journal guidance and remaining manual checks are recorded in editorial-checks.json. These checks do not certify non-AI authorship or replace visual review. Preserve the template font size and spacing when shortening the article.
+Prioritize method, results and interpretation over literature volume; every reference must support text in the article. The current selection contains 40 sources. Do not fabricate data or erase the limitations of earlier experiments. Keep the same-readout gradient comparison distinct from predictor changes and frozen probes. The model is specified as part of this study, without its internal implementation name. Source checks and visual review do not certify human-only authorship, plagiarism clearance, evidence-snapshot admission or journal acceptance.

@@ -17,3 +17,7 @@ results/audit/*
 # Frozen releases and paper snapshots are immutable, reviewable records. Keep
 # them trackable; large payloads may instead be represented by a tracked
 # manifest containing an immutable URI and checksum.
+
+# Office creates transient lock files beside open manuscripts.
+~$*.docx
+~$*.doc

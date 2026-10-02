@@ -1,15 +1,19 @@
 {
-  "source_commit": "441a40693517c6edb1d4e9ab37f268cc7f80edfc",
+  "source_commit": "93d7cd6a60b8a78ff89322dfc839536c6948e20e",
   "inputs": {
     "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
     "protocols/link_prediction_v1.toml": "6186c279806cf86d2a4c704997e4d179e341e0a095cc85c107cae890cb6b34c3",
     "resources/source_registry.json": "499cf30d5ad70a80f88fe73bb714ff68ff4cadb68a68016133a015a166de7217",
     "src/temporal_link_decoupling/modeling/v33/sr_gnn_v3.py": "ce1ed615699e30753beb0976bf3492760612e9d341ecd6cb38a5e1c6b584229e",
+    "src/temporal_link_decoupling/modeling/v33/sr_gnn_v2.py": "44227727a92a6f36edee7c548c5d828d799bfd9b19113a589b5ab15f8ab26583",
+    "src/temporal_link_decoupling/modeling/v33/fsm_head.py": "6d1972500a9417de8993ba072213e99df93c9444e8859127ca324b936fccc213",
+    "src/temporal_link_decoupling/datasets.py": "ea39305fc0b29508235577977d85265857466ba78c775a10792bc2eaf4341396",
+    "paper/journal/DYU/Latex_full/dataset-statistics.json": "bccb9abb552c3843e6d31c6ab111e213db52f4424ceeb906eb135f9f67071680",
     "src/temporal_link_decoupling/modeling/v33/sr_gnn_v3_3.py": "d444b74c6b44b0f561219db4de3f305cf6e0cad9bac3d70584cdef84fafe8bb7",
     "src/temporal_link_decoupling/training.py": "852eaea7d42a3313fe34e968ae6515d84966cb39b704980870576f451b87a4f2",
     "experiments/dataset_builders/build_coedit.py": "2747e719fa9000b1b4970622604ab6e7a8d91096d514b19b294335df6f71b3eb",
     "paper/journal/DYU/Latex_full/historical-numeric-sources.json": "9c12009574245865230dcb74b1477975d8eac112c22b6a627833ccd4ec557554",
-    "paper/journal/DYU/Latex_full/prepare_historical.py": "808423de3993763dc90f4c18682f512afaade4a333a756157a8b6823a0060168",
+    "paper/journal/DYU/Latex_full/prepare_historical.py": "f3b5c46cb7094c30f3ea31c0b9ea15adb2d6220103e69559d79cacc5d883afad",
     "results/recovered/legacy_import/v3_3_coedit_B_5seed.json": "1e2e87071dd9df5e640efa901d30d9d9603bf90926d2c764b04505102c3a0571",
     "results/recovered/legacy_import/v3_3_coedit_C_5seed.json": "cdff372c70d56b454f828803dada6f21900b6bd33c9efd990122afe321507da6",
     "results/recovered/legacy_import/baselines_coedit_TGAT_5seed.json": "824f63f17a188adf5a658afcc29c4a98c2df285679cbfae3bc0e960cb661cfcd",
@@ -24,6 +28,6 @@
     "results/recovered/legacy_import/v3_3_frozen_probe_ARM2_ftp.json": "5da4bbaa599f3ab244f8ce813c78c15ed81a396f335777dffd2d394118cf4645",
     "results/recovered/legacy_import/v3_3_frozen_probe_ARM2_ftp_wikipedia_idfix.json": "7bf1256bb2ae8793d86aa927bb0256873c84e3508c9ed0749196564b2715873e"
   },
-  "source_sha256": "3560d1c7692016c1a7a4eb580718edcd734f8dcdbe2e1cdd24dcc39da4116c1a",
+  "source_sha256": "e445dec79d4288457c632833da60404d4aaaef9f126698b70b4eb90c787d539d",
   "references": 40
 }

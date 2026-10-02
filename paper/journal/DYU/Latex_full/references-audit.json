@@ -356,7 +356,7 @@
       "primary_url": "https://arxiv.org/abs/2004.07780",
       "publication_url": "https://arxiv.org/abs/2004.07780",
       "verification": "Primary arXiv title, author list and abstract checked; publisher metadata used only where author/title identity agrees.",
-      "citation_occurrences": 2
+      "citation_occurrences": 1
     },
     {
       "key": "simsiam",
@@ -541,5 +541,7 @@
       "recs"
     ],
     "verification": "Restored source identities and abstracts checked against primary arXiv records on 2026-10-02."
-  }
+  },
+  "usage_checked_on": "2026-10-03",
+  "usage_source_sha256": "e445dec79d4288457c632833da60404d4aaaef9f126698b70b4eb90c787d539d"
 }

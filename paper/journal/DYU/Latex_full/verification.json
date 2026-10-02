@@ -1,34 +1,37 @@
 {
   "status": "WORKING_DRAFT_NOT_ADMITTED_SNAPSHOT",
-  "pages": 12,
-  "word_pages": 12,
-  "legacy_doc_pages": 12,
+  "pages": 10,
+  "word_pages": 10,
+  "legacy_doc_pages": 10,
   "references": 40,
-  "source_sha256": "3560d1c7692016c1a7a4eb580718edcd734f8dcdbe2e1cdd24dcc39da4116c1a",
-  "pdf_sha256": "9a7bfecd7d461607ed3bd8ded7c532b366f6349aad543ca3550fca4dc16a80b5",
-  "docx_sha256": "846ef1ed11c93e580d2bbc314196d868b174ef9cd3fc2e7c1f6be12621c84d2c",
-  "doc_sha256": "40bc158dbb16593534404418bd1068bacb10b2b76f33d1ae6e6a2561281a299d",
+  "source_sha256": "e445dec79d4288457c632833da60404d4aaaef9f126698b70b4eb90c787d539d",
+  "pdf_sha256": "1d4e068abe00be7e89dc33722da0f4717913d534125b6306288b39b4ba21107c",
+  "docx_sha256": "1945f6d1112a41f7f7c9bb737877385adc56b8cb77841ac7cab10e98abed53b2",
+  "doc_sha256": "4accef3473359d25419c3d14655a10b89708ccdff9527a77a99fb986a8ecb679",
   "native_editor_compilation": "success",
-  "delivered_export": "Tectonic 0.15.0; Times New Roman and Songti TC",
-  "visual_review": "Word DOCX and legacy DOC rendered to 12 pages with LibreOffice. Figure 1 restored as a 600 dpi diagram with arrows, mathematical subscripts and attached caption. Table widths and pagination inspected. All manuscript paragraphs and seven numerical tables match the preceding DOCX; 12 native Office Math display equations retained. LaTeX source and its 12-page PDF unchanged.",
+  "delivered_export": "Tectonic 0.15.0; Times New Roman and MingLiU",
+  "visual_review": "All pages of the 10-page LaTeX PDF and separately rendered 10-page DOCX/DOC were visually reviewed. Figure, equation numbers, all eight tables and bilingual front matter are legible, with no clipping or overlap. Word renders used installed Microsoft Word fonts through Fontconfig. Native final Microsoft Word pagination was not verified.",
   "overfull_box_warnings": 0,
   "missing_character_warnings": 0,
   "all_references_cited": true,
-  "word_display_equations": 12,
+  "word_display_equations": 8,
   "ai_authorship_certification": false,
   "validation": [
-    "All 46 displayed AP/SD pairs unchanged from the preceding source",
-    "Recovered byte integrity and 121 aggregate reconstructions passed; four original discrepancies retained",
-    "Canonical provenance audit passed; formal paper admission remains blocked",
-    "Source-level editorial checks passed",
-    "Overleaf main.tex matches compiled source byte-for-byte"
+    "All 46 AP/SD pairs match source commit 93d7cd6 and all three final rendered exports",
+    "Primary and historical per-seed aggregates reconstructed by prepare.py and prepare_historical.py",
+    "All corpus and split counts regenerated from checksum-verified data by prepare_statistics.py",
+    "All source-lock inputs and the final manuscript hash match",
+    "Source-level editorial checks passed; all 40 references cited",
+    "Word OOXML checked for 9-point body, 1.5-line spacing, MingLiU CJK, bold captions, eight native numbered equations and template geometry",
+    "Overleaf main.tex matches the compiled source byte-for-byte"
   ],
   "validation_limits": [
-    "Author affiliation wording, Chinese departments and contact telephone remain to be confirmed.",
+    "Final author/affiliation associations require author review; only the corresponding author telephone is needed for submission forms and remains unspecified.",
     "Historical original execution bindings and formal paper-snapshot admission remain incomplete.",
-    "No new training, plagiarism scan or AI-authorship certification."
+    "No new model training, plagiarism scan, authorship certification or journal submission.",
+    "Word pagination depends on fonts and renderer; final native Microsoft Word pagination was not verified. The legacy DOC uses converted equation objects rather than native DOCX Office Math."
   ],
-  "editorial_change": "Remove the internal implementation name entirely from the manuscript; describe the model developed in this study directly.",
+  "editorial_change": "Clarify the model and objective against implementation, replace internal configuration labels with descriptive names, add verified corpus statistics, and align typography with the supplied template.",
   "affiliation_addresses": {
     "checked_on": "2026-10-02",
     "template": "Department and Address are separate centered 9-point lines; English lines italic.",
@@ -51,9 +54,9 @@
     "left_right_indent_cm": 2,
     "first_line_indent_pt": 18,
     "east_asian_language": "zh-TW",
-    "validation": "Paragraph properties checked; affected page rendered; other pages pixel-identical to preceding exports. Font substitution depends on the viewing system."
+    "validation": "OOXML checked for MingLiU, left alignment and 1.5 line spacing; full CJK text verified in both final Word renders with installed Word fonts."
   },
-  "word_tables": 7,
+  "word_tables": 8,
   "word_figures": 1,
   "word_figure": {
     "source": "Word/figures/scored-feature-path.svg",
@@ -61,5 +64,27 @@
     "dpi": 600,
     "width_cm": 7.25,
     "caption_page": 5
+  },
+  "checked_on": "2026-10-03",
+  "word_rendering": {
+    "renderer": "Bundled LibreOffice with installed Microsoft Word fonts",
+    "pages": 10,
+    "alternate_missing_font_pages": 11,
+    "missing_font_result_superseded": true
+  },
+  "template_geometry": {
+    "paper": "A4",
+    "top_cm": 3.5,
+    "other_margins_cm": 2,
+    "body_pt": 9,
+    "word_line_spacing": 1.5,
+    "latex_baseline_pt": 15.5,
+    "body_columns": 2
+  },
+  "repository_checks": {
+    "canonical_provenance": "PASS; formal paper admission remains blocked separately",
+    "public_history_before_commit": "PASS",
+    "pytest": "67 tests passed across the full run and targeted rerun; 1 skipped because latexmk is unavailable",
+    "initial_local_failure": "The artifact-hygiene check found the generated main.log. Moved this diagnostic outside the repository and reran the affected test successfully."
   }
 }

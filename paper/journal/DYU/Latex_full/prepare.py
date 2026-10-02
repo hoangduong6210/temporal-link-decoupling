@@ -5,6 +5,7 @@ import hashlib, json, math, re, statistics, subprocess
 HERE = Path(__file__).resolve().parent
 import runpy
 runpy.run_path(str(HERE / "prepare_historical.py"))
+runpy.run_path(str(HERE / "prepare_statistics.py"))
 ROOT = next(p for p in HERE.parents if (p / "PROJECT.toml").is_file())
 MATRIX = ROOT / "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json"
 EXPECTED = "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea"
@@ -33,7 +34,7 @@ for dataset, title in [("coedit", "CoEdit"), ("mooc", "MOOC"), ("wikipedia", "Wi
             provenance.append(dict(claim="LP-C-DECOUPLING-001", evidence="LP-E-SCIENTIFIC-MATRIX-001", job="LP-JOB-SLURM-A003-FINAL-RECONCILE-R2", artifact=MATRIX.relative_to(ROOT).as_posix(), sha256=EXPECTED, selector=f"$.summary[{i}].{field}", value=record[field], rounding="half-even, 4 decimals for AP"))
 table = r"""\begin{center}
 \begin{minipage}{\linewidth}\centering
-\captionof{table}{Inductive AP: mean and sample SD.}
+\captionof{table}{Inductive AP: mean and sample SD.}\label{tab:primary}
 \small
 \begin{tabular}{@{}llr@{}}
 \toprule
@@ -55,6 +56,10 @@ assert refs, "The manuscript must cite its sources; no fixed reference-count quo
 (HERE / "numeric-sources.json").write_text(json.dumps(dict(status="DRAFT_SOURCE_MAP_NOT_SNAPSHOT_REGISTRY", table_values=provenance, other_sources={"training_table":"protocols/link_prediction_v1.toml", "corpus_construction":"resources/source_registry.json", "attempt_counts":"results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix-attempts.json", "equations":"symbolic definitions and source implementation; equation labels are structural"}, limitations=["This is not the complete per-occurrence numeric registry required for an admitted snapshot."]), indent=2) + "\n")
 inputs = [MATRIX, ROOT/"protocols/link_prediction_v1.toml", ROOT/"resources/source_registry.json",
           ROOT/"src/temporal_link_decoupling/modeling/v33/sr_gnn_v3.py",
+          ROOT/"src/temporal_link_decoupling/modeling/v33/sr_gnn_v2.py",
+          ROOT/"src/temporal_link_decoupling/modeling/v33/fsm_head.py",
+          ROOT/"src/temporal_link_decoupling/datasets.py",
+          HERE/"dataset-statistics.json",
           ROOT/"src/temporal_link_decoupling/modeling/v33/sr_gnn_v3_3.py",
           ROOT/"src/temporal_link_decoupling/training.py",
           ROOT/"experiments/dataset_builders/build_coedit.py"]

@@ -13,10 +13,10 @@ font=ImageFont.truetype(font_path,round(8*scale))
 small=ImageFont.truetype(font_path,round(6*scale))
 svg=[f'<svg xmlns="http://www.w3.org/2000/svg" width="72.5mm" height="{height/72*25.4:.3f}mm" viewBox="0 0 {width} {height}">','<rect width="100%" height="100%" fill="white"/>']
 lines=[
-['Retained event history, candidate attributes','Node memory and pair-history context'],
+['Retained history and event attributes','Node memory and pair context'],
 [('Temporal backbone F','θ'),'Candidate representation h'],
 ['Shared scored boundary','Connected h or detached sg(h)'],
-[('Registered hierarchical readout G','ψ'),'Positive and negative link scores']]
+[('State-transition readout G','ψ'),'Positive and negative link scores']]
 for i,rows in enumerate(lines):
  y=4+i*36
  draw.rectangle(tuple(round(v*scale) for v in (2,y,width-2,y+26)),outline='black',width=round(.5*scale))

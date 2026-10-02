@@ -1,0 +1,38 @@
+{
+  "method": "Chronological 70/15/15; unseen after training and validation; observed unique node identities.",
+  "corpora": {
+    "coedit": {
+      "sha256": "cbdb09bfbd83456be01a039fa3a0b4c2e37415af43a3406fc8d3f55be4a5c736",
+      "nodes": 4131,
+      "events": 80000,
+      "features": 172,
+      "train": 56000,
+      "validation": 12000,
+      "test": 12000,
+      "inductive_nodes": 535,
+      "inductive_events": 5336
+    },
+    "wikipedia": {
+      "sha256": "f035f7dd2e97dbb931d48a4b3c099d43b2fdc25d0e15828de6fa2c604b8017c7",
+      "nodes": 9227,
+      "events": 157474,
+      "features": 172,
+      "train": 110231,
+      "validation": 23621,
+      "test": 23622,
+      "inductive_nodes": 916,
+      "inductive_events": 3809
+    },
+    "mooc": {
+      "sha256": "e422cf5e1e6a95763b24a6a5dc53fec993c9ae80948b3fd7ef4f82816b26a278",
+      "nodes": 7144,
+      "events": 411749,
+      "features": 4,
+      "train": 288224,
+      "validation": 61762,
+      "test": 61763,
+      "inductive_nodes": 227,
+      "inductive_events": 6902
+    }
+  }
+}

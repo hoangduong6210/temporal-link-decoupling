@@ -24,13 +24,14 @@ checks = {
     "abstracts_within_500_words_or_Han_characters": en_words<=500 and zh_chars<=500,
     "separate_bilingual_abstract_pages": s.count(r"\clearpage")==2 and r"\textbf{Key words:}" in s and r"\textbf{關鍵詞：}" in s,
     "bilingual_front_matter_order": s.index(r"\textbf{Key words:}") < s.index("歸納式時序連結預測中的梯度解耦") < s.index(r"\textbf{關鍵詞：}") < s.index(r"\section{Introduction}"),
-    "a4_geometry_preserved": r"\documentclass[a4paper,10pt]{article}" in s and "top=3.5cm,bottom=2cm,left=2cm,right=2cm" in s,
-    "body_9pt_1p5_line_spacing_preserved": r"\fontsize{9}{13.5}" in s,
+    "a4_geometry_preserved": r"\documentclass[a4paper,10pt,fleqn]{article}" in s and "top=3.5cm,bottom=2cm,left=2cm,right=2cm" in s,
+    "latex_9pt_15p5_baseline": r"\fontsize{9}{15.5}" in s,
     "two_column_body": r"\begin{multicols}{2}" in s,
     "heading_depth_at_most_three": not re.search(r"\\(?:paragraph|subparagraph)\{",s),
     "labels_unique_and_references_resolved": len(labels)==len(set(labels)) and set(refs)<=set(labels),
     "no_manuscript_placeholders": not re.search(r"\b(?:TODO|TBD|PLACEHOLDER|Lorem ipsum)\b",body,re.I),
     "no_authorship_detector_claim": not re.search(r"100% human|AI[- ]free|undetectable|zero AI",body,re.I),
+    "no_internal_experiment_labels": not re.search(r"registered|checksum-bound|current matrix|recovered records|indpool_from_train",body,re.I),
     "historical_results_separate": "retrospective results" in s and "simplified proxy" in s and "ID-corrected" in s,
 }
 report = dict(source_sha256=hashlib.sha256(s.encode()).hexdigest(),
@@ -41,7 +42,7 @@ report = dict(source_sha256=hashlib.sha256(s.encode()).hexdigest(),
     editorial_policy="Prioritize method, results and interpretation; cite only sources serving the argument. Do not fabricate evidence or certify non-AI authorship.",
     manual_checks_remaining=[
         "Recheck visual pagination and table widths after future source or font changes; current export review is recorded in verification.json.",
-        "Confirm author affiliation wording, Chinese departments and contact telephone. Institutional mailing addresses have been added from official sources.",
+        "Author to confirm the final affiliation associations and supply only the corresponding author contact telephone for submission forms; no phone number is invented.",
         "Recheck the required Word submission files after future source changes; current exports are synchronized.",
         "Formal evidence-snapshot admission; historical original execution bindings remain incomplete."
     ])

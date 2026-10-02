@@ -1,29 +1,25 @@
-AUDIT BIÊN TẬP — DYU, 2026-10-02
+RÀ SOÁT BẢN JOURNAL DYU — 2026-10-03
 
-HARD RULES CHO BẢN THẢO
-Ưu tiên phương pháp, kết quả và diễn giải; không áp quota references.
-Chỉ giữ nguồn phục vụ nhận định còn trong bài, đánh số và xếp alphabet.
-Không bịa dữ liệu, nguồn dẫn, cơ chế nhân quả hoặc baseline chưa chạy.
-Không gộp historical predictor changes với same-readout detach; ghi đúng proxy và phiên bản dữ liệu.
-Mean/SD phải truy về từng seed. Giữ typography template, không thu nhỏ để ép trang.
-Viết cụ thể, bỏ lặp và liệt kê kiến thức nền không phục vụ câu hỏi nghiên cứu.
+ĐÃ HOÀN THIỆN
+- Viết lại phần mô hình và thực nghiệm theo thuật ngữ nghiên cứu; bỏ tên implementation, mã cấu hình B/C/K1 và diễn đạt quản lý thí nghiệm nội bộ khỏi bài.
+- Đối chiếu code để mô tả đúng state-transition readout tạo điểm AP, vai trò phụ trợ của hierarchical calibration, compliance tính không gradient và các auxiliary loss cùng chịu ảnh hưởng của điểm detach.
+- Bổ sung kích thước kiến trúc, objective và hệ số, bảng thống kê ba corpus/split được tính lại từ dữ liệu kèm checksum.
+- Giữ rõ giới hạn event-conditioned scoring, cập nhật positive/negative không đối xứng, candidate pool, bộ nhớ theo batch và thông tin hồi cứu trong CoEdit. Không biến các hạn chế này thành lời khẳng định forecasting đã được xác nhận.
+- Giữ nguyên 46 cặp AP/SD trong các bảng; 8 bảng, 1 hình, 8 phương trình đánh số, 40 nguồn đều được trích dẫn. Không thêm nguồn để lấp trang.
 
-ĐÃ SỬA
-Sau lần rút từ 72 xuống 32 nguồn, bổ sung chọn lọc 8 nguồn cho objective và diễn giải đánh giá; bản hiện tại có 40 nguồn, đều được trích dẫn.
-Rút Related Work và các đoạn lặp, giữ nguyên mọi bảng kết quả.
-Rút ngắn caption; quy ước thống kê nằm trong đoạn dẫn.
-Bỏ quota 72 trong prepare.py; thêm check_editorial.py và editorial-checks.json.
-LaTeX biên dịch thành công; PDF 12 trang, DOCX/DOC 12 trang, Overleaf ZIP đã đồng bộ. Giữ nguyên 46 cặp AP/SD; đã kiểm tra bảng và phân trang.
+ĐỊNH DẠNG VÀ BẢN XUẤT
+A4, lề trên 3.5 cm, các lề còn lại 2 cm; body 9 pt; Word giãn dòng 1.5 thực, kể cả references. LaTeX dùng baseline 15.5 pt để gần với khoảng dòng của Word. Times New Roman/MingLiU; tác giả 10 pt đậm, đơn vị và địa chỉ tiếng Anh nghiêng, caption 9 pt đậm. Hình Word 600 dpi. Phương trình canh trái, số canh phải; có khoảng trống trên/dưới.
+Tiếng Anh ở trang 1; tiêu đề, tác giả, abstract và keywords tiếng Trung ở trang 2, trước Introduction theo yêu cầu tác giả. Địa chỉ cơ quan đặt dưới department.
+Native LaTeX editor: biên dịch thành công. PDF chính: 10 trang. DOCX và DOC: 10 trang khi render với font Word/MingLiU có sẵn. Đã xem toàn bộ các trang, đối chiếu số liệu trên cả ba bản xuất. Khi thiếu font, trình kiểm tra từng cho 11 trang và mất glyph trong DOC; kết quả đó đã bị thay bằng bản kiểm tra đúng font. Chưa xác minh phân trang cuối bằng Microsoft Word; phân trang có thể đổi theo phần mềm/font.
 
-NON AI
-Đây là bản sửa có AI hỗ trợ. Biên tập văn phong không chứng nhận tác giả là con người hoặc bảo đảm vượt detector. Không tạo lỗi cố ý, trải nghiệm giả, trích dẫn giả hay AI score. Chưa chạy kiểm tra đạo văn. Tác giả cần đọc và xác nhận trách nhiệm nội dung.
+GIỚI HẠN XÁC MINH
+Đây là lần biên tập và kiểm tra lại dữ liệu đã có, không phải chạy huấn luyện mới. Metadata thực thi gốc của một số thí nghiệm hồi cứu và thủ tục công nhận immutable paper snapshot vẫn chưa đầy đủ; không thay đổi publication gate.
+Tên, thứ tự và quan hệ tác giả–đơn vị được giữ theo bản thảo hiện có, cần tác giả đọc chốt. Tên khoa Da-Yeh đã đối chiếu nguồn trường; department của Kent State được giữ tiếng Anh trong trang Trung, không tự đặt tên khoa tiếng Trung chính thức. Số điện thoại chỉ cần của tác giả liên hệ trên hồ sơ nộp; hiện chưa được cung cấp nên không tự điền.
+Bản sửa có AI hỗ trợ. Không chứng nhận “non AI”, không đưa điểm detector và chưa chạy kiểm tra đạo văn. Tác giả chịu trách nhiệm duyệt nội dung cuối.
+Chưa gửi tòa soạn, chưa ký hay điền cam kết thay tác giả.
 
-ĐỐI CHIẾU JOURNAL
+NGUỒN ĐỐI CHIẾU
+Template 稿件格式.doc do tác giả cung cấp.
 https://jo.dyu.edu.tw/setjournal/contribute.htm
 https://jo.dyu.edu.tw/setjournal/document/jour04-1.pdf
-Hướng dẫn nêu 10.000 từ tiếng Anh hoặc tương đương 12 trang in, có cơ chế phí trang vượt sau chấp nhận; không phải cấm tuyệt đối bản dài hơn 12 trang.
-Abstract song ngữ riêng trang, tối đa 500; A4, giãn dòng 1.5, references dùng trong bài và xếp alphabet.
-Đã bổ sung địa chỉ đơn vị dưới department theo template; còn cần xác nhận tên khoa tiếng Trung/số điện thoại trước khi nộp. Phân trang cần kiểm tra lại nếu thay font hoặc phần mềm.
-Historical execution bindings và formal paper snapshot admission còn thiếu. Không xem native compile hoặc source checks là chứng nhận sẵn sàng nộp.
-
-Rà soát Word: dựng lại Figure 1 bằng hình 600 dpi với mũi tên và chỉ số toán; giữ caption cùng hình. Bảng dài được tiếp cột và lặp hàng tiêu đề, bảng ngắn giữ nguyên khối. Bỏ khoảng cách đoạn thừa; không giảm cỡ chữ thân bài hoặc cắt nội dung. DOCX và DOC đều render 12 trang.
+Hướng dẫn nêu 10.000 từ tiếng Anh hoặc tương đương 12 trang in và bản Word cho nộp điện tử; có cơ chế phí trang vượt sau chấp nhận. Vị trí phần Trung trước Introduction là lựa chọn tác giả đã chỉ định.
