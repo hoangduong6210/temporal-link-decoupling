@@ -48,7 +48,7 @@ text=text.replace(r'\clearpage','\n\nSECTIONBREAK\n\n')
 text=re.sub(r'%[^\n]*','',text)
 (W/'word-input.tex').write_text(text)
 subprocess.run([str(pandoc),'-f','latex','-t','docx',str(W/'word-input.tex'),'--reference-doc',str(P/'Word/template.docx'),'-o',str(W/'word-raw.docx')],check=True)
-d=Document(W/'word-raw.docx');d.core_properties.title='Gradient Routing and Temporal State in Inductive Link Prediction';d.core_properties.author='Duong Viet Hoang; Duong Viet Huy; Lun-Min Shih';d.core_properties.comments=''
+d=Document(W/'word-raw.docx');d.core_properties.title='Gradient Decoupling for Inductive Temporal Link Prediction: A Controlled Study of Stateful Representations';d.core_properties.author='Duong Viet Hoang; Duong Viet Huy; Lun-Min Shih';d.core_properties.comments=''
 # Source-template geometry and style package are retained; demonstration content is replaced.
 for sec in d.sections:
  sec.page_width=Cm(21);sec.page_height=Cm(29.7);sec.top_margin=Cm(3.5);sec.bottom_margin=sec.left_margin=sec.right_margin=Cm(2)
@@ -127,7 +127,7 @@ for pp in list(d.paragraphs):
   pp._p.addnext(tab._tbl);prev=pp;continue
  if part in [0,2]:
   pf.first_line_indent=Pt(0);pp.alignment=WD_ALIGN_PARAGRAPH.CENTER
-  if t.startswith('Gradient Routing') or t.startswith('歸納式連結預測中的梯度路由'):
+  if t.startswith('Gradient Decoupling') or t.startswith('歸納式時序連結預測中的梯度解耦'):
    pp.style=d.styles['Title'];pf.line_spacing=1.25;pf.space_after=Pt(12)
    for rr in pp.runs:rr.font.size=Pt(18);rr.bold=True
   elif t in ['ABSTRACT','摘要']:

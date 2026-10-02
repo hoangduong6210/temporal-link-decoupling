@@ -1,5 +1,5 @@
 {
-  "source_commit": "3fea70042f2a967187ebd605836a80bc056890b0",
+  "source_commit": "845b581a80e378c3e876912180113e0185487163",
   "inputs": {
     "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
     "protocols/link_prediction_v1.toml": "6186c279806cf86d2a4c704997e4d179e341e0a095cc85c107cae890cb6b34c3",
