@@ -1,0 +1,41 @@
+{
+  "state": "AUTHOR_REVIEW_DRAFT",
+  "source_commit": "0603f993127f116cfc03608a36825bd327bfc8ec",
+  "evidence_release": "LP-REL-2026-A003-001",
+  "claim_id": "LP-C-DECOUPLING-001",
+  "paper_snapshot_admitted": false,
+  "source_hashes": {
+    "wiki/claims/Current-Claim-Language.md": "3886a9145e6f73528bd6019bc5d7f60110333ad1d52a9e3437a3a78870815dd9",
+    "wiki/manuscript/Paper-Export-Contract.md": "d9a4e081a08e2dc321eff1fe5c643514ee8839af1bc958a1bf90cee58ddb6c61",
+    "wiki/methods/Decoupled-Temporal-Link-Prediction.md": "e713dc6e4465159a6547b9b5192231680eceb1c52d1cc852e4b32440ce566760",
+    "wiki/datasets/Dataset-Registry.md": "aba9a578b07fd33eae1f1ba672e424674adb40496ab275ec9a84c747611ead79",
+    "wiki/LIMITATIONS.md": "a3e3e9e1049359912028a709e21749c3cc04cddd2057ef0657624769d664eb2b",
+    "protocols/link_prediction_v1.toml": "6186c279806cf86d2a4c704997e4d179e341e0a095cc85c107cae890cb6b34c3",
+    "src/temporal_link_decoupling/training.py": "852eaea7d42a3313fe34e968ae6515d84966cb39b704980870576f451b87a4f2",
+    "experiments/run_model.py": "72ab14446ddaddaf861b8fc1b39764bf99a085421b3b2288da954b13c5a4e4e7",
+    "src/temporal_link_decoupling/modeling/v33/sr_gnn_v3_3.py": "d444b74c6b44b0f561219db4de3f305cf6e0cad9bac3d70584cdef84fafe8bb7",
+    "paper/conference/Link_Predict.pdf": "3a8f342f1585cfcd28059cb15c60947c874692d3e407d493be734a0db72b4793"
+  },
+  "converted_template_sha256": "922fe2d4f800c5d9b0b196e9cd27a6aee115824b784774f3d10a6dc5fc0d4601",
+  "visual_qa": {
+    "pages": 9,
+    "inspected_all_pages": true,
+    "final_render": "journal-render-final",
+    "unchanged_vs_previously_inspected": [
+      1,
+      2,
+      6,
+      7,
+      8,
+      9
+    ],
+    "changed_pages_reinspected": [
+      3,
+      4,
+      5
+    ],
+    "preserve_only_package_parts": "PASS"
+  },
+  "font_fallback": "DOCX retains MingLiU; render uses local Songti TC fontconfig mapping",
+  "prior_conference_status": "User confirmed not accepted or published"
+}
