@@ -41,7 +41,7 @@ P.O. Box 5190, Kent, OH 44242-0001, United States\par}
 \vspace{18pt}
 \begin{center}\fontsize{11}{16.5}\selectfont\bfseries ABSTRACT\end{center}
 \begin{list}{}{\setlength{\leftmargin}{2cm}\setlength{\rightmargin}{2cm}}\item[]
-Inductive temporal link prediction requires a model to score interactions involving entities absent from earlier observations. Jointly optimizing a temporal representation and its link readout is a natural design choice, but it need not be the most effective choice for a particular inductive protocol. This study investigates gradient routing in SR-GNN, a temporal model combining event encoding, recurrent node memory, deterministic pair-history signals and a hierarchical readout. We specify the scored gradient boundary, distinguish parameter learning from event-state evolution, and compare coupled and decoupled versions of the same registered readout. A separate freeze-then-probe procedure examines a different training trajectory. Experiments use chronological partitions of CoEdit, Wikipedia and MOOC and a fixed random-destination evaluation procedure. Checksum-bound results are reported as mean inductive average precision and sample standard deviation across the registered seeds. The observed decoupled arm has higher mean inductive average precision than the coupled arm on each corpus. This supports a bounded within-protocol comparison rather than a general claim that end-to-end learning is harmful. The analysis identifies important interpretation limits: CoEdit shares its source with Wikipedia, its event construction includes retrospective information, the candidate sampler is not destination-type constrained, and temporal memory follows mixed batch and sequential semantics. Retrospective experiments additionally examine design presets, predictor and gate ablations, harder candidate pools, backbone removal and frozen probes. They show that predictor choice and learned features matter in the recorded configurations, while remaining separate from the current same-readout comparison. The study contributes an explicit account of gradient routing and temporal evaluation that makes the observed comparison reproducible and its scope assessable.
+Inductive temporal link prediction requires a model to score interactions involving entities absent from earlier observations. Jointly optimizing a temporal representation and its link readout is a natural design choice, but it need not be the most effective choice for a particular inductive protocol. We develop a stateful temporal-link model that combines event encoding, recurrent node memory, deterministic pair-history signals and a hierarchical readout, and investigate gradient routing within this model. We specify the scored gradient boundary, distinguish parameter learning from event-state evolution, and compare coupled and decoupled versions of the same registered readout. A separate freeze-then-probe procedure examines a different training trajectory. Experiments use chronological partitions of CoEdit, Wikipedia and MOOC and a fixed random-destination evaluation procedure. Checksum-bound results are reported as mean inductive average precision and sample standard deviation across the registered seeds. The observed decoupled arm has higher mean inductive average precision than the coupled arm on each corpus. This supports a bounded within-protocol comparison rather than a general claim that end-to-end learning is harmful. The analysis identifies important interpretation limits: CoEdit shares its source with Wikipedia, its event construction includes retrospective information, the candidate sampler is not destination-type constrained, and temporal memory follows mixed batch and sequential semantics. Retrospective experiments additionally examine design presets, predictor and gate ablations, harder candidate pools, backbone removal and frozen probes. They show that predictor choice and learned features matter in the recorded configurations, while remaining separate from the current same-readout comparison. The study contributes an explicit account of gradient routing and temporal evaluation that makes the observed comparison reproducible and its scope assessable.
 
 \vspace{10pt}\noindent\textbf{Key words:} temporal graphs, inductive link prediction, gradient decoupling, recurrent memory, reproducible evaluation
 \end{list}
@@ -60,7 +60,7 @@ P.O. Box 5190, Kent, OH 44242-0001, United States\\
 \vspace{18pt}
 \begin{center}\fontsize{11}{16.5}\selectfont\bfseries 摘要\end{center}
 \begin{list}{}{\setlength{\leftmargin}{2cm}\setlength{\rightmargin}{2cm}}\item[]
-歸納式時序連結預測需要處理先前觀測中未出現的節點。本研究以結合事件編碼、循環節點記憶、確定性節點對歷史訊號與階層讀出器的 SR-GNN，探討評分路徑的梯度是否應更新時序表徵。我們明確區分梯度邊界、參數學習與事件狀態演化，並在相同已註冊讀出器下比較耦合及解耦訓練；另以先訓練再凍結並重新訓練預測頭的方法作為不同訓練流程的對照。研究採用 CoEdit、Wikipedia 與 MOOC 的時間切分及固定隨機負樣本協定。具校驗碼的封存結果顯示，解耦組在各語料上的平均歸納式平均精確率均高於耦合組。此結果支持協定內的觀察比較，而非端到端學習普遍有害的結論。CoEdit 與 Wikipedia 共享來源，且其事件建構包含事後資訊；候選取樣未限制目的端節點類型，記憶更新亦混合批次與循序語意。此外，回溯實驗涵蓋設計設定、預測器與閘門消融、較難候選池、骨幹移除及凍結探測，顯示預測器選擇與學習表徵在已記錄設定中的作用；各組依設定及資料版本分別呈現，不與目前結果合併。本研究提供可重現的梯度路由及時序評估說明，並界定效能比較的適用範圍。
+歸納式時序連結預測需要處理先前觀測中未出現的節點。本研究建立一個結合事件編碼、循環節點記憶、確定性節點對歷史訊號與階層讀出器的時序連結預測模型，並探討評分路徑的梯度是否應更新時序表徵。我們明確區分梯度邊界、參數學習與事件狀態演化，並在相同已註冊讀出器下比較耦合及解耦訓練；另以先訓練再凍結並重新訓練預測頭的方法作為不同訓練流程的對照。研究採用 CoEdit、Wikipedia 與 MOOC 的時間切分及固定隨機負樣本協定。具校驗碼的封存結果顯示，解耦組在各語料上的平均歸納式平均精確率均高於耦合組。此結果支持協定內的觀察比較，而非端到端學習普遍有害的結論。CoEdit 與 Wikipedia 共享來源，且其事件建構包含事後資訊；候選取樣未限制目的端節點類型，記憶更新亦混合批次與循序語意。此外，回溯實驗涵蓋設計設定、預測器與閘門消融、較難候選池、骨幹移除及凍結探測，顯示預測器選擇與學習表徵在已記錄設定中的作用；各組依設定及資料版本分別呈現，不與目前結果合併。本研究提供可重現的梯度路由及時序評估說明，並界定效能比較的適用範圍。
 
 \vspace{10pt}\noindent\textbf{關鍵詞：}時序圖，歸納式連結預測，梯度解耦，循環記憶，可重現評估
 \end{list}
@@ -75,9 +75,9 @@ Most task-trained representations allow prediction gradients to update the encod
 
 Temporal methods make this question especially interesting because they combine learned weights and evolving state. A detached representation is not necessarily static. Node memories can change during forward execution, pair statistics can accumulate observations, and auxiliary objectives can update parameters outside the detached scoring path. Calling the entire model frozen would conflate these mechanisms. Conversely, freezing an encoder after pretraining does not recreate the trajectory obtained by preventing a scored gradient from reaching it throughout initial training.
 
-We study this distinction in SR-GNN, the implementation provided by the accompanying research repository \cite{repo}. Its temporal representation combines an event encoder, recurrent node memory and a bank of pair-history signals. A hierarchical readout produces the scored link output. The primary experiment changes whether that readout receives detached features while preserving the registered readout configuration. A separate freeze-then-probe arm uses pretraining followed by a newly initialized prediction head. These are deliberately interpreted as different experimental procedures.
+We develop a stateful temporal-link model to study this distinction. The model combines an event encoder, recurrent node memory and a bank of deterministic pair-history signals, with a hierarchical readout producing link scores. The accompanying repository provides the implementation and experimental records for this study \cite{repo}; it is a software artifact of the present work, not a previously published model used as an external baseline. The primary experiment changes whether that readout receives detached features while preserving the registered readout configuration. A separate freeze-then-probe arm uses pretraining followed by a newly initialized prediction head. These are deliberately interpreted as different experimental procedures.
 
-We ask whether the same temporal readout generalizes differently when its scored features are connected to or detached from the backbone during training. To interpret that comparison, we specify the derivative boundary and the event-state updates separately. The experiments then compare the registered profiles using matched evaluation conventions. The resulting claim concerns this intervention in SR-GNN; extending it to other architectures or candidate populations requires further experiments.
+We ask whether the same temporal readout generalizes differently when its scored features are connected to or detached from the backbone during training. To interpret that comparison, we specify the derivative boundary and the event-state updates separately. The experiments then compare the registered profiles using matched evaluation conventions. The resulting claim concerns this intervention in the model developed here; extending it to other architectures or candidate populations requires further experiments.
 
 \section{Related Work}
 \subsection{Temporal representations and link prediction}
@@ -100,6 +100,7 @@ Model selection and run-to-run variability also affect reported comparisons \cit
 Evaluation studies in graph learning and recommendation show that model rankings depend on the training protocol and the strength of tuned comparators \cite{pitfalls,recs}. This is relevant to the historical TGAT proxy: reproducing its saved score establishes the arithmetic of that local experiment, but not parity with the published architecture. A benchmark claim would additionally require the intended model, a comparable tuning budget and a common evaluator.
 
 \section{Problem and Model Specification}
+The proposed model integrates established event-encoding and recurrent-memory components with deterministic pair histories and a hierarchical link readout. We do not claim these individual ingredients as new. Our contribution is their explicit specification within a common model and the controlled comparison of connected and detached scored-feature paths. The source code uses the internal name SR-GNN for this implementation; that name does not denote a separate published model. The following definitions specify the architecture used in our experiments.
 \subsection{Events, candidates and information}
 Let an event stream contain tuples $e_i=(u_i,v_i,t_i,x_i)$ in nondecreasing timestamp order. The vector $x_i$ contains attributes supplied by the data pipeline. Let $\mathcal H_i$ denote the history retained by the particular training or evaluation pass immediately before scoring event $i$. It need not equal the full raw stream prefix: filtering an evaluation stream before execution changes the observations that enter its state. The model assigns a score to a candidate pair conditioned on this retained history and on the supplied attributes.
 
@@ -283,6 +284,7 @@ Table~2 reports the current registered inductive average precision. Values are r
 
 % BEGIN GENERATED RESULTS
 \begin{center}
+\begin{minipage}{\linewidth}\centering
 \captionof{table}{Inductive AP: mean and sample SD.}
 \small
 \begin{tabular}{@{}llr@{}}
@@ -299,11 +301,12 @@ Wikipedia & Coupled & $0.9967\pm0.0003$\\
  & Freeze then probe & $0.9623\pm0.0128$\\
 \bottomrule
 \end{tabular}
+\end{minipage}
 \end{center}
 
 % END GENERATED RESULTS
 
-Under the registered current-corpus protocol, the observed decoupled SR-GNN arm has higher mean inductive average precision than the coupled end-to-end arm on each registered corpus. The observed differences apply to the shared-readout configurations and candidate population specified above.
+Under the registered current-corpus protocol, the observed decoupled arm of our model has higher mean inductive average precision than the coupled end-to-end arm on each registered corpus. The observed differences apply to the shared-readout configurations and candidate population specified above.
 
 The probe follows a different pretraining and head-retraining trajectory. Its lower mean AP can reflect the pretrained features, head capacity or optimization budget; it does not establish irreversible representation damage.
 
@@ -478,7 +481,7 @@ The intervention should also be replicated within faithful implementations of ot
 Finally, a full gradient audit should examine both scored-output ancestry and the complete weighted objective. It should include candidate branches and auxiliary dependencies, and separate parameter gradients from event-state writes. Such an audit can establish a computational property for a specific configuration. It cannot by itself determine the statistical reason for an observed generalization difference.
 
 \section{Conclusion}
-This study compares connected and detached scored-feature paths in a registered SR-GNN implementation for inductive temporal link prediction. The observed decoupled arm has higher mean inductive average precision on each registered corpus. The result supports evaluating gradient routing as an explicit design choice within the stated model and candidate-sampling protocol.
+This study develops a stateful model for inductive temporal link prediction and compares connected and detached scored-feature paths within that model. The observed decoupled arm has higher mean inductive average precision on each registered corpus. The result supports evaluating gradient routing as an explicit design choice within the stated model and candidate-sampling protocol.
 
 The fuller specification distinguishes scored derivatives, auxiliary optimization, recurrent memory and deterministic pair-history updates. It also exposes the role of filtered test history, candidate validity and attribute availability in interpreting a temporal result. The observed probe arm remains a separate training procedure, and historical configurations remain distinguishable from the current shared-readout comparison. These distinctions provide a basis for further experiments without turning a bounded performance observation into a universal or causal claim.
 

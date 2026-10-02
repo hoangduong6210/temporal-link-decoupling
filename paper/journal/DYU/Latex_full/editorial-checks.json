@@ -1,5 +1,5 @@
 {
-  "source_sha256": "f9d5b8f8e4242c1ce06e5e721229b5d5ce560452f0541f453341d5783c0e6d47",
+  "source_sha256": "ed61702c39e769569dadc240345059a35d06730369c3eaf640ed7ef03e08b978",
   "status": "PASS",
   "checks": {
     "cited_references_only_no_count_quota": true,
@@ -17,8 +17,8 @@
     "historical_results_separate": true
   },
   "reference_count": 40,
-  "english_abstract_words": 259,
-  "chinese_abstract_Han_characters": 384,
+  "english_abstract_words": 263,
+  "chinese_abstract_Han_characters": 396,
   "requirements_sources": [
     "https://jo.dyu.edu.tw/setjournal/contribute.htm",
     "https://jo.dyu.edu.tw/setjournal/document/jour04-1.pdf"

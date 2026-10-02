@@ -32,6 +32,7 @@ for dataset, title in [("coedit", "CoEdit"), ("mooc", "MOOC"), ("wikipedia", "Wi
         for field in ["ind_ap_mean", "ind_ap_std", "n_seeds"]:
             provenance.append(dict(claim="LP-C-DECOUPLING-001", evidence="LP-E-SCIENTIFIC-MATRIX-001", job="LP-JOB-SLURM-A003-FINAL-RECONCILE-R2", artifact=MATRIX.relative_to(ROOT).as_posix(), sha256=EXPECTED, selector=f"$.summary[{i}].{field}", value=record[field], rounding="half-even, 4 decimals for AP"))
 table = r"""\begin{center}
+\begin{minipage}{\linewidth}\centering
 \captionof{table}{Inductive AP: mean and sample SD.}
 \small
 \begin{tabular}{@{}llr@{}}
@@ -40,6 +41,7 @@ Corpus & Profile & AP\\ \midrule
 """ + "\n".join(rows) + r"""
 \bottomrule
 \end{tabular}
+\end{minipage}
 \end{center}"""
 p = HERE / "main.tex"
 text = p.read_text()

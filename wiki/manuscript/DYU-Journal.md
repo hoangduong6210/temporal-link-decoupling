@@ -44,3 +44,7 @@ The manuscript package includes a standalone Overleaf archive and editable Word 
 ## Content-first editorial rule
 
 The author supersedes the previous reference-count target: retain sources needed for the method, experimental interpretation and evaluation protocol, and use the recovered space for research content. The related-work survey is shortened, repeated scope disclaimers are consolidated, and all experimental tables are retained. The source checker now validates citation coverage rather than an exact bibliography count. The editorial checker records source-level journal checks and outstanding manual checks. No authorship-detector score or claim of human-only writing is made.
+
+## Model attribution
+
+The manuscript introduces the stateful temporal-link model as developed in the present study. SR-GNN is an internal implementation name, not an independently published baseline. The research repository is cited as the accompanying software and experimental record. Established components remain attributed to their sources; the article describes the integrated model and controlled gradient-routing comparison without claiming novelty for every component.
