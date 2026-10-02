@@ -1,0 +1,14 @@
+{
+  "source_commit": "2e51a4ca3614b73a11237330e9766f1e3afbb179",
+  "inputs": {
+    "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+    "protocols/link_prediction_v1.toml": "6186c279806cf86d2a4c704997e4d179e341e0a095cc85c107cae890cb6b34c3",
+    "resources/source_registry.json": "499cf30d5ad70a80f88fe73bb714ff68ff4cadb68a68016133a015a166de7217",
+    "src/temporal_link_decoupling/modeling/v33/sr_gnn_v3.py": "ce1ed615699e30753beb0976bf3492760612e9d341ecd6cb38a5e1c6b584229e",
+    "src/temporal_link_decoupling/modeling/v33/sr_gnn_v3_3.py": "d444b74c6b44b0f561219db4de3f305cf6e0cad9bac3d70584cdef84fafe8bb7",
+    "src/temporal_link_decoupling/training.py": "852eaea7d42a3313fe34e968ae6515d84966cb39b704980870576f451b87a4f2",
+    "experiments/dataset_builders/build_coedit.py": "2747e719fa9000b1b4970622604ab6e7a8d91096d514b19b294335df6f71b3eb"
+  },
+  "source_sha256": "cef4563143762dc95bc7fae6e91a8410592d4b3905a47b20d88e0c96fe791a94",
+  "references": 22
+}

@@ -22,3 +22,7 @@ A build script, a numeric-source inventory and a conference-to-journal developme
 The native editor compilation and exported PDF build succeed. The result-table generator reconstructs current means and deviations from the frozen per-seed matrix and checks bibliography usage. Detailed export checks live in the source package verification record. Source-staleness semantics and CoEdit midpoint availability were checked against implementation. Final author metadata, venue acceptance of the electronic file format and formal snapshot admission remain open; no new training or submission is claimed.
 
 [LaTeX source and PDF](../../Paper/Journal/DYU/Latex_full/)
+
+## Validation limits
+
+The canonical provenance audit and recovered-artifact verifier pass. The standalone public-history checker still flags a legacy machine-path string in the recovered regime-baseline JSON, already reachable in the earlier recovery commit. The archival file remains byte-preserved; this is a public-history hygiene issue, not an additional admitted experiment. The current update does not claim a clean public-history gate. The repository test suite was not executed locally because pytest is unavailable in the selected Python runtime.

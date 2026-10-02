@@ -1,0 +1,29 @@
+BẢN JOURNAL DYU — GHI CHÚ BIÊN TẬP
+
+Tệp chính: main.tex (độc lập, bibliography và sơ đồ nằm trong tệp).
+Xuất PDF: ./build.sh ; hoặc TECTONIC=/đường/dẫn/tectonic ./build.sh.
+prepare.py xác minh checksum matrix, tính lại mean/SD từ seed, sinh bảng và khóa nguồn.
+Có thể biên dịch main.tex trực tiếp bằng XeLaTeX khi đưa lên Overleaf.
+Không đổi PDF bằng tay; sửa main.tex rồi build lại.
+
+PHÁT TRIỂN TỪ CONFERENCE
+- Giữ chủ đề gradient decoupling, mở rộng related work và phục hồi đủ 20 tài liệu nền tảng; thêm nguồn repository và Adam.
+- Mở rộng định nghĩa mô hình, công thức online moments/intensity/rate, chain rule, objective và sơ đồ.
+- Phân biệt shared-readout detach hiện tại với đổi main predictor/design preset trong thí nghiệm cũ.
+- Viết rõ freeze-then-probe, batch snapshot, sequential pair accumulators, filtered test history và negative sampling.
+- Bổ sung giới hạn CoEdit midpoint/feature availability, nguồn chung Wikipedia và endpoint-role validity.
+- Bảng chính lấy từ frozen A003. Không sao chép các con số lịch sử vào bảng hiện tại.
+- Evidence lịch sử đã phục hồi giúp đối chiếu, nhưng chưa có đủ source/environment/data binding để tự động công nhận toàn bộ claim.
+
+YÊU CẦU JOURNAL
+Theo template được cung cấp: A4, lề trên 3.5 cm, các lề còn lại 2 cm, Times New Roman 9 pt, giãn dòng 1.5, thân bài hai cột.
+Abstract tiếng Anh riêng trang đầu; bản tiếng Trung riêng trang cuối. References đánh số và xếp alphabet.
+Ưu tiên LaTeX/PDF theo yêu cầu tác giả. Trang hướng dẫn chính thức vẫn nêu bản Word cho nộp điện tử; cần xác nhận tòa soạn nhận PDF/LaTeX hoặc tạo bản Word phụ trước khi nộp.
+https://jo.dyu.edu.tw/setjournal/contribute.htm
+https://jo.dyu.edu.tw/setjournal/document/jour04-1.pdf
+
+TRẠNG THÁI
+Bản thảo làm việc, chưa gửi tòa soạn, chưa phải immutable paper snapshot.
+numeric-sources.json là source map, CHƯA thay thế registry từng occurrence của publication gate.
+Cần xác nhận chính xác tên khoa bằng tiếng Trung, địa chỉ đầy đủ và số điện thoại liên hệ theo biểu mẫu.
+Không tự điền chữ ký, cam kết tác giả, ngày nhận/duyệt hoặc thông tin xuất bản.

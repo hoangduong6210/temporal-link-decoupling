@@ -1,0 +1,21 @@
+{
+  "status": "WORKING_DRAFT_NOT_ADMITTED_SNAPSHOT",
+  "pages": 11,
+  "references": 22,
+  "pdf_sha256": "8324dedb3b4b35190f7a8f85b2b98b942c03bede1c3ed1e1414553a92df3a0a0",
+  "source_sha256": "cef4563143762dc95bc7fae6e91a8410592d4b3905a47b20d88e0c96fe791a94",
+  "native_editor_compilation": "success using bundled font fallback",
+  "delivered_export": "Tectonic 0.15.0; Times New Roman and Songti TC",
+  "visual_review": "All 11 pages rendered and inspected; detailed result-table and Chinese-page checks; no observed clipping, overlaps or missing glyphs",
+  "overfull_box_warnings": 0,
+  "missing_character_warnings": 0,
+  "validation": [
+    "Recovered checksums and 121 aggregate reconstructions passed; four original discrepancies retained",
+    "Nine result rows recalculated from 27 admitted runs",
+    "Canonical provenance audit passed; formal paper admission remains blocked"
+  ],
+  "validation_limits": [
+    "Public-history gate flags legacy machine paths in a JSON already present in the earlier pushed recovery commit",
+    "Local repository tests not run: selected Python runtime lacks pytest"
+  ]
+}

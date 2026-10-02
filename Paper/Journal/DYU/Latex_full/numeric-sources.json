@@ -1,0 +1,284 @@
+{
+  "status": "DRAFT_SOURCE_MAP_NOT_SNAPSHOT_REGISTRY",
+  "table_values": [
+    {
+      "claim": "LP-C-DECOUPLING-001",
+      "evidence": "LP-E-SCIENTIFIC-MATRIX-001",
+      "job": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "artifact": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json",
+      "sha256": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+      "selector": "$.summary[0].ind_ap_mean",
+      "value": 0.9786626650648701,
+      "rounding": "half-even, 4 decimals for AP"
+    },
+    {
+      "claim": "LP-C-DECOUPLING-001",
+      "evidence": "LP-E-SCIENTIFIC-MATRIX-001",
+      "job": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "artifact": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json",
+      "sha256": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+      "selector": "$.summary[0].ind_ap_std",
+      "value": 0.0020593887872109966,
+      "rounding": "half-even, 4 decimals for AP"
+    },
+    {
+      "claim": "LP-C-DECOUPLING-001",
+      "evidence": "LP-E-SCIENTIFIC-MATRIX-001",
+      "job": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "artifact": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json",
+      "sha256": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+      "selector": "$.summary[0].n_seeds",
+      "value": 3,
+      "rounding": "half-even, 4 decimals for AP"
+    },
+    {
+      "claim": "LP-C-DECOUPLING-001",
+      "evidence": "LP-E-SCIENTIFIC-MATRIX-001",
+      "job": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "artifact": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json",
+      "sha256": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+      "selector": "$.summary[3].ind_ap_mean",
+      "value": 0.9890749789936052,
+      "rounding": "half-even, 4 decimals for AP"
+    },
+    {
+      "claim": "LP-C-DECOUPLING-001",
+      "evidence": "LP-E-SCIENTIFIC-MATRIX-001",
+      "job": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "artifact": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json",
+      "sha256": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+      "selector": "$.summary[3].ind_ap_std",
+      "value": 0.0016133781896702155,
+      "rounding": "half-even, 4 decimals for AP"
+    },
+    {
+      "claim": "LP-C-DECOUPLING-001",
+      "evidence": "LP-E-SCIENTIFIC-MATRIX-001",
+      "job": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "artifact": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json",
+      "sha256": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+      "selector": "$.summary[3].n_seeds",
+      "value": 3,
+      "rounding": "half-even, 4 decimals for AP"
+    },
+    {
+      "claim": "LP-C-DECOUPLING-001",
+      "evidence": "LP-E-SCIENTIFIC-MATRIX-001",
+      "job": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "artifact": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json",
+      "sha256": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+      "selector": "$.summary[6].ind_ap_mean",
+      "value": 0.8381110858027515,
+      "rounding": "half-even, 4 decimals for AP"
+    },
+    {
+      "claim": "LP-C-DECOUPLING-001",
+      "evidence": "LP-E-SCIENTIFIC-MATRIX-001",
+      "job": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "artifact": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json",
+      "sha256": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+      "selector": "$.summary[6].ind_ap_std",
+      "value": 0.048372182647961434,
+      "rounding": "half-even, 4 decimals for AP"
+    },
+    {
+      "claim": "LP-C-DECOUPLING-001",
+      "evidence": "LP-E-SCIENTIFIC-MATRIX-001",
+      "job": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "artifact": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json",
+      "sha256": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+      "selector": "$.summary[6].n_seeds",
+      "value": 3,
+      "rounding": "half-even, 4 decimals for AP"
+    },
+    {
+      "claim": "LP-C-DECOUPLING-001",
+      "evidence": "LP-E-SCIENTIFIC-MATRIX-001",
+      "job": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "artifact": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json",
+      "sha256": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+      "selector": "$.summary[1].ind_ap_mean",
+      "value": 0.9910473462481969,
+      "rounding": "half-even, 4 decimals for AP"
+    },
+    {
+      "claim": "LP-C-DECOUPLING-001",
+      "evidence": "LP-E-SCIENTIFIC-MATRIX-001",
+      "job": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "artifact": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json",
+      "sha256": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+      "selector": "$.summary[1].ind_ap_std",
+      "value": 0.004660024516883419,
+      "rounding": "half-even, 4 decimals for AP"
+    },
+    {
+      "claim": "LP-C-DECOUPLING-001",
+      "evidence": "LP-E-SCIENTIFIC-MATRIX-001",
+      "job": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "artifact": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json",
+      "sha256": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+      "selector": "$.summary[1].n_seeds",
+      "value": 3,
+      "rounding": "half-even, 4 decimals for AP"
+    },
+    {
+      "claim": "LP-C-DECOUPLING-001",
+      "evidence": "LP-E-SCIENTIFIC-MATRIX-001",
+      "job": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "artifact": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json",
+      "sha256": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+      "selector": "$.summary[4].ind_ap_mean",
+      "value": 0.994690049946744,
+      "rounding": "half-even, 4 decimals for AP"
+    },
+    {
+      "claim": "LP-C-DECOUPLING-001",
+      "evidence": "LP-E-SCIENTIFIC-MATRIX-001",
+      "job": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "artifact": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json",
+      "sha256": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+      "selector": "$.summary[4].ind_ap_std",
+      "value": 0.0007468091997572915,
+      "rounding": "half-even, 4 decimals for AP"
+    },
+    {
+      "claim": "LP-C-DECOUPLING-001",
+      "evidence": "LP-E-SCIENTIFIC-MATRIX-001",
+      "job": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "artifact": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json",
+      "sha256": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+      "selector": "$.summary[4].n_seeds",
+      "value": 3,
+      "rounding": "half-even, 4 decimals for AP"
+    },
+    {
+      "claim": "LP-C-DECOUPLING-001",
+      "evidence": "LP-E-SCIENTIFIC-MATRIX-001",
+      "job": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "artifact": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json",
+      "sha256": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+      "selector": "$.summary[7].ind_ap_mean",
+      "value": 0.9862032126675185,
+      "rounding": "half-even, 4 decimals for AP"
+    },
+    {
+      "claim": "LP-C-DECOUPLING-001",
+      "evidence": "LP-E-SCIENTIFIC-MATRIX-001",
+      "job": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "artifact": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json",
+      "sha256": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+      "selector": "$.summary[7].ind_ap_std",
+      "value": 0.0009147573467843538,
+      "rounding": "half-even, 4 decimals for AP"
+    },
+    {
+      "claim": "LP-C-DECOUPLING-001",
+      "evidence": "LP-E-SCIENTIFIC-MATRIX-001",
+      "job": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "artifact": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json",
+      "sha256": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+      "selector": "$.summary[7].n_seeds",
+      "value": 3,
+      "rounding": "half-even, 4 decimals for AP"
+    },
+    {
+      "claim": "LP-C-DECOUPLING-001",
+      "evidence": "LP-E-SCIENTIFIC-MATRIX-001",
+      "job": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "artifact": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json",
+      "sha256": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+      "selector": "$.summary[2].ind_ap_mean",
+      "value": 0.9967434088981267,
+      "rounding": "half-even, 4 decimals for AP"
+    },
+    {
+      "claim": "LP-C-DECOUPLING-001",
+      "evidence": "LP-E-SCIENTIFIC-MATRIX-001",
+      "job": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "artifact": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json",
+      "sha256": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+      "selector": "$.summary[2].ind_ap_std",
+      "value": 0.00026828700523933113,
+      "rounding": "half-even, 4 decimals for AP"
+    },
+    {
+      "claim": "LP-C-DECOUPLING-001",
+      "evidence": "LP-E-SCIENTIFIC-MATRIX-001",
+      "job": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "artifact": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json",
+      "sha256": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+      "selector": "$.summary[2].n_seeds",
+      "value": 3,
+      "rounding": "half-even, 4 decimals for AP"
+    },
+    {
+      "claim": "LP-C-DECOUPLING-001",
+      "evidence": "LP-E-SCIENTIFIC-MATRIX-001",
+      "job": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "artifact": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json",
+      "sha256": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+      "selector": "$.summary[5].ind_ap_mean",
+      "value": 0.998309334552188,
+      "rounding": "half-even, 4 decimals for AP"
+    },
+    {
+      "claim": "LP-C-DECOUPLING-001",
+      "evidence": "LP-E-SCIENTIFIC-MATRIX-001",
+      "job": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "artifact": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json",
+      "sha256": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+      "selector": "$.summary[5].ind_ap_std",
+      "value": 0.0003031788297556975,
+      "rounding": "half-even, 4 decimals for AP"
+    },
+    {
+      "claim": "LP-C-DECOUPLING-001",
+      "evidence": "LP-E-SCIENTIFIC-MATRIX-001",
+      "job": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "artifact": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json",
+      "sha256": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+      "selector": "$.summary[5].n_seeds",
+      "value": 3,
+      "rounding": "half-even, 4 decimals for AP"
+    },
+    {
+      "claim": "LP-C-DECOUPLING-001",
+      "evidence": "LP-E-SCIENTIFIC-MATRIX-001",
+      "job": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "artifact": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json",
+      "sha256": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+      "selector": "$.summary[8].ind_ap_mean",
+      "value": 0.9622807434790612,
+      "rounding": "half-even, 4 decimals for AP"
+    },
+    {
+      "claim": "LP-C-DECOUPLING-001",
+      "evidence": "LP-E-SCIENTIFIC-MATRIX-001",
+      "job": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "artifact": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json",
+      "sha256": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+      "selector": "$.summary[8].ind_ap_std",
+      "value": 0.012811280561915122,
+      "rounding": "half-even, 4 decimals for AP"
+    },
+    {
+      "claim": "LP-C-DECOUPLING-001",
+      "evidence": "LP-E-SCIENTIFIC-MATRIX-001",
+      "job": "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2",
+      "artifact": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix.json",
+      "sha256": "09bbd7563be8e95c58e12fce38a45eae1c542cf5cc4179647289f44c611d2cea",
+      "selector": "$.summary[8].n_seeds",
+      "value": 3,
+      "rounding": "half-even, 4 decimals for AP"
+    }
+  ],
+  "other_sources": {
+    "training_table": "protocols/link_prediction_v1.toml",
+    "corpus_construction": "resources/source_registry.json",
+    "attempt_counts": "results/frozen/LP-REL-2026-A003-001/payload/results/audit/scientific-matrix-attempts.json",
+    "equations": "symbolic definitions and source implementation; equation labels are structural"
+  },
+  "limitations": [
+    "This is not the complete per-occurrence numeric registry required for an admitted snapshot."
+  ]
+}
