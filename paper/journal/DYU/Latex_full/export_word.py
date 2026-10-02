@@ -137,6 +137,15 @@ for pp in list(d.paragraphs):
    for rr in pp.runs:rr.font.size=Pt(11);rr.bold=True
   elif abstract:
    pp.alignment=WD_ALIGN_PARAGRAPH.JUSTIFY;pf.left_indent=pf.right_indent=Cm(2)
+   if part==1:
+    # Match the template's Chinese abstract: left alignment avoids stretching Latin spaces.
+    pp.alignment=WD_ALIGN_PARAGRAPH.LEFT;pf.line_spacing=1.5
+    pf.first_line_indent=Pt(0 if t.startswith('關鍵詞') else 18)
+    for rr in pp.runs:
+     rp=rr._r.get_or_add_rPr();rp.get_or_add_rFonts().set(qn('w:eastAsia'),'MingLiU')
+     lang=rp.find(qn('w:lang'))
+     if lang is None:lang=OxmlElement('w:lang');rp.append(lang)
+     lang.set(qn('w:eastAsia'),'zh-TW');lang.set(qn('w:val'),'en-US')
    if t.startswith(('Key words','關鍵詞')):pf.space_before=Pt(10)
   elif t.startswith('Duong Viet Hoang'):
    for rr in pp.runs:rr.font.size=Pt(10)
