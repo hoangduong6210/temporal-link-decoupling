@@ -37,3 +37,23 @@ all candidates, validation metrics, support/cohorts, checkpoint selection,
 paired effects and intervention invariants. Raw reports contain all score rows;
 quantitative review belongs under `evidence/development/`, with qualitative
 interpretation in wiki before any manuscript derivation.
+
+From a clean committed checkout in Slurm, reconcile all 12 original attempt
+directories after terminal successful accounting is available:
+
+```bash
+PYTHONPATH=src <environment>/bin/python scripts/reconcile_prospective_mechanism.py \
+  <task-0-attempt.json> <task-1-attempt.json> <remaining-task-attempts> \
+  --output-dir evidence/development/<new-bundle>/matrix \
+  --jobs <source-gate-and-array-job-ids>
+```
+
+Keep the selected `.pt` checkpoints and each task's `runtime.json` alongside
+the original attempts during reconciliation. The auditor verifies checkpoint
+bytes and independently rebuilds the initial parameter groups using a small
+node catalogue (this model has no node-indexed trainable parameters), then
+recomputes the selected epoch's parameter displacement from the checkpoint.
+It reconstructs evaluation candidates from support and independent RNG streams,
+not only from agreement between model reports. Public score archives permit
+metric reconstruction; repeating the full checkpoint audit also requires the
+locally retained checkpoint bytes or a faithful rerun.
