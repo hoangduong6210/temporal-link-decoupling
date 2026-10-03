@@ -11,7 +11,9 @@ The owner paused research. The mechanism array and its pending validation and
 audit-preflight jobs were cancelled; no further scientific work is queued by
 this thread. The [pause handoff](Pause-and-Resume.md) and
 [execution archive](../../evidence/development/LP-P-PROSPECTIVE-004/README.md)
-record completed tasks, partial reports, backups and checks still required.
+record completed tasks, partial reports and checks still required. A later
+owner-requested local cleanup supersedes the private-backup availability
+recorded at the original pause; follow the fresh-clone route in the handoff.
 Cancellation for this pause is not a scientific failure or a completed study.
 
 The frozen scientific arrays completed

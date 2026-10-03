@@ -4,6 +4,9 @@
 [pause status and resume handoff](wiki/status/Pause-and-Resume.md) before
 continuing. Completed results, partial attempts and the next validation steps
 are preserved; the journal goal remains unfinished.
+The owner subsequently requested local cleanup. Use the
+[fresh-clone resume instructions](docs/RESUME_FROM_CLONE.md); local checkpoints
+and the installed environment are not included in GitHub.
 
 An evidence-backed research implementation for studying whether a temporal
 link-prediction objective should update the temporal backbone. The repository

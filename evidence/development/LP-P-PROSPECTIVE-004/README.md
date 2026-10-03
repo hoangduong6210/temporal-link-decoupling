@@ -24,22 +24,23 @@ retains cancellation states and exit codes. The [model-source log](pause/model-s
 proves the earlier gate, not the later unexecuted reconciler gate.
 
 Raw successful and partial reports were copied byte-for-byte into `pause/`,
-alongside task runtime attestations. Selected checkpoints and all task outputs
-are also backed up privately in a persistent archive. A separate private archive
-preserves the installed CPU environment; restore instructions are in this
-checkout's Git metadata. Raw data and third-party source remain fetch-only.
-The private backups are local, not uploaded as part of this public Git archive.
+alongside task runtime attestations. At the original pause, selected checkpoints,
+task outputs and the installed CPU environment were backed up inside private
+Git metadata. The owner's later local-cleanup request includes those private
+archives. They were never uploaded to GitHub. Raw data and third-party source
+remain fetch-only. The checksum-closed `pause.json` is an immutable record of
+the earlier pause, not a statement of current private-backup availability.
 
-On resumption, validate the reconciler first and audit completed tasks 0–1.
-Then rerun indices 2–11 from the pinned model source into a **new** array directory.
-The 4 cells in partial tasks are retained for history, not spliced into a
-complete task or silently resumed. If the runtime cannot be restored and
-reverified, register the changed condition and rerun matched references.
+The default [fresh-clone workflow](../../../docs/RESUME_FROM_CLONE.md) now
+rebuilds and registers the runtime, validates the reconciler and reruns all
+12 tasks / 60 fits into a **new** array directory. The earlier 10 fits and
+4 partial-task cells remain historical reports; they are not spliced into a
+new-runtime matrix. Old checkpoint hashes do not reconstruct checkpoint bytes.
 
-After all tasks complete, reconcile the original successful task reports with
-the successful retry reports, retaining the full cancellation history. Do not
-overwrite any original attempt. No aggregate, performance claim or manuscript
-result is admitted from the current partial study.
+After all new tasks complete, reconcile their matched-runtime reports and
+checkpoints, retaining the original pause and cancellation history separately.
+Do not overwrite any original attempt. No aggregate, performance claim or
+manuscript result is admitted from the current partial study.
 
 Handoff integrity can be checked through Slurm:
 

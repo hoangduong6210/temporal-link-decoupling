@@ -3,6 +3,9 @@
 **Paused at the owner's request.** Follow the
 [resume handoff](../wiki/status/Pause-and-Resume.md) before running the commands
 below. The original matrix is incomplete and must not be overwritten.
+After local cleanup, use the [fresh-clone workflow](RESUME_FROM_CLONE.md):
+the historical runtime binding must be amended and validated before a rebuilt
+environment can run the complete matrix. Cloning alone does not restore it.
 
 The [wiki specification](../wiki/methods/Prospective-Mechanism-Controls.md) and
 [P004 protocol](../protocols/prospective_mechanism_v4.toml) own this study.

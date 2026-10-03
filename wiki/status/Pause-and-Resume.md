@@ -57,25 +57,37 @@ the mechanism matrix as independently validated. No mechanism result has been
 interpreted or admitted as a performance claim. Partial reports may still say
 `STARTED`; terminal scheduler cancellation is authoritative.
 
-Checkpoint files, task output and the installed CPU environment have a private
-persistent backup outside the tracked tree. Public report copies and checksums
-allow later inspection even if scratch expires. Private restore locations and
-exact local commands are recorded in Git metadata for this checkout.
+After pausing, the owner requested removal of this local checkout and its
+project links so future work can start from GitHub. The private checkpoint and
+environment backups inside Git metadata are included in that cleanup; they
+are not part of a clone. The original pause record describes the earlier
+backup state, not a promise that those private files remain available.
+
+Source, wiki, protocols, dependency locks, runtime attestations, public raw
+reports and frozen evidence remain in Git history. The
+[fresh-clone workflow](../../docs/RESUME_FROM_CLONE.md) is the default
+continuation route and does not depend on old local paths or Git metadata.
+It requires fetching registered data, rebuilding the runtime and repeating
+the complete mechanism study under a newly registered runtime condition.
+Scratch copies outside the requested cleanup area are not a durable recovery
+dependency. No training is authorized merely by cloning the repository.
 
 ## Resume sequence
 
-- Inspect Git status, the pause archive and current scheduler state. Confirm
-  that completed/partial artifacts still match their recorded hashes.
-- Restore private artifacts if scratch is unavailable, then verify the CPU
-  runtime against its attestation. If the runtime changes, register that change
-  and rerun matched references; do not mix incompatible paired conditions.
+- Clone the repository with its history, read the fresh-clone workflow and
+  inspect Git status and current scheduler state. Verify the public pause
+  archive and its recorded hashes through Slurm.
+- Fetch registered corpora and the pinned original TGN source. Rebuild the CPU
+  environment from the committed hash lock, then register its new attestation
+  and runtime-only protocol amendment without rewriting historical records.
 - Run the complete source gate for the committed mechanism reconciler through
-  Slurm, including its new tampering tests. Independently audit the completed
-  Wikipedia tasks and selected checkpoints before accepting them for reuse.
-- Keep the registered model/protocol source fixed. Rerun interrupted and
-  never-started tasks into a new array output directory. The runner does not
-  resume from the middle of an epoch or automatically skip completed cells in
-  a partial task. Never overwrite the original attempts.
+  Slurm, including its new tampering tests and actual TGN integration. The
+  original successful task reports alone cannot replace missing checkpoints.
+- Keep the scientific design and model unchanged while registering the new
+  execution source and runtime binding. Rerun the complete mechanism matrix,
+  including matched references, into a new output directory. Do not splice
+  old-runtime results or partial cells into that matrix. Never overwrite the
+  preserved original reports.
 - Reconcile the complete registered matrix and native accounting, archive all
   unfavorable outcomes, then update the wiki interpretation before selecting
   any subsequent intervention or manuscript claim.
