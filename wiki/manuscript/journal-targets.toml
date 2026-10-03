@@ -2,7 +2,7 @@
 # Canonical venue register; update the wiki decision before changing the order.
 [strategy]
 decision = "wiki/decisions/0002-journal-target-order.md"
-last_checked = "2026-10-02"
+last_checked = "2026-10-03"
 primary = "JIIS"
 fallback_order = ["KAIS", "IJMLC"]
 active_target = "JIIS"
@@ -12,6 +12,27 @@ simultaneous_submissions = false
 knowledge_root = "wiki"
 paper_plan = "wiki/manuscript/JIIS-Journal.md"
 heavy_execution = "slurm-only"
+
+[q1_goal]
+decision = "wiki/decisions/0003-jcr-top-quartile-goal.md"
+owner_confirmed_system = "JCR / Web of Science"
+required_metric = "Journal Impact Factor quartile"
+required_quartile = "Q1"
+metric_year_policy = "latest verifiable metric year; recheck before submission and record release/access year separately"
+relevant_categories = ["Computer Science, Artificial Intelligence", "Computer Science, Information Systems"]
+category_policy = "verify in a category relevant to the article; record every assigned category without best-category ambiguity"
+completion = "evidence-bound manuscript and package ready for an eligible journal submission"
+acceptance_guaranteed = false
+venue_eligibility = "OPEN; original preferred venues are not verified Q1"
+direct_jcr_access = "Profile unavailable in browser on 2026-10-03; do not infer quartile from publisher JIF alone"
+ranking_method_source = "https://clarivate.com/academia-government/blog/a-primer-on-ties-in-the-jcr/"
+additional_screening_candidates = ["Knowledge-Based Systems", "Information Sciences", "Expert Systems with Applications"]
+additional_candidates_status = "secondary university records only; official category-specific verification and scope review pending"
+additional_candidates_sources = [
+  "https://www.iit.comillas.edu/publicacion/info_revista/en/783/Knowledge-Based_Systems",
+  "https://www.iit.comillas.edu/publicacion/info_revista/en/661/Information_Sciences",
+  "https://www.iit.comillas.edu/publicacion/info_revista/en/60/Expert_Systems_with_Applications",
+]
 
 [venues.JIIS]
 name = "Journal of Intelligent Information Systems"
@@ -31,6 +52,11 @@ reference_style = "numbered square brackets"
 flat_upload_required = true
 template_status = "resolve before final formatting"
 template_note = "Guidelines recommend the Springer Nature template but also explicitly name the Springer macro package smallcondensed option; check the linked packages and current submission workflow before freezing layout."
+q1_eligibility = "NOT_VERIFIED; secondary listing reports JCR Q2 for 2025"
+ranking_screen_source = "https://www.akaturk.com/journals/24361?lang=en"
+publisher_metrics_source = "https://link.springer.com/journal/10844"
+publisher_jif_year = 2025
+publisher_jif = 3.5
 
 [venues.KAIS]
 name = "Knowledge and Information Systems"
@@ -47,6 +73,11 @@ keywords_max = 6
 reference_style = "numbered square brackets"
 authorship_changes_after_submission = false
 page_limit_status = "No numeric cap identified on the checked guideline page; recheck at activation."
+q1_eligibility = "NOT_VERIFIED; secondary listing reports JCR Q2 for 2025"
+ranking_screen_source = "https://www.minicod.com/journals/knowledge-and-information-systems-6d0f8463"
+publisher_metrics_source = "https://link.springer.com/journal/10115"
+publisher_jif_year = 2025
+publisher_jif = 3.6
 
 [venues.IJMLC]
 name = "International Journal of Machine Learning and Cybernetics"
@@ -62,3 +93,8 @@ keywords_min = 4
 keywords_max = 6
 reference_style = "author-year"
 page_limit_status = "No numeric cap identified on the checked guideline page; recheck at activation."
+q1_eligibility = "NOT_VERIFIED; secondary listing reports JCR Q3 for 2025"
+ranking_screen_source = "https://akaturk.com/journals/19700177336?lang=en"
+publisher_metrics_source = "https://link.springer.com/journal/13042"
+publisher_jif_year = 2025
+publisher_jif = 2.9

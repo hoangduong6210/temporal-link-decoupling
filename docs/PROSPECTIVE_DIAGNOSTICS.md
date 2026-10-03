@@ -54,3 +54,23 @@ cosines remain null. These descriptive associations do not prove that an
 auxiliary term causes better or worse generalization. Decoder snapshots retain
 probabilities, sigmoid slopes, parameter displacement and actual gradient RMS;
 the initialization is unchanged in this study.
+
+After all tasks finish, reconcile in Slurm from clean committed source:
+
+```bash
+PYTHONPATH=src python3 scripts/reconcile_prospective_diagnostics.py \
+  <task-0-attempt.json> <task-1-attempt.json> <task-2-attempt.json> \
+  <task-3-attempt.json> <task-4-attempt.json> <task-5-attempt.json> \
+  --output-dir evidence/development/<new-bundle-id>/matrix \
+  --jobs <source-validation-and-array-job-ids>
+python3 scripts/render_prospective_diagnostics.py \
+  --summary evidence/development/<new-bundle-id>/matrix/summary.json \
+  --output evidence/development/<new-bundle-id>/tables.md
+```
+
+The reconciler independently reconstructs training eligibility and RNG draws,
+candidate exclusions, complete validation cohorts and metrics, paired contrasts,
+checkpoint selection and diagnostic record consistency. It requires terminal
+successful accounting for every registered task and copies raw attempts without
+altering their bytes. The renderer refuses to overwrite an existing table;
+use `--check` to compare a preserved table with its summary.

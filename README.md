@@ -40,9 +40,9 @@ specified reproducibility note, and grayscale figure rendering. It is not an
 evidence-admitted snapshot because its result set is not registered in the
 current frozen release.
 
-## Journal target: JIIS
+## Journal preparation
 
-The active submission strategy is **Journal of Intelligent Information Systems
+The owner's original preferred sequence is **Journal of Intelligent Information Systems
 (JIIS) → Knowledge and Information Systems (KAIS) → International Journal of
 Machine Learning and Cybernetics (IJMLC)**. The
 [venue decision](wiki/decisions/0002-journal-target-order.md),
@@ -51,6 +51,10 @@ Machine Learning and Cybernetics (IJMLC)**. The
 wiki. The [JIIS preparation area](paper/journal/JIIS/) follows that plan.
 Venue selection is complete; manuscript preparation and scientific admission
 remain open. No journal submission is claimed.
+
+The owner's subsequent [JCR top-quartile goal](wiki/decisions/0003-jcr-top-quartile-goal.md)
+adds a venue-eligibility requirement. The preferred sequence is not yet verified
+against that requirement; journal screening and scientific development continue.
 
 `wiki/` is the knowledge foundation: update it before deriving paper content.
 No solving or heavy work runs on login nodes; submit such jobs through Slurm.

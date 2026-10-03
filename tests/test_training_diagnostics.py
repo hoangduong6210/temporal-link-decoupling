@@ -149,3 +149,27 @@ def test_complete_mini_matrix_has_paired_initialization_sampling_and_no_test(mon
         assert len({c["initial_weights_sha256"] for c in cells if c["model"].startswith(family)}) == 1
     for regime in protocol["negative_regimes"]:
         assert len({e["validation"][regime]["candidate_sha256"] for c in cells for e in c["epochs"]}) == 1
+
+
+def test_independent_trace_audit_rejects_invalid_candidate_and_mixture_label(monkeypatch):
+    import copy
+    monkeypatch.syspath_prepend(str(Path(__file__).resolve().parents[1] / "scripts"))
+    auditor = importlib.import_module("reconcile_prospective_diagnostics")
+    data, splits = stream()
+    report = {"seed": 1, "protocol": {"pilot": {"epochs": 2}, "training_policies": ["random", "mixed"]}, "training_traces": {}}
+    for epoch in [1, 2]:
+        for policy in ["random", "mixed"]:
+            sampler = TrainingMixture([4, 5, 6, 7], seed=1 + epoch, policy=policy)
+            trace = []
+            for i in range(6):
+                src, dst, timestamp = data["sources"][i:i+1], data["destinations"][i:i+1], data["timestamps"][i]
+                _, rows = sampler.sample(src, dst, timestamp, offset=i)
+                trace.extend(rows)
+                sampler.observe(src, dst, timestamp)
+            report["training_traces"][policy + ":" + str(epoch)] = trace
+    auditor.audit_training_traces(report, data, 6, {4, 5, 6, 7})
+    for column, invalid in [(1, 999), (3, 7), (4, True)]:
+        changed = copy.deepcopy(report)
+        changed["training_traces"]["random:1"][0][column] = invalid
+        with pytest.raises(AssertionError):
+            auditor.audit_training_traces(changed, data, 6, {4, 5, 6, 7})

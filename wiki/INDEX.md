@@ -24,6 +24,7 @@ paper_source: false
 - [Data and Target Contract](datasets/Data-and-Target-Contract.md)
 - [Split Decision](decisions/0001-separate-link-prediction-and-lifecycle-readout.md)
 - [Journal Target Decision](decisions/0002-journal-target-order.md)
+- [JCR Top-Quartile Journal Goal](decisions/0003-jcr-top-quartile-goal.md)
 - [Evidence Ledger](evidence/Evidence-Ledger.md)
 - [Prospective Pilot Review](evidence/Prospective-Pilot.md)
 - [Prospective Development Review](evidence/Prospective-Development.md)
@@ -85,6 +86,7 @@ paper_source: false
 | Historical claim | `LP-H-MIXED-001` | [Historical Claim Ledger](claims/Historical-Claim-Ledger.md) |
 | Decision | `DEC-0001` | [Split Decision](decisions/0001-separate-link-prediction-and-lifecycle-readout.md) |
 | Decision | `DEC-0002` | [Journal Target Decision](decisions/0002-journal-target-order.md) |
+| Decision | `DEC-0003` | [JCR Top-Quartile Journal Goal](decisions/0003-jcr-top-quartile-goal.md) |
 
 ## Paper snapshot index
 

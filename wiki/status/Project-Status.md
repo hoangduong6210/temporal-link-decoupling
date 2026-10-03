@@ -65,6 +65,11 @@ of assuming the historical result files are lost.
 
 ## Active journal work
 
+The owner has since set a [JCR top-quartile journal goal](../decisions/0003-jcr-top-quartile-goal.md).
+The original venue preferences below are subject to that eligibility gate.
+Official category-specific verification and additional venue screening remain
+open; publisher impact factors alone do not establish quartile eligibility.
+
 The accepted order is **JIIS → KAIS → IJMLC** under
 [the venue decision](../decisions/0002-journal-target-order.md). The
 [JIIS plan](../manuscript/JIIS-Journal.md) maps manuscript sections to canonical

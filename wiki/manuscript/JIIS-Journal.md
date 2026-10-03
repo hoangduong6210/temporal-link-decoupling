@@ -12,6 +12,11 @@ the ordered alternatives in [Journal Targets](Journal-Targets.md).
 This page is the canonical editorial brief and readiness backlog. It does not
 admit a new claim or represent a completed JIIS manuscript.
 
+The later [JCR top-quartile goal](../decisions/0003-jcr-top-quartile-goal.md)
+requires verified venue eligibility before submission. JIIS remains an editorial
+working target, but is not currently verified to meet that requirement. The
+scientific backlog below also supports preparation for another eligible venue.
+
 ## Positioning and contribution
 
 Working title: **Gradient Routing in Stateful Temporal Link Prediction:

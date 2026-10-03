@@ -74,4 +74,6 @@ is satisfied.
 
 Supersedes the active DYU target in [DYU Journal Development](../manuscript/DYU-Journal.md).
 Does not supersede the scientific protocol, prior artifacts or `DEC-0001`.
-No later venue decision is registered.
+The later [JCR journal goal](0003-jcr-top-quartile-goal.md) qualifies venue
+eligibility. The preferred sequence alone does not establish that a journal
+meets the owner's selected ranking threshold.
