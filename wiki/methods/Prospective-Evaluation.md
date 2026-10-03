@@ -107,3 +107,16 @@ Keep failed attempts as failed artifacts. Update this page and the
 
 The initial execution is complete. See the [pilot review](../evidence/Prospective-Pilot.md)
 for retained development records, coverage limitations and the next study gate.
+
+## Readout diagnosis
+
+The inherited existence decoder mixes state probabilities with positive,
+unbounded learned weights, then clips the mixture before converting to a logit.
+The weights therefore do not guarantee a valid probability mixture. The
+[checkpoint replay diagnostic](../../experiments/diagnose_prospective_readout.py)
+will verify reproduction of saved scores and measure clipping by candidate role
+and repeated/new positive cohorts. Ranking the unclipped mixture is a diagnostic
+only, not a repaired probability estimate or retrained model. Diagnose this
+numerical boundary before attributing historical-negative failure to gradient
+decoupling. Any replacement parameterization requires a separate development
+protocol and paired execution; the original pilot remains preserved.
