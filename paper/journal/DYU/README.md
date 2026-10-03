@@ -1,5 +1,10 @@
 # DYU journal manuscript package
 
+This is the earlier DYU package. The active target is now **JIIS**, followed by
+KAIS and IJMLC; follow the [wiki development plan](../../../wiki/manuscript/JIIS-Journal.md).
+The files below remain a record of earlier editorial work and are not a JIIS
+submission package or an admitted scientific snapshot.
+
 The canonical editable manuscript is `Latex_full/main.tex`. Its bibliography and vector diagram are embedded, so the article compiles independently of the research repository.
 
 - `Latex_full/`: editable LaTeX, PDF, numerical checks, reference audit and export scripts.

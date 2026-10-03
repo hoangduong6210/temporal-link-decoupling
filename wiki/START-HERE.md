@@ -15,6 +15,11 @@ for inductive temporal link prediction. The current stage is
 `LP-REL-2026-A003-001`. No paper is evidence-admitted;
 `paper/CURRENT` is `UNRELEASED`.
 
+The active journal target is **JIIS**, with **KAIS** and **IJMLC** as ordered
+fallbacks. Read [Journal Targets](manuscript/Journal-Targets.md) and the
+[JIIS writing plan](manuscript/JIIS-Journal.md). The existing `wiki/` is the
+knowledge foundation; manuscript content is derived from it.
+
 ## Supported now
 
 - The projects have independent package, data, result, wiki, and paper roots.
@@ -52,13 +57,15 @@ only after that release exists.
 ## Next actions
 
 - Verify the current frozen evidence release.
-- Draft any future manuscript from the canonical wiki claim surface.
+- Develop the JIIS manuscript from the canonical wiki using its source map and
+  readiness backlog; the earlier DYU package is editorial reference material.
 - Admit a future snapshot only after complete numeric provenance passes.
 
 ## Safe first checks and task routes
 
-Run `python -m pytest -q` for local structural contracts; it does not run heavy
-training or create scientific evidence. Contributors start with [Project Status](status/Project-Status.md).
+Use lightweight inspection on the login node. Run full tests and substantial
+audits through Slurm; no solving or heavy work belongs on a login node.
+Contributors start with [Project Status](status/Project-Status.md).
 Claim reviewers read [Claim Registry](claims/Current-Claim-Language.md),
 [Evidence Ledger](evidence/Evidence-Ledger.md), and [Limitations](LIMITATIONS.md).
 Dataset reviewers read [Dataset Registry](datasets/Dataset-Registry.md) and
@@ -67,4 +74,4 @@ Dataset reviewers read [Dataset Registry](datasets/Dataset-Registry.md) and
 
 ## Recovered material is available
 
-The owner-supplied archive restores historical result files and checksum-matching local corpora. See [recovery and reconciliation](evidence/Recovered-Evidence.md). Legacy evidence is available for claim-specific review; it is no longer treated as lost. The current admitted claim remains unchanged. Journal development proceeds through [the journal work page](manuscript/DYU-Journal.md).
+The owner-supplied archive restores historical result files and checksum-matching local corpora. See [recovery and reconciliation](evidence/Recovered-Evidence.md). Legacy evidence is available for claim-specific review; it is no longer treated as lost. The current admitted claim remains unchanged. Journal development proceeds through [the JIIS work page](manuscript/JIIS-Journal.md).

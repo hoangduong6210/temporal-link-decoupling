@@ -13,8 +13,23 @@ question -> frozen protocol -> scheduler execution -> complete attempts
 -> scoped claim review -> paper snapshot
 ```
 
-Heavy training is scheduler-only. Failed and superseded attempts remain visible.
-No mutable artifact is copied directly into a paper snapshot.
+All solving and heavy work is Slurm-only: training, evaluation, dataset rebuilds,
+parameter searches, substantial analysis/tests and document rendering. Do not
+execute these on a login node. Editing, lightweight metadata checks, Git and
+scheduler operations may run there. Supply account, partition and environment
+at submission time and retain the job identity and terminal accounting.
+
+Failed and superseded attempts remain visible. No mutable artifact is copied
+directly into a paper snapshot. A validation job does not create scientific
+evidence or substitute for the registered scientific runner.
+
+## Journal work
+
+The active target is JIIS, followed by KAIS and IJMLC. Start with the
+[JIIS plan](../manuscript/JIIS-Journal.md). Revise canonical wiki knowledge before
+paper content; preserve `LP-REL-2026-A003-001` and register any new scientific
+release separately. Do not submit a new training matrix solely because the
+venue changed: first resolve the question, comparator and protocol amendment.
 
 ## Recovery before rerunning
 

@@ -21,7 +21,7 @@ manuscript is under `paper/conference/`. None replaces this wiki.
 | Dataset/provenance reviewer | [Dataset Registry](datasets/Dataset-Registry.md) | [Data Contract](datasets/Data-and-Target-Contract.md), [Source Map](references/Technical-Source-Map.md), and [License](governance/License-and-Assets.md) |
 | Publication auditor | [Numeric Evidence and Publication Hygiene](governance/Numeric-Evidence-and-Publication-Hygiene.md) | Numeric closure, execution identity, and export exclusions |
 | Compute operator | [Research Workflow](operations/Research-Workflow.md) | [Live Execution](status/Live-Execution.md), protocol, and configuration |
-| Paper editor | [Paper Export Contract](manuscript/Paper-Export-Contract.md) | admitted claims, evidence ledger, and limitations |
+| Paper editor | [JIIS Journal Development](manuscript/JIIS-Journal.md) | [Journal Targets](manuscript/Journal-Targets.md), [Paper Export Contract](manuscript/Paper-Export-Contract.md), admitted claims and limitations |
 
 The [Index](INDEX.md) enumerates every maintained page and identifier. A legacy
 result becomes publishable only after an immutable release, evidence-ledger
@@ -30,4 +30,10 @@ permitted claim language; future paper revisions are written from this wiki.
 
 ## Recovery and journal navigation
 
-The complete wiki remains the canonical narrative. Start with [recovered evidence](evidence/Recovered-Evidence.md) for historical-result locations and [journal development](manuscript/DYU-Journal.md) for the editable manuscript. Recovery, scientific admission, and manuscript publication are different states.
+The complete wiki remains the canonical narrative. The active venue sequence is
+JIIS → KAIS → IJMLC under [the venue decision](decisions/0002-journal-target-order.md).
+Start with [JIIS development](manuscript/JIIS-Journal.md) for current preparation
+and [recovered evidence](evidence/Recovered-Evidence.md) for historical-result
+locations. The [DYU draft record](manuscript/DYU-Journal.md) preserves earlier
+editorial work. Recovery, scientific admission, and manuscript publication are
+different states.

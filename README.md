@@ -40,9 +40,24 @@ specified reproducibility note, and grayscale figure rendering. It is not an
 evidence-admitted snapshot because its result set is not registered in the
 current frozen release.
 
-## DYU journal working draft
+## Journal target: JIIS
 
-The expanded [LaTeX source and PDF](paper/journal/DYU/Latex_full/) follow the supplied DYU template and use current admitted result rows. The [journal wiki](wiki/manuscript/DYU-Journal.md) records its status. [Recovered historical evidence](wiki/evidence/Recovered-Evidence.md) is organized for retrospective reconciliation; it is not automatically promoted to the current release.
+The active submission strategy is **Journal of Intelligent Information Systems
+(JIIS) → Knowledge and Information Systems (KAIS) → International Journal of
+Machine Learning and Cybernetics (IJMLC)**. The
+[venue decision](wiki/decisions/0002-journal-target-order.md),
+[checked publisher requirements](wiki/manuscript/journal-targets.toml), and
+[JIIS development plan](wiki/manuscript/JIIS-Journal.md) live in the canonical
+wiki. The [JIIS preparation area](paper/journal/JIIS/) follows that plan.
+Venue selection is complete; manuscript preparation and scientific admission
+remain open. No journal submission is claimed.
+
+`wiki/` is the knowledge foundation: update it before deriving paper content.
+No solving or heavy work runs on login nodes; submit such jobs through Slurm.
+
+## Earlier DYU journal working draft
+
+The earlier [LaTeX source and PDF](paper/journal/DYU/Latex_full/) follow the supplied DYU template and contain current result rows alongside retrospective historical analyses. The [DYU journal wiki](wiki/manuscript/DYU-Journal.md) records that draft's status; DYU is no longer the active target. [Recovered historical evidence](wiki/evidence/Recovered-Evidence.md) is organized for reconciliation and is not automatically admitted to the current release or the JIIS paper.
 
 ## Repository layout
 
@@ -56,6 +71,7 @@ evidence/       execution records and release/snapshot plans
 results/frozen/ immutable scientific evidence release
 paper/snapshots immutable conference manuscript snapshot
 paper/conference single preserved conference PDF and Overleaf package
+paper/journal   JIIS preparation and the earlier DYU draft
 wiki/           methods, claims, evidence, limitations, and workflow
 scripts/        release, paper, provenance, and public-history gates
 slurm/          scheduler entry points with site settings supplied at submit time
@@ -84,6 +100,8 @@ digests, and builder identities are recorded in
 [`resources/source_registry.json`](resources/source_registry.json). Acquisition
 is explicit and fails if downloaded bytes do not match the registry:
 
+Run acquisition, rebuild and substantial dataset checks in a Slurm allocation.
+
 ```bash
 python experiments/dataset_builders/download.py wikipedia mooc \
   --output-dir resources/corpora
@@ -94,17 +112,20 @@ python -m pytest -q tests/test_dataset_acquisition.py
 
 ## Verification and reproduction
 
-Run the public repository checks from the project root:
+Run the public repository checks from the project root inside a Slurm
+allocation when running the full suite or substantial artifact/history audits:
 
 ```bash
 python -m pytest -q
-python scripts/audit_scientific_provenance.py --require-release
+python scripts/audit_scientific_provenance.py --check-canonical
 python scripts/verify_public_history.py
 ```
 
 These commands validate contracts and frozen artifacts; they do not launch
-training. Full scientific execution is scheduler-only. Site-specific account
-and partition values are supplied at submission time:
+scientific training. `--require-release` is the later submission-readiness gate
+and remains blocked while `paper/CURRENT` is `UNRELEASED`. All solving and heavy
+execution is scheduler-only. Site-specific account and partition values are
+supplied at submission time:
 
 ```bash
 sbatch -A <account> -p <partition> \

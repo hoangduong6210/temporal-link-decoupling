@@ -1,13 +1,19 @@
 ---
 title: DYU Journal Development
-status: compiled editable draft
+status: earlier compiled draft; active target superseded by JIIS
 last_updated: 2026-10-03
 paper_source: false
 ---
 
 # DYU Journal Development
 
-Target: Da-Yeh Journal of Science and Engineering Technology. The author confirms that the conference manuscript has not been submitted or published. The journal is therefore developed as an original submission, with the conference serving as an internal draft.
+The active target has changed to **JIIS**, followed by KAIS and IJMLC, under
+[the venue decision](../decisions/0002-journal-target-order.md). This page retains
+the earlier DYU development record; current work follows the
+[JIIS plan](JIIS-Journal.md). Existing DYU artifacts are preserved and their
+historical result tables do not acquire admission through the venue change.
+
+Earlier target: Da-Yeh Journal of Science and Engineering Technology. The author confirmed that the conference manuscript had not been submitted or published. The journal was therefore developed as an original submission, with the conference serving as an internal draft.
 
 The source package is `paper/journal/DYU/Latex_full/`. The journal develops the mathematical gradient boundary, pair-history updates, recurrent-memory semantics, full protocol, related work, current results and limits of the historical interpretation. It must not recover the conference length by padding or carrying forward unsupported numerical claims.
 

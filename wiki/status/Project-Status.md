@@ -1,7 +1,7 @@
 ---
 title: Project Status
 status: evidence frozen; paper pending
-last_updated: 2026-08-21
+last_updated: 2026-10-02
 paper_source: false
 ---
 
@@ -42,7 +42,10 @@ Project-authored source is released under BSD-3-Clause within the path-level
 scope documented by the licensing policy. Dataset bytes, frozen evidence,
 conference artifacts, and third-party material remain outside that grant.
 
-An editable DYU journal source has been compiled and visually reviewed from the canonical wiki. It is a working draft, separate from immutable snapshots, and must pass the publication gate before submission.
+An earlier editable DYU journal source was compiled and reviewed. It remains
+available as prior editorial work, including historical analyses that are not
+admitted to the active release. JIIS is now the primary target; its manuscript
+conversion and publication gate remain open.
 
 ## Revision boundary
 
@@ -62,4 +65,15 @@ of assuming the historical result files are lost.
 
 ## Active journal work
 
-Recovered results are distributed under the historical results tree, archived experiment context and recovery metadata. The full wiki now distinguishes recovered arithmetic from admitted performance evidence. The journal develops the conference methodology, literature, protocol specification and interpretation using current supported results. See [DYU Journal](../manuscript/DYU-Journal.md).
+The accepted order is **JIIS → KAIS → IJMLC** under
+[the venue decision](../decisions/0002-journal-target-order.md). The
+[JIIS plan](../manuscript/JIIS-Journal.md) maps manuscript sections to canonical
+wiki sources and tracks scientific, formatting and declaration gaps. The
+[venue register](../manuscript/journal-targets.toml) records checked official
+requirements. Venue selection is complete; no JIIS manuscript or submission
+package is yet complete.
+
+The full wiki distinguishes recovered arithmetic from admitted performance
+evidence. Historical DYU tables cannot be carried into the JIIS submission
+without claim-specific admission. All solving and heavy work must be submitted
+through Slurm; the knowledge and manuscript workflow starts in `wiki/`.

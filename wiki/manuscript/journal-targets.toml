@@ -1,0 +1,64 @@
+# Publisher requirements are editorial metadata, not experimental scalars.
+# Canonical venue register; update the wiki decision before changing the order.
+[strategy]
+decision = "wiki/decisions/0002-journal-target-order.md"
+last_checked = "2026-10-02"
+primary = "JIIS"
+fallback_order = ["KAIS", "IJMLC"]
+active_target = "JIIS"
+status = "preparation"
+submission_ready = false
+simultaneous_submissions = false
+knowledge_root = "wiki"
+paper_plan = "wiki/manuscript/JIIS-Journal.md"
+heavy_execution = "slurm-only"
+
+[venues.JIIS]
+name = "Journal of Intelligent Information Systems"
+publisher = "Springer Nature"
+journal_id = "10844"
+role = "primary"
+scope_url = "https://link.springer.com/journal/10844/aims-and-scope"
+guidelines_url = "https://link.springer.com/journal/10844/submission-guidelines"
+max_submission_pages = 25
+page_limit_includes = ["references", "tables", "figures"]
+submission_format = "LaTeX source, style files, figures and compiled PDF"
+abstract_min_words = 150
+abstract_max_words = 250
+keywords_min = 4
+keywords_max = 6
+reference_style = "numbered square brackets"
+flat_upload_required = true
+template_status = "resolve before final formatting"
+template_note = "Guidelines recommend the Springer Nature template but also explicitly name the Springer macro package smallcondensed option; check the linked packages and current submission workflow before freezing layout."
+
+[venues.KAIS]
+name = "Knowledge and Information Systems"
+publisher = "Springer Nature"
+journal_id = "10115"
+role = "first fallback"
+scope_url = "https://link.springer.com/journal/10115/aims-and-scope"
+guidelines_url = "https://link.springer.com/journal/10115/submission-guidelines"
+submission_format = "LaTeX recommended; Word also accepted"
+abstract_min_words = 150
+abstract_max_words = 250
+keywords_min = 4
+keywords_max = 6
+reference_style = "numbered square brackets"
+authorship_changes_after_submission = false
+page_limit_status = "No numeric cap identified on the checked guideline page; recheck at activation."
+
+[venues.IJMLC]
+name = "International Journal of Machine Learning and Cybernetics"
+publisher = "Springer Nature"
+journal_id = "13042"
+role = "second fallback"
+scope_url = "https://link.springer.com/journal/13042/aims-and-scope"
+guidelines_url = "https://link.springer.com/journal/13042/submission-guidelines"
+submission_format = "Word; LaTeX also accepted for mathematical content"
+abstract_min_words = 150
+abstract_max_words = 250
+keywords_min = 4
+keywords_max = 6
+reference_style = "author-year"
+page_limit_status = "No numeric cap identified on the checked guideline page; recheck at activation."

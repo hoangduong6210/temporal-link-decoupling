@@ -1,7 +1,7 @@
 ---
 title: Exhaustive Wiki Index
 status: canonical index
-last_updated: 2026-08-21
+last_updated: 2026-10-02
 paper_source: false
 ---
 
@@ -23,10 +23,14 @@ paper_source: false
 - [Dataset Registry](datasets/Dataset-Registry.md)
 - [Data and Target Contract](datasets/Data-and-Target-Contract.md)
 - [Split Decision](decisions/0001-separate-link-prediction-and-lifecycle-readout.md)
+- [Journal Target Decision](decisions/0002-journal-target-order.md)
 - [Evidence Ledger](evidence/Evidence-Ledger.md)
 - [License and Assets](governance/License-and-Assets.md)
 - [Numeric Evidence and Publication Hygiene](governance/Numeric-Evidence-and-Publication-Hygiene.md)
 - [Paper Export Contract](manuscript/Paper-Export-Contract.md)
+- [Journal Targets](manuscript/Journal-Targets.md)
+- [Journal Target Register](manuscript/journal-targets.toml)
+- [JIIS Journal Development](manuscript/JIIS-Journal.md)
 - [Decoupling Method](methods/Decoupled-Temporal-Link-Prediction.md)
 - [Negative Sampling](methods/Negative-Sampling.md)
 - [Research Workflow](operations/Research-Workflow.md)
@@ -71,6 +75,7 @@ paper_source: false
 | Current claim | `LP-C-IRREVERSIBILITY-001` | [Current Claim Language](claims/Current-Claim-Language.md) |
 | Historical claim | `LP-H-MIXED-001` | [Historical Claim Ledger](claims/Historical-Claim-Ledger.md) |
 | Decision | `DEC-0001` | [Split Decision](decisions/0001-separate-link-prediction-and-lifecycle-readout.md) |
+| Decision | `DEC-0002` | [Journal Target Decision](decisions/0002-journal-target-order.md) |
 
 ## Paper snapshot index
 

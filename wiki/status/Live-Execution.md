@@ -19,4 +19,15 @@ reinterpret training.
 
 ## Recovery and authoring activity
 
-Recovery and arithmetic checks have completed locally. No model-training or scheduler job has been launched for the journal. The available processed datasets support future reruns, but the registered scientific environment and scheduler are still required for new confirmatory execution.
+Recovery and arithmetic checks were completed before venue selection. No new
+model-training job has been launched for JIIS preparation. The available
+processed datasets support future reruns, but the registered scientific
+environment and scheduler are still required for new confirmatory execution.
+
+## JIIS preparation validation
+
+Repository/wiki contracts, venue metadata and navigation, canonical provenance,
+recovered-byte integrity and public-history checks passed in a Slurm compute
+allocation. This was a documentation validation job, not scientific execution.
+The admitted evidence and unreleased paper status are unchanged. See the
+[JIIS readiness backlog](../manuscript/JIIS-Journal.md) for outstanding work.
