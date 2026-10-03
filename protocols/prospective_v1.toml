@@ -1,0 +1,36 @@
+protocol_id = "LP-P-PROSPECTIVE-001"
+status = "PILOT_ONLY"
+wiki_spec = "wiki/methods/Prospective-Evaluation.md"
+publication_eligible = false
+heavy_compute = "slurm-only"
+datasets = ["wikipedia", "mooc"]
+arms = ["coupled", "decoupled"]
+negative_regimes = ["random", "historical", "novel-pair"]
+query = "timestamp-conditioned-link-ranking"
+catalogue = "all-destination-role-identities-assumed-known"
+current_event_features_in_score = false
+timestamp_ties = "score-entire-group-before-observe-stable-row-order"
+inductive_history = "observe-full-stream-filter-metrics-only"
+empty_negative_support = "record-skip-and-observe-event"
+
+[pilot]
+seed = 1
+epochs = 2
+hidden = 32
+max_events = 2000
+learning_rate = 0.001
+weight_decay = 0.00001
+train_ratio = 0.70
+validation_ratio = 0.15
+evaluation_seed = 1729
+query_batch_size = 256
+device = "cpu"
+
+[model]
+adapter = "ProspectiveSRGNN"
+candidate_features = "mean-of-last-observed-endpoint-features"
+candidate_context = "pre-event-pair-state"
+observation_scorepath_detached = true
+primary_loss = "unweighted-binary-cross-entropy"
+auxiliary_loss = "legacy-observation-total-minus-legacy-prediction"
+memory_gradient = "detached-between-events"

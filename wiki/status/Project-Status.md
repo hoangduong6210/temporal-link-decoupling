@@ -77,3 +77,12 @@ The full wiki distinguishes recovered arithmetic from admitted performance
 evidence. Historical DYU tables cannot be carried into the JIIS submission
 without claim-specific admission. All solving and heavy work must be submitted
 through Slurm; the knowledge and manuscript workflow starts in `wiki/`.
+
+## Prospective protocol development
+
+The [prospective specification](../methods/Prospective-Evaluation.md) defines a
+separate pilot with pre-event scoring, explicit destination support and full
+history replay. Its adapter, runner, Slurm entry point and contract tests are
+implemented. This does not revise the frozen historical comparison or make a
+new performance claim. Full-corpus execution, external comparator parity and
+JIIS manuscript admission remain open.

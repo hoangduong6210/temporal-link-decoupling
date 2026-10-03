@@ -7,6 +7,7 @@ resources/corpora/*.npz
 resources/corpora/pre_idfix/*.npz
 resources/corpora/legacy_migration/*.npz
 resources/staging/
+results/prospective-pilots/
 paper/working/*.zip
 results/audit/*
 !results/audit/.gitkeep

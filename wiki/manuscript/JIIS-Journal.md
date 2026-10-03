@@ -80,6 +80,14 @@ unexecuted comparator or robustness work as completed.
 
 ## Execution and handoff
 
+The [prospective evaluation specification](../methods/Prospective-Evaluation.md)
+and `LP-P-PROSPECTIVE-001` implement the initial protocol-development work.
+The adapter separates scoring from observation, uses typed candidate support,
+and retains all events when reporting inductive metrics. It is a distinct pilot
+study; its changed representation and objective must not be presented as an
+unchanged rerun of the current admitted model. Full-scale comparator evidence
+and manuscript admission remain open.
+
 All solving and heavy work goes through Slurm. This includes training,
 evaluation, dataset rebuilding, large analysis, substantial test runs and
 document rendering. On the login node, edit, inspect lightweight metadata,

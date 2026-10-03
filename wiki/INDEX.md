@@ -33,6 +33,7 @@ paper_source: false
 - [JIIS Journal Development](manuscript/JIIS-Journal.md)
 - [Decoupling Method](methods/Decoupled-Temporal-Link-Prediction.md)
 - [Negative Sampling](methods/Negative-Sampling.md)
+- [Prospective Evaluation](methods/Prospective-Evaluation.md)
 - [Research Workflow](operations/Research-Workflow.md)
 - [Technical Source Map](references/Technical-Source-Map.md)
 - [Inductive Decoupling Benchmark](results/Inductive-Decoupling-Benchmark.md)
@@ -58,6 +59,7 @@ paper_source: false
 | Dataset | `LP-D-WIKIPEDIA-001` | [Dataset Registry](datasets/Dataset-Registry.md) |
 | Dataset | `LP-D-MOOC-001` | [Dataset Registry](datasets/Dataset-Registry.md) |
 | Protocol | `LP-P-DECOUPLING-001` | [Protocol](../protocols/link_prediction_v1.toml) |
+| Protocol | `LP-P-PROSPECTIVE-001` | [Prospective pilot protocol](../protocols/prospective_v1.toml) |
 | Protocol amendment | `LP-P-DECOUPLING-001-A001` | [Amendment](../protocols/amendments/LP-P-DECOUPLING-001-A001.md) |
 | Protocol amendment | `LP-P-DECOUPLING-001-A002` | [Corrective amendment](../protocols/amendments/LP-P-DECOUPLING-001-A002.md) |
 | Protocol amendment | `LP-P-DECOUPLING-001-A003` | [Dataset-topology amendment](../protocols/amendments/LP-P-DECOUPLING-001-A003.md) |

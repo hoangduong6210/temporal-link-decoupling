@@ -21,12 +21,37 @@ SIBLING_PACKAGE = "lifecycle_readout"
 PREFIX = "LP"
 
 
+def _public_files() -> list[Path]:
+    """Inspect the public worktree, excluding Git internals and ignored runs.
+
+    Tracked files remain checked even if an ignore rule later matches them;
+    untracked, non-ignored files are also prospective publication inputs.
+    """
+    result = subprocess.run(
+        ["git", "ls-files", "-z", "--cached", "--others", "--exclude-standard"],
+        cwd=ROOT, capture_output=True, check=True,
+    )
+    return sorted({ROOT / os.fsdecode(name) for name in result.stdout.split(b"\0") if name})
+
+
 def _sha256(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as stream:
         for chunk in iter(lambda: stream.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def test_public_inventory_keeps_tracked_files_even_when_ignored(monkeypatch, tmp_path) -> None:
+    subprocess.run(["git", "init", "-q", str(tmp_path)], check=True)
+    (tmp_path / ".gitignore").write_text("*.log\n")
+    (tmp_path / "tracked.log").write_text("must remain auditable\n")
+    (tmp_path / "local.log").write_text("ignored runtime output\n")
+    (tmp_path / "new.py").write_text("x = 1\n")
+    subprocess.run(["git", "add", "-f", "tracked.log"], cwd=tmp_path, check=True)
+    monkeypatch.setitem(globals(), "ROOT", tmp_path)
+    names = {path.relative_to(tmp_path).as_posix() for path in _public_files()}
+    assert names == {".gitignore", "tracked.log", "new.py"}
 
 
 def _front_matter(path: Path) -> dict[str, str]:
@@ -286,15 +311,16 @@ def test_claim_evidence_namespace_resolves() -> None:
 
 
 def test_source_boundary_syntax_and_imports() -> None:
-    for path in ROOT.rglob("*.py"):
-        ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+    for path in _public_files():
+        if path.suffix == ".py":
+            ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
     src_text = "\n".join(
         path.read_text(encoding="utf-8") for path in (ROOT / "src").rglob("*.py")
     )
     assert SIBLING_PACKAGE not in src_text
     assert "sys.path.insert" not in src_text
     assert "sys.path.append" not in src_text
-    for path in ROOT.rglob("*"):
+    for path in _public_files():
         if path.is_symlink():
             assert path.resolve().is_relative_to(ROOT)
 
@@ -315,15 +341,16 @@ def test_source_boundary_syntax_and_imports() -> None:
 
 
 def test_json_and_artifact_hygiene() -> None:
-    for path in ROOT.rglob("*.json"):
-        json.loads(path.read_text(encoding="utf-8"))
+    for path in _public_files():
+        if path.suffix == ".json":
+            json.loads(path.read_text(encoding="utf-8"))
     forbidden = {"__pycache__", ".claude", ".pytest_cache"}
     bad_suffixes = {".pyc", ".aux", ".out", ".log"}
     ignore = (ROOT / ".gitignore").read_text(encoding="utf-8")
     assert "__pycache__/" in ignore and "*.py[cod]" in ignore and ".pytest_cache/" in ignore
     assert "results/frozen/*" not in ignore
     assert "paper/snapshots/*" not in ignore
-    for path in ROOT.rglob("*"):
+    for path in _public_files():
         # Python/pytest create caches while this suite is running. Their exclusion
         # is a VCS contract; filesystem presence during a test is not a violation.
         if (
@@ -343,7 +370,7 @@ def test_public_files_contain_no_private_paths() -> None:
     ]
     suffixes = {".py", ".sh", ".sbatch", ".md", ".toml", ".yaml", ".yml", ".json"}
     pattern = re.compile(r"/(?:users|home|private|scratch)/")
-    for path in ROOT.rglob("*"):
+    for path in _public_files():
         if not path.is_file() or path.suffix not in suffixes:
             continue
         if any(path.is_relative_to(base) for base in excluded):
