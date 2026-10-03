@@ -53,6 +53,7 @@ def audit(report):
     for relative, expected in report["input_sha256"].items():
         content = subprocess.check_output(["git", "show", report["source_commit"] + ":" + relative], cwd=ROOT)
         assert hashlib.sha256(content).hexdigest() == expected
+        assert sha(ROOT / relative) == expected, "replay dependencies differ from the registered source"
         if relative == "protocols/prospective_development_v2.toml":
             assert tomllib.loads(content.decode()) == report["protocol"]
         elif relative == "configs/tgn-upstream.json":
@@ -177,8 +178,15 @@ def main():
     parser.add_argument("--output-dir", required=True, type=Path)
     parser.add_argument("--jobs", required=True, help="all relevant attempts, including failures, for native sacct preservation")
     args = parser.parse_args()
+    args.output_dir = args.output_dir.resolve()
+    if not args.output_dir.is_relative_to(ROOT):
+        parser.error("archive output must be inside the project root")
     if not os.environ.get("SLURM_JOB_ID", "").isdigit() or "login" in socket.gethostname().lower():
         parser.error("reconciliation requires Slurm compute allocation")
+    source_commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
+    if subprocess.check_output(["git", "status", "--porcelain"], cwd=ROOT, text=True).strip():
+        parser.error("commit the reconciler and start from a clean source tree")
+    reconciler_hash = sha(Path(__file__))
     reports = [json.loads(path.read_text()) for path in args.attempts]
     assert {r["dataset"] for r in reports} == {"wikipedia", "mooc"}
     assert len({r["source_commit"] for r in reports}) == 1
@@ -191,9 +199,12 @@ def main():
     summary = {"kind": "reconciled-development-matrix", "publication_eligible": False,
                "interpretation": "descriptive paired seed variation on previously inspected prefixes; no significance or confirmatory claim",
                "job_id": os.environ["SLURM_JOB_ID"], "reconciler_sha256": sha(Path(__file__)),
+               "reconciler_source_commit": source_commit, "reconciler_source_clean": True,
                "source_commit": reports[0]["source_commit"],
                "input_reports": {r["dataset"]: sha(p) for r, p in zip(reports, args.attempts)},
                "datasets": [audit(report) for report in reports]}
+    assert sha(Path(__file__)) == reconciler_hash
+    assert subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip() == source_commit
     args.output_dir.mkdir(parents=True, exist_ok=False)
     for report, path in zip(reports, args.attempts):
         shutil.copyfile(path, args.output_dir / (report["dataset"] + "-development.json"))

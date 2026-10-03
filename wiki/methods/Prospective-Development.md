@@ -1,7 +1,7 @@
 ---
 title: Prospective Readout and Comparator Development
 status: registered development matrix; not confirmatory evidence
-last_updated: 2026-10-02
+last_updated: 2026-10-03
 paper_source: false
 ---
 
@@ -40,6 +40,41 @@ loading of a legacy decoder into the replacement.
 This is a parameterization change with retraining. It is not an evaluation-only
 correction and does not assume that clipping is the sole source of poor ranking.
 The legacy decoder and all of its results are retained as controls.
+
+## Mathematical and gradient boundary
+
+Let the query transformation be \(h=Q_\theta(H_{<t},u,v,t)\), using only
+observed history. The scored head combines this representation with detached
+pair-history channels \(\phi_{uv}\), producing a normalized state distribution
+\(q_\psi(h,\phi_{uv})\). The bounded state weights are
+\(w_k=\sigma(a_k)\). Its predicted presence mass and log odds are
+
+\[
+p=\sum_k q_k w_k,
+\qquad
+\ell=\log\sum_k q_k\sigma(a_k)-\log\sum_k q_k\sigma(-a_k).
+\]
+
+The implementation computes these sums in log space. Finite parameter values
+keep the ideal mixture strictly inside the probability interval; the log-space
+form avoids rounding the final probability before calculating its log odds.
+The numerical floor on state mass protects logarithms when softmax underflows.
+
+These probabilities parameterize the sampled positive/negative classification
+task. Their numerical validity does not establish calibration to a deployment
+event rate. Likewise, named lifecycle states are latent model constructs with
+heuristic auxiliary targets, not independently observed lifecycle annotations
+or evidence that the transition restrictions are causal laws.
+
+For coupled scoring, the head reads \(h\); for detached scoring it reads
+\(\operatorname{stopgrad}(h)\). Thus, at equal parameter and history values,
+the scored prediction is equal while the prediction gradient reaching
+\(\theta\) is removed in the detached arm. The observation objective is the
+legacy total loss minus its prediction term. Both arms preserve its routing,
+including the detached observation-side scored representation. Their numeric
+auxiliary gradients need not remain equal after their parameter trajectories
+diverge. Persistent node and pair memories remain detached between events;
+this comparison does not perform backpropagation through the whole event stream.
 
 ## Controlled comparisons
 

@@ -1,7 +1,7 @@
 ---
 title: Prospective Evaluation
 status: pilot specification; no admitted performance claim
-last_updated: 2026-10-02
+last_updated: 2026-10-03
 paper_source: false
 ---
 
@@ -73,6 +73,12 @@ The paired pilot uses identical initial weights, candidate draws and budgets.
 The adapter updates the ever-active max accumulator only at touched pair keys;
 a parity test checks equivalence with the original full-array update, including
 duplicate and unregistered keys. The original implementation remains intact.
+
+The inherited pair-indexed moments summarize source-node gaps; they are not
+literal pair inter-arrival estimates. Query staleness in the pair channels is
+also source-anchored. The separate recency control uses the actual last pair
+timestamp. These representation differences remain modeling questions, as
+specified in the [gap-semantics review](Decoupled-Temporal-Link-Prediction.md).
 
 ## Candidates and coverage
 
