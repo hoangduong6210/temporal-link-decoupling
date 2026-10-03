@@ -16,6 +16,12 @@ import run_prospective_pilot as pilot
 
 @torch.no_grad()
 def diagnose(dataset, original, checkpoint_root):
+    # CPU reduction order depends on thread count, especially near the logit
+    # clamp. Reproduce the recorded execution instead of loosening score checks.
+    threads = int(original["scheduler"]["SLURM_CPUS_PER_TASK"])
+    if threads > int(os.environ.get("SLURM_CPUS_PER_TASK", "1")):
+        raise RuntimeError("allocation cannot reproduce the pilot thread count")
+    torch.set_num_threads(threads)
     data = pilot.load_dataset(dataset)
     assert pilot.digest(pilot.ROOT / "resources/corpora" / (dataset + ".npz")) == original["data"]["source_npz_sha256"]
     stop = original["data"]["prefix_events"]
@@ -28,6 +34,7 @@ def diagnose(dataset, original, checkpoint_root):
                                    original["settings"]["hidden"], decoupled=arm["arm"] == "decoupled")
         net.load_state_dict(torch.load(checkpoint, map_location="cpu", weights_only=True))
         net.eval()
+        net.core.set_epoch(original["settings"]["epochs"])
         net.reset()
         weights = F.softplus(net.core.existence_decoder.theta).cpu().tolist()
         maps = {regime: {row[0]: row for row in result["score_rows"]}
@@ -89,7 +96,7 @@ def diagnose(dataset, original, checkpoint_root):
         out.append({"arm": arm["arm"], "checkpoint_sha256": arm["checkpoint_sha256"],
                     "decoder_weights": weights, "replay_max_abs_error": maximum_error,
                     "observed_events": net.observed_events, "regimes": regimes})
-    return {"dataset": dataset, "arms": out}
+    return {"dataset": dataset, "torch_threads": threads, "arms": out}
 
 
 def main():
