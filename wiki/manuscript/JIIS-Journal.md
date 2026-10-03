@@ -93,6 +93,12 @@ including unfavorable results. Its findings support studying when a gradient
 boundary helps; they do not justify assuming uniform superiority. Full-scale
 comparator evidence and manuscript admission remain open.
 
+The registered [sampling and gradient diagnostics](../methods/Prospective-Diagnostics.md)
+now tests the interaction between routing and training negatives using only
+train/validation. It also records decoder sensitivity and auxiliary-gradient
+increments. This development stage precedes any decision to scale the study;
+its validation outcomes cannot substitute for admitted test evidence.
+
 All solving and heavy work goes through Slurm. This includes training,
 evaluation, dataset rebuilding, large analysis, substantial test runs and
 document rendering. On the login node, edit, inspect lightweight metadata,

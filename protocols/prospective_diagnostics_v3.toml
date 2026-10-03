@@ -1,0 +1,70 @@
+protocol_id = "LP-P-PROSPECTIVE-003"
+status = "DEVELOPMENT_ONLY"
+publication_eligible = false
+wiki_spec = "wiki/methods/Prospective-Diagnostics.md"
+heavy_compute = "slurm-only"
+datasets = ["wikipedia", "mooc"]
+models = ["bounded-coupled", "bounded-decoupled", "tgn"]
+training_policies = ["random", "mixed"]
+seeds = [1, 2, 3]
+negative_regimes = ["random", "historical", "novel-pair"]
+evaluation_partition = "validation-only; test events removed before model construction"
+primary_endpoint = "fixed-final-epoch validation AP/AUC by regime and cohort; paired routing-by-sampling interaction"
+selection = "secondary checkpoint: equal-weight mean of all-cohort validation AP across all registered regimes; earliest epoch on ties; empty support is an error"
+inference = "already inspected development prefixes; descriptive, no significance, no test or publication claim"
+required_reporting = ["all", "inductive-relative-to-training", "repeated-positive", "new-pair-positive", "shared-regime-support", "recurrence", "recency"]
+
+[pilot]
+epochs = 2
+hidden = 32
+max_events = 2000
+learning_rate = 0.001
+weight_decay = 0.00001
+train_ratio = 0.70
+validation_ratio = 0.15
+evaluation_seed = 1729
+query_batch_size = 256
+device = "cpu"
+torch_threads = 1
+
+[sampling]
+historical_probability_when_available = 0.5
+random_seed_offset = 0
+historical_seed_offset = 1000000
+mixture_seed_offset = 2000000
+missing_history = "explicit random-only stratum; never relabel as a historical sample"
+empty_random_support = "skip scored row and observe event; no synthetic candidate"
+budget = "one negative per supported positive under both training policies; identical base random draws and availability across policies"
+history = "strictly earlier complete timestamp groups; exclude every current positive of the source"
+evaluation = "unchanged typed regimes with explicit skips and no fallback"
+
+[diagnostics]
+gradient_group_interval = 64
+gradient_groups = ["csn", "context", "drgc", "state_observer", "transition_predictor", "decoder"]
+gradient_measurement = "prediction gradient before observation; auxiliary accumulation increment after observation and before optimizer step"
+gradient_limit = "increment subtraction has floating-point cancellation; cosine is undefined if either norm is zero; associative, not causal"
+decoder_measurement = "initial and epoch log-odds, effective probabilities, sigmoid slopes, parameter displacement, epoch gradient RMS"
+interventions = "sampling and query detach only; no decoder initialization tuning or auxiliary ablation in this stage"
+
+[tgn]
+source_register = "configs/tgn-upstream.json"
+layers = 1
+attention_heads = 2
+neighbors = 10
+dropout = 0.0
+memory = "gru"
+messages = "identity"
+aggregation = "last"
+node_features = "zeros"
+event_features = "train and validation stream only; observed after query"
+
+[bounded_readout]
+initial_probability_margin = 0.000001
+parameterization = "unchanged LP-P-PROSPECTIVE-002 bounded decoder"
+
+[paired_design]
+initialization = "identical across routing and training policies within seed and model family"
+candidates = "identical across models for each training policy/seed/epoch; evaluation identical across cells/seeds/epochs"
+primary_routing_delta = "decoupled minus coupled, separately for each training policy"
+primary_interaction = "mixed routing delta minus random routing delta, paired within seed"
+legacy_boundary = "prior legacy results preserved; not a matched decoder comparison with this validation-only study"
