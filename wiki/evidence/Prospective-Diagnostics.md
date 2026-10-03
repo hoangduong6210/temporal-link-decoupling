@@ -87,9 +87,14 @@ prediction routing, auxiliary learning and backbone adaptation; an unchanged
 random backbone is a meaningful alternative explanation that must be tested.
 Specify which loss terms and optimizer participation change, preserve the
 history observation schedule, and use training/validation only for development.
-These controls are a proposed next study, not executed evidence.
+These controls are now [registered separately](../methods/Prospective-Mechanism-Controls.md),
+not executed evidence. The new probe covers full ECTG as well as the shared
+query transformations; the earlier context-only probe did not measure every
+auxiliary path.
 
-In parallel, close a portable prospective runtime lock, audit a source-independent
+The [isolated prospective CPU runtime](../methods/Prospective-Runtime.md) has
+passed committed-source validation; matched reference arms must be rerun there.
+In parallel, audit a source-independent
 corpus, and measure training-only throughput through Slurm before setting
 full-corpus budgets. Register data, uncertainty units, comparator/tuning budgets
 and support-aware endpoints before new test inspection. The

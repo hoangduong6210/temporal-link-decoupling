@@ -42,6 +42,7 @@ paper_source: false
 - [Prospective Readout and Comparator Development](methods/Prospective-Development.md)
 - [Prospective Sampling and Gradient Diagnostics](methods/Prospective-Diagnostics.md)
 - [Isolated Prospective CPU Runtime](methods/Prospective-Runtime.md)
+- [Prospective Auxiliary and Backbone Controls](methods/Prospective-Mechanism-Controls.md)
 - [Research Workflow](operations/Research-Workflow.md)
 - [Technical Source Map](references/Technical-Source-Map.md)
 - [Journal Research Gap and Literature Review Boundary](references/Journal-Research-Gap.md)
@@ -71,6 +72,7 @@ paper_source: false
 | Protocol | `LP-P-PROSPECTIVE-001` | [Prospective pilot protocol](../protocols/prospective_v1.toml) |
 | Protocol | `LP-P-PROSPECTIVE-002` | [Prospective development matrix](../protocols/prospective_development_v2.toml) |
 | Protocol | `LP-P-PROSPECTIVE-003` | [Prospective sampling and gradient diagnostics](../protocols/prospective_diagnostics_v3.toml) |
+| Protocol | `LP-P-PROSPECTIVE-004` | [Prospective auxiliary and backbone controls](../protocols/prospective_mechanism_v4.toml) |
 | Protocol amendment | `LP-P-DECOUPLING-001-A001` | [Amendment](../protocols/amendments/LP-P-DECOUPLING-001-A001.md) |
 | Protocol amendment | `LP-P-DECOUPLING-001-A002` | [Corrective amendment](../protocols/amendments/LP-P-DECOUPLING-001-A002.md) |
 | Protocol amendment | `LP-P-DECOUPLING-001-A003` | [Dataset-topology amendment](../protocols/amendments/LP-P-DECOUPLING-001-A003.md) |

@@ -1,0 +1,64 @@
+protocol_id = "LP-P-PROSPECTIVE-004"
+status = "DEVELOPMENT_ONLY"
+publication_eligible = false
+wiki_spec = "wiki/methods/Prospective-Mechanism-Controls.md"
+heavy_compute = "slurm-only"
+datasets = ["wikipedia", "mooc"]
+arms = ["coupled-aux", "detached-aux", "coupled-noaux", "detached-noaux", "frozen-aux"]
+training_policies = ["random", "mixed"]
+seeds = [1, 2, 3]
+negative_regimes = ["random", "historical", "novel-pair"]
+evaluation_partition = "validation only; test events removed before model construction"
+primary_endpoint = "fixed final epoch validation AP/AUC, paired auxiliary-by-routing interaction separately under each training policy"
+secondary_endpoint = "detached-aux minus frozen-aux at fixed final epoch; auxiliary effect within each routing arm"
+checkpoint_selection = "secondary checkpoint by equal-weight mean all-cohort validation AP across regimes; earliest tie; empty support is an error"
+inference = "descriptive development; already inspected prefixes; no significance, causal generalization or test evidence"
+
+[pilot]
+epochs = 2
+hidden = 32
+max_events = 2000
+learning_rate = 0.001
+weight_decay = 0.00001
+train_ratio = 0.70
+validation_ratio = 0.15
+evaluation_seed = 1729
+query_batch_size = 256
+device = "cpu"
+torch_threads = 1
+
+[runtime]
+lock = "configs/prospective-requirements-py39-cpu.lock"
+attestation = "evidence/development/LP-RUNTIME-CPU-001/runtime.json"
+reference_arms = "rerun coupled-aux and detached-aux in this runtime; never use earlier environment scores as paired controls"
+
+[interventions]
+auxiliary_off = "skip observation-loss backward entirely; keep full observation forward, stochastic draws, memory updates and reported auxiliary value"
+backbone = ["core.csn", "core.ectg", "core.drgc"]
+frozen_arm = "detached query; set only backbone parameters requires_grad=false from initialization; keep auxiliary learning in remaining heads and full dynamic memory"
+optimizer = "Adam over parameters with requires_grad=true; zero_grad(set_to_none=true); a parameter with no gradient receives no weight-decay update"
+fixed_control_identity = "detached-noaux must keep backbone parameter hashes unchanged; exact equivalence to frozen-noaux is an integration invariant, not an extra scored arm"
+initialization = "same bounded decoder initialization and all initial parameter bytes across every arm and policy within each seed"
+unchanged = ["history replay", "candidate support", "negative budget", "optimizer settings", "decoder initialization", "features", "splits"]
+
+[sampling]
+historical_probability_when_available = 0.5
+random_seed_offset = 0
+historical_seed_offset = 1000000
+mixture_seed_offset = 2000000
+missing_history = "explicit random-only stratum"
+budget = "one negative per supported positive; common candidate draws across arms"
+
+[diagnostics]
+gradient_group_interval = 64
+groups = ["csn", "ectg", "drgc", "state_observer", "transition_predictor", "existence_decoder", "other"]
+coverage = "disjoint exhaustive parameter groups; full ECTG, not only the P003 context projection"
+measurement = "prediction gradient then auxiliary accumulation increment; dependent probes, floating-point cancellation limits"
+movement = "per-group initial and epoch parameter hashes, L2 and maximum absolute displacement; Adam movement is not inferred from raw gradient magnitude"
+
+[decision]
+auxiliary_interaction = "(detached-aux minus coupled-aux) minus (detached-noaux minus coupled-noaux), paired within seed and training policy"
+backbone_adaptation = "detached-aux minus frozen-aux; fixed parameters still have dynamically replayed memory"
+falsification = "persistent routing benefit without auxiliary weakens auxiliary-conflict necessity; similar fixed-backbone performance weakens an auxiliary-trained-backbone explanation; retain all opposite/null directions"
+limits = "controls change complete training trajectories including head/state feedback; they cannot identify a unique local gradient-conflict cause"
+required_reporting = ["all", "inductive-relative-to-training", "repeated-positive", "new-pair-positive", "shared-regime-support", "recurrence", "recency"]

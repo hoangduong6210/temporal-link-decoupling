@@ -1,6 +1,6 @@
 ---
 title: Isolated Prospective CPU Runtime
-status: hash-installed candidate; committed-source verification pending
+status: isolated hash-installed runtime; committed-source verification passed
 last_updated: 2026-10-03
 paper_source: false
 ---
@@ -19,6 +19,12 @@ pins transitive versions and artifact hashes for the recorded Python ABI and
 platform. Install from the hashed lock into an isolated environment without
 system or user site-packages; the abstract input is not an installation lock.
 The [workflow](../../docs/PROSPECTIVE_RUNTIME.md) owns exact operational commands.
+
+The [runtime validation bundle](../../evidence/development/LP-RUNTIME-CPU-001/README.md)
+records the installed-payload attestation, successful committed-source gate,
+original TGN integration and preserved failed attempts. Physical site-directory
+aliases are resolved before package enumeration; distinct duplicate installations
+remain errors. The complete repository and canonical/public-history checks passed.
 
 ## Verification contract
 

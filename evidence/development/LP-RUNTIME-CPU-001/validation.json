@@ -1,0 +1,46 @@
+{
+  "installation": {
+    "builds_allowed": false,
+    "hashes_required": true,
+    "input_sha256": "7c232e7f6699e0c6865cc76883a0db03ead702d9dc19bf6a3dc007b2f5de53a0",
+    "job_id": "7651441",
+    "lock_sha256": "aa03ffcd741f8d458c1da0b0d6bdbf4ed3d893572f157409e3d9b43e1013e82c",
+    "log_sha256": "c6bb113dfb2dc07f5a6f8e03b26222811e7086e6173f73a60261bbf46ae29da4",
+    "resolver": "uv 0.11.28",
+    "torch_backend": "cpu"
+  },
+  "kind": "prospective-cpu-runtime-validation",
+  "prior_failures": [
+    {
+      "job_id": "7651436",
+      "log_sha256": "7e8afa4190437bd95c193df8dbdd9d52ba76672dfe2bfc0189cdcc7587fc988a",
+      "reason": "CPU backend flag was supplied to compilation but omitted during installation; no model was run. Retried in a new directory with the explicit CPU backend.",
+      "state": [
+        "FAILED",
+        "1:0"
+      ]
+    },
+    {
+      "job_id": "7651446",
+      "log_sha256": "b5e3566806b4fef9204fb0d3a23ca0b356513d1159a62261264df5bac112794e",
+      "reason": "Verifier counted lib/lib64 aliases as duplicate installed distributions. Diagnostic job 7651452 identified the aliases; canonical search-directory resolution was fixed with a regression test.",
+      "state": [
+        "FAILED",
+        "1:0"
+      ]
+    }
+  ],
+  "publication_eligible": false,
+  "raw_log_retention": "Failed and installation logs remain private with original site paths; their hashes are preserved here.",
+  "runtime_sha256": "f917394774ba844a84d11165d00ffa74e69c627cac48956f9152212ab9cea7cf",
+  "scientific_boundary": "Earlier development scores are not relabeled as locked; new studies rerun their matched reference arms in this environment.",
+  "source_commit": "091ae8e1cb136190a077bde12776e5a31a9fa704",
+  "source_validation": {
+    "canonical": "PASS",
+    "job_id": "7651454",
+    "log_sha256": "e3082d7711ae9dc3bf638c2fd9194e83145847b2a4eace355dccee9a7b487e30",
+    "public_history": "PASS",
+    "skipped": 0,
+    "tests_passed": 101
+  }
+}
