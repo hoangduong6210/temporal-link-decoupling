@@ -46,6 +46,15 @@ def normalize(name):
     return re.sub(r"[-_.]+", "-", name).lower()
 
 
+def installed_distributions(search_paths=None):
+    # Some Linux venvs expose lib and a lib64 symlink simultaneously. Deduplicate
+    # only identical physical search directories, not same-named distributions
+    # in distinct locations; the latter still fail the package-set check.
+    paths = list(dict.fromkeys(str(Path(path).resolve()) for path in
+                               (sys.path if search_paths is None else search_paths)))
+    return importlib.metadata.distributions(path=paths)
+
+
 def locked_packages(text):
     """Only the concrete, single-platform generated lock format is accepted."""
     result, current, hashes = {}, None, 0
@@ -99,7 +108,7 @@ def attest(lock=LOCK):
     require(platform.python_implementation() == "CPython" and platform.machine() == "x86_64", "unsupported interpreter/platform")
     expected = locked_packages(lock.read_text())
     packages, payload = {}, []
-    for dist in importlib.metadata.distributions():
+    for dist in installed_distributions():
         name = normalize(dist.metadata["Name"])
         require(name not in packages, "duplicate installed distribution")
         require(expected.get(name) == dist.version, "unexpected package or package version: " + name)
