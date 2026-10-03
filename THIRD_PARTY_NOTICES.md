@@ -22,3 +22,10 @@ Any future vendored file must retain its original notice and license, and this
 document must be updated before release.
 
 The exact boundary of the project license is defined in `LICENSE-SCOPE.md`.
+
+The prospective comparator loads a separately fetched checkout of
+[twitter-research/tgn](https://github.com/twitter-research/tgn), pinned in
+`configs/tgn-upstream.json`. Its original implementation is licensed under
+Apache-2.0 and is not redistributed or relicensed by this repository. The
+project-authored protocol wrapper calls those original modules; it does not
+turn the upstream evaluator's results into evidence for the project protocol.

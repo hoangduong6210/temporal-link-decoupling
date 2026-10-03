@@ -1,0 +1,51 @@
+protocol_id = "LP-P-PROSPECTIVE-002"
+status = "DEVELOPMENT_ONLY"
+publication_eligible = false
+wiki_spec = "wiki/methods/Prospective-Development.md"
+heavy_compute = "slurm-only"
+datasets = ["wikipedia", "mooc"]
+models = ["legacy-coupled", "legacy-decoupled", "bounded-coupled", "bounded-decoupled", "tgn"]
+seeds = [1, 2, 3]
+negative_regimes = ["random", "historical", "novel-pair"]
+selection = "best-validation-random-all-AP; earliest-epoch-on-tie"
+training_negatives = "random; same candidates across all models for each seed and epoch"
+evaluation_negatives = "shared across every model and seed"
+inference = "development prefixes were already inspected; no confirmatory or significance claim"
+required_reporting = ["all", "inductive", "repeated-positive", "new-pair-positive", "shared-regime-support", "recurrence", "recency"]
+
+[pilot]
+epochs = 2
+hidden = 32
+max_events = 2000
+learning_rate = 0.001
+weight_decay = 0.00001
+train_ratio = 0.70
+validation_ratio = 0.15
+evaluation_seed = 1729
+query_batch_size = 256
+device = "cpu"
+torch_threads = 1
+
+[tgn]
+source_register = "configs/tgn-upstream.json"
+layers = 1
+attention_heads = 2
+neighbors = 10
+dropout = 0.0
+memory = "gru"
+messages = "identity"
+aggregation = "last"
+node_features = "zeros"
+event_features = "registered stream; observed only after query"
+
+[bounded_readout]
+weights = "sigmoid(state_log_odds)"
+initialization = "legacy effective state weights clipped to the registered interior margin; no extra random draws"
+initial_probability_margin = 0.000001
+logit = "logsumexp(log_state + logsigmoid(theta)) minus logsumexp(log_state + logsigmoid(-theta))"
+observation = "unchanged auxiliary objective; original prediction term cancelled"
+
+[paired_design]
+vary = "gradient detach within each decoder family"
+decoder_comparison = "parameterization intervention with retraining; not an isolated evaluation correction"
+external_comparison = "original TGN modules under the shared project protocol; not published-score reproduction"

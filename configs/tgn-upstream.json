@@ -1,0 +1,8 @@
+{
+  "repository": "https://github.com/twitter-research/tgn",
+  "commit": "d55bbe678acabb9fc3879c408fd1f2e15919667c",
+  "license": "Apache-2.0",
+  "paper": "https://arxiv.org/abs/2006.10637",
+  "mode": "fetch-only; original modules loaded from a clean external checkout",
+  "status": "development comparator; not admitted benchmark evidence"
+}

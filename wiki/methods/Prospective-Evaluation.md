@@ -120,3 +120,6 @@ only, not a repaired probability estimate or retrained model. Diagnose this
 numerical boundary before attributing historical-negative failure to gradient
 decoupling. Any replacement parameterization requires a separate development
 protocol and paired execution; the original pilot remains preserved.
+
+The [readout/comparator development contract](Prospective-Development.md)
+registers that intervention and its controlled matrix separately.

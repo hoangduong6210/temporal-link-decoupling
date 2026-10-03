@@ -1,0 +1,1645 @@
+{
+  "datasets": [
+    {
+      "arms": [
+        {
+          "arm": "coupled",
+          "checkpoint_sha256": "c0d825c04417480bbb7bb4acf31574eeb48ad9b85cc8dfd7fd5ddef619d01afb",
+          "decoder_weights": [
+            0.054395221173763275,
+            1.1087069511413574,
+            1.5641108751296997,
+            0.35244232416152954,
+            0.0003320340474601835
+          ],
+          "observed_events": 2000,
+          "regimes": {
+            "historical": {
+              "all": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 1.0767779350280762,
+                  "raw_min": 0.9828770160675049,
+                  "unique_served": 13,
+                  "upper_clipped": 29
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 1.0711530447006226,
+                  "raw_min": 0.054416339844465256,
+                  "unique_served": 35,
+                  "upper_clipped": 7
+                },
+                "raw": {
+                  "ap": 0.3517338255190068,
+                  "auc": 0.19393218322427125,
+                  "eligible_events": 41,
+                  "empty_support_events": 0,
+                  "scored_events": 41,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.35842668681454315,
+                  "auc": 0.22456870910172516,
+                  "eligible_events": 41,
+                  "empty_support_events": 0,
+                  "scored_events": 41,
+                  "status": "AVAILABLE"
+                }
+              },
+              "inductive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 1.0767779350280762,
+                  "raw_min": 0.9984725117683411,
+                  "unique_served": 2,
+                  "upper_clipped": 7
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 1.0711530447006226,
+                  "raw_min": 0.054416339844465256,
+                  "unique_served": 7,
+                  "upper_clipped": 2
+                },
+                "raw": {
+                  "ap": 0.35448926073926074,
+                  "auc": 0.09375,
+                  "eligible_events": 8,
+                  "empty_support_events": 0,
+                  "scored_events": 8,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.35379481629481624,
+                  "auc": 0.140625,
+                  "eligible_events": 8,
+                  "empty_support_events": 0,
+                  "scored_events": 8,
+                  "status": "AVAILABLE"
+                }
+              },
+              "new-pair-positive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 1.074825644493103,
+                  "raw_min": 0.9961423277854919,
+                  "unique_served": 3,
+                  "upper_clipped": 10
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.5717910528182983,
+                  "raw_min": 0.054416339844465256,
+                  "unique_served": 12,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.32725250045717136,
+                  "auc": 0.0,
+                  "eligible_events": 12,
+                  "empty_support_events": 0,
+                  "scored_events": 12,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.3272525004571713,
+                  "auc": 0.0,
+                  "eligible_events": 12,
+                  "empty_support_events": 0,
+                  "scored_events": 12,
+                  "status": "AVAILABLE"
+                }
+              },
+              "repeated-positive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 1.0767779350280762,
+                  "raw_min": 0.9828770160675049,
+                  "unique_served": 11,
+                  "upper_clipped": 19
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 1.0711530447006226,
+                  "raw_min": 0.984369158744812,
+                  "unique_served": 23,
+                  "upper_clipped": 7
+                },
+                "raw": {
+                  "ap": 0.4000959431476781,
+                  "auc": 0.3329369797859691,
+                  "eligible_events": 29,
+                  "empty_support_events": 0,
+                  "scored_events": 29,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.4130924868338769,
+                  "auc": 0.38228299643281805,
+                  "eligible_events": 29,
+                  "empty_support_events": 0,
+                  "scored_events": 29,
+                  "status": "AVAILABLE"
+                }
+              }
+            },
+            "novel-pair": {
+              "all": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.7522745728492737,
+                  "raw_min": 0.05440032109618187,
+                  "unique_served": 298,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 1.0797823667526245,
+                  "raw_min": 0.054416339844465256,
+                  "unique_served": 238,
+                  "upper_clipped": 63
+                },
+                "raw": {
+                  "ap": 0.9839636232773459,
+                  "auc": 0.9806333333333334,
+                  "eligible_events": 300,
+                  "empty_support_events": 0,
+                  "scored_events": 300,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.9839636232773457,
+                  "auc": 0.9806333333333334,
+                  "eligible_events": 300,
+                  "empty_support_events": 0,
+                  "scored_events": 300,
+                  "status": "AVAILABLE"
+                }
+              },
+              "inductive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.7522745728492737,
+                  "raw_min": 0.0544094443321228,
+                  "unique_served": 112,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 1.0797823667526245,
+                  "raw_min": 0.054416339844465256,
+                  "unique_served": 75,
+                  "upper_clipped": 38
+                },
+                "raw": {
+                  "ap": 0.925731809342145,
+                  "auc": 0.9063297193877552,
+                  "eligible_events": 112,
+                  "empty_support_events": 0,
+                  "scored_events": 112,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.9257318093421452,
+                  "auc": 0.9063297193877552,
+                  "eligible_events": 112,
+                  "empty_support_events": 0,
+                  "scored_events": 112,
+                  "status": "AVAILABLE"
+                }
+              },
+              "new-pair-positive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.7522745728492737,
+                  "raw_min": 0.054416339844465256,
+                  "unique_served": 55,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.7448647618293762,
+                  "raw_min": 0.054416339844465256,
+                  "unique_served": 55,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.6391860367589066,
+                  "auc": 0.6211570247933884,
+                  "eligible_events": 55,
+                  "empty_support_events": 0,
+                  "scored_events": 55,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.6391860367589066,
+                  "auc": 0.6211570247933884,
+                  "eligible_events": 55,
+                  "empty_support_events": 0,
+                  "scored_events": 55,
+                  "status": "AVAILABLE"
+                }
+              },
+              "repeated-positive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.5793709754943848,
+                  "raw_min": 0.05440032109618187,
+                  "unique_served": 243,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 1.0797823667526245,
+                  "raw_min": 0.9720441699028015,
+                  "unique_served": 183,
+                  "upper_clipped": 63
+                },
+                "raw": {
+                  "ap": 1.0,
+                  "auc": 1.0,
+                  "eligible_events": 245,
+                  "empty_support_events": 0,
+                  "scored_events": 245,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 1.0,
+                  "auc": 1.0,
+                  "eligible_events": 245,
+                  "empty_support_events": 0,
+                  "scored_events": 245,
+                  "status": "AVAILABLE"
+                }
+              }
+            },
+            "random": {
+              "all": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.7548819780349731,
+                  "raw_min": 0.054401010274887085,
+                  "unique_served": 300,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 1.0797823667526245,
+                  "raw_min": 0.054416339844465256,
+                  "unique_served": 238,
+                  "upper_clipped": 63
+                },
+                "raw": {
+                  "ap": 0.9838706468700356,
+                  "auc": 0.9804499999999999,
+                  "eligible_events": 300,
+                  "empty_support_events": 0,
+                  "scored_events": 300,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.9838706468700352,
+                  "auc": 0.9804499999999999,
+                  "eligible_events": 300,
+                  "empty_support_events": 0,
+                  "scored_events": 300,
+                  "status": "AVAILABLE"
+                }
+              },
+              "inductive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.7548819780349731,
+                  "raw_min": 0.0544094443321228,
+                  "unique_served": 112,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 1.0797823667526245,
+                  "raw_min": 0.054416339844465256,
+                  "unique_served": 75,
+                  "upper_clipped": 38
+                },
+                "raw": {
+                  "ap": 0.9282412899191594,
+                  "auc": 0.9120296556122449,
+                  "eligible_events": 112,
+                  "empty_support_events": 0,
+                  "scored_events": 112,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.9282412899191594,
+                  "auc": 0.9120296556122449,
+                  "eligible_events": 112,
+                  "empty_support_events": 0,
+                  "scored_events": 112,
+                  "status": "AVAILABLE"
+                }
+              },
+              "new-pair-positive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.7548819780349731,
+                  "raw_min": 0.054444827139377594,
+                  "unique_served": 55,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.7448647618293762,
+                  "raw_min": 0.054416339844465256,
+                  "unique_served": 55,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.6223903422868335,
+                  "auc": 0.6213223140495867,
+                  "eligible_events": 55,
+                  "empty_support_events": 0,
+                  "scored_events": 55,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.6223903422868335,
+                  "auc": 0.6213223140495867,
+                  "eligible_events": 55,
+                  "empty_support_events": 0,
+                  "scored_events": 55,
+                  "status": "AVAILABLE"
+                }
+              },
+              "repeated-positive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.5858818292617798,
+                  "raw_min": 0.054401010274887085,
+                  "unique_served": 245,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 1.0797823667526245,
+                  "raw_min": 0.9720441699028015,
+                  "unique_served": 183,
+                  "upper_clipped": 63
+                },
+                "raw": {
+                  "ap": 1.0,
+                  "auc": 1.0,
+                  "eligible_events": 245,
+                  "empty_support_events": 0,
+                  "scored_events": 245,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 1.0,
+                  "auc": 1.0,
+                  "eligible_events": 245,
+                  "empty_support_events": 0,
+                  "scored_events": 245,
+                  "status": "AVAILABLE"
+                }
+              }
+            }
+          },
+          "replay_max_abs_error": 0.0
+        },
+        {
+          "arm": "decoupled",
+          "checkpoint_sha256": "92197606d435b0f18a6a295ac0452cb462134f84349fccdcac5974bc8c6e23e4",
+          "decoder_weights": [
+            0.04856998473405838,
+            1.0934237241744995,
+            1.4865942001342773,
+            0.3347465395927429,
+            0.0003325955185573548
+          ],
+          "observed_events": 2000,
+          "regimes": {
+            "historical": {
+              "all": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 1.0854389667510986,
+                  "raw_min": 1.0047833919525146,
+                  "unique_served": 1,
+                  "upper_clipped": 41
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 1.0891958475112915,
+                  "raw_min": 0.04885348305106163,
+                  "unique_served": 13,
+                  "upper_clipped": 29
+                },
+                "raw": {
+                  "ap": 0.5423893405555184,
+                  "auc": 0.4556811421772754,
+                  "eligible_events": 41,
+                  "empty_support_events": 0,
+                  "scored_events": 41,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.4285309634432758,
+                  "auc": 0.35365853658536583,
+                  "eligible_events": 41,
+                  "empty_support_events": 0,
+                  "scored_events": 41,
+                  "status": "AVAILABLE"
+                }
+              },
+              "inductive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 1.0615062713623047,
+                  "raw_min": 1.0047833919525146,
+                  "unique_served": 1,
+                  "upper_clipped": 8
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 1.0639601945877075,
+                  "raw_min": 0.04885348305106163,
+                  "unique_served": 7,
+                  "upper_clipped": 2
+                },
+                "raw": {
+                  "ap": 0.47323926073926076,
+                  "auc": 0.203125,
+                  "eligible_events": 8,
+                  "empty_support_events": 0,
+                  "scored_events": 8,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.34823926073926076,
+                  "auc": 0.125,
+                  "eligible_events": 8,
+                  "empty_support_events": 0,
+                  "scored_events": 8,
+                  "status": "AVAILABLE"
+                }
+              },
+              "new-pair-positive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 1.0658999681472778,
+                  "raw_min": 1.0047833919525146,
+                  "unique_served": 1,
+                  "upper_clipped": 12
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.6873862147331238,
+                  "raw_min": 0.04885348305106163,
+                  "unique_served": 12,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.32725250045717136,
+                  "auc": 0.0,
+                  "eligible_events": 12,
+                  "empty_support_events": 0,
+                  "scored_events": 12,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.3272525004571713,
+                  "auc": 0.0,
+                  "eligible_events": 12,
+                  "empty_support_events": 0,
+                  "scored_events": 12,
+                  "status": "AVAILABLE"
+                }
+              },
+              "repeated-positive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 1.0854389667510986,
+                  "raw_min": 1.0118324756622314,
+                  "unique_served": 1,
+                  "upper_clipped": 29
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 1.0891958475112915,
+                  "raw_min": 1.0018064975738525,
+                  "unique_served": 1,
+                  "upper_clipped": 29
+                },
+                "raw": {
+                  "ap": 0.6162054552704234,
+                  "auc": 0.5850178359096314,
+                  "eligible_events": 29,
+                  "empty_support_events": 0,
+                  "scored_events": 29,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.5,
+                  "auc": 0.5,
+                  "eligible_events": 29,
+                  "empty_support_events": 0,
+                  "scored_events": 29,
+                  "status": "AVAILABLE"
+                }
+              }
+            },
+            "novel-pair": {
+              "all": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.7827426195144653,
+                  "raw_min": 0.048781611025333405,
+                  "unique_served": 299,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 1.0891958475112915,
+                  "raw_min": 0.04885348305106163,
+                  "unique_served": 62,
+                  "upper_clipped": 239
+                },
+                "raw": {
+                  "ap": 0.9848872499511034,
+                  "auc": 0.9819888888888889,
+                  "eligible_events": 300,
+                  "empty_support_events": 0,
+                  "scored_events": 300,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.9848872499511034,
+                  "auc": 0.9819888888888889,
+                  "eligible_events": 300,
+                  "empty_support_events": 0,
+                  "scored_events": 300,
+                  "status": "AVAILABLE"
+                }
+              },
+              "inductive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.7827426195144653,
+                  "raw_min": 0.048781611025333405,
+                  "unique_served": 112,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 1.0639601945877075,
+                  "raw_min": 0.04885348305106163,
+                  "unique_served": 54,
+                  "upper_clipped": 59
+                },
+                "raw": {
+                  "ap": 0.9314289566107775,
+                  "auc": 0.9177295918367347,
+                  "eligible_events": 112,
+                  "empty_support_events": 0,
+                  "scored_events": 112,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.9314289566107776,
+                  "auc": 0.9177295918367347,
+                  "eligible_events": 112,
+                  "empty_support_events": 0,
+                  "scored_events": 112,
+                  "status": "AVAILABLE"
+                }
+              },
+              "new-pair-positive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.7827426195144653,
+                  "raw_min": 0.04881291091442108,
+                  "unique_served": 55,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.7818955183029175,
+                  "raw_min": 0.04885348305106163,
+                  "unique_served": 55,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.6444724211995633,
+                  "auc": 0.655206611570248,
+                  "eligible_events": 55,
+                  "empty_support_events": 0,
+                  "scored_events": 55,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.6444724211995633,
+                  "auc": 0.655206611570248,
+                  "eligible_events": 55,
+                  "empty_support_events": 0,
+                  "scored_events": 55,
+                  "status": "AVAILABLE"
+                }
+              },
+              "repeated-positive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.49780187010765076,
+                  "raw_min": 0.048781611025333405,
+                  "unique_served": 244,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 1.0891958475112915,
+                  "raw_min": 0.9797588586807251,
+                  "unique_served": 7,
+                  "upper_clipped": 239
+                },
+                "raw": {
+                  "ap": 1.0,
+                  "auc": 1.0,
+                  "eligible_events": 245,
+                  "empty_support_events": 0,
+                  "scored_events": 245,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 1.0,
+                  "auc": 1.0,
+                  "eligible_events": 245,
+                  "empty_support_events": 0,
+                  "scored_events": 245,
+                  "status": "AVAILABLE"
+                }
+              }
+            },
+            "random": {
+              "all": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.7863760590553284,
+                  "raw_min": 0.048781611025333405,
+                  "unique_served": 300,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 1.0891958475112915,
+                  "raw_min": 0.04885348305106163,
+                  "unique_served": 62,
+                  "upper_clipped": 239
+                },
+                "raw": {
+                  "ap": 0.9845701144145086,
+                  "auc": 0.9814833333333333,
+                  "eligible_events": 300,
+                  "empty_support_events": 0,
+                  "scored_events": 300,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.9845701144145086,
+                  "auc": 0.9814833333333333,
+                  "eligible_events": 300,
+                  "empty_support_events": 0,
+                  "scored_events": 300,
+                  "status": "AVAILABLE"
+                }
+              },
+              "inductive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.7863760590553284,
+                  "raw_min": 0.048781611025333405,
+                  "unique_served": 112,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 1.0639601945877075,
+                  "raw_min": 0.04885348305106163,
+                  "unique_served": 54,
+                  "upper_clipped": 59
+                },
+                "raw": {
+                  "ap": 0.9329284014926138,
+                  "auc": 0.9215162627551021,
+                  "eligible_events": 112,
+                  "empty_support_events": 0,
+                  "scored_events": 112,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.932928401492614,
+                  "auc": 0.9215162627551021,
+                  "eligible_events": 112,
+                  "empty_support_events": 0,
+                  "scored_events": 112,
+                  "status": "AVAILABLE"
+                }
+              },
+              "new-pair-positive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.7863760590553284,
+                  "raw_min": 0.04881291091442108,
+                  "unique_served": 55,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.7818955183029175,
+                  "raw_min": 0.04885348305106163,
+                  "unique_served": 55,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.6302825989513431,
+                  "auc": 0.6467768595041322,
+                  "eligible_events": 55,
+                  "empty_support_events": 0,
+                  "scored_events": 55,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.6302825989513431,
+                  "auc": 0.6467768595041322,
+                  "eligible_events": 55,
+                  "empty_support_events": 0,
+                  "scored_events": 55,
+                  "status": "AVAILABLE"
+                }
+              },
+              "repeated-positive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.6231124997138977,
+                  "raw_min": 0.048781611025333405,
+                  "unique_served": 245,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 1.0891958475112915,
+                  "raw_min": 0.9797588586807251,
+                  "unique_served": 7,
+                  "upper_clipped": 239
+                },
+                "raw": {
+                  "ap": 1.0,
+                  "auc": 1.0,
+                  "eligible_events": 245,
+                  "empty_support_events": 0,
+                  "scored_events": 245,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 1.0,
+                  "auc": 1.0,
+                  "eligible_events": 245,
+                  "empty_support_events": 0,
+                  "scored_events": 245,
+                  "status": "AVAILABLE"
+                }
+              }
+            }
+          },
+          "replay_max_abs_error": 0.0
+        }
+      ],
+      "dataset": "wikipedia",
+      "original_report_sha256": "b15778c093eac978830c20e75dbcb09a98317641acecd5c68708b8d4b076e64f",
+      "torch_threads": 3
+    },
+    {
+      "arms": [
+        {
+          "arm": "coupled",
+          "checkpoint_sha256": "c322ef1677f4bb42218d556ab2de518faca9a6fe4de3f4442ac61e27a32c7d63",
+          "decoder_weights": [
+            0.03902069479227066,
+            0.9569952487945557,
+            1.00602388381958,
+            0.30608734488487244,
+            0.0002753382723312825
+          ],
+          "observed_events": 2001,
+          "regimes": {
+            "historical": {
+              "all": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9514506459236145,
+                  "raw_min": 0.6348574757575989,
+                  "unique_served": 258,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9526874423027039,
+                  "raw_min": 0.18020397424697876,
+                  "unique_served": 261,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.3679968795362891,
+                  "auc": 0.23540464761233687,
+                  "eligible_events": 261,
+                  "empty_support_events": 0,
+                  "scored_events": 261,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.3679968795362891,
+                  "auc": 0.23540464761233687,
+                  "eligible_events": 261,
+                  "empty_support_events": 0,
+                  "scored_events": 261,
+                  "status": "AVAILABLE"
+                }
+              },
+              "inductive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9490682482719421,
+                  "raw_min": 0.7127694487571716,
+                  "unique_served": 110,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9490929245948792,
+                  "raw_min": 0.3546343147754669,
+                  "unique_served": 112,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.35880866241922293,
+                  "auc": 0.1980229591836735,
+                  "eligible_events": 112,
+                  "empty_support_events": 0,
+                  "scored_events": 112,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.35880866241922293,
+                  "auc": 0.1980229591836735,
+                  "eligible_events": 112,
+                  "empty_support_events": 0,
+                  "scored_events": 112,
+                  "status": "AVAILABLE"
+                }
+              },
+              "new-pair-positive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9514506459236145,
+                  "raw_min": 0.6348574757575989,
+                  "unique_served": 159,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.8582524657249451,
+                  "raw_min": 0.18020397424697876,
+                  "unique_served": 160,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.32669286172239465,
+                  "auc": 0.10203124999999999,
+                  "eligible_events": 160,
+                  "empty_support_events": 0,
+                  "scored_events": 160,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.32669286172239465,
+                  "auc": 0.10203124999999999,
+                  "eligible_events": 160,
+                  "empty_support_events": 0,
+                  "scored_events": 160,
+                  "status": "AVAILABLE"
+                }
+              },
+              "repeated-positive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9476146697998047,
+                  "raw_min": 0.7382150888442993,
+                  "unique_served": 101,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9526874423027039,
+                  "raw_min": 0.6189539432525635,
+                  "unique_served": 101,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.5139657277435383,
+                  "auc": 0.48691304774041755,
+                  "eligible_events": 101,
+                  "empty_support_events": 0,
+                  "scored_events": 101,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.5139657277435383,
+                  "auc": 0.48691304774041755,
+                  "eligible_events": 101,
+                  "empty_support_events": 0,
+                  "scored_events": 101,
+                  "status": "AVAILABLE"
+                }
+              }
+            },
+            "novel-pair": {
+              "all": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9201905131340027,
+                  "raw_min": 0.039021361619234085,
+                  "unique_served": 272,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9526874423027039,
+                  "raw_min": 0.18020397424697876,
+                  "unique_served": 301,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.929541423601406,
+                  "auc": 0.952726791095021,
+                  "eligible_events": 301,
+                  "empty_support_events": 0,
+                  "scored_events": 301,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.9295414236014059,
+                  "auc": 0.952726791095021,
+                  "eligible_events": 301,
+                  "empty_support_events": 0,
+                  "scored_events": 301,
+                  "status": "AVAILABLE"
+                }
+              },
+              "inductive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9201905131340027,
+                  "raw_min": 0.039021603763103485,
+                  "unique_served": 145,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9490929245948792,
+                  "raw_min": 0.3546343147754669,
+                  "unique_served": 151,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.9161667860478269,
+                  "auc": 0.9423709486426033,
+                  "eligible_events": 151,
+                  "empty_support_events": 0,
+                  "scored_events": 151,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.9161667860478269,
+                  "auc": 0.9423709486426033,
+                  "eligible_events": 151,
+                  "empty_support_events": 0,
+                  "scored_events": 151,
+                  "status": "AVAILABLE"
+                }
+              },
+              "new-pair-positive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9201905131340027,
+                  "raw_min": 0.039021361619234085,
+                  "unique_served": 178,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.8582524657249451,
+                  "raw_min": 0.18020397424697876,
+                  "unique_served": 191,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.8781951819071503,
+                  "auc": 0.9372001863983992,
+                  "eligible_events": 191,
+                  "empty_support_events": 0,
+                  "scored_events": 191,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.8781951819071502,
+                  "auc": 0.9372001863983992,
+                  "eligible_events": 191,
+                  "empty_support_events": 0,
+                  "scored_events": 191,
+                  "status": "AVAILABLE"
+                }
+              },
+              "repeated-positive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.8855726718902588,
+                  "raw_min": 0.039021436125040054,
+                  "unique_served": 103,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9526874423027039,
+                  "raw_min": 0.6189539432525635,
+                  "unique_served": 110,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.9775550059942228,
+                  "auc": 0.9806611570247934,
+                  "eligible_events": 110,
+                  "empty_support_events": 0,
+                  "scored_events": 110,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.9775550059942227,
+                  "auc": 0.9806611570247934,
+                  "eligible_events": 110,
+                  "empty_support_events": 0,
+                  "scored_events": 110,
+                  "status": "AVAILABLE"
+                }
+              }
+            },
+            "random": {
+              "all": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9460501670837402,
+                  "raw_min": 0.039021361619234085,
+                  "unique_served": 273,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9526874423027039,
+                  "raw_min": 0.18020397424697876,
+                  "unique_served": 301,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.8713030466567893,
+                  "auc": 0.9158949680467104,
+                  "eligible_events": 301,
+                  "empty_support_events": 0,
+                  "scored_events": 301,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.8713030466567891,
+                  "auc": 0.9158949680467103,
+                  "eligible_events": 301,
+                  "empty_support_events": 0,
+                  "scored_events": 301,
+                  "status": "AVAILABLE"
+                }
+              },
+              "inductive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9460501670837402,
+                  "raw_min": 0.039021603763103485,
+                  "unique_served": 144,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9490929245948792,
+                  "raw_min": 0.3546343147754669,
+                  "unique_served": 151,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.8696161486291453,
+                  "auc": 0.9111442480592956,
+                  "eligible_events": 151,
+                  "empty_support_events": 0,
+                  "scored_events": 151,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.8696161486291454,
+                  "auc": 0.9111442480592956,
+                  "eligible_events": 151,
+                  "empty_support_events": 0,
+                  "scored_events": 151,
+                  "status": "AVAILABLE"
+                }
+              },
+              "new-pair-positive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.8984834551811218,
+                  "raw_min": 0.039021361619234085,
+                  "unique_served": 177,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.8582524657249451,
+                  "raw_min": 0.18020397424697876,
+                  "unique_served": 191,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.7695571782645466,
+                  "auc": 0.890627998136016,
+                  "eligible_events": 191,
+                  "empty_support_events": 0,
+                  "scored_events": 191,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.7695571782645466,
+                  "auc": 0.890627998136016,
+                  "eligible_events": 191,
+                  "empty_support_events": 0,
+                  "scored_events": 191,
+                  "status": "AVAILABLE"
+                }
+              },
+              "repeated-positive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9460501670837402,
+                  "raw_min": 0.039021436125040054,
+                  "unique_served": 105,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9526874423027039,
+                  "raw_min": 0.6189539432525635,
+                  "unique_served": 110,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.9282185951438451,
+                  "auc": 0.956694214876033,
+                  "eligible_events": 110,
+                  "empty_support_events": 0,
+                  "scored_events": 110,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.9282185951438446,
+                  "auc": 0.9566942148760331,
+                  "eligible_events": 110,
+                  "empty_support_events": 0,
+                  "scored_events": 110,
+                  "status": "AVAILABLE"
+                }
+              }
+            }
+          },
+          "replay_max_abs_error": 0.0
+        },
+        {
+          "arm": "decoupled",
+          "checkpoint_sha256": "33260fb4df146ad7713990547c822523b0f7c8b20d182eb11f3a42b286cf0ca3",
+          "decoder_weights": [
+            0.031066766008734703,
+            0.9504401683807373,
+            1.0214776992797852,
+            0.26212549209594727,
+            0.0002754559100139886
+          ],
+          "observed_events": 2001,
+          "regimes": {
+            "historical": {
+              "all": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9774040579795837,
+                  "raw_min": 0.5537353157997131,
+                  "unique_served": 259,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9634241461753845,
+                  "raw_min": 0.3529563248157501,
+                  "unique_served": 261,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.38563616169874104,
+                  "auc": 0.30357745775898765,
+                  "eligible_events": 261,
+                  "empty_support_events": 0,
+                  "scored_events": 261,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.38563616169874104,
+                  "auc": 0.30357745775898765,
+                  "eligible_events": 261,
+                  "empty_support_events": 0,
+                  "scored_events": 261,
+                  "status": "AVAILABLE"
+                }
+              },
+              "inductive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9656724333763123,
+                  "raw_min": 0.587070882320404,
+                  "unique_served": 111,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9634241461753845,
+                  "raw_min": 0.6675273776054382,
+                  "unique_served": 112,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.34932704717573104,
+                  "auc": 0.1954719387755102,
+                  "eligible_events": 112,
+                  "empty_support_events": 0,
+                  "scored_events": 112,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.34932704717573104,
+                  "auc": 0.1954719387755102,
+                  "eligible_events": 112,
+                  "empty_support_events": 0,
+                  "scored_events": 112,
+                  "status": "AVAILABLE"
+                }
+              },
+              "new-pair-positive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9774040579795837,
+                  "raw_min": 0.5537353157997131,
+                  "unique_served": 159,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.8547930717468262,
+                  "raw_min": 0.3529563248157501,
+                  "unique_served": 160,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.3336352719999591,
+                  "auc": 0.1413671875,
+                  "eligible_events": 160,
+                  "empty_support_events": 0,
+                  "scored_events": 160,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.3336352719999591,
+                  "auc": 0.1413671875,
+                  "eligible_events": 160,
+                  "empty_support_events": 0,
+                  "scored_events": 160,
+                  "status": "AVAILABLE"
+                }
+              },
+              "repeated-positive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9693407416343689,
+                  "raw_min": 0.6360360980033875,
+                  "unique_served": 101,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9634241461753845,
+                  "raw_min": 0.6823164224624634,
+                  "unique_served": 101,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.5124625283712494,
+                  "auc": 0.5582786001372414,
+                  "eligible_events": 101,
+                  "empty_support_events": 0,
+                  "scored_events": 101,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.5124625283712494,
+                  "auc": 0.5582786001372414,
+                  "eligible_events": 101,
+                  "empty_support_events": 0,
+                  "scored_events": 101,
+                  "status": "AVAILABLE"
+                }
+              }
+            },
+            "novel-pair": {
+              "all": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.8738424181938171,
+                  "raw_min": 0.031067699193954468,
+                  "unique_served": 293,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9634241461753845,
+                  "raw_min": 0.3529563248157501,
+                  "unique_served": 301,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.9527428934256121,
+                  "auc": 0.9623072593017737,
+                  "eligible_events": 301,
+                  "empty_support_events": 0,
+                  "scored_events": 301,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.9527428934256121,
+                  "auc": 0.9623072593017737,
+                  "eligible_events": 301,
+                  "empty_support_events": 0,
+                  "scored_events": 301,
+                  "status": "AVAILABLE"
+                }
+              },
+              "inductive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.8738424181938171,
+                  "raw_min": 0.03107825480401516,
+                  "unique_served": 149,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9634241461753845,
+                  "raw_min": 0.6675273776054382,
+                  "unique_served": 151,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.9387528052834364,
+                  "auc": 0.9471952984518224,
+                  "eligible_events": 151,
+                  "empty_support_events": 0,
+                  "scored_events": 151,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.9387528052834364,
+                  "auc": 0.9471952984518224,
+                  "eligible_events": 151,
+                  "empty_support_events": 0,
+                  "scored_events": 151,
+                  "status": "AVAILABLE"
+                }
+              },
+              "new-pair-positive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.8738424181938171,
+                  "raw_min": 0.031070394441485405,
+                  "unique_served": 187,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.8855565190315247,
+                  "raw_min": 0.3529563248157501,
+                  "unique_served": 191,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.9268986049907885,
+                  "auc": 0.9497546668128615,
+                  "eligible_events": 191,
+                  "empty_support_events": 0,
+                  "scored_events": 191,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.9268986049907885,
+                  "auc": 0.9497546668128615,
+                  "eligible_events": 191,
+                  "empty_support_events": 0,
+                  "scored_events": 191,
+                  "status": "AVAILABLE"
+                }
+              },
+              "repeated-positive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.87215656042099,
+                  "raw_min": 0.031067699193954468,
+                  "unique_served": 109,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9634241461753845,
+                  "raw_min": 0.6823164224624634,
+                  "unique_served": 110,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.9821676769726143,
+                  "auc": 0.983801652892562,
+                  "eligible_events": 110,
+                  "empty_support_events": 0,
+                  "scored_events": 110,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.9821676769726143,
+                  "auc": 0.983801652892562,
+                  "eligible_events": 110,
+                  "empty_support_events": 0,
+                  "scored_events": 110,
+                  "status": "AVAILABLE"
+                }
+              }
+            },
+            "random": {
+              "all": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9649133086204529,
+                  "raw_min": 0.031067699193954468,
+                  "unique_served": 293,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9634241461753845,
+                  "raw_min": 0.3529563248157501,
+                  "unique_served": 301,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.8876582712492735,
+                  "auc": 0.9270096356552355,
+                  "eligible_events": 301,
+                  "empty_support_events": 0,
+                  "scored_events": 301,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.8876582712492735,
+                  "auc": 0.9270096356552355,
+                  "eligible_events": 301,
+                  "empty_support_events": 0,
+                  "scored_events": 301,
+                  "status": "AVAILABLE"
+                }
+              },
+              "inductive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9634659290313721,
+                  "raw_min": 0.03107825480401516,
+                  "unique_served": 149,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9634241461753845,
+                  "raw_min": 0.6675273776054382,
+                  "unique_served": 151,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.88421420249641,
+                  "auc": 0.919126354107276,
+                  "eligible_events": 151,
+                  "empty_support_events": 0,
+                  "scored_events": 151,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.88421420249641,
+                  "auc": 0.919126354107276,
+                  "eligible_events": 151,
+                  "empty_support_events": 0,
+                  "scored_events": 151,
+                  "status": "AVAILABLE"
+                }
+              },
+              "new-pair-positive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.8733565807342529,
+                  "raw_min": 0.031070394441485405,
+                  "unique_served": 184,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.8855565190315247,
+                  "raw_min": 0.3529563248157501,
+                  "unique_served": 191,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.8515607957008283,
+                  "auc": 0.8976727611633454,
+                  "eligible_events": 191,
+                  "empty_support_events": 0,
+                  "scored_events": 191,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.8515607957008283,
+                  "auc": 0.8976727611633454,
+                  "eligible_events": 191,
+                  "empty_support_events": 0,
+                  "scored_events": 191,
+                  "status": "AVAILABLE"
+                }
+              },
+              "repeated-positive": {
+                "negative": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9649133086204529,
+                  "raw_min": 0.031067699193954468,
+                  "unique_served": 109,
+                  "upper_clipped": 0
+                },
+                "positive": {
+                  "lower_clipped": 0,
+                  "raw_max": 0.9634241461753845,
+                  "raw_min": 0.6823164224624634,
+                  "unique_served": 110,
+                  "upper_clipped": 0
+                },
+                "raw": {
+                  "ap": 0.90760660312404,
+                  "auc": 0.9612396694214876,
+                  "eligible_events": 110,
+                  "empty_support_events": 0,
+                  "scored_events": 110,
+                  "status": "AVAILABLE"
+                },
+                "served": {
+                  "ap": 0.90760660312404,
+                  "auc": 0.9612396694214876,
+                  "eligible_events": 110,
+                  "empty_support_events": 0,
+                  "scored_events": 110,
+                  "status": "AVAILABLE"
+                }
+              }
+            }
+          },
+          "replay_max_abs_error": 0.0
+        }
+      ],
+      "dataset": "mooc",
+      "original_report_sha256": "a93fc0a1eaad78da893e6cc2d5b54a8bed7694a6ba7438a86b8f63fecb9ae294",
+      "torch_threads": 3
+    }
+  ],
+  "interpretation": "raw mixture is a ranking diagnostic, not a probability or retrained model",
+  "job_id": "7648211",
+  "kind": "readout-clipping-diagnosis",
+  "publication_eligible": false,
+  "script_sha256": "898640c6c19d60b4cb50d4ac76eb2f2eb85be85729b6855a612f43e8d5215fa5",
+  "source_commit": "e6dd4e75bfa002e869594e5dfca05476c655314d",
+  "status": "COMPLETED_DIAGNOSTIC"
+}

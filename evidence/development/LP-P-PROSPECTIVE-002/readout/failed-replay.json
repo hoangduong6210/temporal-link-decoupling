@@ -1,0 +1,14 @@
+{
+  "datasets": [],
+  "error": {
+    "message": "('wikipedia', 'coupled', 'novel-pair', np.int64(1897), 5.53131103515625e-05)",
+    "type": "AssertionError"
+  },
+  "interpretation": "raw mixture is a ranking diagnostic, not a probability or retrained model",
+  "job_id": "7648208",
+  "kind": "readout-clipping-diagnosis",
+  "publication_eligible": false,
+  "script_sha256": "6dbd54a3c7fffd4ba6020c054f5229e76f31f7d50890df6fa9892e140473cdec",
+  "source_commit": "fc9d9c5011ae3963e02b0e81bbeae8fbdf554798",
+  "status": "FAILED"
+}
