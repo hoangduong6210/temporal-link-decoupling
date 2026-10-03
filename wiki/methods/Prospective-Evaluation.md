@@ -104,3 +104,6 @@ Submit execution through Slurm. Record clean source identity, settings and
 dataset hashes, environment, candidate/coverage records and scheduler identity.
 Keep failed attempts as failed artifacts. Update this page and the
 [JIIS plan](../manuscript/JIIS-Journal.md) before changing the scientific scope.
+
+The initial execution is complete. See the [pilot review](../evidence/Prospective-Pilot.md)
+for retained development records, coverage limitations and the next study gate.

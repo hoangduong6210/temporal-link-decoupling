@@ -62,11 +62,11 @@ evidence first; register protocol changes before commissioning new execution.
 | Priority | Work item | Completion evidence / current state |
 |---|---|---|
 | Required | Venue order and official-instruction register | Completed by the venue decision and linked register |
-| Required | Wiki method reconciliation | Open: verify every score, auxiliary gradient path, update rule and temporal assumption against code; resolve omissions in the wiki before drafting equations |
+| Required | Wiki method reconciliation | Partial: prospective score/observe and gradient boundaries are specified and tested; complete the equation-level legacy/adapter reconciliation before drafting the article |
 | Required | Current-evidence manuscript | Open: develop the outline above into an English LaTeX article; bind each quantitative occurrence to admitted evidence |
-| Required | Event-conditioning and temporal leakage review | Open: document what event attributes are available at scoring time, source staleness and batch ordering; either validate the intended prediction setting or narrow its interpretation explicitly |
+| Required | Event-conditioning and temporal leakage review | Partial: separate prospective pilot excludes target attributes from scoring, preserves timestamp ties and replays full history; complete the population/catalogue and full-study review |
 | High | Faithful external comparator | Open: select a maintained original implementation through source review; freeze split, candidate pool, features, tuning and compute budget; retain unsuccessful attempts. Existing proxies cannot satisfy this item |
-| High | Negative-sampling robustness | Open: preregister historical or hard-negative regimes, eligibility rules and collision handling; compare under matched settings without altering the existing release |
+| High | Negative-sampling robustness | Partial: typed regimes, candidate-history audit and exploratory recurrence/recency controls are complete for the pilot; register full-study cohorts and investigate weak historical-negative ranking before confirmatory execution |
 | High | Interpretation of uncertainty and practical relevance | Open: review paired-seed behavior and variation; assess efficiency or case-study measurements only if supported by registered execution; avoid unsupported significance or efficiency claims |
 | Conditional | Historical ablations | Open: reconcile source, data and execution identity per claim or leave the numerical tables out of the submission; arithmetic recovery is insufficient |
 | Required | JIIS template and compiled layout | Open: resolve the guideline template ambiguity, enforce the recorded page/abstract/keyword limits and inspect the rendered PDF |
@@ -85,7 +85,8 @@ and `LP-P-PROSPECTIVE-001` implement the initial protocol-development work.
 The adapter separates scoring from observation, uses typed candidate support,
 and retains all events when reporting inductive metrics. It is a distinct pilot
 study; its changed representation and objective must not be presented as an
-unchanged rerun of the current admitted model. Full-scale comparator evidence
+unchanged rerun of the current admitted model. The [completed pilot review](../evidence/Prospective-Pilot.md)
+records limitations and the next execution gate. Full-scale comparator evidence
 and manuscript admission remain open.
 
 All solving and heavy work goes through Slurm. This includes training,

@@ -1,0 +1,47 @@
+{
+  "kind": "technical-development-validation",
+  "publication_eligible": false,
+  "source_commit": "6a0f015d11bed1114fdccbd34f4c07faf921c06f",
+  "tests": {
+    "job_id": "7647910",
+    "prospective_passed": 14,
+    "other_passed": 69,
+    "canonical_provenance": "PASS",
+    "recovered_artifacts_python311": "PASS"
+  },
+  "source_audit": {
+    "job_id": "7647925",
+    "canonical_provenance": "PASS",
+    "public_history": "PASS"
+  },
+  "earlier_attempts": [
+    {
+      "job_id": "7647875",
+      "status": "FAILED",
+      "reason": "Python 3.9 environment lacked declared tomli dependency; isolated environment prepared"
+    },
+    {
+      "job_id": "7647901",
+      "status": "FAILED",
+      "reason": "Legacy corpus completeness test needed CoEdit; rebuilt its registered bytes on Slurm"
+    },
+    {
+      "job_id": "7647904",
+      "status": "FAILED",
+      "reason": "Tests and canonical audit passed; historical aggregate exact-equality verifier failed under Python 3.9, passed unchanged under Python 3.11"
+    }
+  ],
+  "pilot_jobs": [
+    "7647918_0",
+    "7647918_1"
+  ],
+  "reconciliation": {
+    "source_input_hashes": "PASS",
+    "candidate_hashes": "PASS",
+    "paired_initial_weights": "PASS",
+    "paired_evaluation_candidates": "PASS",
+    "coverage_accounting": "PASS",
+    "metrics_reconstructed_from_score_rows": "PASS"
+  },
+  "admission": "NONE; pilot coverage and correctness only; not a confirmatory benchmark"
+}

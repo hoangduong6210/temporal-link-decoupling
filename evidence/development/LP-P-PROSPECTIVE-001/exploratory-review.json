@@ -1,0 +1,787 @@
+{
+  "datasets": [
+    {
+      "audit": "PASS",
+      "dataset": "wikipedia",
+      "diagnostics": {
+        "historical": {
+          "all": {
+            "eligible_events": 300,
+            "models": {
+              "coupled": {
+                "ap": 0.35842668681454315,
+                "auc": 0.22456870910172516,
+                "events": 41
+              },
+              "decoupled": {
+                "ap": 0.4285309634432758,
+                "auc": 0.35365853658536583,
+                "events": 41
+              },
+              "recency": {
+                "ap": 0.7837601556021431,
+                "auc": 0.652587745389649,
+                "events": 41
+              },
+              "recurrence": {
+                "ap": 0.4393728222996516,
+                "auc": 0.35365853658536583,
+                "events": 41
+              }
+            }
+          },
+          "inductive": {
+            "eligible_events": 112,
+            "models": {
+              "coupled": {
+                "ap": 0.35379481629481624,
+                "auc": 0.140625,
+                "events": 8
+              },
+              "decoupled": {
+                "ap": 0.34823926073926076,
+                "auc": 0.125,
+                "events": 8
+              },
+              "recency": {
+                "ap": 0.47323926073926076,
+                "auc": 0.203125,
+                "events": 8
+              },
+              "recurrence": {
+                "ap": 0.425,
+                "auc": 0.125,
+                "events": 8
+              }
+            }
+          },
+          "new-pair-positive": {
+            "eligible_events": 55,
+            "models": {
+              "coupled": {
+                "ap": 0.3272525004571713,
+                "auc": 0.0,
+                "events": 12
+              },
+              "decoupled": {
+                "ap": 0.3272525004571713,
+                "auc": 0.0,
+                "events": 12
+              },
+              "recency": {
+                "ap": 0.32725250045717136,
+                "auc": 0.0,
+                "events": 12
+              },
+              "recurrence": {
+                "ap": 0.5,
+                "auc": 0.0,
+                "events": 12
+              }
+            }
+          },
+          "repeated-positive": {
+            "eligible_events": 245,
+            "models": {
+              "coupled": {
+                "ap": 0.4130924868338769,
+                "auc": 0.38228299643281805,
+                "events": 29
+              },
+              "decoupled": {
+                "ap": 0.5,
+                "auc": 0.5,
+                "events": 29
+              },
+              "recency": {
+                "ap": 0.9612784155887604,
+                "auc": 0.9500594530321046,
+                "events": 29
+              },
+              "recurrence": {
+                "ap": 0.5,
+                "auc": 0.5,
+                "events": 29
+              }
+            }
+          },
+          "shared-regime-support": {
+            "eligible_events": 41,
+            "models": {
+              "coupled": {
+                "ap": 0.35842668681454315,
+                "auc": 0.22456870910172516,
+                "events": 41
+              },
+              "decoupled": {
+                "ap": 0.4285309634432758,
+                "auc": 0.35365853658536583,
+                "events": 41
+              },
+              "recency": {
+                "ap": 0.7837601556021431,
+                "auc": 0.652587745389649,
+                "events": 41
+              },
+              "recurrence": {
+                "ap": 0.4393728222996516,
+                "auc": 0.35365853658536583,
+                "events": 41
+              }
+            }
+          }
+        },
+        "novel-pair": {
+          "all": {
+            "eligible_events": 300,
+            "models": {
+              "coupled": {
+                "ap": 0.9839636232773457,
+                "auc": 0.9806333333333334,
+                "events": 300
+              },
+              "decoupled": {
+                "ap": 0.9848872499511034,
+                "auc": 0.9819888888888889,
+                "events": 300
+              },
+              "recency": {
+                "ap": 0.9447516867309106,
+                "auc": 0.9166444444444444,
+                "events": 300
+              },
+              "recurrence": {
+                "ap": 0.9083333333333333,
+                "auc": 0.9083333333333333,
+                "events": 300
+              }
+            }
+          },
+          "inductive": {
+            "eligible_events": 112,
+            "models": {
+              "coupled": {
+                "ap": 0.9257318093421452,
+                "auc": 0.9063297193877552,
+                "events": 112
+              },
+              "decoupled": {
+                "ap": 0.9314289566107776,
+                "auc": 0.9177295918367347,
+                "events": 112
+              },
+              "recency": {
+                "ap": 0.8805327339233315,
+                "auc": 0.8414381377551021,
+                "events": 112
+              },
+              "recurrence": {
+                "ap": 0.78125,
+                "auc": 0.78125,
+                "events": 112
+              }
+            }
+          },
+          "new-pair-positive": {
+            "eligible_events": 55,
+            "models": {
+              "coupled": {
+                "ap": 0.6391860367589066,
+                "auc": 0.6211570247933884,
+                "events": 55
+              },
+              "decoupled": {
+                "ap": 0.6444724211995633,
+                "auc": 0.655206611570248,
+                "events": 55
+              },
+              "recency": {
+                "ap": 0.5,
+                "auc": 0.49999999999999994,
+                "events": 55
+              },
+              "recurrence": {
+                "ap": 0.5,
+                "auc": 0.5,
+                "events": 55
+              }
+            }
+          },
+          "repeated-positive": {
+            "eligible_events": 245,
+            "models": {
+              "coupled": {
+                "ap": 1.0,
+                "auc": 1.0,
+                "events": 245
+              },
+              "decoupled": {
+                "ap": 1.0,
+                "auc": 1.0,
+                "events": 245
+              },
+              "recency": {
+                "ap": 1.0000000000000002,
+                "auc": 1.0,
+                "events": 245
+              },
+              "recurrence": {
+                "ap": 1.0,
+                "auc": 1.0,
+                "events": 245
+              }
+            }
+          },
+          "shared-regime-support": {
+            "eligible_events": 41,
+            "models": {
+              "coupled": {
+                "ap": 0.9505251647755798,
+                "auc": 0.9309934562760263,
+                "events": 41
+              },
+              "decoupled": {
+                "ap": 0.9426839911728565,
+                "auc": 0.9167162403331349,
+                "events": 41
+              },
+              "recency": {
+                "ap": 0.9150638831311175,
+                "auc": 0.8792385484830458,
+                "events": 41
+              },
+              "recurrence": {
+                "ap": 0.8536585365853658,
+                "auc": 0.8536585365853658,
+                "events": 41
+              }
+            }
+          }
+        },
+        "random": {
+          "all": {
+            "eligible_events": 300,
+            "models": {
+              "coupled": {
+                "ap": 0.9838706468700352,
+                "auc": 0.9804499999999999,
+                "events": 300
+              },
+              "decoupled": {
+                "ap": 0.9845701144145086,
+                "auc": 0.9814833333333333,
+                "events": 300
+              },
+              "recency": {
+                "ap": 0.9447516867309106,
+                "auc": 0.9166444444444444,
+                "events": 300
+              },
+              "recurrence": {
+                "ap": 0.9083333333333333,
+                "auc": 0.9083333333333333,
+                "events": 300
+              }
+            }
+          },
+          "inductive": {
+            "eligible_events": 112,
+            "models": {
+              "coupled": {
+                "ap": 0.9282412899191594,
+                "auc": 0.9120296556122449,
+                "events": 112
+              },
+              "decoupled": {
+                "ap": 0.932928401492614,
+                "auc": 0.9215162627551021,
+                "events": 112
+              },
+              "recency": {
+                "ap": 0.8805327339233315,
+                "auc": 0.8414381377551021,
+                "events": 112
+              },
+              "recurrence": {
+                "ap": 0.78125,
+                "auc": 0.78125,
+                "events": 112
+              }
+            }
+          },
+          "new-pair-positive": {
+            "eligible_events": 55,
+            "models": {
+              "coupled": {
+                "ap": 0.6223903422868335,
+                "auc": 0.6213223140495867,
+                "events": 55
+              },
+              "decoupled": {
+                "ap": 0.6302825989513431,
+                "auc": 0.6467768595041322,
+                "events": 55
+              },
+              "recency": {
+                "ap": 0.5,
+                "auc": 0.49999999999999994,
+                "events": 55
+              },
+              "recurrence": {
+                "ap": 0.5,
+                "auc": 0.5,
+                "events": 55
+              }
+            }
+          },
+          "repeated-positive": {
+            "eligible_events": 245,
+            "models": {
+              "coupled": {
+                "ap": 1.0,
+                "auc": 1.0,
+                "events": 245
+              },
+              "decoupled": {
+                "ap": 1.0,
+                "auc": 1.0,
+                "events": 245
+              },
+              "recency": {
+                "ap": 1.0000000000000002,
+                "auc": 1.0,
+                "events": 245
+              },
+              "recurrence": {
+                "ap": 1.0,
+                "auc": 1.0,
+                "events": 245
+              }
+            }
+          },
+          "shared-regime-support": {
+            "eligible_events": 41,
+            "models": {
+              "coupled": {
+                "ap": 0.9473887793227667,
+                "auc": 0.929506246281975,
+                "events": 41
+              },
+              "decoupled": {
+                "ap": 0.9359933798459732,
+                "auc": 0.9104699583581202,
+                "events": 41
+              },
+              "recency": {
+                "ap": 0.9150638831311175,
+                "auc": 0.8792385484830458,
+                "events": 41
+              },
+              "recurrence": {
+                "ap": 0.8536585365853658,
+                "auc": 0.8536585365853658,
+                "events": 41
+              }
+            }
+          }
+        }
+      },
+      "pilot_sha256": "b15778c093eac978830c20e75dbcb09a98317641acecd5c68708b8d4b076e64f",
+      "source_commit": "6a0f015d11bed1114fdccbd34f4c07faf921c06f"
+    },
+    {
+      "audit": "PASS",
+      "dataset": "mooc",
+      "diagnostics": {
+        "historical": {
+          "all": {
+            "eligible_events": 301,
+            "models": {
+              "coupled": {
+                "ap": 0.3679968795362891,
+                "auc": 0.23540464761233687,
+                "events": 261
+              },
+              "decoupled": {
+                "ap": 0.38563616169874104,
+                "auc": 0.30357745775898765,
+                "events": 261
+              },
+              "recency": {
+                "ap": 0.3754201455956372,
+                "auc": 0.23556612498348528,
+                "events": 261
+              },
+              "recurrence": {
+                "ap": 0.41448106517643574,
+                "auc": 0.19348659003831417,
+                "events": 261
+              }
+            }
+          },
+          "inductive": {
+            "eligible_events": 151,
+            "models": {
+              "coupled": {
+                "ap": 0.35880866241922293,
+                "auc": 0.1980229591836735,
+                "events": 112
+              },
+              "decoupled": {
+                "ap": 0.34932704717573104,
+                "auc": 0.1954719387755102,
+                "events": 112
+              },
+              "recency": {
+                "ap": 0.3342068226690064,
+                "auc": 0.13863201530612246,
+                "events": 112
+              },
+              "recurrence": {
+                "ap": 0.4181547619047619,
+                "auc": 0.15625,
+                "events": 112
+              }
+            }
+          },
+          "new-pair-positive": {
+            "eligible_events": 191,
+            "models": {
+              "coupled": {
+                "ap": 0.32669286172239465,
+                "auc": 0.10203124999999999,
+                "events": 160
+              },
+              "decoupled": {
+                "ap": 0.3336352719999591,
+                "auc": 0.1413671875,
+                "events": 160
+              },
+              "recency": {
+                "ap": 0.3087583774383289,
+                "auc": 0.0,
+                "events": 160
+              },
+              "recurrence": {
+                "ap": 0.5,
+                "auc": 0.0,
+                "events": 160
+              }
+            }
+          },
+          "repeated-positive": {
+            "eligible_events": 110,
+            "models": {
+              "coupled": {
+                "ap": 0.5139657277435383,
+                "auc": 0.48691304774041755,
+                "events": 101
+              },
+              "decoupled": {
+                "ap": 0.5124625283712494,
+                "auc": 0.5582786001372414,
+                "events": 101
+              },
+              "recency": {
+                "ap": 0.5800270674331174,
+                "auc": 0.6213116361141064,
+                "events": 101
+              },
+              "recurrence": {
+                "ap": 0.5,
+                "auc": 0.5,
+                "events": 101
+              }
+            }
+          },
+          "shared-regime-support": {
+            "eligible_events": 261,
+            "models": {
+              "coupled": {
+                "ap": 0.3679968795362891,
+                "auc": 0.23540464761233687,
+                "events": 261
+              },
+              "decoupled": {
+                "ap": 0.38563616169874104,
+                "auc": 0.30357745775898765,
+                "events": 261
+              },
+              "recency": {
+                "ap": 0.3754201455956372,
+                "auc": 0.23556612498348528,
+                "events": 261
+              },
+              "recurrence": {
+                "ap": 0.41448106517643574,
+                "auc": 0.19348659003831417,
+                "events": 261
+              }
+            }
+          }
+        },
+        "novel-pair": {
+          "all": {
+            "eligible_events": 301,
+            "models": {
+              "coupled": {
+                "ap": 0.9295414236014059,
+                "auc": 0.952726791095021,
+                "events": 301
+              },
+              "decoupled": {
+                "ap": 0.9527428934256121,
+                "auc": 0.9623072593017737,
+                "events": 301
+              },
+              "recency": {
+                "ap": 0.7378529920826766,
+                "auc": 0.6683811436959856,
+                "events": 301
+              },
+              "recurrence": {
+                "ap": 0.6579480826623121,
+                "auc": 0.6694352159468439,
+                "events": 301
+              }
+            }
+          },
+          "inductive": {
+            "eligible_events": 151,
+            "models": {
+              "coupled": {
+                "ap": 0.9161667860478269,
+                "auc": 0.9423709486426033,
+                "events": 151
+              },
+              "decoupled": {
+                "ap": 0.9387528052834364,
+                "auc": 0.9471952984518224,
+                "events": 151
+              },
+              "recency": {
+                "ap": 0.6974309755441708,
+                "auc": 0.6314196745756765,
+                "events": 151
+              },
+              "recurrence": {
+                "ap": 0.6297277409860191,
+                "auc": 0.6357615894039735,
+                "events": 151
+              }
+            }
+          },
+          "new-pair-positive": {
+            "eligible_events": 191,
+            "models": {
+              "coupled": {
+                "ap": 0.8781951819071502,
+                "auc": 0.9372001863983992,
+                "events": 191
+              },
+              "decoupled": {
+                "ap": 0.9268986049907885,
+                "auc": 0.9497546668128615,
+                "events": 191
+              },
+              "recency": {
+                "ap": 0.47537916136583136,
+                "auc": 0.48186727337518154,
+                "events": 191
+              },
+              "recurrence": {
+                "ap": 0.5,
+                "auc": 0.4869109947643979,
+                "events": 191
+              }
+            }
+          },
+          "repeated-positive": {
+            "eligible_events": 110,
+            "models": {
+              "coupled": {
+                "ap": 0.9775550059942227,
+                "auc": 0.9806611570247934,
+                "events": 110
+              },
+              "decoupled": {
+                "ap": 0.9821676769726143,
+                "auc": 0.983801652892562,
+                "events": 110
+              },
+              "recency": {
+                "ap": 0.9786824052606935,
+                "auc": 0.9850413223140495,
+                "events": 110
+              },
+              "recurrence": {
+                "ap": 0.9734513274336283,
+                "auc": 0.9863636363636364,
+                "events": 110
+              }
+            }
+          },
+          "shared-regime-support": {
+            "eligible_events": 261,
+            "models": {
+              "coupled": {
+                "ap": 0.9298013498658242,
+                "auc": 0.9536706742414234,
+                "events": 261
+              },
+              "decoupled": {
+                "ap": 0.9426687936442946,
+                "auc": 0.9571350978406072,
+                "events": 261
+              },
+              "recency": {
+                "ap": 0.7456793962469901,
+                "auc": 0.6779921022885748,
+                "events": 261
+              },
+              "recurrence": {
+                "ap": 0.6650848887482864,
+                "auc": 0.6781609195402298,
+                "events": 261
+              }
+            }
+          }
+        },
+        "random": {
+          "all": {
+            "eligible_events": 301,
+            "models": {
+              "coupled": {
+                "ap": 0.8713030466567891,
+                "auc": 0.9158949680467103,
+                "events": 301
+              },
+              "decoupled": {
+                "ap": 0.8876582712492735,
+                "auc": 0.9270096356552355,
+                "events": 301
+              },
+              "recency": {
+                "ap": 0.7154089268930078,
+                "auc": 0.6552300747232369,
+                "events": 301
+              },
+              "recurrence": {
+                "ap": 0.6363180931287244,
+                "auc": 0.6561461794019933,
+                "events": 301
+              }
+            }
+          },
+          "inductive": {
+            "eligible_events": 151,
+            "models": {
+              "coupled": {
+                "ap": 0.8696161486291454,
+                "auc": 0.9111442480592956,
+                "events": 151
+              },
+              "decoupled": {
+                "ap": 0.88421420249641,
+                "auc": 0.919126354107276,
+                "events": 151
+              },
+              "recency": {
+                "ap": 0.6712584007312261,
+                "auc": 0.62280163150739,
+                "events": 151
+              },
+              "recurrence": {
+                "ap": 0.6127207505518764,
+                "auc": 0.6258278145695364,
+                "events": 151
+              }
+            }
+          },
+          "new-pair-positive": {
+            "eligible_events": 191,
+            "models": {
+              "coupled": {
+                "ap": 0.7695571782645466,
+                "auc": 0.890627998136016,
+                "events": 191
+              },
+              "decoupled": {
+                "ap": 0.8515607957008283,
+                "auc": 0.8976727611633454,
+                "events": 191
+              },
+              "recency": {
+                "ap": 0.46442560289525414,
+                "auc": 0.4693402044900085,
+                "events": 191
+              },
+              "recurrence": {
+                "ap": 0.5,
+                "auc": 0.47643979057591623,
+                "events": 191
+              }
+            }
+          },
+          "repeated-positive": {
+            "eligible_events": 110,
+            "models": {
+              "coupled": {
+                "ap": 0.9282185951438446,
+                "auc": 0.9566942148760331,
+                "events": 110
+              },
+              "decoupled": {
+                "ap": 0.90760660312404,
+                "auc": 0.9612396694214876,
+                "events": 110
+              },
+              "recency": {
+                "ap": 0.9827955462727911,
+                "auc": 0.9831404958677685,
+                "events": 110
+              },
+              "recurrence": {
+                "ap": 0.9401709401709402,
+                "auc": 0.9681818181818183,
+                "events": 110
+              }
+            }
+          },
+          "shared-regime-support": {
+            "eligible_events": 261,
+            "models": {
+              "coupled": {
+                "ap": 0.863616768487529,
+                "auc": 0.9124645850765549,
+                "events": 261
+              },
+              "decoupled": {
+                "ap": 0.8700124084923913,
+                "auc": 0.9174263442991148,
+                "events": 261
+              },
+              "recency": {
+                "ap": 0.719986259600198,
+                "auc": 0.662996726413294,
+                "events": 261
+              },
+              "recurrence": {
+                "ap": 0.6405671807970659,
+                "auc": 0.6628352490421455,
+                "events": 261
+              }
+            }
+          }
+        }
+      },
+      "pilot_sha256": "a93fc0a1eaad78da893e6cc2d5b54a8bed7694a6ba7438a86b8f63fecb9ae294",
+      "source_commit": "6a0f015d11bed1114fdccbd34f4c07faf921c06f"
+    }
+  ],
+  "job_id": "7648014",
+  "kind": "exploratory-pilot-review",
+  "publication_eligible": false,
+  "recency_definition": "last observed pair timestamp minus query time; unseen uses first stream timestamp minus one",
+  "review_script_sha256": "ac379f568f5793696067b427f5011aa16a9e486f481f37cbddf48ec5e1de6049"
+}

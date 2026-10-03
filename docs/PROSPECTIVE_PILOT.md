@@ -71,3 +71,9 @@ Before a full run, review pilot diagnostics and cost, then register the full
 study, exact runtime lock, comparator implementations, tuning/seed budgets and
 independent-source dataset. The old scientific reconciler does not admit this
 new protocol; its future release needs its own reviewed execution contract.
+
+The initial execution is preserved in the [development bundle](../evidence/development/LP-P-PROSPECTIVE-001/README.md).
+Follow the [canonical pilot review](../wiki/evidence/Prospective-Pilot.md) for its
+findings and the next study gate. Run `scripts/review_prospective_pilot.py` on a
+Slurm compute node to reconstruct metrics and inspect candidate history,
+repeated/new positive cohorts and exploratory recurrence/recency controls.

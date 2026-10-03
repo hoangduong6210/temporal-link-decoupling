@@ -1,7 +1,7 @@
 ---
 title: Project Limitations
 status: canonical limitations
-last_updated: 2026-08-21
+last_updated: 2026-10-02
 paper_source: false
 ---
 
@@ -25,3 +25,13 @@ paper_source: false
 ## Interpretation of recovered evidence
 
 Preservation hashes and agreement with printed conference values cannot establish missing execution provenance. The historical archive contains conflicting versions and non-finite placeholders for unmeasured metrics. These must remain distinguishable. Freeze-then-probe performance alone does not demonstrate irreversible damage, and proxy baselines do not establish superiority to published implementations.
+
+## Prospective development boundary
+
+The [prospective pilot](evidence/Prospective-Pilot.md) uses a changed query
+representation and objective with pre-event scoring. It cannot be treated as
+an unchanged rerun of the frozen model. Its closed destination catalogue is an
+explicit assumption, and stable observation order within timestamp ties is an
+approximation. Short-prefix results, sparse historical support and weak
+historical-negative ranking do not establish robustness or journal readiness.
+The pilot has no admitted performance claim.

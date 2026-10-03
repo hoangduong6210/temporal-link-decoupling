@@ -60,6 +60,9 @@ history-only candidate scoring and explicit sampling coverage. Its
 [Slurm workflow](docs/PROSPECTIVE_PILOT.md) is for technical validation and does
 not replace the admitted evidence or establish journal readiness.
 
+The [completed pilot review](wiki/evidence/Prospective-Pilot.md) links preserved
+Slurm reports and records historical-negative coverage and ranking limitations.
+
 ## Earlier DYU journal working draft
 
 The earlier [LaTeX source and PDF](paper/journal/DYU/Latex_full/) follow the supplied DYU template and contain current result rows alongside retrospective historical analyses. The [DYU journal wiki](wiki/manuscript/DYU-Journal.md) records that draft's status; DYU is no longer the active target. [Recovered historical evidence](wiki/evidence/Recovered-Evidence.md) is organized for reconciliation and is not automatically admitted to the current release or the JIIS paper.

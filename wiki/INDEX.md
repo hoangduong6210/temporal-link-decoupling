@@ -25,6 +25,7 @@ paper_source: false
 - [Split Decision](decisions/0001-separate-link-prediction-and-lifecycle-readout.md)
 - [Journal Target Decision](decisions/0002-journal-target-order.md)
 - [Evidence Ledger](evidence/Evidence-Ledger.md)
+- [Prospective Pilot Review](evidence/Prospective-Pilot.md)
 - [License and Assets](governance/License-and-Assets.md)
 - [Numeric Evidence and Publication Hygiene](governance/Numeric-Evidence-and-Publication-Hygiene.md)
 - [Paper Export Contract](manuscript/Paper-Export-Contract.md)

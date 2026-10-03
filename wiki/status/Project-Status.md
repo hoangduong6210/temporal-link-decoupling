@@ -83,6 +83,9 @@ through Slurm; the knowledge and manuscript workflow starts in `wiki/`.
 The [prospective specification](../methods/Prospective-Evaluation.md) defines a
 separate pilot with pre-event scoring, explicit destination support and full
 history replay. Its adapter, runner, Slurm entry point and contract tests are
-implemented. This does not revise the frozen historical comparison or make a
-new performance claim. Full-corpus execution, external comparator parity and
-JIIS manuscript admission remain open.
+implemented and validated. Wikipedia and MOOC pilot execution completed through
+Slurm; the [pilot review](../evidence/Prospective-Pilot.md) links preserved
+reports and records the sparse historical support and weak historical-negative
+ranking that constrain the next study. This does not revise the frozen
+historical comparison or make a new performance claim. Full-corpus execution,
+external comparator parity and JIIS manuscript admission remain open.
