@@ -41,6 +41,7 @@ paper_source: false
 - [Original TGN Comparator Contract](methods/External-TGN-Comparator.md)
 - [Prospective Readout and Comparator Development](methods/Prospective-Development.md)
 - [Prospective Sampling and Gradient Diagnostics](methods/Prospective-Diagnostics.md)
+- [Isolated Prospective CPU Runtime](methods/Prospective-Runtime.md)
 - [Research Workflow](operations/Research-Workflow.md)
 - [Technical Source Map](references/Technical-Source-Map.md)
 - [Journal Research Gap and Literature Review Boundary](references/Journal-Research-Gap.md)

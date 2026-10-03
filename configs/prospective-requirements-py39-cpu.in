@@ -1,0 +1,11 @@
+# Dedicated prospective CPU runtime; separate from the frozen CUDA release.
+# Resolve, install and verify through Slurm. Use the generated hashed lock.
+numpy==2.0.2
+pandas==2.3.3
+torch==2.8.0+cpu
+scikit-learn==1.6.1
+scipy==1.13.1
+tqdm==4.67.3
+matplotlib==3.9.4
+pytest==8.4.2
+tomli==2.2.1
