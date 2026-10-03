@@ -1,5 +1,10 @@
 # Temporal Link Prediction by Decoupling
 
+**Work is paused at the owner's request.** Read the
+[pause status and resume handoff](wiki/status/Pause-and-Resume.md) before
+continuing. Completed results, partial attempts and the next validation steps
+are preserved; the journal goal remains unfinished.
+
 An evidence-backed research implementation for studying whether a temporal
 link-prediction objective should update the temporal backbone. The repository
 compares coupled end-to-end training with gradient-decoupled training under a

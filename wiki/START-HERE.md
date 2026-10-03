@@ -1,7 +1,7 @@
 ---
 title: Start Here
 status: canonical onboarding
-last_updated: 2026-10-02
+last_updated: 2026-10-03
 paper_source: false
 ---
 
@@ -9,14 +9,19 @@ paper_source: false
 
 ## Objective and stage
 
+Work is paused at the owner's request. Begin with the
+[pause and resume handoff](status/Pause-and-Resume.md); continue only after a
+new owner instruction.
+
 The project tests decoupling-by-construction against coupled end-to-end training
 for inductive temporal link prediction. The current stage is
 `evidence-frozen-paper-pending`. Current evidence release:
 `LP-REL-2026-A003-001`. No paper is evidence-admitted;
 `paper/CURRENT` is `UNRELEASED`.
 
-The active journal target is **JIIS**, with **KAIS** and **IJMLC** as ordered
-fallbacks. Read [Journal Targets](manuscript/Journal-Targets.md) and the
+The original journal preference is **JIIS**, with **KAIS** and **IJMLC** as ordered
+fallbacks, subject to the later JCR top-quartile eligibility goal. Read
+[Journal Targets](manuscript/Journal-Targets.md) and the
 [JIIS writing plan](manuscript/JIIS-Journal.md). The existing `wiki/` is the
 knowledge foundation; manuscript content is derived from it.
 
@@ -49,12 +54,16 @@ knowledge foundation; manuscript content is derived from it.
 
 ## Running work and ownership
 
-No training or scheduler job is currently running. Dataset redistribution is
+Owned research jobs were stopped for the pause; consult current scheduler state
+before resuming. Dataset redistribution is
 disabled under the conservative rights policy. The evidence reviewer must
 verify immutable release closure; the claim reviewer may approve paper wording
 only after that release exists.
 
 ## Next actions
+
+The actions below apply after the owner resumes the project; first complete
+the mechanism-study validation and continuation sequence in the handoff.
 
 - Verify the current frozen evidence release.
 - Develop the JIIS manuscript from the canonical wiki using its source map and

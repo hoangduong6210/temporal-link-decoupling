@@ -1,5 +1,9 @@
 # Auxiliary and backbone controls
 
+**Paused at the owner's request.** Follow the
+[resume handoff](../wiki/status/Pause-and-Resume.md) before running the commands
+below. The original matrix is incomplete and must not be overwritten.
+
 The [wiki specification](../wiki/methods/Prospective-Mechanism-Controls.md) and
 [P004 protocol](../protocols/prospective_mechanism_v4.toml) own this study.
 It contains 60 fits: 2 datasets × 3 seeds × 2 negative-training policies × 5 arms.

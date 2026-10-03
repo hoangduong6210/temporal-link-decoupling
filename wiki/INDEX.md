@@ -49,6 +49,7 @@ paper_source: false
 - [Inductive Decoupling Benchmark](results/Inductive-Decoupling-Benchmark.md)
 - [Project Status](status/Project-Status.md)
 - [Live Execution](status/Live-Execution.md)
+- [Research Pause and Resume Handoff](status/Pause-and-Resume.md)
 
 - [Recovered Evidence](evidence/Recovered-Evidence.md)
 - [DYU Journal Development](manuscript/DYU-Journal.md)

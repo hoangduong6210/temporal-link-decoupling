@@ -1,0 +1,149 @@
+{
+  "actual_result_preflight": {
+    "job_id": "7651514",
+    "status": "CANCELLED_BEFORE_START"
+  },
+  "backup_location": "repository Git metadata, paused-2026-10-03; paths and restore instructions are private",
+  "cells_recorded_in_partial_tasks": 4,
+  "completed_tasks": 2,
+  "fits_in_completed_tasks": 10,
+  "goal_status": "paused",
+  "handoff_archive_job_id": "7651532",
+  "independent_reconciliation": "NOT_RUN; no complete matrix or new performance interpretation admitted",
+  "kind": "owner-requested-research-pause",
+  "model_source_commit": "0fd12eb190577de99314531bb62afc8624f89c8d",
+  "paused_at_utc": "2026-10-03T06:02:09.223353+00:00",
+  "planned_fits": 60,
+  "private_backups": {
+    "cpu-environment.tar.gz": {
+      "bytes": 291169038,
+      "sha256": "dc8a74e0c39985256ead0cbd4a5bffcda8444f92bcb391ab4889a4867d2e4a23"
+    },
+    "mechanism-output.tar.gz": {
+      "bytes": 4607606,
+      "sha256": "105cea803c382bc2c5dda120bb54021110b867da91fe7ae3f4395fb84345fff8"
+    }
+  },
+  "protocol_id": "LP-P-PROSPECTIVE-004",
+  "publication_eligible": false,
+  "reason": "Owner requested temporary stop and status handoff for later continuation.",
+  "reconciler_source_commit": "396704119f44fecfdfbaa4e66dff0425c103c837",
+  "reconciler_validation": {
+    "job_id": "7651509",
+    "status": "CANCELLED_BEFORE_START"
+  },
+  "resume": "Validate the reconciler first, audit completed tasks, then rerun tasks 2-11 from the pinned model source into a new array directory. Preserve partial attempts. Recheck runtime payload and source identity. No automatic per-epoch continuation is implemented.",
+  "source_validation": {
+    "job_id": "7651476",
+    "skipped": 0,
+    "status": "PASS",
+    "tests_passed": 109
+  },
+  "tasks": [
+    {
+      "cells_recorded": 5,
+      "dataset": "wikipedia",
+      "job_id": "7651485_0",
+      "policy": "random",
+      "public_report": "wikipedia-seed-1-random.json",
+      "report_sha256": "25b31e7c09cc580243b440302b15c0ac91797bd634936124798c7928250dc693",
+      "report_status": "COMPLETED_VALIDATION_MECHANISM",
+      "seed": 1,
+      "task": 0,
+      "task_complete": true
+    },
+    {
+      "cells_recorded": 5,
+      "dataset": "wikipedia",
+      "job_id": "7651485_1",
+      "policy": "mixed",
+      "public_report": "wikipedia-seed-1-mixed.json",
+      "report_sha256": "2ff15600d7de0907ddc453de4f8a3d331a414fc2f00e1f811f48e2e83f13ce12",
+      "report_status": "COMPLETED_VALIDATION_MECHANISM",
+      "seed": 1,
+      "task": 1,
+      "task_complete": true
+    },
+    {
+      "cells_recorded": 2,
+      "dataset": "wikipedia",
+      "job_id": "7651485_2",
+      "policy": "random",
+      "public_report": "wikipedia-seed-2-random.json",
+      "report_sha256": "6625fccb6cd6a8c8149007bc87cb76ea57e4edfeec9c37d7e3ad785ac497dcc9",
+      "report_status": "STARTED",
+      "seed": 2,
+      "task": 2,
+      "task_complete": false
+    },
+    {
+      "cells_recorded": 2,
+      "dataset": "wikipedia",
+      "job_id": "7651485_3",
+      "policy": "mixed",
+      "public_report": "wikipedia-seed-2-mixed.json",
+      "report_sha256": "8e9b553813f46e9df8fde84f6b995b1473e6521a04854ef77d38961bf21f7780",
+      "report_status": "STARTED",
+      "seed": 2,
+      "task": 3,
+      "task_complete": false
+    },
+    {
+      "cells_recorded": 0,
+      "job_id": "7651485_4",
+      "report_status": "NOT_STARTED",
+      "task": 4,
+      "task_complete": false
+    },
+    {
+      "cells_recorded": 0,
+      "job_id": "7651485_5",
+      "report_status": "NOT_STARTED",
+      "task": 5,
+      "task_complete": false
+    },
+    {
+      "cells_recorded": 0,
+      "job_id": "7651485_6",
+      "report_status": "NOT_STARTED",
+      "task": 6,
+      "task_complete": false
+    },
+    {
+      "cells_recorded": 0,
+      "job_id": "7651485_7",
+      "report_status": "NOT_STARTED",
+      "task": 7,
+      "task_complete": false
+    },
+    {
+      "cells_recorded": 0,
+      "job_id": "7651485_8",
+      "report_status": "NOT_STARTED",
+      "task": 8,
+      "task_complete": false
+    },
+    {
+      "cells_recorded": 0,
+      "job_id": "7651485_9",
+      "report_status": "NOT_STARTED",
+      "task": 9,
+      "task_complete": false
+    },
+    {
+      "cells_recorded": 0,
+      "job_id": "7651485_10",
+      "report_status": "NOT_STARTED",
+      "task": 10,
+      "task_complete": false
+    },
+    {
+      "cells_recorded": 0,
+      "job_id": "7651485_11",
+      "report_status": "NOT_STARTED",
+      "task": 11,
+      "task_complete": false
+    }
+  ],
+  "test_evaluated": false
+}

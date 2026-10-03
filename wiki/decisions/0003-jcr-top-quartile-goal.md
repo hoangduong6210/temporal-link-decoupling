@@ -7,6 +7,9 @@ paper_source: false
 
 # DEC-0003: JCR top-quartile submission readiness
 
+The owner has temporarily paused work. The goal and eligibility criteria remain
+in force for a future resumption; see the [handoff](../status/Pause-and-Resume.md).
+
 ## Owner instruction
 
 The owner set an active journal goal and selected Journal Citation Reports /

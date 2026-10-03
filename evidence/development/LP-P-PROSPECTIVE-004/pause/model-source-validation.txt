@@ -1,0 +1,58 @@
+Source commit: 0fd12eb190577de99314531bb62afc8624f89c8d
+PASS: isolated prospective CPU runtime, exact package pins and installed payload; b09e5867d934831a09502e8a998e2652f9c955a21f70d25223f751d5d217cd0f
+........................................................................ [ 66%]
+.....................................                                    [100%]
+109 passed in 32.38s
+{
+  "active_internal_markers": [],
+  "canonical_status": "PASS",
+  "issues": [],
+  "paper_snapshot": {
+    "pointer": "UNRELEASED",
+    "state": "NOT_PRESENT"
+  },
+  "pointers": {
+    "paper_current": "UNRELEASED",
+    "project_evidence_release": "LP-REL-2026-A003-001",
+    "project_paper_snapshot": "UNRELEASED",
+    "results_current": "LP-REL-2026-A003-001"
+  },
+  "quarantine_diagnostics": {
+    "historical_json_files": 0,
+    "historical_json_with_normalized_execution_identity": 0,
+    "legacy_binary_has_visible_quarantine_banner": {},
+    "top_level_paper_figures_matching_quarantined_working_copies": 0
+  },
+  "release_readiness": "BLOCKED",
+  "reproducibility_blockers": [
+    "PAPER_NOT_EVIDENCE_ADMITTED"
+  ],
+  "reproducibility_status": "EVIDENCE_FROZEN",
+  "schema_version": 1,
+  "wiki": {
+    "claim_count": 3,
+    "claim_numeric_occurrences": 97,
+    "number_word_claims_with_section_level_provenance": [
+      "LP-C-IDFIX-001"
+    ],
+    "resolved_job_ids": [
+      "LP-JOB-LOCAL-20260820-001",
+      "LP-JOB-SLURM-A003-FINAL-RECONCILE-R2"
+    ],
+    "structural_numeric_occurrences": 222,
+    "unclassified_number_words_outside_claim_registry": [],
+    "unclassified_numeric_tokens_outside_claim_registry": []
+  }
+}
+{
+  "issues": [],
+  "reachable_commits": 63,
+  "reachable_paths": 1437,
+  "schema_version": 1,
+  "status": "PASS"
+}
+evidence/development/LP-RUNTIME-CPU-001/runtime.json: OK
+evidence/development/LP-RUNTIME-CPU-001/slurm-accounting.tsv: OK
+evidence/development/LP-RUNTIME-CPU-001/source-validation.txt: OK
+evidence/development/LP-RUNTIME-CPU-001/validation.json: OK
+PASS: mechanism source contracts and runtime binding

@@ -1,11 +1,18 @@
 ---
 title: Live Execution
-status: validation-only diagnostics reconciled; confirmatory work pending
+status: paused; owned scientific jobs cancelled and partial attempts preserved
 last_updated: 2026-10-03
 paper_source: false
 ---
 
 # Live Execution
+
+The owner paused research. The mechanism array and its pending validation and
+audit-preflight jobs were cancelled; no further scientific work is queued by
+this thread. The [pause handoff](Pause-and-Resume.md) and
+[execution archive](../../evidence/development/LP-P-PROSPECTIVE-004/README.md)
+record completed tasks, partial reports, backups and checks still required.
+Cancellation for this pause is not a scientific failure or a completed study.
 
 The frozen scientific arrays completed
 and the successful terminal reconciliation is registered as

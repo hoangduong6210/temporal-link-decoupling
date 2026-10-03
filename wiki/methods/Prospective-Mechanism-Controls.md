@@ -1,11 +1,15 @@
 ---
 title: Prospective Auxiliary and Backbone Controls
-status: registered development controls; execution pending
+status: partially executed; paused at owner request before reconciliation
 last_updated: 2026-10-03
 paper_source: false
 ---
 
 # Prospective Auxiliary and Backbone Controls
+
+Execution is paused. The [resume handoff](../status/Pause-and-Resume.md) records
+completed and interrupted tasks, the unvalidated reconciler and required next
+checks. The protocol is unchanged; incomplete execution is not a result review.
 
 `LP-P-PROSPECTIVE-004` owns the
 [registered mechanism-control protocol](../../protocols/prospective_mechanism_v4.toml).

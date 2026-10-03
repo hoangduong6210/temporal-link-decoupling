@@ -1,6 +1,6 @@
 ---
 title: Project Status
-status: evidence frozen; paper pending
+status: paused at owner request; evidence frozen and paper pending
 last_updated: 2026-10-03
 paper_source: false
 ---
@@ -8,6 +8,11 @@ paper_source: false
 # Project Status
 
 ## Current state
+
+Research is paused at the owner's request. The
+[resume handoff](Pause-and-Resume.md) owns the stopping point, preserved
+artifacts, incomplete mechanism study and ordered continuation steps. Resume
+only when the owner requests it; do not infer completion from the pause.
 
 The Link Prediction project has an independent implementation, corpus registry,
 result partition, wiki, and paper root. Current scientific execution is complete

@@ -1,0 +1,211 @@
+{
+  "job_id": "7651486",
+  "runtime": {
+    "abi": "cpython-39-x86_64-linux-gnu",
+    "boundary": "Wheel hashes checked at installation; installed RECORD and base Python payload checked here. This is not a container or a promise of bitwise equality across CPU hardware.",
+    "implementation": "CPython",
+    "installed_payload_sha256": "b09e5867d934831a09502e8a998e2652f9c955a21f70d25223f751d5d217cd0f",
+    "isolated": true,
+    "kind": "prospective-cpu-runtime-attestation",
+    "libc": [
+      "glibc",
+      "2.34"
+    ],
+    "lock_sha256": "aa03ffcd741f8d458c1da0b0d6bdbf4ed3d893572f157409e3d9b43e1013e82c",
+    "machine": "x86_64",
+    "numpy_version": "2.0.2",
+    "packages": {
+      "contourpy": {
+        "file_count": 26,
+        "payload_sha256": "a0499f966e7f1568fdc40950ad33e1bcd12a6eb1858ce68a94f7d00e37f87588",
+        "version": "1.3.0"
+      },
+      "cycler": {
+        "file_count": 9,
+        "payload_sha256": "d74c5ba8870295ff66b3098a3d3c0699337cd734a0c8fc09e14964cd3699753e",
+        "version": "0.12.1"
+      },
+      "exceptiongroup": {
+        "file_count": 13,
+        "payload_sha256": "dc65ad9dabbdaf35cfdfc90442976cbb12afe57eba0eeb9d20538facfe525264",
+        "version": "1.3.1"
+      },
+      "filelock": {
+        "file_count": 16,
+        "payload_sha256": "2f5b130976114b2a5a3af7229be3aad663e5175491b511e53227c39adf88da04",
+        "version": "3.19.1"
+      },
+      "fonttools": {
+        "file_count": 359,
+        "payload_sha256": "60d420ad8117e7101fbd19dd46a1a264791f6906da565446e4316daefd6f8507",
+        "version": "4.60.2"
+      },
+      "fsspec": {
+        "file_count": 63,
+        "payload_sha256": "7fe208d43a9b1c5956ea50eefd6e434a4ca70e9c330f77f892e4965204ae0cad",
+        "version": "2025.10.0"
+      },
+      "importlib-resources": {
+        "file_count": 38,
+        "payload_sha256": "95ba55fb988af8973909ce2529634fb18aabc3eea50c98a226d0383aeae542e4",
+        "version": "6.5.2"
+      },
+      "iniconfig": {
+        "file_count": 11,
+        "payload_sha256": "876244c3c2a65790b3d59698112e3439d947ee28fe562b9f419adb04cbd51db2",
+        "version": "2.1.0"
+      },
+      "jinja2": {
+        "file_count": 33,
+        "payload_sha256": "5f34ec5f6c52ff8477ac3a3efcad7279b734f207055e2b4fbd2af35c313fa623",
+        "version": "3.1.6"
+      },
+      "joblib": {
+        "file_count": 145,
+        "payload_sha256": "f8dc18885053f9fcd7276ce754bd6c141ada18ef084eae6c7c0bf18a279914e1",
+        "version": "1.5.3"
+      },
+      "kiwisolver": {
+        "file_count": 12,
+        "payload_sha256": "fb79e56c9db1226c4b173cfc821099c0ea322969a797940b5ff44f6bd38a2556",
+        "version": "1.4.7"
+      },
+      "markupsafe": {
+        "file_count": 13,
+        "payload_sha256": "b5eddbd7d1b2abd52c0ddd2e6584c460c7a404a952c1a126048bf2c2b3d837d2",
+        "version": "3.0.4"
+      },
+      "matplotlib": {
+        "file_count": 590,
+        "payload_sha256": "ddc8edf9b7bcf39eb8a2df418492c0bdc13a4ffdb3940709a0c0bf2a53a4c7ff",
+        "version": "3.9.4"
+      },
+      "mpmath": {
+        "file_count": 94,
+        "payload_sha256": "5ebc91898bdb342656229826909771c435d7e212ea2a4813a2022776dbfd3e78",
+        "version": "1.3.0"
+      },
+      "networkx": {
+        "file_count": 578,
+        "payload_sha256": "632d42e718510b395f1a723556a3b2962cdb5b5638f7b5d4d176002dcb885582",
+        "version": "3.2.1"
+      },
+      "numpy": {
+        "file_count": 934,
+        "payload_sha256": "484060e6688e9c8178ba5a6a8d6cd1b9e5e68549bba0a6f2419929dee437c4b3",
+        "version": "2.0.2"
+      },
+      "packaging": {
+        "file_count": 31,
+        "payload_sha256": "ff03902d583baa8a124efef836aeb247055eda336c5c12df3e73f1b6c295c3e5",
+        "version": "26.3"
+      },
+      "pandas": {
+        "file_count": 1515,
+        "payload_sha256": "05adef6f52b8108a001727b089c99d42b62fb1362ddec11f45931fb291b6bc0b",
+        "version": "2.3.3"
+      },
+      "pillow": {
+        "file_count": 138,
+        "payload_sha256": "20b419d08bc536ac56fc4e568be000351dc7b2e1f3f511c207cf37474211ee41",
+        "version": "11.3.0"
+      },
+      "pluggy": {
+        "file_count": 16,
+        "payload_sha256": "bcb7a472c25d88480c059e343855a97ecd01cfe77baef7eafcf702937fc504bc",
+        "version": "1.6.0"
+      },
+      "pygments": {
+        "file_count": 352,
+        "payload_sha256": "5a5491c0884b517c4f5de7c22426ad18a54e0785a9c2b5217addb12173166519",
+        "version": "2.21.0"
+      },
+      "pyparsing": {
+        "file_count": 25,
+        "payload_sha256": "f7ee895a6e0ed5cebebbf31326283ed2ac46923e621f4711010504b8fc8b85d9",
+        "version": "3.3.3"
+      },
+      "pytest": {
+        "file_count": 85,
+        "payload_sha256": "02dfd7538d94198ce83c23c4f1e9afcb50852b828c66696f3efcfdeeabafacd0",
+        "version": "8.4.2"
+      },
+      "python-dateutil": {
+        "file_count": 27,
+        "payload_sha256": "36f5d2da2cae8987249ed6b28d3ed29542b7cca4db971e9ab9f1407588ea8e8e",
+        "version": "2.9.0.post0"
+      },
+      "pytz": {
+        "file_count": 618,
+        "payload_sha256": "8bd5788e71439ac37bc3f69f1bed9decff0e876a50310d5877fc03901fcbdc32",
+        "version": "2026.4"
+      },
+      "scikit-learn": {
+        "file_count": 896,
+        "payload_sha256": "6278e12741f883bd0686da3fe8e9babe7169e94d3e56aa541f6afb9292a6dc62",
+        "version": "1.6.1"
+      },
+      "scipy": {
+        "file_count": 1331,
+        "payload_sha256": "eabf01bea421c597d5c76eae27b293584ee4cb86cfd58d08f346ef4c1dd180d1",
+        "version": "1.13.1"
+      },
+      "six": {
+        "file_count": 8,
+        "payload_sha256": "96ea5fa3315b024b5c7fddc37d0d3397d014df6d5a905c045b1456a4240b7457",
+        "version": "1.17.0"
+      },
+      "sympy": {
+        "file_count": 1573,
+        "payload_sha256": "d53dc203c197dfa3f07c514307c8fa81e126ba0dba793725d6bbf93fb0666e38",
+        "version": "1.14.0"
+      },
+      "threadpoolctl": {
+        "file_count": 7,
+        "payload_sha256": "5197ade1c242dc1988fab7470b0b448a0a9728da5841f3a17ffec88c3c3499be",
+        "version": "3.7.0"
+      },
+      "tomli": {
+        "file_count": 11,
+        "payload_sha256": "1efe270c7fee763ebd1c66a3921a63da41f851dbd98c1b862f8c7289f72a111d",
+        "version": "2.2.1"
+      },
+      "torch": {
+        "file_count": 11610,
+        "payload_sha256": "28aade1634a7a327b02db2c11b7fcb8bbff4b109b547cfb455da138fc40d0bf7",
+        "version": "2.8.0+cpu"
+      },
+      "tqdm": {
+        "file_count": 42,
+        "payload_sha256": "b4ab773809668902b6fa38514d06e4d2bdbe62484e3c33ce261104af0633e264",
+        "version": "4.67.3"
+      },
+      "typing-extensions": {
+        "file_count": 7,
+        "payload_sha256": "0bac83bc284e6d56e927548807b961412836ea9032ca6cdcbb9f66a249b6a5cf",
+        "version": "4.16.0"
+      },
+      "tzdata": {
+        "file_count": 635,
+        "payload_sha256": "5c56b9fa6b4548716e89d42d2b6a21798941a1e42a7a8d790e7bc08dd688951c",
+        "version": "2026.4"
+      },
+      "zipp": {
+        "file_count": 14,
+        "payload_sha256": "a6685652eb3604929e2f9369afbd37b5903166884077c89b77ddc85041485306",
+        "version": "3.23.1"
+      }
+    },
+    "python_executable_sha256": "1fc00bd3c184be73ebd14596efb8b5cdd94c9f9aa397fb97301c6787bc65db4e",
+    "python_library_sha256": "c28f33903bce5b4b3bf412280ef085f0e3ad5e58f34a7bfc8c3b91d0a1dba471",
+    "python_version": "3.9.21",
+    "schema_version": 1,
+    "stdlib_files": 649,
+    "stdlib_sha256": "514b50de7f0af035491701637ee85cebf81144f93b869c2a2ce4592343ea5c1a",
+    "torch_cuda": null,
+    "torch_version": "2.8.0+cpu"
+  },
+  "source_clean": true,
+  "source_commit": "0fd12eb190577de99314531bb62afc8624f89c8d",
+  "verifier_sha256": "0e7bd61877ca1201d445c4472119cf8f8c385030ac73837ccf184f4d43d16260"
+}
