@@ -50,3 +50,36 @@ hashes, coupled/decoupled initialization parity and complete history replay,
 and verifies source/input/upstream identities again at completion. Do not edit
 the execution checkout during a run. Preserve terminal `sacct` accounting before
 archiving and interpreting results.
+
+## Reconciliation and reproducible tables
+
+After terminal scheduler accounting is available, run the reconciler through
+Slurm from clean, committed project source with the registered corpora present:
+
+```bash
+PYTHONPATH=src python3 scripts/reconcile_prospective_development.py \
+  <wikipedia-attempt.json> <mooc-attempt.json> \
+  --output-dir evidence/development/<new-bundle-id>/matrix \
+  --jobs <comma-separated-scheduler-job-ids>
+```
+
+Include the model array and unsuccessful attempts in the job list. The output
+directory must not already exist. The reconciler verifies source/input identity,
+all registered cells, initial weights, common training/evaluation candidates,
+checkpoint choice, full-history observation, candidate eligibility and cohort
+membership. It recomputes metrics from scored rows and refuses incomplete or
+non-successful model tasks. It preserves raw reports without changing bytes.
+
+Reproduce the archived descriptive tables, also in a Slurm allocation:
+
+```bash
+python3 scripts/render_prospective_development.py \
+  --summary evidence/development/LP-P-PROSPECTIVE-002/matrix/summary.json \
+  --output evidence/development/LP-P-PROSPECTIVE-002/tables.md --check
+```
+
+Omit `--check` only when creating a new table path; existing files are protected
+against replacement. The [completed bundle](../evidence/development/LP-P-PROSPECTIVE-002/README.md)
+retains exact execution identities, failures, checksums and quantitative results.
+The [wiki review](../wiki/evidence/Prospective-Development.md) owns interpretation
+and remaining full-study gates. This workflow does not admit publication claims.

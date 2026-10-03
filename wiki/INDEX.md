@@ -1,7 +1,7 @@
 ---
 title: Exhaustive Wiki Index
 status: canonical index
-last_updated: 2026-10-02
+last_updated: 2026-10-03
 paper_source: false
 ---
 
@@ -26,6 +26,7 @@ paper_source: false
 - [Journal Target Decision](decisions/0002-journal-target-order.md)
 - [Evidence Ledger](evidence/Evidence-Ledger.md)
 - [Prospective Pilot Review](evidence/Prospective-Pilot.md)
+- [Prospective Development Review](evidence/Prospective-Development.md)
 - [License and Assets](governance/License-and-Assets.md)
 - [Numeric Evidence and Publication Hygiene](governance/Numeric-Evidence-and-Publication-Hygiene.md)
 - [Paper Export Contract](manuscript/Paper-Export-Contract.md)

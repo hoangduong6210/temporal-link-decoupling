@@ -1,7 +1,7 @@
 ---
 title: JIIS Journal Development
 status: active preparation; not submission ready
-last_updated: 2026-10-02
+last_updated: 2026-10-03
 paper_source: false
 ---
 
@@ -62,12 +62,13 @@ evidence first; register protocol changes before commissioning new execution.
 | Priority | Work item | Completion evidence / current state |
 |---|---|---|
 | Required | Venue order and official-instruction register | Completed by the venue decision and linked register |
-| Required | Wiki method reconciliation | Partial: prospective score/observe and gradient boundaries are specified and tested; complete the equation-level legacy/adapter reconciliation before drafting the article |
+| Required | Wiki method reconciliation | Partial: prospective score/observe, bounded mixture equations and gradient boundaries are specified and tested; complete the article-level reconciliation with the legacy admitted model before drafting |
 | Required | Current-evidence manuscript | Open: develop the outline above into an English LaTeX article; bind each quantitative occurrence to admitted evidence |
 | Required | Event-conditioning and temporal leakage review | Partial: separate prospective pilot excludes target attributes from scoring, preserves timestamp ties and replays full history; complete the population/catalogue and full-study review |
-| High | Faithful external comparator | Open: select a maintained original implementation through source review; freeze split, candidate pool, features, tuning and compute budget; retain unsuccessful attempts. Existing proxies cannot satisfy this item |
-| High | Negative-sampling robustness | Partial: typed regimes, candidate-history audit and exploratory recurrence/recency controls are complete for the pilot; register full-study cohorts and investigate weak historical-negative ranking before confirmatory execution |
-| High | Interpretation of uncertainty and practical relevance | Open: review paired-seed behavior and variation; assess efficiency or case-study measurements only if supported by registered execution; avoid unsupported significance or efficiency claims |
+| High | Faithful external comparator | Partial: pinned original TGN modules passed integration, development execution and protocol reconciliation; register full-corpus settings, tuning/compute budget and runtime lock before evidence admission |
+| High | Negative-sampling robustness | Partial: typed regimes, candidate-history/cohort audits and recurrence/recency controls completed; readout diagnosis and bounded retraining did not resolve historical-negative weakness consistently; retain negative findings and register full-study reporting |
+| High | Interpretation of uncertainty and practical relevance | Partial: descriptive paired-seed variation reviewed in the development matrix; register full-study uncertainty and training-only throughput before making significance or efficiency claims |
+| High | Independent-source replication | Open: select and register a corpus independent of the existing source streams; CoEdit is a derived corpus and cannot close this item |
 | Conditional | Historical ablations | Open: reconcile source, data and execution identity per claim or leave the numerical tables out of the submission; arithmetic recovery is insufficient |
 | Required | JIIS template and compiled layout | Open: resolve the guideline template ambiguity, enforce the recorded page/abstract/keyword limits and inspect the rendered PDF |
 | Required | Author and publication declarations | Open: verify metadata, contributions, interests, funding, data availability, prior-publication status and assistance disclosure |
@@ -86,8 +87,11 @@ The adapter separates scoring from observation, uses typed candidate support,
 and retains all events when reporting inductive metrics. It is a distinct pilot
 study; its changed representation and objective must not be presented as an
 unchanged rerun of the current admitted model. The [completed pilot review](../evidence/Prospective-Pilot.md)
-records limitations and the next execution gate. Full-scale comparator evidence
-and manuscript admission remain open.
+records the initial limitations. The [subsequent development review](../evidence/Prospective-Development.md)
+records completed decoder diagnosis/retraining and original-TGN comparisons,
+including unfavorable results. Its findings support studying when a gradient
+boundary helps; they do not justify assuming uniform superiority. Full-scale
+comparator evidence and manuscript admission remain open.
 
 All solving and heavy work goes through Slurm. This includes training,
 evaluation, dataset rebuilding, large analysis, substantial test runs and

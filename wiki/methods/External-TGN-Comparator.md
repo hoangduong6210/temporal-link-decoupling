@@ -1,7 +1,7 @@
 ---
 title: Original TGN Comparator Contract
-status: integration tests passed; no admitted comparison
-last_updated: 2026-10-02
+status: integration and development matrix passed; no admitted comparison
+last_updated: 2026-10-03
 paper_source: false
 ---
 
@@ -54,8 +54,9 @@ current/future attributes, chronological observation and gradients reaching the
 original attention, memory updater and readout. A skipped integration test is
 not evidence that the comparator is validated.
 
-Modern-runtime compatibility and bounded pilot execution must pass before a
-full-study release can use this comparator. Full-dataset settings, tuning
+Modern-runtime integration and the registered development matrix completed;
+the [development review](../evidence/Prospective-Development.md) preserves their
+scope and findings. Full-dataset settings, tuning
 budgets, paired seeds and environment locks remain a separate registration.
 Review this contract with the [prospective specification](Prospective-Evaluation.md)
 before admitting any result to the journal evidence.

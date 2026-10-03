@@ -1,7 +1,7 @@
 ---
 title: Project Status
 status: evidence frozen; paper pending
-last_updated: 2026-10-02
+last_updated: 2026-10-03
 paper_source: false
 ---
 
@@ -86,6 +86,14 @@ history replay. Its adapter, runner, Slurm entry point and contract tests are
 implemented and validated. Wikipedia and MOOC pilot execution completed through
 Slurm; the [pilot review](../evidence/Prospective-Pilot.md) links preserved
 reports and records the sparse historical support and weak historical-negative
-ranking that constrain the next study. This does not revise the frozen
-historical comparison or make a new performance claim. Full-corpus execution,
-external comparator parity and JIIS manuscript admission remain open.
+ranking that constrain the next study.
+
+The subsequent [readout/comparator development matrix](../evidence/Prospective-Development.md)
+also completed and passed reconciliation. Saved-checkpoint replay identified
+readout clipping, a bounded probability decoder was implemented, and an
+original-module TGN comparator passed integration and development execution.
+The results do not support a uniform ranking improvement or a general benefit
+from detachment. These records do not revise the frozen historical comparison
+or admit a new performance claim. Full-corpus registration/execution, a locked
+prospective runtime, independent-source replication and JIIS manuscript
+admission remain open.

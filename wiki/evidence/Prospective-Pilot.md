@@ -1,7 +1,7 @@
 ---
 title: Prospective Pilot Review
 status: technical pilot completed; not admitted performance evidence
-last_updated: 2026-10-02
+last_updated: 2026-10-03
 paper_source: false
 ---
 
@@ -74,3 +74,8 @@ Before committing a confirmatory matrix:
 These gates refine the [JIIS backlog](../manuscript/JIIS-Journal.md). They do not
 alter `LP-REL-2026-A003-001`, admit a new claim, or advance `paper/CURRENT`.
 The paper must continue to be derived from reviewed wiki knowledge.
+
+The [subsequent development review](Prospective-Development.md) now records
+completed clipping diagnosis, bounded decoder retraining and original-module
+TGN integration. It preserves the historical-negative limitations and narrows
+the remaining full-study gate without changing this pilot's interpretation.

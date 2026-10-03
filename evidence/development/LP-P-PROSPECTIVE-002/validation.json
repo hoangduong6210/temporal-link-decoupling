@@ -1,0 +1,53 @@
+{
+  "completed_matrix": {
+    "array_job_id": "7648242",
+    "cells": 30,
+    "datasets": 2,
+    "models": 5,
+    "seeds": [
+      1,
+      2,
+      3
+    ]
+  },
+  "earlier_attempts": [
+    {
+      "job_id": "7648208",
+      "reason": "Strict checkpoint replay failed with mismatched CPU thread count; retry restored recorded execution settings.",
+      "status": "FAILED"
+    },
+    {
+      "job_id": "7648210",
+      "reason": "Initial TGN integration loader did not handle namespace packages whose __file__ is None.",
+      "status": "FAILED"
+    },
+    {
+      "job_id": "7648223",
+      "reason": "Bounded initialization rejected legacy unit weights; repository checks rejected global path insertion and numeric citation/word formatting. Added declared interior margin, explicit package loading and corrected wiki formatting.",
+      "status": "FAILED"
+    },
+    {
+      "job_id": "7648232",
+      "reason": "All 90 tests and canonical audit passed before the committed-source gate.",
+      "status": "COMPLETED"
+    }
+  ],
+  "earlier_test_source_boundary": "Initial integration attempts used a mutable development worktree; their logs are not source-bound scientific evidence. The final source gate and model runs use a committed isolated checkout.",
+  "kind": "development-validation-history",
+  "model_source_commit": "be79f37edabd30d958eed1e809d2cadba6b6b1d7",
+  "publication_eligible": false,
+  "reconciliation": {
+    "job_id": "7648256",
+    "status": "PASS",
+    "summary_sha256": "86db0e24f2405b034d0c4bafa2b1f46a08d07fb74fd9a84194b85381dda36c31"
+  },
+  "source_gate": {
+    "canonical_provenance": "PASS",
+    "job_id": "7648241",
+    "public_history": "PASS",
+    "raw_log_sha256": "24822184efa581b9e097283864a77a9fdee067b4072f03af9bd619f4895cf968",
+    "skipped": 0,
+    "tests_passed": 90,
+    "tgn_integration_tests_executed": 4
+  }
+}

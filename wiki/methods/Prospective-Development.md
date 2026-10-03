@@ -1,6 +1,6 @@
 ---
 title: Prospective Readout and Comparator Development
-status: registered development matrix; not confirmatory evidence
+status: completed development matrix; not confirmatory evidence
 last_updated: 2026-10-03
 paper_source: false
 ---
@@ -98,6 +98,11 @@ significance, superiority, robustness or architecture-general conclusion is
 admitted from this matrix.
 
 ## Execution and the next gate
+
+The registered matrix has completed and passed reconciliation. The
+[development review](../evidence/Prospective-Development.md) records findings,
+negative results and the next research decision; its linked bundle owns the
+non-admitted quantitative records.
 
 The [runner](../../experiments/run_prospective_development.py) and
 [Slurm entry point](../../slurm/prospective_development.sbatch) require committed,

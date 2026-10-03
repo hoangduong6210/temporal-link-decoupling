@@ -63,6 +63,12 @@ not replace the admitted evidence or establish journal readiness.
 The [completed pilot review](wiki/evidence/Prospective-Pilot.md) links preserved
 Slurm reports and records historical-negative coverage and ranking limitations.
 
+The subsequent [readout and original-TGN development review](wiki/evidence/Prospective-Development.md)
+records the completed paired study, including unfavorable results. The bounded
+decoder repairs probability parameterization but does not establish uniformly
+better historical-negative ranking. Full-study registration, evidence admission
+and manuscript preparation remain open.
+
 ## Earlier DYU journal working draft
 
 The earlier [LaTeX source and PDF](paper/journal/DYU/Latex_full/) follow the supplied DYU template and contain current result rows alongside retrospective historical analyses. The [DYU journal wiki](wiki/manuscript/DYU-Journal.md) records that draft's status; DYU is no longer the active target. [Recovered historical evidence](wiki/evidence/Recovered-Evidence.md) is organized for reconciliation and is not automatically admitted to the current release or the JIIS paper.
