@@ -67,11 +67,13 @@ evidence first; register protocol changes before commissioning new execution.
 | Priority | Work item | Completion evidence / current state |
 |---|---|---|
 | Required | Venue order and official-instruction register | Completed by the venue decision and linked register |
+| Required | JCR venue eligibility | Open: the owner's top-quartile goal requires category-specific verification before activating a submission target |
 | Required | Wiki method reconciliation | Partial: prospective score/observe, bounded mixture equations and gradient boundaries are specified and tested; complete the article-level reconciliation with the legacy admitted model before drafting |
 | Required | Current-evidence manuscript | Open: develop the outline above into an English LaTeX article; bind each quantitative occurrence to admitted evidence |
 | Required | Event-conditioning and temporal leakage review | Partial: separate prospective pilot excludes target attributes from scoring, preserves timestamp ties and replays full history; complete the population/catalogue and full-study review |
 | High | Faithful external comparator | Partial: pinned original TGN modules passed integration, development execution and protocol reconciliation; register full-corpus settings, tuning/compute budget and runtime lock before evidence admission |
-| High | Negative-sampling robustness | Partial: typed regimes, candidate-history/cohort audits and recurrence/recency controls completed; readout diagnosis and bounded retraining did not resolve historical-negative weakness consistently; retain negative findings and register full-study reporting |
+| High | Negative-sampling robustness | Partial: validation-only sampling/routing diagnostics completed; historical gains trade off against other regimes; retain adverse results and register full-study reporting |
+| High | Mechanism and novelty | Open: reconcile auxiliary paths and register matched auxiliary-disabled/fixed-backbone controls; the focused primary-source review and gradient probes do not establish novel conflict causality |
 | High | Interpretation of uncertainty and practical relevance | Partial: descriptive paired-seed variation reviewed in the development matrix; register full-study uncertainty and training-only throughput before making significance or efficiency claims |
 | High | Independent-source replication | Open: select and register a corpus independent of the existing source streams; CoEdit is a derived corpus and cannot close this item |
 | Conditional | Historical ablations | Open: reconcile source, data and execution identity per claim or leave the numerical tables out of the submission; arithmetic recovery is insufficient |
@@ -99,10 +101,13 @@ boundary helps; they do not justify assuming uniform superiority. Full-scale
 comparator evidence and manuscript admission remain open.
 
 The registered [sampling and gradient diagnostics](../methods/Prospective-Diagnostics.md)
-now tests the interaction between routing and training negatives using only
-train/validation. It also records decoder sensitivity and auxiliary-gradient
-increments. This development stage precedes any decision to scale the study;
-its validation outcomes cannot substitute for admitted test evidence.
+completed using only train/validation. The [review](../evidence/Prospective-Diagnostics.md)
+records sampling-dependent gains and losses, decoder movement and limited
+auxiliary-gradient increments. Proposed mechanism controls must separate
+auxiliary learning and backbone adaptation before a larger study. The
+[focused literature review](../references/Journal-Research-Gap.md) records the
+unresolved novelty boundary. These validation outcomes cannot substitute for
+admitted test evidence.
 
 All solving and heavy work goes through Slurm. This includes training,
 evaluation, dataset rebuilding, large analysis, substantial test runs and

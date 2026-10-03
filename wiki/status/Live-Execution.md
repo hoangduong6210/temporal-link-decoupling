@@ -1,6 +1,6 @@
 ---
 title: Live Execution
-status: prospective development matrix reconciled; confirmatory work pending
+status: validation-only diagnostics reconciled; confirmatory work pending
 last_updated: 2026-10-03
 paper_source: false
 ---
@@ -58,3 +58,18 @@ The bounded decoder's numerical repair did not consistently improve ranking.
 Future model selection must use the registered training/validation procedure;
 full-study execution and publication admission remain open. All training,
 reconciliation and substantial validation continue to require Slurm.
+
+## Sampling and gradient diagnostics
+
+The [validation-only diagnostic matrix](../evidence/Prospective-Diagnostics.md)
+completed, including the pinned original-module comparator. Its clean source
+gates and independent reconstruction passed. The linked archive retains raw
+training traces, validation score rows, diagnostic measurements and completed
+scheduler outcomes.
+
+A storage quota incident interrupted an initial task. The partial report and
+failed/cancelled scheduler states were preserved, project-owned execution
+worktrees were relocated to scratch, and successful retries used unchanged
+scientific source and settings. No partial attempt enters the selected matrix.
+The result remains development evidence; full-study registration and admission
+are pending.

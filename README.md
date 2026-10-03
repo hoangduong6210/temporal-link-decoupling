@@ -49,8 +49,9 @@ Machine Learning and Cybernetics (IJMLC)**. The
 [checked publisher requirements](wiki/manuscript/journal-targets.toml), and
 [JIIS development plan](wiki/manuscript/JIIS-Journal.md) live in the canonical
 wiki. The [JIIS preparation area](paper/journal/JIIS/) follows that plan.
-Venue selection is complete; manuscript preparation and scientific admission
-remain open. No journal submission is claimed.
+The original venue preference is recorded; eligibility under the later journal
+goal, manuscript preparation and scientific admission remain open. No journal
+submission is claimed.
 
 The owner's subsequent [JCR top-quartile goal](wiki/decisions/0003-jcr-top-quartile-goal.md)
 adds a venue-eligibility requirement. The preferred sequence is not yet verified
@@ -72,6 +73,12 @@ records the completed paired study, including unfavorable results. The bounded
 decoder repairs probability parameterization but does not establish uniformly
 better historical-negative ranking. Full-study registration, evidence admission
 and manuscript preparation remain open.
+
+The [sampling and gradient diagnostic review](wiki/evidence/Prospective-Diagnostics.md)
+records the completed validation-only study. Training-negative choice changes
+historical ranking and the apparent routing benefit, with adverse effects under
+other regimes. The next study must distinguish auxiliary learning and backbone
+adaptation before attributing the effect to gradient conflict.
 
 ## Earlier DYU journal working draft
 

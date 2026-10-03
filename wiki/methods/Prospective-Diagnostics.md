@@ -1,6 +1,6 @@
 ---
 title: Prospective Sampling and Gradient Diagnostics
-status: registered development study; execution pending
+status: completed and reconciled validation-only development study
 last_updated: 2026-10-03
 paper_source: false
 ---
@@ -9,6 +9,8 @@ paper_source: false
 
 `LP-P-PROSPECTIVE-003` owns the [registered diagnostic protocol](../../protocols/prospective_diagnostics_v3.toml).
 It follows the [development review](../evidence/Prospective-Development.md).
+The [completed diagnostic review](../evidence/Prospective-Diagnostics.md) owns
+the interpretation and next research decision.
 The question is whether the observed benefit of detachment depends on training
 negative sampling, and whether decoder or auxiliary-gradient behavior helps
 interpret that dependence. These are hypotheses, not established explanations.

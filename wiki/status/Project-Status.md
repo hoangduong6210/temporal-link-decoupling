@@ -44,8 +44,9 @@ conference artifacts, and third-party material remain outside that grant.
 
 An earlier editable DYU journal source was compiled and reviewed. It remains
 available as prior editorial work, including historical analyses that are not
-admitted to the active release. JIIS is now the primary target; its manuscript
-conversion and publication gate remain open.
+admitted to the active release. JIIS remains the original editorial preference,
+subject to the later JCR eligibility gate; manuscript conversion and publication
+admission remain open.
 
 ## Revision boundary
 
@@ -75,8 +76,8 @@ The accepted order is **JIIS → KAIS → IJMLC** under
 [JIIS plan](../manuscript/JIIS-Journal.md) maps manuscript sections to canonical
 wiki sources and tracks scientific, formatting and declaration gaps. The
 [venue register](../manuscript/journal-targets.toml) records checked official
-requirements. Venue selection is complete; no JIIS manuscript or submission
-package is yet complete.
+requirements. The original preference is recorded; final venue eligibility,
+the manuscript and the submission package remain open.
 
 The full wiki distinguishes recovered arithmetic from admitted performance
 evidence. Historical DYU tables cannot be carried into the JIIS submission
@@ -102,3 +103,10 @@ from detachment. These records do not revise the frozen historical comparison
 or admit a new performance claim. Full-corpus registration/execution, a locked
 prospective runtime, independent-source replication and JIIS manuscript
 admission remain open.
+
+The [sampling and gradient diagnostics](../evidence/Prospective-Diagnostics.md)
+also completed and passed independent reconciliation. Mixed training improves
+historical ranking for the bounded models but incurs losses under other
+regimes. The routing interaction and gradient probes do not establish a causal
+conflict mechanism. The review records the proposed matched auxiliary and
+fixed-backbone controls, runtime lock and independent-source work needed next.

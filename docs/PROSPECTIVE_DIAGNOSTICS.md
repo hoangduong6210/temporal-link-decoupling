@@ -31,6 +31,14 @@ validation-only input boundaries and the complete miniature matrix.
 
 From an isolated, clean committed checkout with registered corpora available:
 
+Place isolated execution worktrees, checkpoints and job outputs on the site's
+scratch storage. Check both byte and inode quota before submission; available
+filesystem space alone does not establish available user quota. Keep source
+and environment locations private, supplying them through job configuration.
+Move a worktree only while its tasks are stopped, then repair Git worktree
+metadata and verify its source identity before resuming. Record storage failures,
+partial reports and retries separately without overwriting the original attempt.
+
 ```bash
 mkdir -p results/prospective-pilots
 sbatch -A <account> -p <cpu-partition> --array=0-5%2 slurm/prospective_diagnostics.sbatch
@@ -74,3 +82,8 @@ checkpoint selection and diagnostic record consistency. It requires terminal
 successful accounting for every registered task and copies raw attempts without
 altering their bytes. The renderer refuses to overwrite an existing table;
 use `--check` to compare a preserved table with its summary.
+
+The completed [P003 archive](../evidence/development/LP-P-PROSPECTIVE-003/README.md)
+includes the selected successful tasks and the preserved storage-failure/retry
+chain. Its [wiki review](../wiki/evidence/Prospective-Diagnostics.md) owns the
+scientific interpretation and proposed follow-up controls.

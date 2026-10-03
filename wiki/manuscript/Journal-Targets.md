@@ -1,18 +1,23 @@
 ---
 title: Journal Targets
-status: JIIS selected; fallback venues retained
-last_updated: 2026-10-02
+status: original preferences retained; JCR eligibility open
+last_updated: 2026-10-03
 paper_source: false
 ---
 
 # Journal Targets
 
-The active order is **JIIS → KAIS → IJMLC**, as selected in
+The original preferred order is **JIIS → KAIS → IJMLC**, as selected in
 [the venue decision](../decisions/0002-journal-target-order.md). Exact page,
 abstract and keyword limits are publisher metadata in the
 [venue register](journal-targets.toml). Instructions were checked on 2026-10-02;
 recheck them when assembling the submission. Venue metadata is separate from
 the experimental values owned by the [claim registry](../claims/Current-Claim-Language.md).
+
+The subsequent [JCR top-quartile goal](../decisions/0003-jcr-top-quartile-goal.md)
+requires category-specific JIF-quartile verification before activating a
+submission target. The original preferences are not yet verified eligible;
+the register retains the screening sources and that unresolved boundary.
 
 ## Fit and adaptation
 
@@ -65,7 +70,7 @@ does not waive source attribution, evidence admission or the
 
 ## Current readiness
 
-Venue selection is implemented. JIIS manuscript conversion, scientific-gap
+The original venue preference is recorded. JCR eligibility, manuscript conversion, scientific-gap
 review, author declarations, template verification and immutable snapshot
 admission remain open in [JIIS Journal Development](JIIS-Journal.md). Journal
 requirements and repository publication checks serve different purposes;

@@ -28,4 +28,8 @@ decision before claim admission.
 
 ## Journal bibliography and archival sources
 
+The [focused journal research-gap review](Journal-Research-Gap.md) records
+primary sources screened for sampling, temporal comparators and gradient
+interference, together with the reviewed sections and unresolved novelty gaps.
+
 The journal retains the conference literature on temporal models, point-process features, online statistics, variational objectives and gradient separation. Primary publication records should supply bibliographic metadata. The recovered result archive is an internal research source; it is not an external benchmark publication or independent corroboration.

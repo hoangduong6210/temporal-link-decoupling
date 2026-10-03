@@ -1,0 +1,122 @@
+{
+  "admission": "development only; fixed-final-epoch validation does not establish held-out generalization",
+  "audit_preflight": {
+    "cells": 18,
+    "dataset": "wikipedia",
+    "job_id": "7651319",
+    "log_sha256": "1a4f57211a385111d2f7aae27729eafe2927758975bebe4cdb4f72659e601537",
+    "status": "PASS"
+  },
+  "failed_attempts": [
+    {
+      "job_id": "7650669_3",
+      "reason": "OSError Errno 122 Disk quota exceeded while writing attempt.tmp; last successful atomic report remains STARTED and is preserved as partial, not admitted.",
+      "scheduler": [
+        "FAILED",
+        "1:0"
+      ]
+    },
+    {
+      "job_id": "7650669_4",
+      "reason": "No completed attempt report; native launch/exit failure in the same resource incident. Exact scheduler state retained without inferring model failure.",
+      "scheduler": [
+        "FAILED",
+        "0:53"
+      ]
+    },
+    {
+      "job_id": "7650669_5",
+      "reason": "No completed attempt report; native launch/exit failure in the same resource incident.",
+      "scheduler": [
+        "FAILED",
+        "0:53"
+      ]
+    },
+    {
+      "job_id": "7651228",
+      "reason": "Source validation did not execute successfully; repeated as 7651262.",
+      "scheduler": [
+        "FAILED",
+        "0:53"
+      ]
+    },
+    {
+      "job_id": "7651229",
+      "reason": "Dependent reconciliation cancelled; replaced by 7651272.",
+      "scheduler": [
+        "CANCELLED",
+        "0:0"
+      ]
+    },
+    {
+      "job_id": "7651241",
+      "reason": "Dependent archival job cancelled; replacement archives the retry chain.",
+      "scheduler": [
+        "CANCELLED",
+        "0:0"
+      ]
+    }
+  ],
+  "failed_log": {
+    "job_id": "7650669_3",
+    "retention": "Original private Slurm log retained locally; contains site paths and is not copied to public history.",
+    "sha256": "3b7214622af8de91b92611ba77935442c5ba2a8e60066fb12237ddbd0c87b1ee"
+  },
+  "kind": "validation-only-diagnostic-execution-history",
+  "matrix": {
+    "cells": 36,
+    "seeds": [
+      1,
+      2,
+      3
+    ],
+    "selected_tasks": [
+      "7650669_0",
+      "7650669_1",
+      "7650669_2",
+      "7651259_3",
+      "7651259_4",
+      "7651259_5"
+    ],
+    "tasks": 6
+  },
+  "model_source_commit": "3852ac236372dac864b624869db97e55b43aae74",
+  "partial_attempt_sha256": "1dcfdd05c0a53d104cf1acd1a91afe3147037ab8d5d6001b47decd9165f045a2",
+  "precommit_validation": {
+    "job_id": "7650517",
+    "source_boundary": "Mutable development tree; final source gate separately binds the committed model source.",
+    "status": "COMPLETED",
+    "tests_passed": 97
+  },
+  "publication_eligible": false,
+  "reconciler_source_commit": "dd34c73aa5a22b70836bc05f5195128cfaf82fcd",
+  "reconciliation": {
+    "job_id": "7651272",
+    "status": "PASS",
+    "summary_sha256": "ccf8ed6933c5412f419534581ab21fd3a69ef597b12574450ae53973ccc953c2"
+  },
+  "source_gates": {
+    "model-source": {
+      "canonical_provenance": "PASS",
+      "job_id": "7650663",
+      "log_sha256": "d038d487a95b0e5fb6229d514a8752c728b16737186f395634ac62f4d645a32b",
+      "public_history": "PASS",
+      "skipped": 0,
+      "source_commit": "3852ac236372dac864b624869db97e55b43aae74",
+      "tests_passed": 97
+    },
+    "reconciler-source": {
+      "canonical_provenance": "PASS",
+      "job_id": "7651262",
+      "log_sha256": "30d3bd23775ed7d59441ac36b260bb7614274e9b7b0842db461c3282dd3fa7cc",
+      "skipped": 0,
+      "source_commit": "dd34c73aa5a22b70836bc05f5195128cfaf82fcd",
+      "tests_passed": 98
+    }
+  },
+  "storage_recovery": {
+    "action": "Moved only project-owned isolated worktrees and job outputs to scratch; repaired Git metadata and retained old path aliases. Source/corpus/model settings unchanged.",
+    "job_id": "7651253"
+  },
+  "test_evaluated": false
+}
